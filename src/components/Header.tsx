@@ -48,6 +48,7 @@ export function Header() {
             { href: "/quran-sciences", label: "📖 علوم القرآن" },
             { href: "/tajweed", label: "🎵 أحكام التجويد" },
             { href: "/hadith-qudsi", label: "✨ الأحاديث القدسية" },
+            { href: "/hadith-nabawi", label: "📿 الأحاديث النبوية" },
           ]} />
           <NavGroup label="🤲 إسلاميات" items={[
             { href: "/adhkar", label: "🤲 الأذكار" },
@@ -120,6 +121,7 @@ export function Header() {
               <MobileNavLink href="/quran-sciences" onClose={() => setMobileOpen(false)} icon="📖">علوم القرآن</MobileNavLink>
               <MobileNavLink href="/tajweed" onClose={() => setMobileOpen(false)} icon="🎵">أحكام التجويد</MobileNavLink>
               <MobileNavLink href="/hadith-qudsi" onClose={() => setMobileOpen(false)} icon="✨">الأحاديث القدسية</MobileNavLink>
+              <MobileNavLink href="/hadith-nabawi" onClose={() => setMobileOpen(false)} icon="📿">الأحاديث النبوية</MobileNavLink>
             </MobileSection>
 
             <MobileSection title="أدوات إسلامية">
