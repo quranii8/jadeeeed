@@ -33,6 +33,14 @@ const CONTENT = [
     gradient: "linear-gradient(135deg, #be185d, #f0abfc)",
     badge: "20 حديثاً",
   },
+  {
+  href: "/hadith-nabawi",
+  icon: "📿",
+  title: "الأحاديث النبوية",
+  desc: "مختارات من أحاديث النبي ﷺ المأثورة عن الصحيحين والسنن",
+  gradient: "linear-gradient(135deg, #1B5E20, #2E7D32)",
+  badge: "60 حديثاً",
+},
 ];
 
 export function IslamicContent() {
