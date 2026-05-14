@@ -260,7 +260,7 @@ export const TAJWEED_RULES: TajweedRule[] = [
     id: "ikhfa-shafawi",
     title: "الإخفاء الشفوي",
     category: "الميم الساكنة",
-    icon: "💋",
+    icon: "🌗",
     shortDesc: "إخفاء الميم الساكنة عند الباء",
     definition: "إخفاء الميم الساكنة عند الباء مع غُنّة. سُمّي شفوياً لأن مخرج الميم والباء من الشفتين.",
     pronunciation: "تُنطق الميم مخفاة مع غُنّة بمقدار حركتين، وصوتها من الشفتين.",
