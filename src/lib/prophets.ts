@@ -1020,8 +1020,7 @@ export const PROPHETS: Prophet[] = [
       { surah: "الأنعام", verses: "85", reason: "ذكره" }
     ],
     surahs: [37, 6],
-    relatedProphets: ["alyasaa"],
-    ‏storyStages: [] 
+    relatedProphets: ["alyasaa"]
   },
   {
     id: "alyasaa",
