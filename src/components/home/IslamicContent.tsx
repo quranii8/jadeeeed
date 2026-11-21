@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { AppIcon } from "@/components/AppIcon";
+import { HADITH_NABAWI } from "@/lib/hadith-nabawi";
 
 const CONTENT = [
   {
     href: "/prophets",
-    icon: "",
+    icon: "leaf",
     title: "قصص الأنبياء",
     desc: "قصص 25 نبياً ورسولاً عليهم السلام مع الدروس المستفادة من القرآن",
     gradient: "linear-gradient(135deg, #16a34a, #84cc16)",
@@ -12,7 +13,7 @@ const CONTENT = [
   },
   {
     href: "/quran-sciences",
-    icon: "",
+    icon: "book-open",
     title: "علوم القرآن",
     desc: "أسباب النزول، المكي والمدني، الناسخ والمنسوخ، إعجاز القرآن، والقراءات السبع",
     gradient: "linear-gradient(135deg, #7c3aed, #a855f7)",
@@ -20,7 +21,7 @@ const CONTENT = [
   },
   {
     href: "/tajweed",
-    icon: "",
+    icon: "audio-waveform",
     title: "أحكام التجويد",
     desc: "تعلّم أحكام التلاوة الصحيحة مع أمثلة عملية من القرآن الكريم",
     gradient: "linear-gradient(135deg, #0ea5e9, #06b6d4)",
@@ -28,7 +29,7 @@ const CONTENT = [
   },
   {
     href: "/hadith-qudsi",
-    icon: "",
+    icon: "sparkles",
     title: "الأحاديث القدسية",
     desc: "ما يرويه النبي ﷺ عن ربه عز وجل من غير القرآن الكريم",
     gradient: "linear-gradient(135deg, #be185d, #f0abfc)",
@@ -36,11 +37,11 @@ const CONTENT = [
   },
   {
   href: "/hadith-nabawi",
-  icon: "",
+  icon: "scroll-text",
   title: "الأحاديث النبوية",
   desc: "مختارات من أحاديث النبي ﷺ المأثورة عن الصحيحين والسنن",
   gradient: "linear-gradient(135deg, #1B5E20, #2E7D32)",
-  badge: "60 حديثاً",
+  badge: `${HADITH_NABAWI.length} حديثاً`,
 },
 ];
 

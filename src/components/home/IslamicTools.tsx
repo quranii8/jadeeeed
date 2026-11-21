@@ -12,28 +12,28 @@ interface Tool {
 const TOOLS: Tool[] = [
   {
     href: "/adhkar",
-    icon: "",
+    icon: "hand-heart",
     title: "الأذكار والأدعية",
     desc: "أذكار الصباح والمساء وأذكار الصلاة والنوم مع عدّاد تفاعلي",
     gradient: "linear-gradient(135deg, #16a34a, #84cc16)",
   },
   {
     href: "/asma-allah",
-    icon: "",
+    icon: "sparkles",
     title: "أسماء الله الحسنى",
     desc: "الأسماء التسعة والتسعون مع شرح المعنى والدلالة لكل اسم",
     gradient: "linear-gradient(135deg, #d97706, #f59e0b)",
   },
   {
     href: "/prayer-times",
-    icon: "",
+    icon: "mosque",
     title: "مواقيت الصلاة",
     desc: "مواقيت دقيقة حسب موقعك مع عدّ تنازلي للصلاة القادمة",
     gradient: "linear-gradient(135deg, #0ea5e9, #06b6d4)",
   },
   {
     href: "/qibla",
-    icon: "",
+    icon: "compass",
     title: "اتجاه القبلة",
     desc: "بوصلة احترافية تتبع حركة جهازك لتحديد اتجاه الكعبة المشرفة",
     gradient: "linear-gradient(135deg, #7c3aed, #a855f7)",

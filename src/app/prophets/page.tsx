@@ -68,7 +68,7 @@ export default function ProphetsPage() {
                   </div>
                 )}
                 <p className="text-xs leading-relaxed line-clamp-3" style={{ color: "var(--text-muted)" }}>
-                  {p.story}
+                  {p.story.replace(/<[^>]+>/g, "")}
                 </p>
                 <div
                   className="mt-2 text-xs font-semibold flex items-center gap-1"

@@ -5,6 +5,7 @@ import { PROPHETS, getProphet } from "@/lib/prophets";
 import { ArrowRight, MapPin, Clock, Users, Lightbulb, BookOpen, Heart, Sparkles, Star, GitBranch } from "lucide-react";
 import { getSurah } from "@/lib/surahs";
 import { AppIcon } from "@/components/AppIcon";
+import { StoryText } from "@/components/StoryText";
 
 interface PageProps {
   params: { id: string };
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!p) return { title: "غير موجود" };
   return {
     title: `قصة ${p.name} عليه السلام`,
-    description: p.story.slice(0, 160),
+    description: p.story.replace(/<[^>]+>/g, "").slice(0, 160),
   };
 }
 
@@ -125,7 +126,7 @@ export default function ProphetPage({ params }: PageProps) {
             <Heart className="w-6 h-6" />
             حياته قبل الرسالة
           </h2>
-          <p className="text-base leading-loose">{prophet.earlyLife}</p>
+          <StoryText className="text-base" text={prophet.earlyLife} />
         </div>
       )}
 
@@ -136,7 +137,7 @@ export default function ProphetPage({ params }: PageProps) {
             <BookOpen className="w-6 h-6" />
             تفاصيل رسالته ومهمته
           </h2>
-          <p className="text-base leading-loose">{prophet.missionDetails}</p>
+          <StoryText className="text-base" text={prophet.missionDetails} />
         </div>
       )}
 
@@ -173,7 +174,7 @@ export default function ProphetPage({ params }: PageProps) {
         <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#16a34a" }}>
           القصة
         </h2>
-        <p className="text-base md:text-lg leading-loose">{prophet.story}</p>
+        <StoryText className="text-base md:text-lg" text={prophet.story} />
       </div>
 
       {/* الآيات القرآنية */}
