@@ -59,7 +59,7 @@ export function FullStory({ paragraphs }: { paragraphs: StoryParagraph[] }) {
               {p.sources.map((s, k) =>
                 open === `${i}-${k}` ? (
                   <div key={k} className="mt-3 p-4 rounded-xl animate-fade-in" style={{ background: "var(--primary-soft)" }}>
-                    <p className="font-quran text-lg leading-loose">
+                    <p className="font-hafs text-lg leading-loose">
                       {s.kind === "quran" ? `﴿${s.text}﴾` : `«${s.text}»`}
                     </p>
                     {s.kind === "quran" ? (

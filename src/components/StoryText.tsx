@@ -24,7 +24,7 @@ export function StoryText({ text, className = "" }: { text: string; className?: 
         b.kind === "verse" ? (
           <p
             key={i}
-            className="font-quran text-xl md:text-2xl leading-loose text-center px-4 py-3 rounded-xl"
+            className="font-hafs text-xl md:text-2xl leading-loose text-center px-4 py-3 rounded-xl"
             style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
           >
             ﴿{b.text.replace(/\s*\*\s*/g, " ۝ ")}﴾

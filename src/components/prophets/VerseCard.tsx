@@ -41,7 +41,7 @@ export function VerseCard({ group }: { group: VerseGroup }) {
 
   return (
     <figure className="rounded-2xl p-4 md:p-5" style={{ background: "var(--primary-soft)" }}>
-      <p className="font-quran text-xl md:text-2xl leading-[2.4] text-justify" style={{ color: "var(--text)" }}>
+      <p className="font-hafs text-xl md:text-2xl leading-[2.4] text-justify" style={{ color: "var(--text)" }}>
         {group.ayat.map((a, i) => (
           <span
             key={a.n}

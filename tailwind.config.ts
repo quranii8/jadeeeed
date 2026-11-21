@@ -29,6 +29,8 @@ const config: Config = {
       },
       fontFamily: {
         quran: ["var(--font-amiri)", "Amiri", "Scheherazade New", "serif"],
+        // Uthmani text from QuranEnc (prophet stories) needs the KFGQPC Hafs font
+        hafs: ["Hafs", "var(--font-amiri)", "Amiri", "serif"],
         arabic: ["var(--font-noto-kufi)", "Noto Kufi Arabic", "system-ui", "sans-serif"],
         naskh: ["var(--font-noto-naskh)", "Noto Naskh Arabic", "serif"],
         en: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],

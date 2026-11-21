@@ -112,7 +112,7 @@ export function StoryQuiz({ story }: { story: ProphetStory }) {
           <p className="text-sm mb-2" style={{ color: "var(--text-muted)" }}>
             السؤال {toArabicNum(i + 1)} من {toArabicNum(quiz.length)} — {q.prompt}
           </p>
-          <p className="font-quran text-xl leading-loose mb-4 p-4 rounded-xl" style={{ background: "var(--primary-soft)" }}>
+          <p className="font-hafs text-xl leading-loose mb-4 p-4 rounded-xl" style={{ background: "var(--primary-soft)" }}>
             ﴿{q.quote}﴾
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">

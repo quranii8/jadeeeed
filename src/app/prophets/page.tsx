@@ -24,7 +24,7 @@ export default function ProphetsPage() {
         <OrnamentPattern id="orn-prophets" />
         <div className="relative">
           <h1 className="text-3xl md:text-4xl font-extrabold mb-3">قصص الأنبياء عليهم السلام</h1>
-          <p className="font-quran text-2xl md:text-3xl opacity-95 max-w-2xl mx-auto leading-loose">
+          <p className="font-hafs text-2xl md:text-3xl opacity-95 max-w-2xl mx-auto leading-loose">
             ﴿لَقَدۡ كَانَ فِي قَصَصِهِمۡ عِبۡرَةٞ لِّأُوْلِي ٱلۡأَلۡبَٰبِ﴾
           </p>
           <div className="text-sm opacity-80 mt-1">[يوسف: ١١١]</div>
