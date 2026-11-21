@@ -5,6 +5,10 @@ import { Search, X } from "lucide-react";
 import { DivineName } from "@/lib/asma-allah";
 import { toArabicNum } from "@/lib/utils";
 import { AppIcon } from "@/components/AppIcon";
+import { NameInQuran } from "@/components/NameInQuran";
+import occurrences from "@/lib/asma-occurrences.json";
+
+const OCC = occurrences as unknown as Record<string, [number, number][]>;
 
 interface Props {
   names: DivineName[];
@@ -86,6 +90,9 @@ export function AsmaAllahBrowser({ names }: Props) {
             >
               {name.meaning}
             </div>
+            <div className="mt-2 text-[11px] font-semibold" style={{ color: "var(--gold-dark)" }}>
+              {(OCC[String(name.n)] ?? []).length ? `في ${toArabicNum((OCC[String(name.n)] ?? []).length)} آية` : "ثبت بالسنة"}
+            </div>
           </button>
         ))}
       </div>
@@ -105,15 +112,13 @@ export function AsmaAllahBrowser({ names }: Props) {
           onClick={() => setSelected(null)}
         >
           <div
-            className="w-full max-w-2xl max-h-[88vh] rounded-3xl overflow-hidden flex flex-col animate-slide-up"
+            className="w-full max-w-2xl max-h-[88vh] rounded overflow-hidden flex flex-col animate-slide-up"
             style={{ background: "var(--bg-elev)", boxShadow: "0 20px 50px rgba(0,0,0,.3)" }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div
-              className="p-8 text-white relative overflow-hidden"
-              style={{ background: "linear-gradient(135deg, var(--primary), var(--gold-dark))" }}
-            >
+            <div className="glaze-field p-8 relative overflow-hidden">
+              <span className="zellige-lattice absolute inset-0 pointer-events-none" />
               <button
                 onClick={() => setSelected(null)}
                 className="absolute top-4 left-4 w-9 h-9 rounded-full grid place-items-center bg-white/20 backdrop-blur transition-colors hover:bg-white/30"
@@ -125,7 +130,7 @@ export function AsmaAllahBrowser({ names }: Props) {
                 <div className="text-sm opacity-90 mb-2">
                   الاسم {toArabicNum(selected.n)} من ٩٩
                 </div>
-                <div className="font-quran text-5xl md:text-6xl font-bold mb-2">
+                <div className="relative font-kufic text-5xl md:text-6xl font-bold mb-2" style={{ color: "var(--g-saffron-light)" }}>
                   {selected.ar}
                 </div>
                 <div className="opacity-90">{selected.en}</div>
@@ -158,6 +163,13 @@ export function AsmaAllahBrowser({ names }: Props) {
                   <AppIcon name="book-open" /> الشرح
                 </div>
                 <p className="text-base leading-loose">{selected.explanation}</p>
+              </div>
+
+              <div className="p-5 rounded" style={{ background: "var(--bg-soft)" }}>
+                <div className="text-xs font-bold mb-3" style={{ color: "var(--primary)" }}>
+                  <AppIcon name="book-open" /> في القرآن الكريم
+                </div>
+                <NameInQuran key={selected.n} refs={OCC[String(selected.n)] ?? []} />
               </div>
 
               {/* Navigation */}
