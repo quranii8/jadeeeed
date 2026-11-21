@@ -1,11 +1,11 @@
 {
   "name": "منصة القرآن الكريم",
   "short_name": "القرآن",
-  "description": "منصة إسلامية متكاملة للقرآن الكريم",
+  "description": "القرآن الكريم، والصحيحان كاملين، والختمة والحفظ، والأذكار ومواقيت الصلاة",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FFF8E7",
-  "theme_color": "#1B5E20",
+  "background_color": "#EEF1EC",
+  "theme_color": "#1B3A8C",
   "lang": "ar",
   "dir": "rtl",
   "icons": [
@@ -18,6 +18,32 @@
       "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "scope": "/",
+  "orientation": "portrait",
+  "shortcuts": [
+    {
+      "name": "ختمتي",
+      "url": "/khatma"
+    },
+    {
+      "name": "السور",
+      "url": "/surahs"
+    },
+    {
+      "name": "الصحيحان",
+      "url": "/hadith-nabawi"
+    },
+    {
+      "name": "مواقيت الصلاة",
+      "url": "/prayer-times"
     }
   ]
 }

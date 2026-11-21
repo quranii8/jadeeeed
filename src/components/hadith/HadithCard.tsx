@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Check, ChevronDown, Copy, Share2 } from "lucide-react";
+import { Bookmark, BookmarkCheck, Check, ChevronDown, Copy, ImageDown, Share2 } from "lucide-react";
+import { useExtras } from "@/lib/extras-store";
+import { shareAsImage } from "@/lib/share-image";
 import { TileStar } from "@/components/zellige/Rosette";
 import { toArabicNum } from "@/lib/utils";
 import type { Hadith } from "@/lib/sahihayn";
@@ -15,12 +17,17 @@ export function HadithCard({
   collectionName,
   bookTitle,
   href,
+  origin,
 }: {
   h: Hadith;
   collectionName: string;
   bookTitle?: string;
   href?: string;
+  /** collection and book, needed to save the hadith */
+  origin?: { c: string; book: number };
 }) {
+  const saved = useExtras((s) => (origin ? s.hadiths.some((x) => x.c === origin.c && x.id === h.id) : false));
+  const toggleHadith = useExtras((s) => s.toggleHadith);
   const [showIsnad, setShowIsnad] = useState(false);
   const [copied, setCopied] = useState(false);
   const ref = `${collectionName}، رقم ${toArabicNum(h.num)}`;
@@ -92,6 +99,18 @@ export function HadithCard({
       </p>
 
       <footer className="mt-5 pt-4 flex flex-wrap items-center gap-2" style={{ borderTop: "1px solid var(--border-soft)" }}>
+        {origin && (
+          <button
+            type="button"
+            onClick={() => toggleHadith({ c: origin.c, book: origin.book, id: h.id, num: h.num, matn: h.matn })}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded"
+            style={{ background: saved ? "var(--primary)" : "var(--primary-soft)", color: saved ? "#F4F6FB" : "var(--primary)" }}
+            aria-pressed={saved}
+          >
+            {saved ? <BookmarkCheck className="w-3.5 h-3.5" aria-hidden="true" /> : <Bookmark className="w-3.5 h-3.5" aria-hidden="true" />}
+            {saved ? "محفوظ" : "حفظ"}
+          </button>
+        )}
         <button
           type="button"
           onClick={copy}
@@ -109,6 +128,15 @@ export function HadithCard({
         >
           <Share2 className="w-3.5 h-3.5" aria-hidden="true" />
           مشاركة
+        </button>
+        <button
+          type="button"
+          onClick={() => shareAsImage({ kind: "hadith", text: h.matn.replace(/^\s*"\s*|\s*"\s*[.،]?\s*$/g, ""), reference: ref, filename: `hadith-${h.id}` }).catch(() => undefined)}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded"
+          style={{ background: "var(--gold)", color: "#1A1204" }}
+        >
+          <ImageDown className="w-3.5 h-3.5" aria-hidden="true" />
+          صورة للستوري
         </button>
         <span className="ms-auto text-xs font-semibold" style={{ color: "var(--text-soft)" }}>
           {ref}

@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import { ThemeApplier } from "@/components/ThemeApplier";
+import { PwaRegister } from "@/components/PwaRegister";
 import { SessionProvider } from "@/components/auth/SessionProvider";
 
 const amiri = Amiri({
@@ -50,6 +51,9 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: { index: true, follow: true },
+  manifest: "/manifest.json",
+  icons: { icon: "/icon-192.png", apple: "/apple-touch-icon.png" },
+  appleWebApp: { capable: true, title: "القرآن", statusBarStyle: "black-translucent" },
 };
 
 export const viewport: Viewport = {
@@ -80,6 +84,7 @@ export default function RootLayout({
           <main className="relative z-10 pb-16">{children}</main>
           <Footer />
           <AudioPlayer />
+          <PwaRegister />
         </SessionProvider>
       </body>
     </html>

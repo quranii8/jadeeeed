@@ -41,7 +41,7 @@ export default function BookPage({ params }: { params: { collection: string; boo
         </p>
       </header>
 
-      <BookReader src={`/data/sahihayn/${c.id}/${b.n}.json`} initial={initial} total={b.count} collectionName={c.name} bookTitle={b.title} />
+      <BookReader src={`/data/sahihayn/${c.id}/${b.n}.json`} initial={initial} total={b.count} collectionName={c.name} bookTitle={b.title} origin={{ c: c.id, book: b.n }} />
 
       <nav className="mt-10 grid grid-cols-2 gap-[5px] p-[5px]" style={{ background: "var(--grout-wall)" }} aria-label="الكتب المجاورة">
         {next ? (

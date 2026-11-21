@@ -34,6 +34,10 @@ const SECTIONS: Section[] = [
   { href: "/prayer-times", title: "مواقيت الصلاة", desc: "حسب موقعك", icon: "mosque", count: "اليوم", glaze: "terracotta" },
   { href: "/qibla", title: "اتجاه القبلة", desc: "بوصلة من هاتفك", icon: "compass", count: "البوصلة", glaze: "ink" },
   { href: "/tajweed", title: "أحكام التجويد", desc: "الأحكام بأمثلة من الآيات", icon: "audio-waveform", count: `${toArabicNum(TAJWEED_RULES.length)} حكماً`, glaze: "cobalt" },
+  { href: "/khatma", title: "ختمتي", desc: "ورد يومي حتى تختم القرآن", icon: "target", count: "الورد", glaze: "ink" },
+  { href: "/hifz", title: "الحفظ والتسميع", desc: "كرّر الآية وأخفِ الكلمات", icon: "repeat", count: "تسميع", glaze: "saffron" },
+  { href: "/quran-search", title: "البحث في القرآن", desc: "في الآيات كلها بأي كلمة", icon: "search", count: `${toArabicNum(6236)} آية`, glaze: "terracotta" },
+  { href: "/hijri", title: "التقويم الهجري", desc: "التاريخ والمناسبات القادمة", icon: "moon-star", count: "اليوم", glaze: "cobalt" },
   { href: "/quran-sciences", title: "علوم القرآن", desc: "النزول، والمكي والمدني، والقراءات", icon: "book-open", count: `${toArabicNum(QURAN_SCIENCES.length)} علوم`, glaze: "emerald", span: "wide" },
 ];
 

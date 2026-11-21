@@ -51,6 +51,9 @@ QUDSI = re.compile(
     r"|ان الله( تبارك وتعالي| عز وجل| تعالي)? (قال|يقول)" + W + r"(?! ?[\"{﴿(])"
 )
 
+# hadith of the day: only sayings that stand on their own (general rulings, virtues, counsel)
+DAILY_OPENINGS = ("من ", "انما ", "ان الله", "المسلم", "المؤمن", "الدين", "كل ", "خيركم", "ما من ", "الطهور", "الكلمه", "اتق", "ليس ", "الحياء", "يسروا", "لا يؤمن", "لا يدخل", "لا تحاسدوا", "الدنيا", "البر ", "اتقوا", "احب ", "افضل", "الا اخبركم", "تبسمك", "ارحموا", "الراحمون")
+
 # reviewed by hand: matches that quote the Quran or are not the Prophet reporting Allah's words
 QUDSI_EXCLUDE = {("muslim", "684"), ("muslim", "799"), ("muslim", "136"), ("bukhari", "803"), ("bukhari", "4701")}
 
@@ -100,7 +103,7 @@ def build(coll: str, fz: str, arabic_name: str):
         else:
             book = int(h["reference"]["book"])
         by_book.setdefault(book, []).append(h)
-    books, search, qudsi = [], [], []
+    books, search, qudsi, daily = [], [], [], []
     out_dir = os.path.join(ROOT, "public", "data", "sahihayn", coll)
     os.makedirs(out_dir, exist_ok=True)
     keys = sorted((int(k) for k in secs if secs[k] or coll == "muslim"))
@@ -120,6 +123,10 @@ def build(coll: str, fz: str, arabic_name: str):
             num = h.get("arabicnumber", n)
             label = str(num).split(".")[0] if coll == "muslim" else str(int(float(num)))
             items.append({"id": n, "num": label, "isnad": isnad, "matn": matn})
+            body = matn.strip(' "\u201c\u201d.')
+            nb = norm(body)
+            if isnad and 50 <= len(body) <= 200 and '"' not in body and nb.startswith(DAILY_OPENINGS):
+                daily.append({"c": coll, "book": k, "id": n, "num": label, "matn": matn})
             search.append([n, k, label, norm(h["text"]), re.sub(r"\s+", " ", DIACRITICS.sub("", h["text"])).strip()])
             if QUDSI.search(norm(matn)) and isnad and (coll, label) not in QUDSI_EXCLUDE:
                 qudsi.append({"c": coll, "book": k, "id": n, "num": label, "isnad": isnad, "matn": matn})
@@ -130,12 +137,16 @@ def build(coll: str, fz: str, arabic_name: str):
     os.makedirs(os.path.join(ROOT, "data", "sahihayn"), exist_ok=True)
     json.dump(search, open(os.path.join(ROOT, "data", "sahihayn", f"search-{coll}.json"), "w"), ensure_ascii=False, separators=(",", ":"))
     total = sum(b["count"] for b in books)
-    return {"id": coll, "name": arabic_name, "author": a["metadata"]["arabic"]["author"], "total": total, "books": books}, qudsi
+    return {"id": coll, "name": arabic_name, "author": a["metadata"]["arabic"]["author"], "total": total, "books": books}, qudsi, daily
 
 
 def main():
-    b, qb = build("bukhari", "ara-bukhari", "صحيح البخاري")
-    m, qm = build("muslim", "ara-muslim", "صحيح مسلم")
+    b, qb, db = build("bukhari", "ara-bukhari", "صحيح البخاري")
+    m, qm, dm = build("muslim", "ara-muslim", "صحيح مسلم")
+    # hadith of the day: short, complete sayings, spread across both collections
+    pool = db + dm
+    json.dump(pool, open(os.path.join(ROOT, "src", "lib", "daily-hadith.json"), "w"), ensure_ascii=False, separators=(",", ":"))
+    print("daily pool", len(pool))
     topics = [{"id": t, "title": name} for t, name, _ in TOPICS] + [{"id": "misc", "title": "متفرقات"}]
     q_all = qb + qm
     json.dump(q_all, open(os.path.join(ROOT, "public", "data", "sahihayn", "qudsi.json"), "w"), ensure_ascii=False, separators=(",", ":"))

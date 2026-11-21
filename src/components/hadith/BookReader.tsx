@@ -27,6 +27,7 @@ export function BookReader({
   collectionName,
   bookTitle,
   noun = "في هذا الكتاب",
+  origin: bookOrigin,
 }: {
   src: string;
   initial: Hadith[];
@@ -34,6 +35,7 @@ export function BookReader({
   collectionName: string;
   bookTitle?: string;
   noun?: string;
+  origin?: { c: string; book: number };
 }) {
   const [all, setAll] = useState<Hadith[]>(initial);
   const [shown, setShown] = useState(PAGE);
@@ -109,6 +111,7 @@ export function BookReader({
             collectionName={origin(h) ? NAMES[origin(h)!.c] : collectionName}
             bookTitle={bookTitle}
             href={origin(h) ? `/hadith-nabawi/${origin(h)!.c}/${origin(h)!.book}#h-${h.id}` : `#h-${h.id}`}
+            origin={(origin(h) as { c: string; book: number } | null) ?? bookOrigin}
           />
         ))}
         {list.length === 0 && (

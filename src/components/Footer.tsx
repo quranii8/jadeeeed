@@ -19,6 +19,9 @@ export function Footer() {
             <FooterLink href="/surahs">السور</FooterLink>
             <FooterLink href="/tafsir">التفاسير</FooterLink>
             <FooterLink href="/reciters">القراء</FooterLink>
+            <FooterLink href="/khatma">ختمتي</FooterLink>
+            <FooterLink href="/hifz">الحفظ والتسميع</FooterLink>
+            <FooterLink href="/quran-search">البحث في القرآن</FooterLink>
             <FooterLink href="/bookmarks">المحفوظات</FooterLink>
           </FooterColumn>
 
@@ -26,6 +29,7 @@ export function Footer() {
             <FooterLink href="/prophets">قصص الأنبياء</FooterLink>
             <FooterLink href="/quran-sciences">علوم القرآن</FooterLink>
             <FooterLink href="/tajweed">أحكام التجويد</FooterLink>
+            <FooterLink href="/hadith-nabawi">صحيح البخاري ومسلم</FooterLink>
             <FooterLink href="/hadith-qudsi">الأحاديث القدسية</FooterLink>
           </FooterColumn>
 
@@ -34,6 +38,7 @@ export function Footer() {
             <FooterLink href="/asma-allah">أسماء الله</FooterLink>
             <FooterLink href="/prayer-times">المواقيت</FooterLink>
             <FooterLink href="/qibla">القبلة</FooterLink>
+            <FooterLink href="/hijri">التقويم الهجري</FooterLink>
           </FooterColumn>
 
           <FooterColumn title="حسابي">
