@@ -27,7 +27,7 @@ function HadithCard({ h }: { h: StoryHadith }) {
         </button>
       )}
       <figcaption className="mt-3 flex items-center justify-between text-sm">
-        <span className="px-3 py-1 rounded-full font-semibold" style={{ background: "var(--primary-soft)", color: "var(--primary)" }}>
+        <span className="px-3 py-1 rounded font-semibold" style={{ background: "var(--primary-soft)", color: "var(--primary)" }}>
           {h.collection} ({toArabicNum(h.number)})
         </span>
         <a href={h.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1" style={{ color: "var(--text-muted)" }}>

@@ -71,7 +71,7 @@ export function ReciterPlaylist({ reciterId, reciterName }: Props) {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="بحث..."
-            className="px-4 py-2 pr-10 rounded-full text-sm outline-none border w-full"
+            className="px-4 py-2 pr-10 rounded text-sm outline-none border w-full"
             style={{ background: "var(--bg-soft)", borderColor: "var(--border)", color: "var(--text)" }}
           />
           <Search

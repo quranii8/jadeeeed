@@ -44,8 +44,8 @@ const SECTIONS: Section[] = [
  */
 export function SectionWall() {
   return (
-    <section className="relative max-w-6xl mx-auto px-4 md:px-5 pt-12 md:pt-16" aria-labelledby="wall-title">
-      <h2 id="wall-title" className="font-kufic font-bold text-3xl md:text-4xl mb-6 md:mb-8" style={{ color: "var(--text)" }}>
+    <section className="relative max-w-6xl mx-auto px-4 md:px-5 pt-10 md:pt-6" aria-labelledby="wall-title">
+      <h2 id="wall-title" className="font-kufic font-bold text-3xl md:text-3xl mb-5 md:mb-4" style={{ color: "var(--text)" }}>
         أقسام المنصة
       </h2>
       <div className="tile-wall grid grid-cols-2 md:grid-cols-4 gap-[5px] p-[5px]" style={{ background: "var(--grout-wall, #CBD3CA)" }}>

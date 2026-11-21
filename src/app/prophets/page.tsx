@@ -58,7 +58,7 @@ export default function ProphetsPage() {
                 </div>
                 {storyOf(p.id)?.title && (
                   <div
-                    className="inline-block px-2 py-0.5 rounded-full text-[10px] font-semibold mb-2"
+                    className="inline-block px-2 py-0.5 rounded text-[10px] font-semibold mb-2"
                     style={{ background: "rgba(22,163,74,.15)", color: "#0E6B5A" }}
                   >
                     {storyOf(p.id)?.title}

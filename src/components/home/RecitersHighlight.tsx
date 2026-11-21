@@ -1,50 +1,40 @@
 import Link from "next/link";
 import { RECITERS } from "@/lib/reciters";
-import { ChevronLeft, Mic } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { ReciterAvatar } from "@/components/ReciterAvatar";
-import { HeadingStar } from "@/components/zellige/Rosette";
 
+const GLAZES = ["#1B3A8C", "#0E6B5A", "#B4472F", "#10275F"];
+
+/** The reciters as a run of glazed tiles in the wall's grammar. */
 export function RecitersHighlight() {
   const featured = RECITERS.slice(0, 8);
 
   return (
-    <section className="relative max-w-7xl mx-auto px-5 py-10">
-      <div className="flex items-center justify-between gap-4 mb-5 flex-wrap">
-        <div className="flex items-center gap-3">
-          <HeadingStar />
-          <h2 className="text-xl md:text-2xl font-extrabold">أبرز القراء</h2>
-        </div>
-        <Link
-          href="/reciters"
-          className="text-sm font-semibold flex items-center gap-1"
-          style={{ color: "var(--primary)" }}
-        >
-          عرض الجميع
-          <ChevronLeft className="w-4 h-4" />
+    <section className="relative max-w-6xl mx-auto px-4 md:px-5 pt-14 md:pt-20" aria-labelledby="reciters-title">
+      <div className="flex items-end justify-between gap-4 mb-5 md:mb-6 flex-wrap">
+        <h2 id="reciters-title" className="font-kufic font-bold text-3xl md:text-4xl">القرّاء</h2>
+        <Link href="/reciters" className="text-sm font-semibold flex items-center gap-1 hover:underline" style={{ color: "var(--primary)" }}>
+          كل القرّاء
+          <ChevronLeft className="w-4 h-4" aria-hidden="true" />
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        {featured.map((r) => (
+      <div className="tile-wall grid grid-cols-2 md:grid-cols-4 gap-[5px] p-[5px]" style={{ background: "var(--grout-wall)" }}>
+        {featured.map((r, i) => (
           <Link
             key={r.id}
             href={`/reciters/${encodeURIComponent(r.id)}`}
-            className="card p-5 text-center transition-all hover:-translate-y-1 group"
+            className="wall-tile glaze group relative flex items-center gap-3 p-3 md:p-4 min-h-[5.5rem]"
+            style={{ backgroundColor: GLAZES[i % GLAZES.length], color: "#F4F6FB" }}
           >
-            <div className="flex justify-center mb-3">
-              <ReciterAvatar
-                name={r.name}
-                imageUrl={r.image}
-                size={80}
-                ring
-                className="transition-transform group-hover:scale-105 shadow-md"
-              />
-            </div>
-            <div className="font-bold text-sm leading-tight">{r.name}</div>
-            <div className="text-xs mt-1.5 flex items-center justify-center gap-1" style={{ color: "var(--text-muted)" }}>
-              <Mic className="w-3 h-3" />
-              {r.country}
-            </div>
+            <span className="zellige-lattice absolute inset-0 pointer-events-none opacity-60" />
+            <span className="relative shrink-0">
+              <ReciterAvatar name={r.name} imageUrl={r.image} size={52} />
+            </span>
+            <span className="relative min-w-0">
+              <span className="block font-bold text-sm leading-snug">{r.name}</span>
+              <span className="block text-xs mt-0.5" style={{ color: "#C9D5F0" }}>{r.country}</span>
+            </span>
           </Link>
         ))}
       </div>

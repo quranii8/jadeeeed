@@ -51,19 +51,18 @@ export default function ProphetPage({ params }: PageProps) {
       >
         <OrnamentPattern id={`orn-${prophet.id}`} />
         <div className="relative">
-          <div className="text-sm opacity-80 mb-1">قصص الأنبياء</div>
-          <h1 className="font-quran text-5xl md:text-6xl font-bold mb-2">
+          <h1 className="font-kufic text-5xl md:text-6xl font-bold mb-3">
             {prophet.name} <span className="text-2xl md:text-3xl opacity-80">{salutation}</span>
           </h1>
-          <div className="inline-block px-4 py-1.5 rounded-full text-sm mb-4" style={{ background: "rgba(200,169,81,.25)", color: "#F3E3B0" }}>
+          <div className="inline-block px-4 py-1.5 rounded text-sm font-semibold mb-4" style={{ background: "#D99A1E", color: "#1A1204" }}>
             {story.title}
           </div>
           <p className="text-base md:text-lg leading-relaxed opacity-95 max-w-2xl">{story.intro}</p>
           <div className="flex flex-wrap gap-2 mt-5 text-xs">
-            <span className="px-3 py-1 rounded-full bg-white/15">{toArabicNum(story.stages.length)} مراحل</span>
-            <span className="px-3 py-1 rounded-full bg-white/15">{toArabicNum(verseCount)} آية</span>
+            <span className="px-3 py-1 rounded bg-white/15">{toArabicNum(story.stages.length)} مراحل</span>
+            <span className="px-3 py-1 rounded bg-white/15">{toArabicNum(verseCount)} آية</span>
             {story.hadith.length > 0 && (
-              <span className="px-3 py-1 rounded-full bg-white/15">{toArabicNum(story.hadith.length)} من الصحيحين</span>
+              <span className="px-3 py-1 rounded bg-white/15">{toArabicNum(story.hadith.length)} من الصحيحين</span>
             )}
           </div>
         </div>

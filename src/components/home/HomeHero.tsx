@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BookOpen, Headphones } from "lucide-react";
+import { HeroActions } from "./HeroActions";
 import { SearchBar } from "../SearchBar";
 import { Rosette } from "@/components/zellige/Rosette";
 import { verseOfTheDay } from "@/lib/daily-verses";
@@ -22,21 +22,29 @@ export function HomeHero() {
         <Rosette className="w-full h-auto" />
       </div>
 
-      <div className="relative max-w-5xl mx-auto px-5 pt-7 pb-12 md:pt-16 md:pb-24 flex flex-col items-center text-center">
-        <h1
-          id="home-title"
-          className="rise-in font-kufic font-bold text-[2.1rem] leading-[1.25] sm:text-5xl md:text-6xl"
-          style={{ color: "var(--on-field)", textShadow: "0 4px 24px rgba(10,22,56,.55)" }}
+      <div className="relative max-w-5xl mx-auto px-5 pt-7 pb-12 md:pt-8 md:pb-10 flex flex-col items-center text-center">
+        {/* inscription band: the title sits on solid glaze, never on loose tiles */}
+        <div
+          className="rise-in relative w-full max-w-[34rem] px-6 pt-3 pb-4 md:pt-4 md:pb-5"
+          style={{ background: "#10275F", boxShadow: "0 18px 40px -18px rgba(6,14,40,.8)" }}
         >
-          منصة القرآن الكريم
-        </h1>
-        <p className="rise-in mt-2 text-sm md:text-base font-medium" style={{ color: "var(--on-field-muted)", ["--d" as string]: "120ms" } as React.CSSProperties}>
-          اقرأ، واستمع، وتدبّر
-        </p>
+          <div className="tile-strip absolute inset-x-0 top-0" style={{ height: 8, backgroundSize: "32px 8px" }} />
+          <h1
+            id="home-title"
+            className="font-kufic font-bold text-[2.1rem] leading-[1.3] sm:text-5xl md:text-6xl mt-2"
+            style={{ color: "var(--on-field)" }}
+          >
+            منصة القرآن الكريم
+          </h1>
+          <p className="mt-1 text-sm md:text-base font-medium" style={{ color: "var(--on-field-muted)" }}>
+            اقرأ، واستمع، وتدبّر
+          </p>
+          <div className="tile-strip absolute inset-x-0 bottom-0" style={{ height: 8, backgroundSize: "32px 8px" }} />
+        </div>
 
         {/* the medallion: lime plaster set into the heart of the rosette */}
         <figure
-          className="rise-in relative mt-6 md:mt-12 w-full max-w-[38rem] px-5 py-6 md:px-12 md:py-11"
+          className="rise-in relative mt-6 md:mt-6 w-full max-w-[38rem] px-5 py-6 md:px-12 md:py-8"
           style={{
             background: "#EEF1EC",
             color: "#0E1630",
@@ -61,22 +69,9 @@ export function HomeHero() {
           </figcaption>
         </figure>
 
-        <div className="relative w-full mt-6 md:mt-10">
+        <div className="relative w-full mt-6 md:mt-6">
           <SearchBar />
-          <div className="mt-4 flex flex-wrap gap-3 justify-center">
-            <Link href="/surahs" className="btn btn-primary">
-              <BookOpen className="w-4 h-4" aria-hidden="true" />
-              ابدأ القراءة
-            </Link>
-            <Link
-              href="/reciters"
-              className="btn"
-              style={{ background: "rgba(238,241,236,.1)", borderColor: "rgba(238,241,236,.45)", color: "var(--on-field)" }}
-            >
-              <Headphones className="w-4 h-4" aria-hidden="true" />
-              استمع للقرّاء
-            </Link>
-          </div>
+          <HeroActions />
         </div>
       </div>
       <div className="tile-strip relative" />

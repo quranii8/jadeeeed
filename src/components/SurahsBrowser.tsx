@@ -6,6 +6,7 @@ import { SURAHS } from "@/lib/surahs";
 import { useQuranStore } from "@/lib/store";
 import { toArabicNum } from "@/lib/utils";
 import { Search } from "lucide-react";
+import { TileStar } from "@/components/zellige/Rosette";
 import { AppIcon } from "@/components/AppIcon";
 
 type Filter = "all" | "makki" | "madani" | "bookmarked";
@@ -49,7 +50,7 @@ export function SurahsBrowser() {
             <button
               key={key}
               onClick={() => setFilter(key as Filter)}
-              className="px-4 py-2 rounded-full text-sm font-medium transition-all"
+              className="px-4 py-2 rounded text-sm font-medium transition-all"
               style={{
                 background: filter === key ? "var(--primary)" : "var(--surface)",
                 color: filter === key ? "white" : "var(--text-muted)",
@@ -67,7 +68,7 @@ export function SurahsBrowser() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="بحث في السور..."
-            className="w-full py-2 pr-10 pl-4 rounded-full text-sm outline-none border"
+            className="w-full py-2 pr-10 pl-4 rounded text-sm outline-none border"
             style={{
               background: "var(--surface)",
               borderColor: "var(--border)",
@@ -93,25 +94,20 @@ export function SurahsBrowser() {
           <p style={{ color: "var(--text-muted)" }}>لا توجد سور مطابقة</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="tile-wall grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[5px] p-[5px]" style={{ background: "var(--grout-wall)" }}>
           {list.map((s) => (
             <Link
               key={s.n}
               href={`/surah/${s.n}`}
-              className="card p-4 flex items-center gap-4 transition-all hover:-translate-y-0.5 hover:shadow-md group"
+              className="plaster-tile glaze p-4 flex items-center gap-4 group"
               style={{ borderColor: bookmarkedSurahs.has(s.n) ? "var(--gold)" : undefined }}
             >
               {/* رقم السورة في نجمة */}
-              <div
-                className="w-12 h-12 grid place-items-center font-extrabold text-sm shrink-0 transition-transform group-hover:scale-110"
-                style={{
-                  background: "var(--primary-soft)",
-                  color: "var(--primary)",
-                  clipPath:
-                    "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
-                }}
-              >
-                {toArabicNum(s.n)}
+              <div className="relative w-12 h-12 grid place-items-center shrink-0 transition-transform duration-700 group-hover:rotate-45">
+                <TileStar color="var(--primary)" size={48} className="absolute inset-0" />
+                <span className="relative font-extrabold text-sm group-hover:-rotate-45 transition-transform duration-700" style={{ color: "var(--primary)" }}>
+                  {toArabicNum(s.n)}
+                </span>
               </div>
 
               <div className="flex-1 min-w-0">
@@ -125,8 +121,8 @@ export function SurahsBrowser() {
                   <span
                     className="px-1.5 py-0.5 rounded text-[10px] font-semibold"
                     style={{
-                      background: s.t === "makki" ? "rgba(234,142,0,.12)" : "rgba(0,102,179,.12)",
-                      color: s.t === "makki" ? "#b97a00" : "#0066b3",
+                      background: s.t === "makki" ? "#D99A1E" : "#0E6B5A",
+                      color: s.t === "makki" ? "#1A1204" : "#F2F8F5",
                     }}
                   >
                     {s.t === "makki" ? "مكية" : "مدنية"}

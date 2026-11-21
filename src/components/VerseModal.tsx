@@ -209,7 +209,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
                     <button
                       key={t.id}
                       onClick={() => setTafsir(t.id)}
-                      className="px-3 py-1.5 rounded-full text-xs font-medium transition-all"
+                      className="px-3 py-1.5 rounded text-xs font-medium transition-all"
                       style={{
                         background: selectedTafsir === t.id ? t.color : "var(--surface)",
                         color: selectedTafsir === t.id ? "white" : "var(--text-muted)",
@@ -298,7 +298,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
       {/* Toast */}
       {toast && (
         <div
-          className="fixed bottom-32 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-full text-white text-sm font-medium shadow-lg z-[110] animate-slide-up"
+          className="fixed bottom-32 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded text-white text-sm font-medium shadow-lg z-[110] animate-slide-up"
           style={{ background: "var(--primary)" }}
         >
           {toast}

@@ -137,7 +137,7 @@ export default function TajweedRulePage({ params }: PageProps) {
               style={{ background: "var(--bg-soft)", border: "1px solid var(--gold)" }}
             >
               <div
-                className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3"
+                className="inline-block px-3 py-1 rounded text-xs font-semibold mb-3"
                 style={{ background: "var(--gold)", color: "white" }}
               >
                 {ex.rule}
@@ -235,7 +235,7 @@ export default function TajweedRulePage({ params }: PageProps) {
               <Link
                 key={rr}
                 href={`/tajweed/${rr}`}
-                className="px-4 py-2 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5"
+                className="px-4 py-2 rounded text-sm font-semibold transition-all hover:-translate-y-0.5"
                 style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
               >
                 {rr}

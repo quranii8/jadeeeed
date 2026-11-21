@@ -101,7 +101,7 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
           <div className="opacity-90 mt-2 text-base">
             {surah.e} — <em>{surah.trans}</em>
           </div>
-          <div className="inline-flex gap-3 mt-4 px-5 py-1.5 rounded-full text-sm bg-white/15 backdrop-blur">
+          <div className="inline-flex gap-3 mt-4 px-5 py-1.5 rounded text-sm bg-white/15 backdrop-blur">
             <span>{surah.t === "makki" ? "مكية" : "مدنية"}</span>
             <span>•</span>
             <span>{toArabicNum(surah.v)} آية</span>

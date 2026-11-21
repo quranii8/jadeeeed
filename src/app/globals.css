@@ -238,6 +238,21 @@ h1, h2 { text-wrap: balance; }
   to { transform: none; filter: none; }
 }
 .tile-wall { grid-auto-flow: dense; }
+/* reading-side tiles: lime plaster set in grout, with the same glazed lip as the wall */
+.plaster-tile {
+  background-color: var(--surface);
+  color: var(--text);
+  background-image: linear-gradient(155deg, rgba(255,255,255,.5), rgba(255,255,255,0) 40%);
+  box-shadow: inset 0 1.5px 0 rgba(255,255,255,.6), inset 0 -3px 0 rgba(14,22,48,.07);
+  transition: background-color .25s;
+}
+.plaster-tile:hover { background-color: var(--primary-soft); }
+.dark .plaster-tile { background-image: linear-gradient(155deg, rgba(255,255,255,.05), rgba(255,255,255,0) 40%); box-shadow: inset 0 1px 0 rgba(255,255,255,.08), inset 0 -3px 0 rgba(0,0,0,.25); }
+/* each wall tile carries a glazed edge at rest: lit top lip, pooled shadow at the foot, a soft specular sweep */
+.wall-tile {
+  background-image: linear-gradient(155deg, rgba(255,255,255,.16), rgba(255,255,255,0) 38%, rgba(0,0,0,.10));
+  box-shadow: inset 0 1.5px 0 rgba(255,255,255,.28), inset 0 -3px 0 rgba(0,0,0,.16), inset 0 0 0 1px rgba(0,0,0,.06);
+}
 @supports (animation-timeline: view()) {
   .wall-tile {
     animation: tile-press linear both;

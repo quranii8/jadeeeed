@@ -39,7 +39,7 @@ export default function AdhkarPage() {
             </p>
             <div className="flex items-center justify-between relative">
               <span
-                className="px-3 py-1 rounded-full text-xs font-semibold"
+                className="px-3 py-1 rounded text-xs font-semibold"
                 style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
               >
                 {cat.items.length} ذكر

@@ -45,7 +45,7 @@ export function TafsirHighlight() {
               {t.era}
             </div>
             <div
-              className="inline-block px-2 py-0.5 rounded-full text-[10px] font-semibold"
+              className="inline-block px-2 py-0.5 rounded text-[10px] font-semibold"
               style={{ background: `${t.color}15`, color: t.color }}
             >
               {t.approach}

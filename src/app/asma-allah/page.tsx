@@ -1,3 +1,4 @@
+import { toArabicNum } from "@/lib/utils";
 import type { Metadata } from "next";
 import { ASMA_ALLAH } from "@/lib/asma-allah";
 import { AsmaAllahBrowser } from "@/components/AsmaAllahBrowser";
@@ -19,12 +20,12 @@ export default function AsmaAllahPage() {
         <div className="relative">
           <div className="text-5xl mb-3"><AppIcon name="sparkles" /></div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-2">أسماء الله الحسنى</h1>
-          <p className="text-base md:text-lg opacity-95 max-w-2xl mx-auto">
-            ﴿وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا﴾
+          <p className="font-hafs text-2xl md:text-3xl leading-loose max-w-2xl mx-auto" lang="ar">
+            ﴿وَلِلَّهِ ٱلۡأَسۡمَآءُ ٱلۡحُسۡنَىٰ فَٱدۡعُوهُ بِهَاۖ﴾
           </p>
-          <div className="text-sm opacity-80 mt-2">[الأعراف: 180]</div>
-          <div className="inline-block mt-5 px-5 py-2 rounded-full bg-white/20 backdrop-blur text-sm">
-            {ASMA_ALLAH.length} اسماً مع الشرح
+          <div className="text-sm opacity-80 mt-2">سورة الأعراف، من الآية ١٨٠</div>
+          <div className="inline-block mt-5 px-5 py-2 rounded bg-white/15 text-sm">
+            {toArabicNum(ASMA_ALLAH.length)} اسماً مع الشرح
           </div>
         </div>
       </header>

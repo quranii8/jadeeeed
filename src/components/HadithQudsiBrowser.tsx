@@ -50,7 +50,7 @@ export function HadithQudsiBrowser({ hadiths }: Props) {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="بحث في الأحاديث..."
-            className="w-full py-2.5 pr-10 pl-10 rounded-full text-sm outline-none border-2"
+            className="w-full py-2.5 pr-10 pl-10 rounded text-sm outline-none border-2"
             style={{
               background: "var(--surface)",
               borderColor: "var(--border)",
@@ -67,7 +67,7 @@ export function HadithQudsiBrowser({ hadiths }: Props) {
         <select
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
-          className="px-4 py-2.5 rounded-full text-sm outline-none border-2"
+          className="px-4 py-2.5 rounded text-sm outline-none border-2"
           style={{ background: "var(--surface)", borderColor: "var(--border)", color: "var(--text)" }}
         >
           <option value="all">كل المواضيع</option>
@@ -104,7 +104,7 @@ export function HadithQudsiBrowser({ hadiths }: Props) {
                   </div>
                   <div>
                     <div
-                      className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold"
+                      className="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold"
                       style={{ background: "rgba(190,24,93,.12)", color: "#B4472F" }}
                     >
                       {h.topic}

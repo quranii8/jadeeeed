@@ -174,7 +174,7 @@ export function PrayerTimesWidget() {
                 <div className="text-2xl font-bold tabular-nums" dir="ltr">
                   {next.time}
                 </div>
-                <div className="mt-3 inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur text-sm">
+                <div className="mt-3 inline-block px-4 py-1.5 rounded bg-white/20 backdrop-blur text-sm">
                   <Clock className="w-4 h-4 inline ml-1" />
                   {next.minutesLeft >= 60
                     ? `بعد ${toArabicNum(Math.floor(next.minutesLeft / 60))} ساعة و ${toArabicNum(next.minutesLeft % 60)} دقيقة`

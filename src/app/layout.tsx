@@ -77,7 +77,7 @@ export default function RootLayout({
         <SessionProvider>
           <ThemeApplier />
           <Header />
-          <main className="relative z-10 pb-32">{children}</main>
+          <main className="relative z-10 pb-16">{children}</main>
           <Footer />
           <AudioPlayer />
         </SessionProvider>

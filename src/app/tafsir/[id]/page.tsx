@@ -66,7 +66,7 @@ export default function TafsirDetailPage({ params }: PageProps) {
             <Link
               key={t.id}
               href={`/tafsir/${encodeURIComponent(t.id)}`}
-              className="px-3 py-1.5 rounded-full text-sm font-medium transition-all card !py-2 hover:-translate-y-0.5"
+              className="px-3 py-1.5 rounded text-sm font-medium transition-all card !py-2 hover:-translate-y-0.5"
             >
               <AppIcon name={t.icon} /> {t.shortName}
             </Link>

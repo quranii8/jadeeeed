@@ -35,7 +35,7 @@ export function AsmaAllahBrowser({ names }: Props) {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="ابحث عن اسم أو معنى..."
-          className="w-full py-3 pr-12 pl-12 rounded-full text-base outline-none border-2 transition-colors"
+          className="w-full py-3 pr-12 pl-12 rounded text-base outline-none border-2 transition-colors"
           style={{
             background: "var(--surface)",
             borderColor: "var(--border)",
@@ -61,12 +61,12 @@ export function AsmaAllahBrowser({ names }: Props) {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+      <div className="tile-wall grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-[5px] p-[5px]" style={{ background: "var(--grout-wall)" }}>
         {filtered.map((name) => (
           <button
             key={name.n}
             onClick={() => setSelected(name)}
-            className="card p-5 text-center transition-all hover:-translate-y-1 hover:shadow-lg group cursor-pointer"
+            className="plaster-tile glaze p-5 text-center group cursor-pointer"
           >
             <div
               className="text-xs font-bold mb-2"
@@ -75,7 +75,7 @@ export function AsmaAllahBrowser({ names }: Props) {
               {toArabicNum(name.n)}
             </div>
             <div
-              className="font-quran text-2xl md:text-3xl mb-2 transition-colors group-hover:text-green-700 dark:group-hover:text-green-400"
+              className="font-quran text-2xl md:text-3xl mb-2 transition-colors group-hover:text-[var(--emerald)]"
               style={{ color: "var(--primary)" }}
             >
               {name.ar}

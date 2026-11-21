@@ -34,6 +34,15 @@ const WHITE = "#EEF1EC";
 
 type Tile = { points: string; fill: string; ring: number };
 
+/** hand-glazed tiles never match exactly: nudge lightness a few percent per tile */
+function jitter(hex: string, i: number): string {
+  const k = ((Math.sin(i * 12.9898) * 43758.5453) % 1) * 0.08 - 0.04;
+  const n = parseInt(hex.slice(1), 16);
+  const ch = (v: number) => Math.max(0, Math.min(255, Math.round(v + (k > 0 ? (255 - v) * k : v * k))));
+  const r = ch((n >> 16) & 255), g = ch((n >> 8) & 255), b = ch(n & 255);
+  return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, "0")}`;
+}
+
 function buildTiles(): Tile[] {
   const t: Tile[] = [];
   // ring 0: the heart
@@ -52,7 +61,7 @@ function buildTiles(): Tile[] {
   }
   // ring 3: sixteen white lozenges
   for (let i = 0; i < 16; i++) {
-    t.push({ points: kite(186, 214, 246, i * 22.5, 5.5), fill: i % 2 ? WHITE : COBALT_LIGHT, ring: 3 });
+    t.push({ points: kite(180, 214, 250, i * 22.5, 11.25), fill: i % 2 ? WHITE : COBALT_LIGHT, ring: 3 });
   }
   // ring 4: eight large stars on the axes
   for (let i = 0; i < 8; i++) {
@@ -64,11 +73,11 @@ function buildTiles(): Tile[] {
   // ring 5: kites reaching out between the large stars
   for (let i = 0; i < 8; i++) {
     const a = i * 45 + 22.5;
-    t.push({ points: kite(250, 320, 392, a, 7), fill: SAFFRON, ring: 5 });
+    t.push({ points: kite(250, 330, 392, a, 12), fill: SAFFRON, ring: 5 });
   }
   // ring 6: outer lozenge crown
   for (let i = 0; i < 32; i++) {
-    t.push({ points: kite(392, 410, 432, i * 11.25, 2.6), fill: i % 2 ? EMERALD : WHITE, ring: 6 });
+    t.push({ points: kite(392, 412, 434, i * 11.25, 5.625), fill: i % 2 ? EMERALD : WHITE, ring: 6 });
   }
   return t;
 }
@@ -79,21 +88,26 @@ export function Rosette({ className, animate = true }: { className?: string; ani
   let n = 0;
   return (
     <svg viewBox="-440 -440 880 880" className={className} aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="glaze-sheen" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#fff" stopOpacity=".32" />
+          <stop offset=".45" stopColor="#fff" stopOpacity="0" />
+          <stop offset="1" stopColor="#000" stopOpacity=".14" />
+        </linearGradient>
+      </defs>
       <g className={animate ? "rosette-turn" : undefined}>
         <circle r={436} fill="none" stroke="var(--grout)" strokeWidth={2} opacity={0.35} />
         {TILES.map((tile, i) => {
           const d = tile.ring * 140 + (n++ % 32) * 14;
           return (
-            <polygon
+            <g
               key={i}
-              points={tile.points}
-              fill={tile.fill}
-              stroke="var(--grout)"
-              strokeWidth={3}
-              strokeLinejoin="round"
               className={animate ? "tile-set" : undefined}
               style={animate ? ({ ["--d" as string]: `${d}ms` } as React.CSSProperties) : undefined}
-            />
+            >
+              <polygon points={tile.points} fill={jitter(tile.fill, i)} stroke="var(--grout)" strokeWidth={3} strokeLinejoin="round" />
+              <polygon points={tile.points} fill="url(#glaze-sheen)" />
+            </g>
           );
         })}
       </g>

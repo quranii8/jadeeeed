@@ -19,7 +19,7 @@ export default function HadithQudsiPage() {
         <p className="text-base md:text-lg opacity-95 max-w-2xl mx-auto">
           الأحاديث التي يرويها النبي ﷺ عن ربّه عز وجل
         </p>
-        <div className="inline-block mt-5 px-5 py-2 rounded-full bg-white/20 backdrop-blur text-sm">
+        <div className="inline-block mt-5 px-5 py-2 rounded bg-white/20 backdrop-blur text-sm">
           {HADITH_QUDSI.length} حديثاً قدسياً مختاراً
         </div>
       </header>

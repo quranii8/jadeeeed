@@ -64,7 +64,7 @@ export default function ReciterPage({ params }: PageProps) {
               <span className="px-2 py-0.5 rounded bg-white/20">{reciter.bitrate}</span>
             </div>
             {reciter.fullSurahServer && (
-              <div className="mt-3 inline-block px-3 py-1 rounded-full text-xs bg-white/20">
+              <div className="mt-3 inline-block px-3 py-1 rounded text-xs bg-white/20">
                 <AppIcon name="check" /> تشغيل متواصل للسور الكاملة
               </div>
             )}

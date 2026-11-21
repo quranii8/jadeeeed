@@ -77,7 +77,7 @@ export function IslamicContent() {
             <div className="flex items-center gap-2 mb-2 relative">
               <h3 className="font-bold text-lg">{c.title}</h3>
               <span
-                className="px-2 py-0.5 rounded-full text-[10px] font-bold"
+                className="px-2 py-0.5 rounded text-[10px] font-bold"
                 style={{ background: "var(--bg-soft)", color: "var(--text-muted)" }}
               >
                 {c.badge}

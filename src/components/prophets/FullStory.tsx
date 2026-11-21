@@ -14,7 +14,7 @@ function SourceChip({ src, open, onClick }: { src: StorySource; open: boolean; o
     <button
       onClick={onClick}
       aria-expanded={open}
-      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border transition-colors"
+      className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold border transition-colors"
       style={
         open
           ? { background: "var(--primary)", color: "white", borderColor: "var(--primary)" }

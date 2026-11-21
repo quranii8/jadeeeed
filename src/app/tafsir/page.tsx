@@ -46,7 +46,7 @@ export default function TafsirPage() {
                 </p>
                 <div className="flex items-center gap-2 flex-wrap">
                   <span
-                    className="px-2 py-0.5 rounded-full text-[10px] font-semibold"
+                    className="px-2 py-0.5 rounded text-[10px] font-semibold"
                     style={{ background: `${t.color}15`, color: t.color }}
                   >
                     {t.approach}

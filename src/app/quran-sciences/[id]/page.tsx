@@ -215,7 +215,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
                 <Link
                   key={topic}
                   href={`/quran-sciences/${topic}`}
-                  className="px-4 py-2 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5"
+                  className="px-4 py-2 rounded text-sm font-semibold transition-all hover:-translate-y-0.5"
                   style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
                 >
                   <AppIcon name={t.icon} /> {t.title}

@@ -88,7 +88,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="بحث في الأحاديث النبوية..."
-            className="w-full py-2.5 pr-10 pl-10 rounded-full text-sm outline-none border-2"
+            className="w-full py-2.5 pr-10 pl-10 rounded text-sm outline-none border-2"
             style={{
               background: "var(--surface)",
               borderColor: "var(--border)",
@@ -112,7 +112,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
         <select
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
-          className="px-4 py-2.5 rounded-full text-sm outline-none border-2"
+          className="px-4 py-2.5 rounded text-sm outline-none border-2"
           style={{
             background: "var(--surface)",
             borderColor: "var(--border)",
@@ -130,7 +130,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
         <select
           value={grade}
           onChange={(e) => setGrade(e.target.value)}
-          className="px-4 py-2.5 rounded-full text-sm outline-none border-2"
+          className="px-4 py-2.5 rounded text-sm outline-none border-2"
           style={{
             background: "var(--surface)",
             borderColor: "var(--border)",
@@ -149,7 +149,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
         </span>
         {topic !== "all" && (
           <span
-            className="px-2 py-0.5 rounded-full text-xs"
+            className="px-2 py-0.5 rounded text-xs"
             style={{
               background: "var(--primary-soft)",
               color: "var(--primary)",
@@ -160,7 +160,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
         )}
         {grade !== "all" && (
           <span
-            className="px-2 py-0.5 rounded-full text-xs"
+            className="px-2 py-0.5 rounded text-xs"
             style={{
               background: getGradeColor(grade).bg,
               color: getGradeColor(grade).text,
@@ -202,7 +202,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       <span
-                        className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold"
+                        className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[10px] font-bold"
                         style={{
                           background: "var(--primary-soft)",
                           color: "var(--primary)",
@@ -211,7 +211,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
                         <AppIcon name={getTopicIcon(h.topic)} /> {h.topic}
                       </span>
                       <span
-                        className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold"
+                        className="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold"
                         style={{
                           background: gradeStyle.bg,
                           color: gradeStyle.text,
