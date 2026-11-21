@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#1B3A8C" },
+    { media: "(prefers-color-scheme: light)", color: "var(--g-cobalt)" },
     { media: "(prefers-color-scheme: dark)", color: "#12245C" },
   ],
   width: "device-width",
@@ -77,6 +77,14 @@ export default function RootLayout({
       className={`${amiri.variable} ${notoKufi.variable} ${notoNaskh.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/* apply the saved skin and light/dark before the first paint, so the page never flashes the wrong colours */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var e=JSON.parse(localStorage.getItem("quran-platform-extras")||"{}").state||{};if(e.skin)document.documentElement.dataset.skin=e.skin;var q=JSON.parse(localStorage.getItem("quran-platform-store")||"{}").state||{};if(q.theme==="dark")document.documentElement.classList.add("dark")}catch(_){}`,
+          }}
+        />
+      </head>
       <body>
         <SessionProvider>
           <ThemeApplier />

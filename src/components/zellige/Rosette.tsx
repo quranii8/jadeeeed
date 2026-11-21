@@ -25,22 +25,18 @@ function kite(r0: number, r1: number, r2: number, deg: number, spread: number): 
   return pts([polar(r0, deg), polar(r1, deg - spread), polar(r2, deg), polar(r1, deg + spread)]);
 }
 
-const COBALT = "#1B3A8C";
-const COBALT_LIGHT = "#2D54B8";
-const EMERALD = "#0E6B5A";
-const SAFFRON = "#D99A1E";
-const TERRACOTTA = "#B4472F";
-const WHITE = "#EEF1EC";
+const COBALT = "var(--g-cobalt)";
+const COBALT_LIGHT = "var(--g-cobalt-light)";
+const EMERALD = "var(--g-emerald)";
+const SAFFRON = "var(--g-saffron)";
+const TERRACOTTA = "var(--g-terracotta)";
+const WHITE = "var(--g-plaster)";
 
 type Tile = { points: string; fill: string; ring: number };
 
-/** hand-glazed tiles never match exactly: nudge lightness a few percent per tile */
-function jitter(hex: string, i: number): string {
-  const k = ((Math.sin(i * 12.9898) * 43758.5453) % 1) * 0.08 - 0.04;
-  const n = parseInt(hex.slice(1), 16);
-  const ch = (v: number) => Math.max(0, Math.min(255, Math.round(v + (k > 0 ? (255 - v) * k : v * k))));
-  const r = ch((n >> 16) & 255), g = ch((n >> 8) & 255), b = ch(n & 255);
-  return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, "0")}`;
+/** hand-glazed tiles never match exactly: each tile gets a slightly different glaze depth */
+function depth(i: number): number {
+  return 0.9 + (((Math.sin(i * 12.9898) * 43758.5453) % 1 + 1) % 1) * 0.1;
 }
 
 function buildTiles(): Tile[] {
@@ -105,7 +101,7 @@ export function Rosette({ className, animate = true }: { className?: string; ani
               className={animate ? "tile-set" : undefined}
               style={animate ? ({ ["--d" as string]: `${d}ms` } as React.CSSProperties) : undefined}
             >
-              <polygon points={tile.points} fill={jitter(tile.fill, i)} stroke="var(--grout)" strokeWidth={3} strokeLinejoin="round" />
+              <polygon points={tile.points} style={{ fill: tile.fill, fillOpacity: depth(i) }} stroke="var(--grout)" strokeWidth={3} strokeLinejoin="round" />
               <polygon points={tile.points} fill="url(#glaze-sheen)" />
             </g>
           );
@@ -119,9 +115,9 @@ export function Rosette({ className, animate = true }: { className?: string; ani
 export function StarMark({ size = 40 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="-50 -50 100 100" aria-hidden="true" focusable="false">
-      <polygon points={star(0, 0, 47, 0)} fill={SAFFRON} stroke="#EEF1EC" strokeWidth={4} strokeLinejoin="round" />
-      <polygon points={star(0, 0, 29, 22.5)} fill={COBALT} stroke="#EEF1EC" strokeWidth={3.5} strokeLinejoin="round" />
-      <polygon points={star(0, 0, 11, 0)} fill="#EEF1EC" />
+      <polygon points={star(0, 0, 47, 0)} style={{ fill: SAFFRON, stroke: WHITE }} strokeWidth={4} strokeLinejoin="round" />
+      <polygon points={star(0, 0, 29, 22.5)} style={{ fill: COBALT, stroke: WHITE }} strokeWidth={3.5} strokeLinejoin="round" />
+      <polygon points={star(0, 0, 11, 0)} style={{ fill: WHITE }} />
     </svg>
   );
 }
@@ -130,8 +126,8 @@ export function StarMark({ size = 40 }: { size?: number }) {
 export function TileStar({ color, size = 64, className }: { color: string; size?: number; className?: string }) {
   return (
     <svg width={size} height={size} viewBox="-50 -50 100 100" className={className} aria-hidden="true" focusable="false">
-      <polygon points={star(0, 0, 47, 0)} fill="none" stroke={color} strokeWidth={3} strokeLinejoin="round" />
-      <polygon points={star(0, 0, 30, 22.5)} fill="none" stroke={color} strokeWidth={3} strokeLinejoin="round" />
+      <polygon points={star(0, 0, 47, 0)} fill="none" style={{ stroke: color }} strokeWidth={3} strokeLinejoin="round" />
+      <polygon points={star(0, 0, 30, 22.5)} fill="none" style={{ stroke: color }} strokeWidth={3} strokeLinejoin="round" />
     </svg>
   );
 }
@@ -140,8 +136,8 @@ export function TileStar({ color, size = 64, className }: { color: string; size?
 export function HeadingStar({ size = 22 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="-50 -50 100 100" aria-hidden="true" focusable="false" className="shrink-0">
-      <polygon points={star(0, 0, 46, 0)} fill="var(--gold)" />
-      <polygon points={star(0, 0, 20, 22.5)} fill="var(--bg)" />
+      <polygon points={star(0, 0, 46, 0)} style={{ fill: "var(--gold)" }} />
+      <polygon points={star(0, 0, 20, 22.5)} style={{ fill: "var(--bg)" }} />
     </svg>
   );
 }

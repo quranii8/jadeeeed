@@ -54,7 +54,7 @@ export default function ProphetPage({ params }: PageProps) {
           <h1 className="font-kufic text-5xl md:text-6xl font-bold mb-3">
             {prophet.name} <span className="text-2xl md:text-3xl opacity-80">{salutation}</span>
           </h1>
-          <div className="inline-block px-4 py-1.5 rounded text-sm font-semibold mb-4" style={{ background: "#D99A1E", color: "#1A1204" }}>
+          <div className="inline-block px-4 py-1.5 rounded text-sm font-semibold mb-4" style={{ background: "var(--g-saffron)", color: "var(--g-on-saffron)" }}>
             {story.title}
           </div>
           <p className="text-base md:text-lg leading-relaxed opacity-95 max-w-2xl">{story.intro}</p>

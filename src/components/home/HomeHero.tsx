@@ -26,7 +26,7 @@ export function HomeHero() {
         {/* inscription band: the title sits on solid glaze, never on loose tiles */}
         <div
           className="rise-in relative w-full max-w-[34rem] px-6 pt-3 pb-4 md:pt-4 md:pb-5"
-          style={{ background: "#10275F", boxShadow: "0 18px 40px -18px rgba(6,14,40,.8)" }}
+          style={{ background: "var(--g-deep)", boxShadow: "0 18px 40px -18px rgba(6,14,40,.8)" }}
         >
           <div className="tile-strip absolute inset-x-0 top-0" style={{ height: 8, backgroundSize: "32px 8px" }} />
           <h1
@@ -46,8 +46,8 @@ export function HomeHero() {
         <figure
           className="rise-in relative mt-6 md:mt-6 w-full max-w-[38rem] px-5 py-6 md:px-12 md:py-8"
           style={{
-            background: "#EEF1EC",
-            color: "#0E1630",
+            background: "var(--g-plaster)",
+            color: "var(--g-ink)",
             clipPath: "polygon(9% 0, 91% 0, 100% 9%, 100% 91%, 91% 100%, 9% 100%, 0 91%, 0 9%)",
             boxShadow: "0 30px 60px -20px rgba(6,14,40,.7)",
             ["--d" as string]: "250ms",
@@ -60,12 +60,12 @@ export function HomeHero() {
           >
             {v.ar}
           </blockquote>
-          <figcaption className="relative mt-4 flex items-center justify-center gap-3 text-sm font-semibold" style={{ color: "#1B3A8C" }}>
-            <span className="h-px w-8" style={{ background: "#D99A1E" }} />
+          <figcaption className="relative mt-4 flex items-center justify-center gap-3 text-sm font-semibold" style={{ color: "var(--g-cobalt)" }}>
+            <span className="h-px w-8" style={{ background: "var(--g-saffron)" }} />
             <Link href={`/surah/${v.s}#verse-${v.a}`} className="hover:underline">
               سورة {v.name}، الآية {toArabicNum(v.a)}
             </Link>
-            <span className="h-px w-8" style={{ background: "#D99A1E" }} />
+            <span className="h-px w-8" style={{ background: "var(--g-saffron)" }} />
           </figcaption>
         </figure>
 

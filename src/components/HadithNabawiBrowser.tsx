@@ -47,7 +47,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
   const getGradeColor = (grade: string) => {
     switch (grade) {
       case "صحيح":
-        return { bg: "rgba(34,197,94,0.12)", text: "#1C8C76" };
+        return { bg: "rgba(34,197,94,0.12)", text: "var(--g-emerald-light)" };
       case "حسن":
         return { bg: "rgba(234,179,8,0.12)", text: "#eab308" };
       default:

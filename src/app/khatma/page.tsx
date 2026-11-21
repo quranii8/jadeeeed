@@ -11,7 +11,7 @@ export default function KhatmaPage() {
     <section className="max-w-6xl mx-auto px-4 md:px-5 py-8">
       <header className="page-band page-band--emerald text-center relative overflow-hidden mb-8">
         <h1 className="text-4xl md:text-5xl mb-2">ختمتي</h1>
-        <p className="text-base max-w-xl mx-auto" style={{ color: "#D9EFE8" }}>
+        <p className="text-base max-w-xl mx-auto" style={{ color: "var(--g-on-muted)" }}>
           اختر المدة، ونعطيك ورد كل يوم، وتابع تقدّمك حتى تختم. كل شيء محفوظ على جهازك.
         </p>
       </header>

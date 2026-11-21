@@ -16,28 +16,28 @@ const TOOLS: Tool[] = [
     icon: "hand-heart",
     title: "الأذكار والأدعية",
     desc: "أذكار الصباح والمساء وأذكار الصلاة والنوم مع عدّاد تفاعلي",
-    gradient: "linear-gradient(135deg, #0E6B5A, #1C8C76)",
+    gradient: "linear-gradient(135deg, var(--g-emerald), var(--g-emerald-light))",
   },
   {
     href: "/asma-allah",
     icon: "sparkles",
     title: "أسماء الله الحسنى",
     desc: "الأسماء التسعة والتسعون مع شرح المعنى والدلالة لكل اسم",
-    gradient: "linear-gradient(135deg, #D99A1E, #F0BE52)",
+    gradient: "linear-gradient(135deg, var(--g-saffron), var(--g-saffron-light))",
   },
   {
     href: "/prayer-times",
     icon: "mosque",
     title: "مواقيت الصلاة",
     desc: "مواقيت دقيقة حسب موقعك مع عدّ تنازلي للصلاة القادمة",
-    gradient: "linear-gradient(135deg, #1B3A8C, #2D54B8)",
+    gradient: "linear-gradient(135deg, var(--g-cobalt), var(--g-cobalt-light))",
   },
   {
     href: "/qibla",
     icon: "compass",
     title: "اتجاه القبلة",
     desc: "بوصلة احترافية تتبع حركة جهازك لتحديد اتجاه الكعبة المشرفة",
-    gradient: "linear-gradient(135deg, #1B3A8C, #2D54B8)",
+    gradient: "linear-gradient(135deg, var(--g-cobalt), var(--g-cobalt-light))",
   },
 ];
 

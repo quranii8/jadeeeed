@@ -97,7 +97,7 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
         />
         <div className="relative">
           <div className="text-sm opacity-90">سورة</div>
-          <h1 className="font-quran text-5xl md:text-6xl font-bold mt-1">{surah.a}</h1>
+          <h1 className="font-kufic text-5xl md:text-6xl font-bold mt-1">{surah.a}</h1>
           <div className="opacity-90 mt-2 text-base">
             {surah.e} — <em>{surah.trans}</em>
           </div>
@@ -194,7 +194,7 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
         </div>
       ) : (
         <div
-          className="card p-6 md:p-10 font-quran text-justify"
+          className="plaster-tile p-6 md:p-10 font-hafs text-justify"
           style={{
             fontSize: `${fontSize}rem`,
             lineHeight: 2.6,
@@ -216,7 +216,7 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
                 </span>
                 {showTranslation && v.trans && (
                   <p
-                    className="font-arabic text-sm mt-3 pr-3 border-r-[3px]"
+                    className="font-arabic text-sm mt-3 pt-2 border-t"
                     style={{ color: "var(--text-muted)", borderColor: "var(--gold)", direction: "ltr", textAlign: "left", lineHeight: 1.7 }}
                   >
                     {v.trans}

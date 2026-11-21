@@ -14,6 +14,28 @@
 @font-face { font-family: "ReemKufi"; src: url("/fonts/ReemKufi-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
 
 :root {
+  /* glaze roles: every component colours itself from these, so a skin swaps the whole world */
+  --g-cobalt: #1B3A8C;
+  --g-deep: #10275F;
+  --g-cobalt-light: #2D54B8;
+  --g-emerald: #0E6B5A;
+  --g-emerald-light: #1C8C76;
+  --g-saffron: #D99A1E;
+  --g-saffron-light: #F0BE52;
+  --g-saffron-deep: #8F5D07;
+  --g-terracotta: #B4472F;
+  --g-terracotta-light: #CF6247;
+  --g-terracotta-deep: #8A3220;
+  --g-terracotta-night: #6E2718;
+  --g-ink: #0E1630;
+  --g-plaster: #EEF1EC;
+  --g-on: #F4F6FB;
+  --g-on-muted: #D3DCF1;
+  --g-on-saffron: #1A1204;
+  --g-on-saffron-muted: #4A3205;
+  --g-orb: #FFF7DE;
+  --lattice-stroke: rgba(255,255,255,.16);
+
   --primary: #1B3A8C;
   --primary-dark: #10275F;
   --primary-light: #2D54B8;
@@ -25,8 +47,8 @@
   --terracotta: #B4472F;
 
   /* glaze field (header, hero, footer) stays cobalt in both themes */
-  --field: #1B3A8C;
-  --field-deep: #10275F;
+  --field: var(--g-cobalt);
+  --field-deep: var(--g-deep);
   --on-field: #F4F6FB;
   --on-field-muted: #C3CEEB;
   --grout: rgba(238, 241, 236, .92);
@@ -181,18 +203,107 @@ h1, h2 { text-wrap: balance; }
 }
 .page-band > * { position: relative; }
 .page-band h1 { font-family: "ReemKufi", var(--font-noto-kufi), sans-serif; font-weight: 700; }
-.page-band--cobalt { --band: #1B3A8C; }
-.page-band--emerald { --band: #0E6B5A; }
-.page-band--terracotta { --band: #B4472F; }
-.page-band--ink { --band: #0E1630; }
-.page-band--saffron-deep { --band: #8F5D07; }
+.page-band--cobalt { --band: var(--g-cobalt); }
+.page-band--emerald { --band: var(--g-emerald); }
+.page-band--terracotta { --band: var(--g-terracotta); }
+.page-band--ink { --band: var(--g-ink); }
+.page-band--saffron-deep { --band: var(--g-saffron-deep); }
 .dark .page-band--cobalt { --band: #12245C; }
+[data-skin="kiswah"].dark .page-band--cobalt { --band: var(--g-cobalt); }
 
 /* links and buttons that sit on the cobalt field */
 .field-link { color: var(--on-field-muted); border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
 .field-link:hover, .field-link[aria-current="page"] { color: #fff; border-bottom-color: var(--gold); }
 .field-btn { color: var(--on-field-muted); }
 .field-btn:hover { background: rgba(238,241,236,.12); color: #fff; }
+
+/* ============================================================
+   Skin: the Kiswah. Black silk with gold thread, as on the cover of the Kaaba.
+   ============================================================ */
+[data-skin="kiswah"] {
+  --g-cobalt: #121214;
+  --g-deep: #0A0A0B;
+  --g-cobalt-light: #2A2A2E;
+  --g-emerald: #17201B;
+  --g-emerald-light: #24302A;
+  --g-saffron: #C9A24B;
+  --g-saffron-light: #E6C877;
+  --g-saffron-deep: #7D5E1F;
+  --g-terracotta: #241A12;
+  --g-terracotta-light: #3A2A1C;
+  --g-terracotta-deep: #18110B;
+  --g-terracotta-night: #0F0A06;
+  --g-ink: #070708;
+  --g-plaster: #F3EEE2;
+  --g-on: #F2E7C9;
+  --g-on-muted: #C9B78C;
+  --g-on-saffron: #121214;
+  --g-on-saffron-muted: #3A2C0E;
+  --g-orb: #FFF4D6;
+  --lattice-stroke: rgba(201,162,75,.2);
+  --grout: rgba(201,162,75,.75);
+  --grout-wall: #C9A24B;
+
+  --primary: #121214;
+  --primary-dark: #000;
+  --primary-light: #3A3A40;
+  --primary-soft: #ECE5D3;
+  --gold: #C9A24B;
+  --gold-light: #E6C877;
+  --gold-dark: #7D5E1F;
+  --emerald: #1F5E45;
+  --terracotta: #8A3B22;
+  --on-field: #F2E7C9;
+  --on-field-muted: #C9B78C;
+
+  --bg: #F4F0E6;
+  --bg-elev: #FBF8F1;
+  --bg-soft: #EAE3D2;
+  --surface: #FBF8F1;
+  --border: #D9CCA8;
+  --border-soft: #E6DCC2;
+  --text: #141210;
+  --text-muted: #4E4636;
+  --text-soft: #6B614C;
+}
+[data-skin="kiswah"].dark {
+  --field: var(--g-cobalt);
+  --field-deep: var(--g-deep);
+  --grout: rgba(201,162,75,.6);
+  --primary: #E6C877;
+  --primary-dark: #C9A24B;
+  --primary-light: #F0D894;
+  --primary-soft: #262217;
+  --gold-dark: #E6C877;
+  --emerald: #6FBF98;
+  --terracotta: #E0A07A;
+  --grout-wall: #5E4C22;
+  --bg: #0A0A0B;
+  --bg-elev: #131315;
+  --bg-soft: #18181A;
+  --surface: #141416;
+  --border: #3A3220;
+  --border-soft: #2A2518;
+  --text: #F2E7C9;
+  --text-muted: #C9B78C;
+  --text-soft: #9A8A66;
+}
+/* gold thread: the lattice and the strips are stitched in gold on black */
+[data-skin="kiswah"] .zellige-lattice {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M28 8.2 33.7 14.3 42 14 41.7 22.3 47.8 28 41.7 33.7 42 42 33.7 41.7 28 47.8 22.3 41.7 14 42 14.3 33.7 8.2 28 14.3 22.3 14 14 22.3 14.3Z' fill='none' stroke='%23C9A24B' stroke-opacity='.28' stroke-width='1.4'/%3E%3Cpath d='M0 0 6 6M56 0 50 6M0 56 6 50M56 56 50 50' stroke='%23C9A24B' stroke-opacity='.28' stroke-width='1.4'/%3E%3C/svg%3E");
+}
+[data-skin="kiswah"] .tile-strip,
+[data-skin="kiswah"] .page-band::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='14' viewBox='0 0 56 14'%3E%3Crect width='56' height='14' fill='%230A0A0B'/%3E%3Cpath d='M0 1.5H56M0 12.5H56' stroke='%23C9A24B' stroke-width='1'/%3E%3Cpath d='M14 3 18 7 14 11 10 7Z M42 3 46 7 42 11 38 7Z' fill='%23C9A24B'/%3E%3Ccircle cx='28' cy='7' r='1.6' fill='%23E6C877'/%3E%3C/svg%3E");
+}
+[data-skin="kiswah"] .page-band::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M28 8.2 33.7 14.3 42 14 41.7 22.3 47.8 28 41.7 33.7 42 42 33.7 41.7 28 47.8 22.3 41.7 14 42 14.3 33.7 8.2 28 14.3 22.3 14 14 22.3 14.3Z' fill='none' stroke='%23C9A24B' stroke-opacity='.25' stroke-width='1.4'/%3E%3C/svg%3E");
+}
+[data-skin="kiswah"] .page-band { color: var(--g-on); box-shadow: inset 0 0 0 1px rgba(201,162,75,.45), var(--shadow); }
+[data-skin="kiswah"] .page-band h1 { color: var(--g-saffron-light); }
+[data-skin="kiswah"] .wall-tile { box-shadow: inset 0 0 0 1px rgba(201,162,75,.4), inset 0 1.5px 0 rgba(230,200,119,.25), inset 0 -3px 0 rgba(0,0,0,.4); }
+[data-skin="kiswah"] .btn-primary { box-shadow: 0 6px 18px -6px rgba(201,162,75,.6); }
+[data-skin="kiswah"] ::selection { background: #C9A24B; color: #121214; }
 
 /* glazed sheen that sweeps a tile when pressed or hovered */
 .glaze {
@@ -282,7 +393,7 @@ h1, h2 { text-wrap: balance; }
   .btn:disabled { opacity: .5; pointer-events: none; }
   .btn-primary {
     background: var(--gold);
-    color: #0E1630;
+    color: var(--g-on-saffron);
     box-shadow: 0 6px 16px -6px rgba(143, 93, 7, .55);
   }
   .btn-primary:hover { background: var(--gold-light); box-shadow: 0 10px 22px -8px rgba(143, 93, 7, .6); }

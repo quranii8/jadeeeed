@@ -17,7 +17,7 @@ export function HeroActions() {
       <Link
         href="/reciters"
         className="btn"
-        style={{ background: "#10275F", borderColor: "#EEF1EC", color: "#F4F6FB" }}
+        style={{ background: "var(--g-deep)", borderColor: "var(--g-plaster)", color: "var(--g-on)" }}
       >
         <Headphones className="w-4 h-4" aria-hidden="true" />
         استمع

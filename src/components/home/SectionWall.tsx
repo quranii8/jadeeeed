@@ -13,11 +13,11 @@ import { toArabicNum } from "@/lib/utils";
 
 type Glaze = "cobalt" | "emerald" | "saffron" | "terracotta" | "ink";
 const GLAZE: Record<Glaze, { bg: string; fg: string; muted: string; line: string }> = {
-  cobalt: { bg: "#1B3A8C", fg: "#F4F6FB", muted: "#C9D5F0", line: "rgba(238,241,236,.22)" },
-  emerald: { bg: "#0E6B5A", fg: "#F2F8F5", muted: "#BFE3D8", line: "rgba(238,241,236,.22)" },
-  saffron: { bg: "#D99A1E", fg: "#1A1204", muted: "#4A3205", line: "rgba(26,18,4,.18)" },
-  terracotta: { bg: "#B4472F", fg: "#FBF1EE", muted: "#F4CFC5", line: "rgba(238,241,236,.22)" },
-  ink: { bg: "#0E1630", fg: "#EEF1F8", muted: "#B3BCD4", line: "rgba(238,241,236,.16)" },
+  cobalt: { bg: "var(--g-cobalt)", fg: "var(--g-on)", muted: "var(--g-on-muted)", line: "rgba(238,241,236,.22)" },
+  emerald: { bg: "var(--g-emerald)", fg: "var(--g-on)", muted: "var(--g-on-muted)", line: "rgba(238,241,236,.22)" },
+  saffron: { bg: "var(--g-saffron)", fg: "var(--g-on-saffron)", muted: "var(--g-on-saffron-muted)", line: "rgba(26,18,4,.18)" },
+  terracotta: { bg: "var(--g-terracotta)", fg: "var(--g-on)", muted: "var(--g-on-muted)", line: "rgba(238,241,236,.22)" },
+  ink: { bg: "var(--g-ink)", fg: "var(--g-on)", muted: "var(--g-on-muted)", line: "rgba(238,241,236,.16)" },
 };
 
 type Section = { href: string; title: string; desc: string; icon: string; count: string; glaze: Glaze; span?: "wide" | "tall" };

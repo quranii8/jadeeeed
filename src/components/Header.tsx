@@ -8,6 +8,7 @@ import { SearchBar } from "./SearchBar";
 import { UserMenu } from "./auth/UserMenu";
 import { AppIcon } from "@/components/AppIcon";
 import { StarMark } from "@/components/zellige/Rosette";
+import { SkinSwitch } from "./SkinSwitch";
 
 export function Header() {
   const theme = useQuranStore((s) => s.theme);
@@ -76,6 +77,7 @@ export function Header() {
             {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
 
+          <SkinSwitch compact />
           <UserMenu />
 
           <button

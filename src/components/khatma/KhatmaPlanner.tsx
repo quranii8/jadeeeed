@@ -49,10 +49,10 @@ export function KhatmaPlanner() {
               type="button"
               onClick={() => startKhatma(p.days)}
               className="wall-tile glaze p-5 text-right min-h-[7rem] flex flex-col justify-between"
-              style={{ backgroundColor: ["#1B3A8C", "#0E6B5A", "#B4472F", "#0E1630", "#8F5D07"][i], color: "#F4F6FB" }}
+              style={{ backgroundColor: ["var(--g-cobalt)", "var(--g-emerald)", "var(--g-terracotta)", "var(--g-ink)", "var(--g-saffron-deep)"][i], color: "var(--g-on)" }}
             >
               <span className="font-kufic font-bold text-2xl">{p.label}</span>
-              <span className="text-xs" style={{ color: "#D5DEF3" }}>
+              <span className="text-xs" style={{ color: "var(--g-on-muted)" }}>
                 نحو {toArabicNum(Math.round(604 / p.days))} صفحة في اليوم
               </span>
             </button>
@@ -71,15 +71,15 @@ export function KhatmaPlanner() {
   return (
     <div>
       <div className="tile-wall grid md:grid-cols-[1.4fr_1fr] gap-[5px] p-[5px]" style={{ background: "var(--grout-wall)" }}>
-        <div className="wall-tile p-6 md:p-8" style={{ backgroundColor: "#1B3A8C", color: "#F4F6FB" }}>
+        <div className="wall-tile p-6 md:p-8" style={{ backgroundColor: "var(--g-cobalt)", color: "var(--g-on)" }}>
           {finished ? (
             <>
               <div className="font-kufic font-bold text-3xl md:text-4xl">ختمت القرآن</div>
-              <p className="mt-3" style={{ color: "#D5DEF3" }}>تقبّل الله منك. ابدأ ختمة جديدة متى شئت.</p>
+              <p className="mt-3" style={{ color: "var(--g-on-muted)" }}>تقبّل الله منك. ابدأ ختمة جديدة متى شئت.</p>
             </>
           ) : (
             <>
-              <div className="text-sm" style={{ color: "#D5DEF3" }}>
+              <div className="text-sm" style={{ color: "var(--g-on-muted)" }}>
                 ورد اليوم {today >= khatma.days ? "(تأخرت عن الخطة، أكمل من حيث وقفت)" : `، اليوم ${toArabicNum(today + 1)} من ${toArabicNum(khatma.days)}`}
               </div>
               <div className="font-kufic font-bold text-2xl md:text-3xl mt-2 leading-snug">{range(todayPortion)}</div>
@@ -91,7 +91,7 @@ export function KhatmaPlanner() {
                   type="button"
                   onClick={() => toggleDay(Math.min(Math.max(today, 0), khatma.days - 1))}
                   className="btn"
-                  style={{ background: "#10275F", borderColor: "#EEF1EC", color: "#F4F6FB" }}
+                  style={{ background: "var(--g-deep)", borderColor: "var(--g-plaster)", color: "var(--g-on)" }}
                 >
                   <Check className="w-4 h-4" aria-hidden="true" />
                   {khatma.done.includes(Math.min(Math.max(today, 0), khatma.days - 1)) ? "تم، إلغاء" : "قرأت ورد اليوم"}
@@ -129,7 +129,7 @@ export function KhatmaPlanner() {
                   type="button"
                   onClick={() => toggleDay(i)}
                   className="w-9 h-9 shrink-0 grid place-items-center rounded font-bold text-sm"
-                  style={{ background: done ? "var(--emerald)" : "var(--bg-soft)", color: done ? "#F2F8F5" : "var(--text-muted)" }}
+                  style={{ background: done ? "var(--emerald)" : "var(--bg-soft)", color: done ? "var(--g-on)" : "var(--text-muted)" }}
                   aria-label={done ? `إلغاء إتمام اليوم ${i + 1}` : `تم اليوم ${i + 1}`}
                   aria-pressed={done}
                 >

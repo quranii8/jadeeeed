@@ -31,7 +31,7 @@ export default function TajweedPage() {
             <div className="flex items-center gap-3 mb-4">
               <span
                 className="w-1.5 h-7 rounded"
-                style={{ background: "linear-gradient(to bottom, #1B3A8C, #2D54B8)" }}
+                style={{ background: "linear-gradient(to bottom, var(--g-cobalt), var(--g-cobalt-light))" }}
               />
               <h2 className="text-xl md:text-2xl font-extrabold">{cat.name}</h2>
               <span className="text-sm" style={{ color: "var(--text-muted)" }}>
@@ -63,7 +63,7 @@ export default function TajweedPage() {
                       </p>
                       <div
                         className="mt-2 text-xs font-semibold flex items-center gap-1"
-                        style={{ color: "#1B3A8C" }}
+                        style={{ color: "var(--g-cobalt)" }}
                       >
                         تعلّم
                         <ChevronLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" />

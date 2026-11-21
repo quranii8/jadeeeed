@@ -49,7 +49,7 @@ export default function QuranSciencesPage() {
                 </p>
                 <div
                   className="text-sm font-semibold flex items-center gap-1"
-                  style={{ color: "#1B3A8C" }}
+                  style={{ color: "var(--g-cobalt)" }}
                 >
                   استكشف
                   <ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />

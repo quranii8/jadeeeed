@@ -45,7 +45,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
       {/* الوصف المطول */}
       {science.longDesc && (
         <div className="card p-6 md:p-8 mb-5">
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#1B3A8C" }}>
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "var(--g-cobalt)" }}>
             <BookOpen className="w-6 h-6" />
             نبذة شاملة
           </h2>
@@ -58,7 +58,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
           <div key={i} className="card p-6 md:p-7">
             <h2
               className="text-xl font-bold mb-4 flex items-center gap-2"
-              style={{ color: "#1B3A8C" }}
+              style={{ color: "var(--g-cobalt)" }}
             >
               <span
                 className="w-8 h-8 rounded-full grid place-items-center text-sm"
@@ -75,7 +75,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
                   <li key={j} className="flex items-start gap-3 text-sm leading-relaxed">
                     <span
                       className="flex-shrink-0 w-5 h-5 rounded-full grid place-items-center text-xs"
-                      style={{ background: "rgba(124,58,237,.12)", color: "#1B3A8C" }}
+                      style={{ background: "rgba(124,58,237,.12)", color: "var(--g-cobalt)" }}
                     >
                       •
                     </span>
@@ -89,8 +89,8 @@ export default function ScienceDetailPage({ params }: PageProps) {
 
         {/* أمثلة تطبيقية */}
         {science.examples && science.examples.length > 0 && (
-          <div className="card p-6 md:p-7" style={{ border: "1px solid #D99A1E" }}>
-            <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#D99A1E" }}>
+          <div className="card p-6 md:p-7" style={{ border: "1px solid var(--g-saffron)" }}>
+            <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "var(--g-saffron)" }}>
               أمثلة تطبيقية
             </h2>
             <div className="space-y-3">
@@ -100,7 +100,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
                   className="p-4 rounded-xl"
                   style={{ background: "var(--bg-soft)" }}
                 >
-                  <div className="font-bold mb-2" style={{ color: "#D99A1E" }}>
+                  <div className="font-bold mb-2" style={{ color: "var(--g-saffron)" }}>
                     {ex.title}
                   </div>
                   <p className="text-sm leading-relaxed">{ex.text}</p>
@@ -118,8 +118,8 @@ export default function ScienceDetailPage({ params }: PageProps) {
 
       {/* الفوائد */}
       {science.benefits && science.benefits.length > 0 && (
-        <div className="card p-6 md:p-8 mt-5" style={{ border: "1px solid #0E6B5A" }}>
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#0E6B5A" }}>
+        <div className="card p-6 md:p-8 mt-5" style={{ border: "1px solid var(--g-emerald)" }}>
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "var(--g-emerald)" }}>
             <Award className="w-6 h-6" />
             فوائد دراسة هذا العلم
           </h2>

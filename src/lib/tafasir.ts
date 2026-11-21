@@ -24,7 +24,7 @@ export const TAFASIR: Tafsir[] = [
     description: "تفسير ميسّر بأسلوب سهل وواضح، يبيّن المعنى الإجمالي للآية. مثالي للمبتدئين والقارئ العادي.",
     era: "معاصر (1430هـ)",
     approach: "ميسّر",
-    color: "#0E6B5A",
+    color: "var(--g-emerald)",
     icon: "sparkles",
   },
   {
@@ -35,7 +35,7 @@ export const TAFASIR: Tafsir[] = [
     description: "تفسير مختصر شهير، يجمع بين الإيجاز والشمول. بدأه المحلي (ت 864هـ) وأكمله السيوطي (ت 911هـ).",
     era: "القرن 9هـ",
     approach: "مختصر بالمأثور",
-    color: "#1B3A8C",
+    color: "var(--g-cobalt)",
     icon: "scroll",
   },
   {
@@ -90,7 +90,7 @@ export const TAFASIR: Tafsir[] = [
     description: "تفسير معاصر متوسط الحجم، يعرض المعاني بأسلوب سلس مع التعليق على القضايا المعاصرة.",
     era: "معاصر",
     approach: "معاصر متوسط",
-    color: "#1B3A8C",
+    color: "var(--g-cobalt)",
     icon: "book-open",
   },
   {
@@ -101,7 +101,7 @@ export const TAFASIR: Tafsir[] = [
     description: "تنوير المقباس من تفسير ابن عباس. تفسير مختصر جداً بأسلوب رمزي بليغ.",
     era: "القرن 1هـ (الجمع: 9هـ)",
     approach: "بالمأثور (مختصر)",
-    color: "#B4472F",
+    color: "var(--g-terracotta)",
     icon: "gem",
   },
 ];

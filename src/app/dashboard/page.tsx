@@ -70,25 +70,25 @@ export default async function DashboardPage() {
           icon={<BookmarkCheck className="w-6 h-6" />}
           label="الآيات المحفوظة"
           value={toArabicNum(bookmarksCount)}
-          color="#0E6B5A"
+          color="var(--g-emerald)"
         />
         <StatCard
           icon={<FileText className="w-6 h-6" />}
           label="الملاحظات"
           value={toArabicNum(notesCount)}
-          color="#1B3A8C"
+          color="var(--g-cobalt)"
         />
         <StatCard
           icon={<BookOpen className="w-6 h-6" />}
           label="سور قرأتها"
           value={toArabicNum(uniqueSurahs)}
-          color="#1B3A8C"
+          color="var(--g-cobalt)"
         />
         <StatCard
           icon={<Clock className="w-6 h-6" />}
           label="وقت القراءة"
           value={`${toArabicNum(Math.floor(totalReadingTime / 60))} د`}
-          color="#D99A1E"
+          color="var(--g-saffron)"
         />
       </div>
 
