@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TAJWEED_RULES, getTajweedRule } from "@/lib/tajweed";
 import { ArrowRight, Mic, AlertTriangle, CheckCircle, Target, BookOpen, Lightbulb } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 
 interface PageProps {
   params: { id: string };
@@ -34,7 +35,7 @@ export default function TajweedRulePage({ params }: PageProps) {
         style={{ background: "linear-gradient(135deg, #0ea5e9, #06b6d4)" }}
       >
         <div className="text-sm opacity-90 mb-1">{rule.category}</div>
-        <div className="text-5xl mb-3">{rule.icon}</div>
+        <div className="text-5xl mb-3"><AppIcon name={rule.icon} /></div>
         <h1 className="text-3xl md:text-4xl font-extrabold mb-2">{rule.title}</h1>
         <p className="opacity-95 text-base md:text-lg">{rule.shortDesc}</p>
       </header>
@@ -176,7 +177,7 @@ export default function TajweedRulePage({ params }: PageProps) {
           <div className="space-y-3">
             {rule.tips.map((tip, i) => (
               <div key={i} className="p-4 rounded-xl flex items-start gap-3" style={{ background: "rgba(16,185,129,.06)" }}>
-                <span className="text-xl">✓</span>
+                <span className="text-xl"><AppIcon name="check" /></span>
                 <p className="text-sm leading-relaxed flex-1">{tip}</p>
               </div>
             ))}
@@ -194,7 +195,7 @@ export default function TajweedRulePage({ params }: PageProps) {
           <div className="space-y-3">
             {rule.commonMistakes.map((mistake, i) => (
               <div key={i} className="p-4 rounded-xl flex items-start gap-3" style={{ background: "rgba(239,68,68,.06)" }}>
-                <span className="text-xl">✗</span>
+                <span className="text-xl"><AppIcon name="x" /></span>
                 <p className="text-sm leading-relaxed flex-1">{mistake}</p>
               </div>
             ))}
@@ -252,7 +253,7 @@ export default function TajweedRulePage({ params }: PageProps) {
           style={{ borderRight: "4px solid #d97706", background: "rgba(217,119,6,.04)" }}
         >
           <div className="flex items-start gap-3">
-            <span className="text-2xl">💡</span>
+            <span className="text-2xl"><AppIcon name="lightbulb" /></span>
             <div>
               <div className="font-bold mb-2" style={{ color: "#d97706" }}>ملاحظة مهمة</div>
               <p className="text-sm leading-relaxed">{rule.notes}</p>

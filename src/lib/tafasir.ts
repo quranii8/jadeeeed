@@ -25,7 +25,7 @@ export const TAFASIR: Tafsir[] = [
     era: "معاصر (1430هـ)",
     approach: "ميسّر",
     color: "#16a34a",
-    icon: "✨",
+    icon: "sparkles",
   },
   {
     id: "ar.jalalayn",
@@ -36,7 +36,7 @@ export const TAFASIR: Tafsir[] = [
     era: "القرن 9هـ",
     approach: "مختصر بالمأثور",
     color: "#0ea5e9",
-    icon: "📜",
+    icon: "scroll",
   },
   {
     id: "ar.qurtubi",
@@ -47,7 +47,7 @@ export const TAFASIR: Tafsir[] = [
     era: "القرن 7هـ",
     approach: "فقهي شامل",
     color: "#8b5cf6",
-    icon: "⚖️",
+    icon: "scale",
   },
   {
     id: "ar.tabari",
@@ -58,7 +58,7 @@ export const TAFASIR: Tafsir[] = [
     era: "القرن 4هـ",
     approach: "بالمأثور (موسوعي)",
     color: "#dc2626",
-    icon: "📚",
+    icon: "library",
   },
   {
     id: "ar.baghawi",
@@ -69,7 +69,7 @@ export const TAFASIR: Tafsir[] = [
     era: "القرن 6هـ",
     approach: "بالمأثور (معتدل)",
     color: "#ea580c",
-    icon: "🌿",
+    icon: "leaf",
   },
   {
     id: "ar.ibnkatheer",
@@ -80,7 +80,7 @@ export const TAFASIR: Tafsir[] = [
     era: "القرن 8هـ",
     approach: "بالمأثور (السلفي)",
     color: "#0d9488",
-    icon: "🕌",
+    icon: "mosque",
   },
   {
     id: "ar.waseet",
@@ -91,7 +91,7 @@ export const TAFASIR: Tafsir[] = [
     era: "معاصر",
     approach: "معاصر متوسط",
     color: "#7c3aed",
-    icon: "📖",
+    icon: "book-open",
   },
   {
     id: "ar.miqbas",
@@ -102,7 +102,7 @@ export const TAFASIR: Tafsir[] = [
     era: "القرن 1هـ (الجمع: 9هـ)",
     approach: "بالمأثور (مختصر)",
     color: "#be185d",
-    icon: "💎",
+    icon: "gem",
   },
 ];
 
@@ -116,19 +116,18 @@ export interface Translation {
   id: string;
   language: string;
   name: string;
-  flag: string;
   direction: "rtl" | "ltr";
 }
 
 export const TRANSLATIONS: Translation[] = [
-  { id: "en.sahih",      language: "English",    name: "Sahih International", flag: "🇸🇦", direction: "ltr" },
-  { id: "en.pickthall",  language: "English",    name: "Pickthall",           flag: "🇬🇧", direction: "ltr" },
-  { id: "en.yusufali",   language: "English",    name: "Yusuf Ali",           flag: "🇬🇧", direction: "ltr" },
-  { id: "fr.hamidullah", language: "Français",   name: "Hamidullah",          flag: "🇫🇷", direction: "ltr" },
-  { id: "tr.diyanet",    language: "Türkçe",     name: "Diyanet İşleri",      flag: "🇹🇷", direction: "ltr" },
-  { id: "ur.jalandhry",  language: "اردو",        name: "جالندہری",            flag: "🇵🇰", direction: "rtl" },
-  { id: "id.indonesian", language: "Indonesia",  name: "Bahasa Indonesia",    flag: "🇮🇩", direction: "ltr" },
-  { id: "es.cortes",     language: "Español",    name: "Julio Cortés",        flag: "🇪🇸", direction: "ltr" },
-  { id: "ru.kuliev",     language: "Русский",    name: "Эльмир Кулиев",       flag: "🇷🇺", direction: "ltr" },
-  { id: "de.aburida",    language: "Deutsch",    name: "Abu Rida",            flag: "🇩🇪", direction: "ltr" },
+  { id: "en.sahih",      language: "English",    name: "Sahih International",  direction: "ltr" },
+  { id: "en.pickthall",  language: "English",    name: "Pickthall",  direction: "ltr" },
+  { id: "en.yusufali",   language: "English",    name: "Yusuf Ali",  direction: "ltr" },
+  { id: "fr.hamidullah", language: "Français",   name: "Hamidullah",  direction: "ltr" },
+  { id: "tr.diyanet",    language: "Türkçe",     name: "Diyanet İşleri",  direction: "ltr" },
+  { id: "ur.jalandhry",  language: "اردو",        name: "جالندہری",  direction: "rtl" },
+  { id: "id.indonesian", language: "Indonesia",  name: "Bahasa Indonesia",  direction: "ltr" },
+  { id: "es.cortes",     language: "Español",    name: "Julio Cortés",  direction: "ltr" },
+  { id: "ru.kuliev",     language: "Русский",    name: "Эльмир Кулиев",  direction: "ltr" },
+  { id: "de.aburida",    language: "Deutsch",    name: "Abu Rida",  direction: "ltr" },
 ];

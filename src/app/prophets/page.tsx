@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PROPHETS } from "@/lib/prophets";
 import { ChevronLeft } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 
 export const metadata: Metadata = {
   title: "قصص الأنبياء",
@@ -23,7 +24,7 @@ export default function ProphetsPage() {
           }}
         />
         <div className="relative">
-          <div className="text-5xl mb-3">🌿</div>
+          <div className="text-5xl mb-3"><AppIcon name="leaf" /></div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-2">قصص الأنبياء عليهم السلام</h1>
           <p className="text-base md:text-lg opacity-95 max-w-2xl mx-auto">
             ﴿لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِّأُولِي الْأَلْبَابِ﴾

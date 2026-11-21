@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { Search, Copy, BookOpen, X } from "lucide-react";
 import { HadithQudsi } from "@/lib/hadith-qudsi";
 import { toArabicNum } from "@/lib/utils";
+import { AppIcon } from "@/components/AppIcon";
 
 interface Props {
   hadiths: HadithQudsi[];
@@ -82,7 +83,7 @@ export function HadithQudsiBrowser({ hadiths }: Props) {
 
       {filtered.length === 0 ? (
         <div className="card p-10 text-center">
-          <div className="text-5xl mb-3">🔍</div>
+          <div className="text-5xl mb-3"><AppIcon name="search" /></div>
           <p style={{ color: "var(--text-muted)" }}>لا توجد نتائج</p>
         </div>
       ) : (
@@ -131,7 +132,7 @@ export function HadithQudsiBrowser({ hadiths }: Props) {
                   className="mt-3 text-sm p-3 rounded-lg"
                   style={{ background: "var(--bg-soft)", color: "var(--text)" }}
                 >
-                  ✦ <strong style={{ color: "var(--gold-dark)" }}>الفائدة:</strong> {h.benefit}
+                  <AppIcon name="sparkle" /> <strong style={{ color: "var(--gold-dark)" }}>الفائدة:</strong> {h.benefit}
                 </div>
               )}
             </div>

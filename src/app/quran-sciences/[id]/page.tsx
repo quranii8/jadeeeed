@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { QURAN_SCIENCES, getScience } from "@/lib/quran-sciences";
 import { ArrowRight, BookOpen, Lightbulb, Star, Award, Link2 } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 
 interface PageProps {
   params: { id: string };
@@ -37,7 +38,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
         className="rounded-3xl p-8 md:p-10 text-white relative overflow-hidden mb-6"
         style={{ background: "linear-gradient(135deg, #7c3aed, #a855f7)" }}
       >
-        <div className="text-5xl mb-3">{science.icon}</div>
+        <div className="text-5xl mb-3"><AppIcon name={science.icon} /></div>
         <h1 className="text-3xl md:text-4xl font-extrabold mb-2">{science.title}</h1>
         <p className="opacity-95 text-base md:text-lg">{science.shortDesc}</p>
       </header>
@@ -91,7 +92,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
         {science.examples && science.examples.length > 0 && (
           <div className="card p-6 md:p-7" style={{ borderRight: "4px solid #d97706" }}>
             <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#d97706" }}>
-              💡 أمثلة تطبيقية
+              أمثلة تطبيقية
             </h2>
             <div className="space-y-3">
               {science.examples.map((ex, i) => (
@@ -126,7 +127,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {science.benefits.map((benefit, i) => (
               <div key={i} className="p-4 rounded-xl flex items-start gap-3" style={{ background: "rgba(16,185,129,.06)" }}>
-                <span className="text-xl">✓</span>
+                <span className="text-xl"><AppIcon name="check" /></span>
                 <span className="text-sm leading-relaxed">{benefit}</span>
               </div>
             ))}
@@ -161,7 +162,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
       {science.famousBooks && science.famousBooks.length > 0 && (
         <div className="card p-6 md:p-8 mt-5">
           <h2 className="text-xl font-bold mb-4" style={{ color: "var(--primary)" }}>
-            📚 كتب مشهورة في هذا العلم
+            كتب مشهورة في هذا العلم
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {science.famousBooks.map((book, i) => (
@@ -180,7 +181,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
       {science.references && science.references.length > 0 && (
         <div className="card p-6 md:p-8 mt-5" style={{ borderRight: "4px solid #ec4899" }}>
           <h2 className="text-xl font-bold mb-4" style={{ color: "#ec4899" }}>
-            📖 مراجع قرآنية
+            مراجع قرآنية
           </h2>
           <div className="space-y-4">
             {science.references.map((ref, i) => (
@@ -218,7 +219,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
                   className="px-4 py-2 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5"
                   style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
                 >
-                  {t.icon} {t.title}
+                  <AppIcon name={t.icon} /> {t.title}
                 </Link>
               );
             })}

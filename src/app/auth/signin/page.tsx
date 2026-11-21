@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SignInForm } from "@/components/auth/SignInForm";
+import { AppIcon } from "@/components/AppIcon";
 
 export const metadata: Metadata = {
   title: "تسجيل الدخول",
@@ -27,7 +28,7 @@ export default function SignInPage() {
       </div>
 
       <div className="text-center mt-6 text-xs" style={{ color: "var(--text-soft)" }}>
-        🔒 لا نستخدم بياناتك لأي أغراض تجارية. كل ما نحفظه محمي ومشفّر.
+        <AppIcon name="lock" /> لا نستخدم بياناتك لأي أغراض تجارية. كل ما نحفظه محمي ومشفّر.
       </div>
     </div>
   );

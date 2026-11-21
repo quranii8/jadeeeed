@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PROPHETS, getProphet } from "@/lib/prophets";
 import { ArrowRight, MapPin, Clock, Users, Lightbulb, BookOpen, Heart, Sparkles, Star, GitBranch } from "lucide-react";
 import { getSurah } from "@/lib/surahs";
+import { AppIcon } from "@/components/AppIcon";
 
 interface PageProps {
   params: { id: string };
@@ -108,7 +109,7 @@ export default function ProphetPage({ params }: PageProps) {
             {prophet.miracles.map((m, i) => (
               <div key={i} className="p-4 rounded-xl" style={{ background: "var(--bg-soft)" }}>
                 <div className="flex items-start gap-3">
-                  <span className="text-xl">✨</span>
+                  <span className="text-xl"><AppIcon name="sparkles" /></span>
                   <span className="text-sm leading-relaxed">{m}</span>
                 </div>
               </div>
@@ -170,7 +171,7 @@ export default function ProphetPage({ params }: PageProps) {
       {/* الحكم */}
       <div className="card p-6 md:p-8 mb-5">
         <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#16a34a" }}>
-          📖 القصة
+          القصة
         </h2>
         <p className="text-base md:text-lg leading-loose">{prophet.story}</p>
       </div>
@@ -210,7 +211,7 @@ export default function ProphetPage({ params }: PageProps) {
           <div className="space-y-3">
             {prophet.wisdomSayings.map((w, i) => (
               <div key={i} className="p-4 rounded-xl flex items-start gap-3" style={{ background: "var(--bg-soft)" }}>
-                <span className="text-xl">💎</span>
+                <span className="text-xl"><AppIcon name="gem" /></span>
                 <p className="text-sm leading-relaxed flex-1">{w}</p>
               </div>
             ))}
@@ -308,7 +309,7 @@ export default function ProphetPage({ params }: PageProps) {
                   className="px-3 py-1.5 rounded-full text-xs font-semibold transition-all hover:-translate-y-0.5"
                   style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
                 >
-                  📖 {s.a}
+                  <AppIcon name="book-open" /> {s.a}
                 </Link>
               );
             })}

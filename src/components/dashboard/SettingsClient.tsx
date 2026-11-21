@@ -4,6 +4,7 @@ import { useQuranStore } from "@/lib/store";
 import { TAFASIR, TRANSLATIONS } from "@/lib/tafasir";
 import { RECITERS } from "@/lib/reciters";
 import { User, Palette, BookOpen, Mic, Globe } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 
 interface Props {
   user: { name: string; email: string };
@@ -49,7 +50,7 @@ export function SettingsClient({ user }: Props) {
                 color: theme === "light" ? "white" : "var(--text-muted)",
               }}
             >
-              ☀️ نهاري
+              <AppIcon name="sun" /> نهاري
             </button>
             <button
               onClick={() => theme === "light" && toggleTheme()}
@@ -59,7 +60,7 @@ export function SettingsClient({ user }: Props) {
                 color: theme === "dark" ? "white" : "var(--text-muted)",
               }}
             >
-              🌙 ليلي
+              <AppIcon name="moon" /> ليلي
             </button>
           </div>
         </Field>
@@ -87,7 +88,7 @@ export function SettingsClient({ user }: Props) {
             style={{ background: "var(--bg-soft)", border: "1px solid var(--border)", color: "var(--text)" }}
           >
             {TAFASIR.map((t) => (
-              <option key={t.id} value={t.id}>{t.icon} {t.name}</option>
+              <option key={t.id} value={t.id}>{t.name}</option>
             ))}
           </select>
         </Field>
@@ -100,7 +101,7 @@ export function SettingsClient({ user }: Props) {
               color: showTranslation ? "white" : "var(--text-muted)",
             }}
           >
-            {showTranslation ? "✓ مفعّل" : "معطّل"}
+            {showTranslation ? "مفعّل" : "معطّل"}
           </button>
         </Field>
       </Section>
@@ -115,7 +116,7 @@ export function SettingsClient({ user }: Props) {
             style={{ background: "var(--bg-soft)", border: "1px solid var(--border)", color: "var(--text)" }}
           >
             {TRANSLATIONS.map((t) => (
-              <option key={t.id} value={t.id}>{t.flag} {t.language} — {t.name}</option>
+              <option key={t.id} value={t.id}>{t.language} — {t.name}</option>
             ))}
           </select>
         </Field>
@@ -141,7 +142,7 @@ export function SettingsClient({ user }: Props) {
         className="p-4 rounded-xl text-xs leading-relaxed text-center"
         style={{ background: "var(--bg-soft)", color: "var(--text-muted)" }}
       >
-        ✦ التغييرات تُحفظ تلقائياً على جهازك. التزامن مع حسابك يحفظ المحفوظات والملاحظات فقط.
+        <AppIcon name="sparkle" /> التغييرات تُحفظ تلقائياً على جهازك. التزامن مع حسابك يحفظ المحفوظات والملاحظات فقط.
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ export const QURAN_SCIENCES: ScienceTopic[] = [
   {
     id: "asbab-nuzul",
     title: "أسباب النزول",
-    icon: "📜",
+    icon: "scroll",
     shortDesc: "الأحداث والوقائع التي نزلت الآيات بسببها",
     longDesc: "علم يبحث في السبب الذي نزلت الآية أو السورة بسببه، سواء كان حادثة واقعة أو سؤالاً مطروحاً أو موعظة.",
     content: [
@@ -108,7 +108,7 @@ export const QURAN_SCIENCES: ScienceTopic[] = [
   {
     id: "makki-madani",
     title: "المكي والمدني",
-    icon: "🕋",
+    icon: "kaaba",
     shortDesc: "تمييز ما نزل بمكة عما نزل بالمدينة",
     longDesc: "علم يبحث في تحديد زمن نزول القرآن الكريم بالنسبة للهجرة النبوية الشريفة، ومعرفة خصائص كل منهما.",
     content: [
@@ -192,7 +192,7 @@ export const QURAN_SCIENCES: ScienceTopic[] = [
   {
     id: "nasikh-mansukh",
     title: "الناسخ والمنسوخ",
-    icon: "🔄",
+    icon: "repeat",
     shortDesc: "رفع الحكم الشرعي بدليل شرعي متأخر",
     longDesc: "علم يبحث في معرفة الحكم الشرعي المنسوخ الذي رفعه دليل شرعي آخر متأخر عنه في زمن النزول.",
     content: [
@@ -270,7 +270,7 @@ export const QURAN_SCIENCES: ScienceTopic[] = [
   {
     id: "muhkam-mutashabih",
     title: "المحكم والمتشابه",
-    icon: "⚖️",
+    icon: "scale",
     shortDesc: "ما اتضح معناه مقابل ما خفي",
     longDesc: "علم يبحث في تمييز الآيات المحكمة التي لا تحتمل إلا معنى واحداً، عن الآيات المتشابهة التي تحتمل أكثر من معنى.",
     content: [
@@ -325,7 +325,7 @@ export const QURAN_SCIENCES: ScienceTopic[] = [
   {
     id: "ghraib",
     title: "غريب القرآن",
-    icon: "🔤",
+    icon: "type",
     shortDesc: "الكلمات القرآنية غير المتداولة في اللغة العامة",
     longDesc: "علم يُعنى بشرح الكلمات الغريبة أو غير المألوفة في القرآن الكريم، ومعرفة معانيها من اللغة العربية الفصحى وأشعار العرب.",
     content: [
@@ -389,7 +389,7 @@ export const QURAN_SCIENCES: ScienceTopic[] = [
   {
     id: "iaaz",
     title: "إعجاز القرآن",
-    icon: "✨",
+    icon: "sparkles",
     shortDesc: "تحدّي القرآن للبلغاء عبر العصور",
     longDesc: "إثبات عجز البشر عن الإتيان بمثل القرآن، فهو معجزة محمد ﷺ الباقية إلى يوم القيامة.",
     content: [
@@ -454,7 +454,7 @@ export const QURAN_SCIENCES: ScienceTopic[] = [
   {
     id: "qiraat",
     title: "القراءات السبع",
-    icon: "🎙️",
+    icon: "mic",
     shortDesc: "اختلاف ألفاظ الوحي المنقولة بالتواتر",
     longDesc: "اختلاف ألفاظ الوحي في كيفية النطق بحروف القرآن، منقولة بالتواتر عن النبي ﷺ.",
     content: [
@@ -519,7 +519,7 @@ export const QURAN_SCIENCES: ScienceTopic[] = [
   {
     id: "fadail-suwar",
     title: "فضائل السور",
-    icon: "⭐",
+    icon: "star",
     shortDesc: "ما ورد في فضل بعض السور والآيات",
     longDesc: "بيان ما ورد من فضائل بعض السور والآيات في القرآن الكريم من الكتاب والسنة.",
     content: [
@@ -572,7 +572,7 @@ export const QURAN_SCIENCES: ScienceTopic[] = [
   {
     id: "ulsul-tafseer",
     title: "أصول التفسير",
-    icon: "📚",
+    icon: "library",
     shortDesc: "قواعد و Methods التفسير الصحيح للقرآن",
     longDesc: "علم يبحث في القواعد والأساليب الصحيحة لتفسير القرآن الكريم وفهم معانيه.",
     content: [
@@ -620,7 +620,7 @@ export const QURAN_SCIENCES: ScienceTopic[] = [
   {
     id: "ord-alhuruf",
     title: "ترتيب الآيات والسور",
-    icon: "📖",
+    icon: "book-open",
     shortDesc: "ترتيب القرآن وحكمة تنظيمه",
     longDesc: "علم يبحث في ترتيب آيات القرآن وسوره، وحكمة هذا الترتيب والتنظيم الإلهي.",
     content: [
@@ -653,7 +653,7 @@ export const QURAN_SCIENCES: ScienceTopic[] = [
   {
     id: "hifz-quran",
     title: "حفظ القرآن الكريم",
-    icon: "🕌",
+    icon: "mosque",
     shortDesc: "آداب وقواعد حفظ القرآن",
     longDesc: "علم يبحث في آداب حفظ القرآن الكريم وقواعده وMethods الصحيحة للحفظ.",
     content: [

@@ -5,6 +5,7 @@ import { Trash2, BookOpen } from "lucide-react";
 import { useQuranStore } from "@/lib/store";
 import { getSurah } from "@/lib/surahs";
 import { toArabicNum } from "@/lib/utils";
+import { AppIcon } from "@/components/AppIcon";
 
 export function BookmarksList() {
   const bookmarks = useQuranStore((s) => s.bookmarks);
@@ -13,7 +14,7 @@ export function BookmarksList() {
   if (bookmarks.length === 0) {
     return (
       <div className="card p-12 text-center">
-        <div className="text-6xl mb-4">📭</div>
+        <div className="text-6xl mb-4"><AppIcon name="inbox" /></div>
         <h2 className="text-lg font-bold mb-2">لا توجد آيات محفوظة بعد</h2>
         <p className="text-sm mb-5" style={{ color: "var(--text-muted)" }}>
           اضغط على أي آية أثناء القراءة ثم اختر &quot;حفظ&quot; لتظهر هنا.

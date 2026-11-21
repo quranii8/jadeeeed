@@ -2,6 +2,7 @@ import { getAyah } from "@/lib/quran-api";
 import { getSurah } from "@/lib/surahs";
 import { toArabicNum } from "@/lib/utils";
 import Link from "next/link";
+import { AppIcon } from "@/components/AppIcon";
 
 const VERSE_POOL = [
   "2:255", "59:22", "59:23", "1:1", "94:5", "65:3",
@@ -50,7 +51,7 @@ export async function DailyVerse() {
             className="inline-flex items-center gap-1.5 text-sm font-bold mb-4"
             style={{ color: "var(--gold-dark)" }}
           >
-            ✦ آية اليوم
+            <AppIcon name="sparkle" /> آية اليوم
           </div>
 
           {data ? (
@@ -62,7 +63,7 @@ export async function DailyVerse() {
                 {data.ar}
               </p>
               <div className="text-sm md:text-base mb-4" style={{ color: "var(--text-muted)" }}>
-                📖 سورة <strong>{data.surah.a}</strong> — الآية {toArabicNum(data.verseNum)}
+                <AppIcon name="book-open" /> سورة <strong>{data.surah.a}</strong> — الآية {toArabicNum(data.verseNum)}
               </div>
               <div
                 className="pt-4 border-t border-dashed text-sm md:text-base italic leading-relaxed"

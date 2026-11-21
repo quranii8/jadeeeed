@@ -22,7 +22,7 @@ export const ADHKAR: DhikrCategory[] = [
   {
     id: "morning",
     title: "أذكار الصباح",
-    icon: "🌅",
+    icon: "sunrise",
     description: "تُقال من بعد صلاة الفجر إلى طلوع الشمس",
     items: [
       {
@@ -114,7 +114,7 @@ export const ADHKAR: DhikrCategory[] = [
   {
     id: "evening",
     title: "أذكار المساء",
-    icon: "🌙",
+    icon: "moon",
     description: "تُقال من بعد صلاة العصر إلى المغرب",
     items: [
       {
@@ -170,7 +170,7 @@ export const ADHKAR: DhikrCategory[] = [
   {
     id: "after_salah",
     title: "أذكار بعد الصلاة",
-    icon: "🕌",
+    icon: "mosque",
     description: "تُقال بعد كل صلاة مفروضة",
     items: [
       {
@@ -214,7 +214,7 @@ export const ADHKAR: DhikrCategory[] = [
   {
     id: "sleep",
     title: "أذكار النوم",
-    icon: "🛏️",
+    icon: "bed",
     description: "تُقال عند الخلود إلى الفراش",
     items: [
       {
@@ -243,7 +243,7 @@ export const ADHKAR: DhikrCategory[] = [
   {
     id: "wakeup",
     title: "أذكار الاستيقاظ",
-    icon: "☀️",
+    icon: "sun",
     description: "تُقال عند الاستيقاظ من النوم",
     items: [
       {
@@ -261,7 +261,7 @@ export const ADHKAR: DhikrCategory[] = [
   {
     id: "duaa",
     title: "أدعية مأثورة",
-    icon: "🤲",
+    icon: "hand-heart",
     description: "أدعية من القرآن والسنة لجميع الحاجات",
     items: [
       {

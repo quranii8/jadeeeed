@@ -5,6 +5,7 @@ import { RECITERS, getReciter } from "@/lib/reciters";
 import { ReciterPlaylist } from "@/components/ReciterPlaylist";
 import { ReciterAvatar } from "@/components/ReciterAvatar";
 import { ArrowRight, MapPin, Mic } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 
 interface PageProps {
   params: { id: string };
@@ -65,7 +66,7 @@ export default function ReciterPage({ params }: PageProps) {
             </div>
             {reciter.fullSurahServer && (
               <div className="mt-3 inline-block px-3 py-1 rounded-full text-xs bg-white/20">
-                ✓ تشغيل متواصل للسور الكاملة
+                <AppIcon name="check" /> تشغيل متواصل للسور الكاملة
               </div>
             )}
           </div>

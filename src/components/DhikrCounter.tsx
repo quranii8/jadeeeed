@@ -4,6 +4,7 @@ import { useState } from "react";
 import { RotateCcw, Check, Volume2, Copy } from "lucide-react";
 import { Dhikr } from "@/lib/adhkar";
 import { toArabicNum } from "@/lib/utils";
+import { AppIcon } from "@/components/AppIcon";
 
 interface Props {
   dhikr: Dhikr;
@@ -82,7 +83,7 @@ export function DhikrCounter({ dhikr, index }: Props) {
                   className="text-xs font-semibold"
                   style={{ color: "var(--gold-dark)" }}
                 >
-                  📖 {dhikr.reference}
+                  <AppIcon name="book-open" /> {dhikr.reference}
                 </div>
               )}
             </div>
@@ -124,7 +125,7 @@ export function DhikrCounter({ dhikr, index }: Props) {
               borderRight: "3px solid var(--gold)",
             }}
           >
-            ✦ <strong style={{ color: "var(--gold-dark)" }}>الفضل:</strong> {dhikr.benefit}
+            <AppIcon name="sparkle" /> <strong style={{ color: "var(--gold-dark)" }}>الفضل:</strong> {dhikr.benefit}
           </div>
         )}
 

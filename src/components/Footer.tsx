@@ -38,7 +38,7 @@ export function Footer() {
 
         <div className="text-center pt-6 border-t" style={{ borderColor: "var(--border)" }}>
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-            صُنع بحب لخدمة كتاب الله تعالى ✦ © {new Date().getFullYear()}
+            صُنع بحب لخدمة كتاب الله تعالى · © {new Date().getFullYear()}
           </p>
           <p className="mt-1.5 text-xs" style={{ color: "var(--text-soft)" }}>
             المصادر: api.alquran.cloud • mp3quran.net • everyayah.com • aladhan.com

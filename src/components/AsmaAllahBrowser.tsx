@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { Search, X } from "lucide-react";
 import { DivineName } from "@/lib/asma-allah";
 import { toArabicNum } from "@/lib/utils";
+import { AppIcon } from "@/components/AppIcon";
 
 interface Props {
   names: DivineName[];
@@ -91,7 +92,7 @@ export function AsmaAllahBrowser({ names }: Props) {
 
       {filtered.length === 0 && (
         <div className="text-center py-16">
-          <div className="text-5xl mb-3">🔍</div>
+          <div className="text-5xl mb-3"><AppIcon name="search" /></div>
           <p style={{ color: "var(--text-muted)" }}>لا توجد نتائج لـ &quot;{q}&quot;</p>
         </div>
       )}
@@ -141,7 +142,7 @@ export function AsmaAllahBrowser({ names }: Props) {
                   className="text-xs font-bold mb-2"
                   style={{ color: "var(--gold-dark)" }}
                 >
-                  ✦ المعنى
+                  <AppIcon name="sparkle" /> المعنى
                 </div>
                 <p className="text-base md:text-lg font-medium">{selected.meaning}</p>
               </div>
@@ -154,7 +155,7 @@ export function AsmaAllahBrowser({ names }: Props) {
                   className="text-xs font-bold mb-3"
                   style={{ color: "var(--primary)" }}
                 >
-                  📖 الشرح
+                  <AppIcon name="book-open" /> الشرح
                 </div>
                 <p className="text-base leading-loose">{selected.explanation}</p>
               </div>

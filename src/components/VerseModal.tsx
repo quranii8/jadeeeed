@@ -8,6 +8,7 @@ import { TAFASIR, TRANSLATIONS } from "@/lib/tafasir";
 import { toArabicNum } from "@/lib/utils";
 import { fetchAyahTafsir, fetchAyahTafsirs } from "@/lib/tafsir-source";
 import Link from "next/link";
+import { AppIcon } from "@/components/AppIcon";
 
 interface Verse {
   num: number;
@@ -114,12 +115,12 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
       text: verse.text,
       reference,
     });
-    showToast(added ? "✦ تم الحفظ" : "تمت الإزالة من المحفوظات");
+    showToast(added ? "تم الحفظ" : "تمت الإزالة من المحفوظات");
   };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(`${verse.text}\n\n﴿ ${reference} ﴾`);
-    showToast("تم النسخ ✓");
+    showToast("تم النسخ");
   };
 
   const handleShare = async () => {
@@ -177,7 +178,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
             <ActionBtn icon={<Play className="w-4 h-4" />} label="استماع" onClick={onPlay} />
             <ActionBtn
               icon={<Bookmark className="w-4 h-4" fill={bookmarked ? "currentColor" : "none"} />}
-              label={bookmarked ? "محفوظة ★" : "حفظ"}
+              label={bookmarked ? "محفوظة" : "حفظ"}
               onClick={handleBookmark}
               active={bookmarked}
             />
@@ -215,7 +216,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
                         border: `1px solid ${selectedTafsir === t.id ? t.color : "var(--border)"}`,
                       }}
                     >
-                      {t.icon} {t.shortName}
+                      <AppIcon name={t.icon} /> {t.shortName}
                     </button>
                   ))}
                 </div>
@@ -247,7 +248,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
                         style={{ background: "var(--bg-soft)", borderRight: `4px solid ${t.color}` }}
                       >
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-lg">{t.icon}</span>
+                          <span className="text-lg"><AppIcon name={t.icon} /></span>
                           <div className="font-bold text-sm" style={{ color: t.color }}>{t.shortName}</div>
                           <span className="text-[10px]" style={{ color: "var(--text-muted)" }}>{t.era}</span>
                         </div>
@@ -275,7 +276,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
                         style={{ background: "var(--bg-soft)", borderRight: "3px solid var(--primary)" }}
                       >
                         <div className="flex items-center gap-2 mb-2 text-xs font-semibold" style={{ color: "var(--primary)" }}>
-                          <span className="text-base">{t.flag}</span>
+                          
                           {t.language} — {t.name}
                         </div>
                         <p
@@ -350,7 +351,7 @@ function TafsirCard({ loading, text, tafsirId }: { loading: boolean; text: strin
       style={{ background: "var(--bg-soft)", borderRight: `4px solid ${tafsir.color}` }}
     >
       <div className="flex items-center gap-2 mb-3 flex-wrap">
-        <span className="text-2xl">{tafsir.icon}</span>
+        <span className="text-2xl"><AppIcon name={tafsir.icon} /></span>
         <div>
           <div className="font-bold" style={{ color: tafsir.color }}>{tafsir.name}</div>
           <div className="text-xs" style={{ color: "var(--text-muted)" }}>{tafsir.author}</div>

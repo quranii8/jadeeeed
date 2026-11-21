@@ -6,6 +6,7 @@ import { Menu, Moon, Sun, Search, X } from "lucide-react";
 import { useQuranStore } from "@/lib/store";
 import { SearchBar } from "./SearchBar";
 import { UserMenu } from "./auth/UserMenu";
+import { AppIcon } from "@/components/AppIcon";
 
 export function Header() {
   const theme = useQuranStore((s) => s.theme);
@@ -43,18 +44,18 @@ export function Header() {
           <NavLink href="/surahs">السور</NavLink>
           <NavLink href="/tafsir">التفاسير</NavLink>
           <NavLink href="/reciters">القراء</NavLink>
-          <NavGroup label="📚 المحتوى" items={[
-            { href: "/prophets", label: "🌿 قصص الأنبياء" },
-            { href: "/quran-sciences", label: "📖 علوم القرآن" },
-            { href: "/tajweed", label: "🎵 أحكام التجويد" },
-            { href: "/hadith-qudsi", label: "✨ الأحاديث القدسية" },
-            { href: "/hadith-nabawi", label: "📿 الأحاديث النبوية" },
+          <NavGroup label="المحتوى" items={[
+            { href: "/prophets", label: "قصص الأنبياء" },
+            { href: "/quran-sciences", label: "علوم القرآن" },
+            { href: "/tajweed", label: "أحكام التجويد" },
+            { href: "/hadith-qudsi", label: "الأحاديث القدسية" },
+            { href: "/hadith-nabawi", label: "الأحاديث النبوية" },
           ]} />
-          <NavGroup label="🤲 إسلاميات" items={[
-            { href: "/adhkar", label: "🤲 الأذكار" },
-            { href: "/asma-allah", label: "✨ أسماء الله" },
-            { href: "/prayer-times", label: "🕌 المواقيت" },
-            { href: "/qibla", label: "🧭 القبلة" },
+          <NavGroup label="إسلاميات" items={[
+            { href: "/adhkar", label: "الأذكار" },
+            { href: "/asma-allah", label: "أسماء الله" },
+            { href: "/prayer-times", label: "المواقيت" },
+            { href: "/qibla", label: "القبلة" },
           ]} />
         </nav>
 
@@ -110,31 +111,31 @@ export function Header() {
         >
           <nav className="max-w-3xl mx-auto p-3 space-y-3">
             <MobileSection title="القرآن">
-              <MobileNavLink href="/" onClose={() => setMobileOpen(false)} icon="🏠">الرئيسية</MobileNavLink>
-              <MobileNavLink href="/surahs" onClose={() => setMobileOpen(false)} icon="📖">السور</MobileNavLink>
-              <MobileNavLink href="/tafsir" onClose={() => setMobileOpen(false)} icon="📚">التفاسير</MobileNavLink>
-              <MobileNavLink href="/reciters" onClose={() => setMobileOpen(false)} icon="🎙️">القراء</MobileNavLink>
+              <MobileNavLink href="/" onClose={() => setMobileOpen(false)} icon="home">الرئيسية</MobileNavLink>
+              <MobileNavLink href="/surahs" onClose={() => setMobileOpen(false)} icon="book-open">السور</MobileNavLink>
+              <MobileNavLink href="/tafsir" onClose={() => setMobileOpen(false)} icon="library">التفاسير</MobileNavLink>
+              <MobileNavLink href="/reciters" onClose={() => setMobileOpen(false)} icon="mic">القراء</MobileNavLink>
             </MobileSection>
 
             <MobileSection title="المحتوى الإسلامي">
-              <MobileNavLink href="/prophets" onClose={() => setMobileOpen(false)} icon="🌿">قصص الأنبياء</MobileNavLink>
-              <MobileNavLink href="/quran-sciences" onClose={() => setMobileOpen(false)} icon="📖">علوم القرآن</MobileNavLink>
-              <MobileNavLink href="/tajweed" onClose={() => setMobileOpen(false)} icon="🎵">أحكام التجويد</MobileNavLink>
-              <MobileNavLink href="/hadith-qudsi" onClose={() => setMobileOpen(false)} icon="✨">الأحاديث القدسية</MobileNavLink>
-              <MobileNavLink href="/hadith-nabawi" onClose={() => setMobileOpen(false)} icon="📿">الأحاديث النبوية</MobileNavLink>
+              <MobileNavLink href="/prophets" onClose={() => setMobileOpen(false)} icon="leaf">قصص الأنبياء</MobileNavLink>
+              <MobileNavLink href="/quran-sciences" onClose={() => setMobileOpen(false)} icon="book-open">علوم القرآن</MobileNavLink>
+              <MobileNavLink href="/tajweed" onClose={() => setMobileOpen(false)} icon="audio-waveform">أحكام التجويد</MobileNavLink>
+              <MobileNavLink href="/hadith-qudsi" onClose={() => setMobileOpen(false)} icon="sparkles">الأحاديث القدسية</MobileNavLink>
+              <MobileNavLink href="/hadith-nabawi" onClose={() => setMobileOpen(false)} icon="scroll-text">الأحاديث النبوية</MobileNavLink>
             </MobileSection>
 
             <MobileSection title="أدوات إسلامية">
-              <MobileNavLink href="/adhkar" onClose={() => setMobileOpen(false)} icon="🤲">الأذكار</MobileNavLink>
-              <MobileNavLink href="/asma-allah" onClose={() => setMobileOpen(false)} icon="✨">أسماء الله</MobileNavLink>
-              <MobileNavLink href="/prayer-times" onClose={() => setMobileOpen(false)} icon="🕌">المواقيت</MobileNavLink>
-              <MobileNavLink href="/qibla" onClose={() => setMobileOpen(false)} icon="🧭">القبلة</MobileNavLink>
+              <MobileNavLink href="/adhkar" onClose={() => setMobileOpen(false)} icon="hand-heart">الأذكار</MobileNavLink>
+              <MobileNavLink href="/asma-allah" onClose={() => setMobileOpen(false)} icon="sparkles">أسماء الله</MobileNavLink>
+              <MobileNavLink href="/prayer-times" onClose={() => setMobileOpen(false)} icon="mosque">المواقيت</MobileNavLink>
+              <MobileNavLink href="/qibla" onClose={() => setMobileOpen(false)} icon="compass">القبلة</MobileNavLink>
             </MobileSection>
 
             <MobileSection title="حسابي">
-              <MobileNavLink href="/dashboard" onClose={() => setMobileOpen(false)} icon="📊">لوحة التحكم</MobileNavLink>
-              <MobileNavLink href="/bookmarks" onClose={() => setMobileOpen(false)} icon="★">المحفوظات</MobileNavLink>
-              <MobileNavLink href="/about" onClose={() => setMobileOpen(false)} icon="ℹ️">عن المنصة</MobileNavLink>
+              <MobileNavLink href="/dashboard" onClose={() => setMobileOpen(false)} icon="bar-chart">لوحة التحكم</MobileNavLink>
+              <MobileNavLink href="/bookmarks" onClose={() => setMobileOpen(false)} icon="star">المحفوظات</MobileNavLink>
+              <MobileNavLink href="/about" onClose={() => setMobileOpen(false)} icon="info">عن المنصة</MobileNavLink>
             </MobileSection>
           </nav>
         </div>
@@ -218,7 +219,7 @@ function MobileNavLink({
       className="px-3 py-2.5 rounded-xl font-medium text-sm transition-colors flex items-center gap-2"
       style={{ background: "var(--bg-soft)", color: "var(--text)" }}
     >
-      <span className="text-base">{icon}</span>
+      <span className="text-base" style={{ color: "var(--primary)" }}><AppIcon name={icon} /></span>
       {children}
     </Link>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { TAFASIR } from "@/lib/tafasir";
 import { ChevronLeft } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 
 export function TafsirHighlight() {
   return (
@@ -11,7 +12,7 @@ export function TafsirHighlight() {
             className="w-1.5 h-7 rounded"
             style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
           />
-          <h2 className="text-xl md:text-2xl font-extrabold">📚 ٨ تفاسير معتمدة بين يديك</h2>
+          <h2 className="text-xl md:text-2xl font-extrabold">٨ تفاسير معتمدة بين يديك</h2>
         </div>
         <Link
           href="/tafsir"
@@ -39,7 +40,7 @@ export function TafsirHighlight() {
               className="w-12 h-12 rounded-xl grid place-items-center text-2xl mb-3 transition-transform group-hover:scale-110"
               style={{ background: `${t.color}15`, color: t.color }}
             >
-              {t.icon}
+              <AppIcon name={t.icon} />
             </div>
             <div className="font-bold text-base mb-1">{t.shortName}</div>
             <div className="text-xs leading-relaxed mb-2" style={{ color: "var(--text-muted)" }}>

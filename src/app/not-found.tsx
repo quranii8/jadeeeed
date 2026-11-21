@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { AppIcon } from "@/components/AppIcon";
 
 export default function NotFound() {
   return (
     <section className="max-w-2xl mx-auto px-5 py-20 text-center">
-      <div className="text-7xl mb-5">🕊️</div>
+      <div className="text-7xl mb-5"><AppIcon name="bird" /></div>
       <h1 className="text-3xl font-extrabold mb-3" style={{ color: "var(--primary)" }}>
         الصفحة غير موجودة
       </h1>

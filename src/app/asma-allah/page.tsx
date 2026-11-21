@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ASMA_ALLAH } from "@/lib/asma-allah";
 import { AsmaAllahBrowser } from "@/components/AsmaAllahBrowser";
+import { AppIcon } from "@/components/AppIcon";
 
 export const metadata: Metadata = {
   title: "أسماء الله الحسنى",
@@ -25,7 +26,7 @@ export default function AsmaAllahPage() {
           }}
         />
         <div className="relative">
-          <div className="text-5xl mb-3">✨</div>
+          <div className="text-5xl mb-3"><AppIcon name="sparkles" /></div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-2">أسماء الله الحسنى</h1>
           <p className="text-base md:text-lg opacity-95 max-w-2xl mx-auto">
             ﴿وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا﴾

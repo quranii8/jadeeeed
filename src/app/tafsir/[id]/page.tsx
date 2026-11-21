@@ -4,6 +4,7 @@ import Link from "next/link";
 import { TAFASIR, getTafsir } from "@/lib/tafasir";
 import { TafsirBrowser } from "@/components/TafsirBrowser";
 import { ArrowRight } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 
 interface PageProps {
   params: { id: string };
@@ -42,7 +43,7 @@ export default function TafsirDetailPage({ params }: PageProps) {
           <div
             className="w-20 h-20 rounded-2xl grid place-items-center text-5xl bg-white/15 backdrop-blur shrink-0"
           >
-            {tafsir.icon}
+            <AppIcon name={tafsir.icon} />
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-sm opacity-90 mb-1">{tafsir.approach} • {tafsir.era}</div>
@@ -60,7 +61,7 @@ export default function TafsirDetailPage({ params }: PageProps) {
 
       {/* روابط للتفاسير الأخرى */}
       <div className="mt-10">
-        <h3 className="text-lg font-bold mb-4">📚 تفاسير أخرى</h3>
+        <h3 className="text-lg font-bold mb-4">تفاسير أخرى</h3>
         <div className="flex flex-wrap gap-2">
           {TAFASIR.filter((t) => t.id !== tafsir.id).map((t) => (
             <Link
@@ -68,7 +69,7 @@ export default function TafsirDetailPage({ params }: PageProps) {
               href={`/tafsir/${encodeURIComponent(t.id)}`}
               className="px-3 py-1.5 rounded-full text-sm font-medium transition-all card !py-2 hover:-translate-y-0.5"
             >
-              {t.icon} {t.shortName}
+              <AppIcon name={t.icon} /> {t.shortName}
             </Link>
           ))}
         </div>
