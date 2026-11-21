@@ -6,6 +6,7 @@ import { Surah } from "@/lib/surahs";
 import { useQuranStore } from "@/lib/store";
 import { TAFASIR, TRANSLATIONS } from "@/lib/tafasir";
 import { toArabicNum } from "@/lib/utils";
+import { fetchAyahTafsir, fetchAyahTafsirs } from "@/lib/tafsir-source";
 import Link from "next/link";
 
 interface Verse {
@@ -55,11 +56,10 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
     if (tab !== "tafsir") return;
     let cancel = false;
     setTafsirLoading(true);
-    fetch(`https://api.alquran.cloud/v1/ayah/${surah.n}:${verse.num}/${selectedTafsir}`)
-      .then((r) => r.json())
-      .then((d) => {
+    fetchAyahTafsir(selectedTafsir, surah.n, verse.num)
+      .then((text) => {
         if (cancel) return;
-        setTafsirText(d?.data?.text || "تعذّر تحميل التفسير.");
+        setTafsirText(text || "تعذّر تحميل التفسير.");
       })
       .catch(() => !cancel && setTafsirText("تعذّر تحميل التفسير."))
       .finally(() => !cancel && setTafsirLoading(false));
@@ -71,15 +71,9 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
     if (tab !== "compare") return;
     let cancel = false;
     setCompareLoading(true);
-    const editions = TAFASIR.map((t) => t.id).join(",");
-    fetch(`https://api.alquran.cloud/v1/ayah/${surah.n}:${verse.num}/editions/${editions}`)
-      .then((r) => r.json())
-      .then((d) => {
+    fetchAyahTafsirs(TAFASIR.map((t) => t.id), surah.n, verse.num)
+      .then((arr) => {
         if (cancel) return;
-        const arr = (d?.data || []).map((x: any) => ({
-          id: x.edition.identifier,
-          text: x.text,
-        }));
         setCompareData(arr);
       })
       .catch(() => !cancel && setCompareData([]))
@@ -257,7 +251,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
                           <div className="font-bold text-sm" style={{ color: t.color }}>{t.shortName}</div>
                           <span className="text-[10px]" style={{ color: "var(--text-muted)" }}>{t.era}</span>
                         </div>
-                        <p className="text-sm leading-relaxed">
+                        <p className="text-sm leading-relaxed whitespace-pre-line">
                           {item?.text || "—"}
                         </p>
                       </div>
@@ -376,7 +370,7 @@ function TafsirCard({ loading, text, tafsirId }: { loading: boolean; text: strin
           <div className="skeleton h-4 w-4/6" />
         </div>
       ) : (
-        <p className="text-sm md:text-base leading-loose">{text}</p>
+        <p className="text-sm md:text-base leading-loose whitespace-pre-line">{text}</p>
       )}
     </div>
   );
