@@ -27,9 +27,9 @@ export function booksForTopic(topic: string) {
   return COLLECTIONS.map((c) => ({ collection: c, books: c.books.filter((b) => b.topic === topic) }));
 }
 
-export const COLLECTION_GLAZE: Record<CollectionId, string> = { bukhari: "#1B3A8C", muslim: "#0E6B5A" };
+export const COLLECTION_GLAZE: Record<CollectionId, string> = { bukhari: "var(--g-cobalt)", muslim: "var(--g-emerald)" };
 
-const TOPIC_GLAZES = ["#1B3A8C", "#0E6B5A", "#B4472F", "#0E1630", "#8F5D07"];
+const TOPIC_GLAZES = ["var(--g-cobalt)", "var(--g-emerald)", "var(--g-terracotta)", "var(--g-ink)", "var(--g-saffron-deep)"];
 export function topicGlaze(i: number) {
   return TOPIC_GLAZES[i % TOPIC_GLAZES.length];
 }

@@ -5,7 +5,7 @@ import { RECITERS } from "@/lib/reciters";
 import { TAFASIR } from "@/lib/tafasir";
 import { SAHIHAYN_TOTAL, QUDSI_COUNT } from "@/lib/sahihayn";
 import { ASMA_ALLAH } from "@/lib/asma-allah";
-import { ADHKAR } from "@/lib/adhkar";
+import { ADHKAR, ADHKAR_TOTAL } from "@/lib/adhkar";
 import { TAJWEED_RULES } from "@/lib/tajweed";
 import { QURAN_SCIENCES } from "@/lib/quran-sciences";
 import { PROPHETS } from "@/lib/prophets";
@@ -13,11 +13,11 @@ import { toArabicNum } from "@/lib/utils";
 
 type Glaze = "cobalt" | "emerald" | "saffron" | "terracotta" | "ink";
 const GLAZE: Record<Glaze, { bg: string; fg: string; muted: string; line: string }> = {
-  cobalt: { bg: "#1B3A8C", fg: "#F4F6FB", muted: "#C9D5F0", line: "rgba(238,241,236,.22)" },
-  emerald: { bg: "#0E6B5A", fg: "#F2F8F5", muted: "#BFE3D8", line: "rgba(238,241,236,.22)" },
-  saffron: { bg: "#D99A1E", fg: "#1A1204", muted: "#4A3205", line: "rgba(26,18,4,.18)" },
-  terracotta: { bg: "#B4472F", fg: "#FBF1EE", muted: "#F4CFC5", line: "rgba(238,241,236,.22)" },
-  ink: { bg: "#0E1630", fg: "#EEF1F8", muted: "#B3BCD4", line: "rgba(238,241,236,.16)" },
+  cobalt: { bg: "var(--g-cobalt)", fg: "var(--g-on)", muted: "var(--g-on-muted)", line: "rgba(238,241,236,.22)" },
+  emerald: { bg: "var(--g-emerald)", fg: "var(--g-on)", muted: "var(--g-on-muted)", line: "rgba(238,241,236,.22)" },
+  saffron: { bg: "var(--g-saffron)", fg: "var(--g-on-saffron)", muted: "var(--g-on-saffron-muted)", line: "rgba(26,18,4,.18)" },
+  terracotta: { bg: "var(--g-terracotta)", fg: "var(--g-on)", muted: "var(--g-on-muted)", line: "rgba(238,241,236,.22)" },
+  ink: { bg: "var(--g-ink)", fg: "var(--g-on)", muted: "var(--g-on-muted)", line: "rgba(238,241,236,.16)" },
 };
 
 type Section = { href: string; title: string; desc: string; icon: string; count: string; glaze: Glaze; span?: "wide" | "tall" };
@@ -30,7 +30,7 @@ const SECTIONS: Section[] = [
   { href: "/hadith-nabawi", title: "صحيح البخاري ومسلم", desc: "الصحيحان كاملين، مرتبين على أبواب الفقه", icon: "scroll-text", count: `${toArabicNum(SAHIHAYN_TOTAL)} حديثاً`, glaze: "ink" },
   { href: "/hadith-qudsi", title: "الأحاديث القدسية", desc: "ما رواه النبي ﷺ عن ربه، من الصحيحين", icon: "sparkles", count: `${toArabicNum(QUDSI_COUNT)} حديثاً`, glaze: "cobalt" },
   { href: "/asma-allah", title: "أسماء الله الحسنى", desc: "الأسماء ومعانيها", icon: "sparkle", count: `${toArabicNum(ASMA_ALLAH.length)} اسماً`, glaze: "emerald", span: "wide" },
-  { href: "/adhkar", title: "الأذكار", desc: "أذكار اليوم والليلة مع العدّاد", icon: "hand-heart", count: `${toArabicNum(ADHKAR.length)} أبواب`, glaze: "saffron" },
+  { href: "/adhkar", title: "الأذكار", desc: "حصن المسلم كاملاً مع العدّاد", icon: "hand-heart", count: `${toArabicNum(ADHKAR_TOTAL)} ذكراً`, glaze: "saffron" },
   { href: "/prayer-times", title: "مواقيت الصلاة", desc: "حسب موقعك", icon: "mosque", count: "اليوم", glaze: "terracotta" },
   { href: "/qibla", title: "اتجاه القبلة", desc: "بوصلة من هاتفك", icon: "compass", count: "البوصلة", glaze: "ink" },
   { href: "/tajweed", title: "أحكام التجويد", desc: "الأحكام بأمثلة من الآيات", icon: "audio-waveform", count: `${toArabicNum(TAJWEED_RULES.length)} حكماً`, glaze: "cobalt" },

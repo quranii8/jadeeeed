@@ -118,7 +118,7 @@ export function HifzTrainer() {
           <span className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text-muted)" }}>تكرار كل آية</span>
           <div className="flex gap-1.5">
             {[1, 3, 5, 10].map((n) => (
-              <button key={n} type="button" onClick={() => setRepeat(n)} className="flex-1 py-2.5 rounded font-bold text-sm" style={{ background: repeat === n ? "var(--primary)" : "var(--bg-soft)", color: repeat === n ? "#F4F6FB" : "var(--text)" }} aria-pressed={repeat === n}>
+              <button key={n} type="button" onClick={() => setRepeat(n)} className="flex-1 py-2.5 rounded font-bold text-sm" style={{ background: repeat === n ? "var(--primary)" : "var(--bg-soft)", color: repeat === n ? "var(--g-on)" : "var(--text)" }} aria-pressed={repeat === n}>
                 {toArabicNum(n)}
               </button>
             ))}
@@ -128,7 +128,7 @@ export function HifzTrainer() {
 
       <div className="mt-5 flex flex-wrap items-center gap-2">
         {MODES.map((m) => (
-          <button key={m.id} type="button" onClick={() => { setMode(m.id); setRevealed(new Set()); }} className="px-4 py-2 rounded text-sm font-semibold" style={{ background: mode === m.id ? "var(--gold)" : "var(--surface)", color: mode === m.id ? "#1A1204" : "var(--text)", border: "1px solid var(--border)" }} aria-pressed={mode === m.id}>
+          <button key={m.id} type="button" onClick={() => { setMode(m.id); setRevealed(new Set()); }} className="px-4 py-2 rounded text-sm font-semibold" style={{ background: mode === m.id ? "var(--gold)" : "var(--surface)", color: mode === m.id ? "var(--g-on-saffron)" : "var(--text)", border: "1px solid var(--border)" }} aria-pressed={mode === m.id}>
             {m.label}
           </button>
         ))}

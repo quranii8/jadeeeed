@@ -7,13 +7,33 @@
 
 const W = 1080;
 const H = 1920;
-const COBALT = "#1B3A8C";
-const DEEP = "#10275F";
-const PLASTER = "#EEF1EC";
-const SAFFRON = "#D99A1E";
-const EMERALD = "#0E6B5A";
-const TERRACOTTA = "#B4472F";
-const INK = "#0E1630";
+let COBALT = "#1B3A8C";
+let DEEP = "#10275F";
+let PLASTER = "#EEF1EC";
+let SAFFRON = "#D99A1E";
+let EMERALD = "#0E6B5A";
+let TERRACOTTA = "#B4472F";
+let INK = "#0E1630";
+let ON = "#F4F6FB";
+let ON_MUTED = "#C3CEEB";
+let LATTICE = "rgba(255,255,255,.12)";
+
+/** the card follows the active skin (Andalusian zellige or the Kiswah) */
+function readSkin() {
+  const css = getComputedStyle(document.documentElement);
+  const v = (n: string, d: string) => css.getPropertyValue(n).trim() || d;
+  const kiswah = document.documentElement.dataset.skin === "kiswah";
+  COBALT = v("--g-cobalt", COBALT);
+  DEEP = v("--g-deep", DEEP);
+  SAFFRON = v("--g-saffron", SAFFRON);
+  EMERALD = kiswah ? SAFFRON : v("--g-emerald", EMERALD);
+  TERRACOTTA = kiswah ? SAFFRON : v("--g-terracotta", TERRACOTTA);
+  ON = v("--g-on", ON);
+  ON_MUTED = v("--g-on-muted", ON_MUTED);
+  PLASTER = kiswah ? "#F3EEE2" : "#EEF1EC";
+  INK = kiswah ? "#141210" : "#0E1630";
+  LATTICE = kiswah ? "rgba(201,162,75,.22)" : "rgba(255,255,255,.12)";
+}
 
 type Kind = "verse" | "hadith";
 
@@ -33,7 +53,7 @@ function starPath(ctx: CanvasRenderingContext2D, cx: number, cy: number, R: numb
 
 function lattice(ctx: CanvasRenderingContext2D) {
   ctx.save();
-  ctx.strokeStyle = "rgba(255,255,255,.12)";
+  ctx.strokeStyle = LATTICE;
   ctx.lineWidth = 3;
   for (let y = 0; y < H + 112; y += 112) {
     for (let x = 0; x < W + 112; x += 112) {
@@ -81,6 +101,7 @@ function cssFont(variable: string, fallback: string) {
 }
 
 export async function renderShareCard({ kind, text, reference }: { kind: Kind; text: string; reference: string }): Promise<Blob> {
+  readSkin();
   const textFamily = kind === "verse" ? cssFont("--font-amiri", "Amiri, serif") : cssFont("--font-amiri", "Amiri, serif");
   const uiFamily = cssFont("--font-noto-kufi", "sans-serif");
   await Promise.all([
@@ -104,7 +125,7 @@ export async function renderShareCard({ kind, text, reference }: { kind: Kind; t
 
   // heading on the field
   ctx.textAlign = "center";
-  ctx.fillStyle = "#F4F6FB";
+  ctx.fillStyle = ON;
   ctx.font = `700 64px ReemKufi, ${uiFamily}`;
   ctx.fillText(kind === "verse" ? "آية" : "حديث", W / 2, 210);
   starPath(ctx, W / 2, 290, 30);
@@ -161,7 +182,7 @@ export async function renderShareCard({ kind, text, reference }: { kind: Kind; t
   // reference under a saffron rule
   ctx.fillStyle = SAFFRON;
   ctx.fillRect(W / 2 - 60, bottom - 150, 120, 4);
-  ctx.fillStyle = COBALT;
+  ctx.fillStyle = document.documentElement.dataset.skin === "kiswah" ? "#7D5E1F" : COBALT;
   ctx.font = `600 38px ${uiFamily}`;
   ctx.fillText(reference, W / 2, bottom - 85);
   if (cut) {
@@ -171,10 +192,10 @@ export async function renderShareCard({ kind, text, reference }: { kind: Kind; t
   }
 
   // signature
-  ctx.fillStyle = "#F4F6FB";
+  ctx.fillStyle = ON;
   ctx.font = `700 52px ReemKufi, ${uiFamily}`;
   ctx.fillText("منصة القرآن الكريم", W / 2, H - 190);
-  ctx.fillStyle = "#C3CEEB";
+  ctx.fillStyle = ON_MUTED;
   ctx.font = `600 34px ${uiFamily}`;
   ctx.direction = "ltr";
   ctx.fillText("jadeeeed.vercel.app", W / 2, H - 130);

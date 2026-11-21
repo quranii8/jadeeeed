@@ -43,8 +43,8 @@ export default function AdhkarCategoryPage({ params }: PageProps) {
             backgroundImage: "radial-gradient(circle at 80% 20%, white, transparent 50%)",
           }}
         />
-        <div className="text-6xl mb-3 relative"><AppIcon name={cat.icon} /></div>
-        <h1 className="text-3xl md:text-4xl font-extrabold mb-2 relative">{cat.title}</h1>
+        <div className="text-4xl mb-3 relative"><AppIcon name={cat.icon} /></div>
+        <h1 className="text-3xl md:text-5xl mb-2 relative">{cat.title}</h1>
         <p className="opacity-95 relative">{cat.description}</p>
         <div className="inline-block mt-3 px-4 py-1 rounded text-sm bg-white/20 backdrop-blur relative">
           {cat.items.length} ذكر

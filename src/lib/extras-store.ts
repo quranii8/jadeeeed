@@ -6,7 +6,11 @@ import { persist } from "zustand/middleware";
 export type SavedHadith = { c: string; book: number; id: number; num: string; matn: string; savedAt: number };
 export type Khatma = { start: string; days: number; done: number[] }; // start = YYYY-MM-DD, done = finished day indexes
 
+export type Skin = "andalus" | "kiswah";
+
 type Extras = {
+  skin: Skin;
+  setSkin: (s: Skin) => void;
   hadiths: SavedHadith[];
   toggleHadith: (h: Omit<SavedHadith, "savedAt">) => boolean;
   isHadithSaved: (c: string, id: number) => boolean;
@@ -21,6 +25,8 @@ export const todayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMo
 export const useExtras = create<Extras>()(
   persist(
     (set, get) => ({
+      skin: "andalus",
+      setSkin: (skin) => set({ skin }),
       hadiths: [],
       toggleHadith: (h) => {
         const exists = get().hadiths.some((x) => x.c === h.c && x.id === h.id);

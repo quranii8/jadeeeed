@@ -9,7 +9,7 @@ const CONTENT = [
     icon: "leaf",
     title: "قصص الأنبياء",
     desc: "قصص 25 نبياً ورسولاً عليهم السلام مع الدروس المستفادة من القرآن",
-    gradient: "linear-gradient(135deg, #0E6B5A, #1C8C76)",
+    gradient: "linear-gradient(135deg, var(--g-emerald), var(--g-emerald-light))",
     badge: "25 قصة",
   },
   {
@@ -17,7 +17,7 @@ const CONTENT = [
     icon: "book-open",
     title: "علوم القرآن",
     desc: "أسباب النزول، المكي والمدني، الناسخ والمنسوخ، إعجاز القرآن، والقراءات السبع",
-    gradient: "linear-gradient(135deg, #1B3A8C, #2D54B8)",
+    gradient: "linear-gradient(135deg, var(--g-cobalt), var(--g-cobalt-light))",
     badge: "8 علوم",
   },
   {
@@ -25,7 +25,7 @@ const CONTENT = [
     icon: "audio-waveform",
     title: "أحكام التجويد",
     desc: "تعلّم أحكام التلاوة الصحيحة مع أمثلة عملية من القرآن الكريم",
-    gradient: "linear-gradient(135deg, #1B3A8C, #2D54B8)",
+    gradient: "linear-gradient(135deg, var(--g-cobalt), var(--g-cobalt-light))",
     badge: "16 حكماً",
   },
   {
@@ -33,7 +33,7 @@ const CONTENT = [
     icon: "sparkles",
     title: "الأحاديث القدسية",
     desc: "ما يرويه النبي ﷺ عن ربه عز وجل من غير القرآن الكريم",
-    gradient: "linear-gradient(135deg, #B4472F, #CF6247)",
+    gradient: "linear-gradient(135deg, var(--g-terracotta), var(--g-terracotta-light))",
     badge: "20 حديثاً",
   },
   {
@@ -41,7 +41,7 @@ const CONTENT = [
   icon: "scroll-text",
   title: "الأحاديث النبوية",
   desc: "مختارات من أحاديث النبي ﷺ المأثورة عن الصحيحين والسنن",
-  gradient: "linear-gradient(135deg, #1B3A8C, #2D54B8)",
+  gradient: "linear-gradient(135deg, var(--g-cobalt), var(--g-cobalt-light))",
   badge: `${HADITH_NABAWI.length} حديثاً`,
 },
 ];

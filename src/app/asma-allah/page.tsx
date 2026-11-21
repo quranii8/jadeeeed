@@ -24,7 +24,8 @@ export default function AsmaAllahPage() {
             ﴿وَلِلَّهِ ٱلۡأَسۡمَآءُ ٱلۡحُسۡنَىٰ فَٱدۡعُوهُ بِهَاۖ﴾
           </p>
           <div className="text-sm opacity-80 mt-2">سورة الأعراف، من الآية ١٨٠</div>
-          <div className="inline-block mt-5 px-5 py-2 rounded bg-white/15 text-sm">
+          <p className="mt-4 text-sm max-w-xl mx-auto" style={{ color: "var(--g-on-muted)" }}>لكل اسم معناه وشرحه، والآيات التي ورد فيها لفظه من المصحف.</p>
+          <div className="inline-block mt-4 px-5 py-2 rounded bg-white/15 text-sm">
             {toArabicNum(ASMA_ALLAH.length)} اسماً مع الشرح
           </div>
         </div>

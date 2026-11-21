@@ -26,17 +26,17 @@ export function ContinueReading() {
             <Link
               href={`/surah/${s.n}${lastRead.verse ? `#verse-${lastRead.verse}` : ""}`}
               className="wall-tile glaze p-5 flex items-center gap-4"
-              style={{ backgroundColor: "#1B3A8C", color: "#F4F6FB" }}
+              style={{ backgroundColor: "var(--g-cobalt)", color: "var(--g-on)" }}
             >
               <div
                 className="w-14 h-14 rounded grid place-items-center shrink-0"
-                style={{ background: "#D99A1E", color: "#1A1204" }}
+                style={{ background: "var(--g-saffron)", color: "var(--g-on-saffron)" }}
               >
                 <Play className="w-6 h-6" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="font-bold truncate">سورة {s.a}</div>
-                <div className="text-xs" style={{ color: "#C9D5F0" }}>آخر قراءة، 
+                <div className="text-xs" style={{ color: "var(--g-on-muted)" }}>آخر قراءة، 
                   {lastRead.verse ? `الآية ${toArabicNum(lastRead.verse)}` : "البداية"}
                 </div>
               </div>

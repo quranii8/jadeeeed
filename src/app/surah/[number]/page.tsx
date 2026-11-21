@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getSurah, SURAHS } from "@/lib/surahs";
-import { getSurahMultiEdition } from "@/lib/quran-api";
+import { readFileSync } from "fs";
+import path from "path";
 import { stripBismillah, toArabicNum } from "@/lib/utils";
 import { SurahReader } from "@/components/SurahReader";
 
@@ -32,21 +33,16 @@ export default async function SurahPage({ params }: PageProps) {
   const surah = getSurah(num);
   if (!surah) return notFound();
 
-  // جلب النص العثماني + الترجمة الإنجليزية الافتراضية
-  let verses: Array<{ num: number; text: string; trans: string }> = [];
-  try {
-    const editions = await getSurahMultiEdition(num, ["quran-uthmani", "en.sahih"]);
-    const arData = editions[0];
-    const enData = editions[1];
-
-    verses = arData.ayahs.map((a, i) => ({
-      num: a.numberInSurah,
-      text: i === 0 ? stripBismillah(a.text, num) : a.text,
-      trans: enData?.ayahs[i]?.text ?? "",
-    }));
-  } catch (err) {
-    console.error("Failed to load surah:", err);
-  }
+  // النص العثماني وترجمة Sahih International من نسخة محلية موثّقة (quran-json)،
+  // فلا تتعطل أي سورة إذا تعثّر مصدر خارجي وقت البناء
+  const read = (dir: string) => JSON.parse(readFileSync(path.join(process.cwd(), dir, `${num}.json`), "utf8")) as string[];
+  const ar = read("public/data/quran");
+  const en = read("data/quran/en");
+  const verses = ar.map((text, i) => ({
+    num: i + 1,
+    text: i === 0 ? stripBismillah(text, num) : text,
+    trans: en[i] ?? "",
+  }));
 
   const prev = getSurah(num - 1);
   const next = getSurah(num + 1);

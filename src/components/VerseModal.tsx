@@ -176,7 +176,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
         <div className="overflow-y-auto flex-1">
           {/* نص الآية */}
           <div
-            className="font-quran text-2xl md:text-3xl leading-[2.4] text-center p-6 m-4 rounded-2xl"
+            className="font-hafs text-2xl md:text-3xl leading-[2.4] text-center p-6 m-4 rounded-2xl"
             style={{ background: "var(--bg-soft)" }}
           >
             {verse.text}

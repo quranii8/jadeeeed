@@ -1,60 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ADHKAR } from "@/lib/adhkar";
+import { ADHKAR, ADHKAR_GROUPS, ADHKAR_TOTAL, HISN_SOURCE } from "@/lib/adhkar";
+import { AdhkarIndex } from "@/components/AdhkarIndex";
+import { toArabicNum } from "@/lib/utils";
 import { ChevronLeft } from "lucide-react";
 import { AppIcon } from "@/components/AppIcon";
 import { HeadingStar } from "@/components/zellige/Rosette";
 
 export const metadata: Metadata = {
   title: "الأذكار والأدعية",
-  description: "أذكار الصباح والمساء وما بعد الصلاة وأدعية مأثورة من حصن المسلم",
+  description: "حصن المسلم كاملاً: أذكار الصباح والمساء والصلاة والنوم والسفر والكرب وكل مناسبة، مع العدد والفضل والمصدر.",
 };
 
 export default function AdhkarPage() {
   return (
-    <section className="max-w-7xl mx-auto px-5 py-8">
-      <div className="flex items-center gap-3 mb-2">
-        <HeadingStar />
-        <h1 className="text-2xl md:text-3xl font-extrabold">الأذكار والأدعية</h1>
-      </div>
-      <p className="mb-8 max-w-3xl" style={{ color: "var(--text-muted)" }}>
-        مجموعة من الأذكار اليومية والأدعية المأثورة من القرآن الكريم والسنة النبوية، مع عدّاد تفاعلي وذكر للمصدر والفائدة.
-      </p>
+    <section className="max-w-6xl mx-auto px-4 md:px-5 py-8">
+      <header className="page-band page-band--emerald text-center relative overflow-hidden mb-8">
+        <h1 className="text-4xl md:text-5xl mb-3">الأذكار والأدعية</h1>
+        <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--g-on-muted)" }}>
+          كتاب حصن المسلم كاملاً بأبوابه كلها، مع عدد كل ذكر وفضله ومصدره، وعدّاد تضغطه وأنت تذكر.
+        </p>
+        <div className="mt-4 inline-flex flex-wrap justify-center gap-2 text-sm">
+          <span className="px-3 py-1 rounded bg-white/15">{toArabicNum(ADHKAR_TOTAL)} ذكراً</span>
+          <span className="px-3 py-1 rounded bg-white/15">{toArabicNum(ADHKAR.length)} باباً</span>
+        </div>
+      </header>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {ADHKAR.map((cat) => (
-          <Link
-            key={cat.id}
-            href={`/adhkar/${cat.id}`}
-            className="card p-6 transition-all hover:-translate-y-1 hover:shadow-lg group relative overflow-hidden"
-          >
-            <div
-              className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-10 transition-transform group-hover:scale-110"
-              style={{ background: "var(--primary)" }}
-            />
-            <div className="text-5xl mb-3 relative"><AppIcon name={cat.icon} /></div>
-            <h2 className="text-xl font-bold mb-2 relative">{cat.title}</h2>
-            <p className="text-sm mb-4 relative" style={{ color: "var(--text-muted)" }}>
-              {cat.description}
-            </p>
-            <div className="flex items-center justify-between relative">
-              <span
-                className="px-3 py-1 rounded text-xs font-semibold"
-                style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
-              >
-                {cat.items.length} ذكر
-              </span>
-              <span
-                className="text-sm font-semibold flex items-center gap-1"
-                style={{ color: "var(--primary)" }}
-              >
-                ابدأ
-                <ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <AdhkarIndex groups={ADHKAR_GROUPS} chapters={ADHKAR} />
+
+      <p className="mt-8 text-xs" style={{ color: "var(--text-soft)" }}>المصدر: {HISN_SOURCE}.</p>
 
       {/* روابط سريعة لميزات أخرى */}
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3">

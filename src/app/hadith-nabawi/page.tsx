@@ -15,7 +15,7 @@ export default function HadithHubPage() {
     <section className="max-w-6xl mx-auto px-4 md:px-5 py-8">
       <header className="page-band page-band--cobalt text-center relative overflow-hidden mb-8">
         <h1 className="text-3xl md:text-5xl mb-3">الصحيحان</h1>
-        <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: "#DCE4F6" }}>
+        <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: "var(--g-on-muted)" }}>
           صحيح البخاري وصحيح مسلم كاملين بنصهما العربي، مرتبين على كتب الإمامين وعلى أبواب الفقه، مع البحث في كل حديث.
         </p>
         <div className="mt-5 inline-flex flex-wrap justify-center gap-2 text-sm">
@@ -33,14 +33,14 @@ export default function HadithHubPage() {
             key={c.id}
             href={`/hadith-nabawi/${c.id}`}
             className="wall-tile glaze group relative overflow-hidden p-6 md:p-8 min-h-[13rem] flex flex-col justify-between"
-            style={{ backgroundColor: c.id === "bukhari" ? "#1B3A8C" : "#0E6B5A", color: "#F4F6FB" }}
+            style={{ backgroundColor: c.id === "bukhari" ? "var(--g-cobalt)" : "var(--g-emerald)", color: "var(--g-on)" }}
           >
             <span className="zellige-lattice absolute inset-0 pointer-events-none opacity-70" />
             <TileStar color="rgba(238,241,236,.2)" size={240} className="absolute -bottom-16 -left-16 pointer-events-none transition-transform duration-[1.4s] group-hover:rotate-45" />
-            <span className="relative block text-sm" style={{ color: "#D5DEF3" }}>{c.author}</span>
+            <span className="relative block text-sm" style={{ color: "var(--g-on-muted)" }}>{c.author}</span>
             <span className="relative block">
               <span className="block font-kufic font-bold text-4xl md:text-5xl leading-tight">{c.name}</span>
-              <span className="block mt-2 text-sm" style={{ color: "#D5DEF3" }}>
+              <span className="block mt-2 text-sm" style={{ color: "var(--g-on-muted)" }}>
                 {toArabicNum(c.total)} حديثاً في {toArabicNum(c.books.length)} كتاباً
               </span>
             </span>
@@ -63,10 +63,10 @@ export default function HadithHubPage() {
               key={t.id}
               href={`/hadith-nabawi/topic/${t.id}`}
               className="wall-tile glaze relative overflow-hidden p-4 md:p-5 min-h-[8.5rem] flex flex-col justify-between"
-              style={{ backgroundColor: topicGlaze(i), color: "#F4F6FB" }}
+              style={{ backgroundColor: topicGlaze(i), color: "var(--g-on)" }}
             >
               <span className="zellige-lattice absolute inset-0 pointer-events-none opacity-60" />
-              <span className="relative text-[11px] font-semibold" style={{ color: "#D5DEF3" }}>
+              <span className="relative text-[11px] font-semibold" style={{ color: "var(--g-on-muted)" }}>
                 {toArabicNum(books)} كتب، {toArabicNum(count)} حديثاً
               </span>
               <span className="relative font-kufic font-bold text-xl md:text-2xl leading-tight">{t.title}</span>

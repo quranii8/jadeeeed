@@ -104,7 +104,7 @@ export function HadithCard({
             type="button"
             onClick={() => toggleHadith({ c: origin.c, book: origin.book, id: h.id, num: h.num, matn: h.matn })}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded"
-            style={{ background: saved ? "var(--primary)" : "var(--primary-soft)", color: saved ? "#F4F6FB" : "var(--primary)" }}
+            style={{ background: saved ? "var(--primary)" : "var(--primary-soft)", color: saved ? "var(--g-on)" : "var(--primary)" }}
             aria-pressed={saved}
           >
             {saved ? <BookmarkCheck className="w-3.5 h-3.5" aria-hidden="true" /> : <Bookmark className="w-3.5 h-3.5" aria-hidden="true" />}
@@ -133,7 +133,7 @@ export function HadithCard({
           type="button"
           onClick={() => shareAsImage({ kind: "hadith", text: h.matn.replace(/^\s*"\s*|\s*"\s*[.،]?\s*$/g, ""), reference: ref, filename: `hadith-${h.id}` }).catch(() => undefined)}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded"
-          style={{ background: "var(--gold)", color: "#1A1204" }}
+          style={{ background: "var(--gold)", color: "var(--g-on-saffron)" }}
         >
           <ImageDown className="w-3.5 h-3.5" aria-hidden="true" />
           صورة للستوري

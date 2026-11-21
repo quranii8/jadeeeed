@@ -17,7 +17,7 @@ export default function HadithQudsiPage() {
     <section className="max-w-4xl mx-auto px-4 md:px-5 py-8">
       <header className="page-band page-band--ink text-center relative overflow-hidden mb-6">
         <h1 className="text-3xl md:text-5xl mb-3">الأحاديث القدسية</h1>
-        <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: "#D5DCEB" }}>
+        <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: "var(--g-on-muted)" }}>
           ما يرويه النبي ﷺ عن ربه عز وجل، مجموعاً من صحيح البخاري وصحيح مسلم بنصه الكامل وسنده.
         </p>
         <div className="mt-4 inline-flex gap-2 text-sm">

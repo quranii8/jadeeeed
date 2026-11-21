@@ -69,8 +69,8 @@ export function HijriCalendar() {
   return (
     <div>
       <div className="tile-wall grid md:grid-cols-[1fr_1.2fr] gap-[5px] p-[5px]" style={{ background: "var(--grout-wall)" }}>
-        <div className="wall-tile p-6 md:p-8 flex flex-col justify-between min-h-[14rem]" style={{ backgroundColor: "#1B3A8C", color: "#F4F6FB" }}>
-          <div className="text-sm" style={{ color: "#D5DEF3" }}>{greg.format(today)}</div>
+        <div className="wall-tile p-6 md:p-8 flex flex-col justify-between min-h-[14rem]" style={{ backgroundColor: "var(--g-cobalt)", color: "var(--g-on)" }}>
+          <div className="text-sm" style={{ color: "var(--g-on-muted)" }}>{greg.format(today)}</div>
           <div>
             <div className="font-kufic font-bold text-7xl leading-none">{toArabicNum(h.d)}</div>
             <div className="font-kufic font-bold text-3xl mt-2">{MONTHS[h.m - 1]} {toArabicNum(h.y)} هـ</div>
@@ -87,9 +87,9 @@ export function HijriCalendar() {
               const isToday = d.getTime() === today.getTime();
               const white = i + 1 >= 13 && i + 1 <= 15;
               return (
-                <div key={i} className="py-1.5 rounded" style={{ background: isToday ? "var(--gold)" : white ? "var(--primary-soft)" : "transparent", color: isToday ? "#1A1204" : "var(--text)" }}>
+                <div key={i} className="py-1.5 rounded" style={{ background: isToday ? "var(--gold)" : white ? "var(--primary-soft)" : "transparent", color: isToday ? "var(--g-on-saffron)" : "var(--text)" }}>
                   <div className="font-bold text-sm">{toArabicNum(i + 1)}</div>
-                  <div className="text-[10px]" style={{ color: isToday ? "#1A1204" : "var(--text-soft)" }}>{toArabicNum(d.getDate())}</div>
+                  <div className="text-[10px]" style={{ color: isToday ? "var(--g-on-saffron)" : "var(--text-soft)" }}>{toArabicNum(d.getDate())}</div>
                 </div>
               );
             })}

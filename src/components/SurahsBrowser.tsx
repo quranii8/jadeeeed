@@ -121,8 +121,8 @@ export function SurahsBrowser() {
                   <span
                     className="px-1.5 py-0.5 rounded text-[10px] font-semibold"
                     style={{
-                      background: s.t === "makki" ? "#D99A1E" : "#0E6B5A",
-                      color: s.t === "makki" ? "#1A1204" : "#F2F8F5",
+                      background: s.t === "makki" ? "var(--g-saffron)" : "var(--g-emerald)",
+                      color: s.t === "makki" ? "var(--g-on-saffron)" : "var(--g-on)",
                     }}
                   >
                     {s.t === "makki" ? "مكية" : "مدنية"}

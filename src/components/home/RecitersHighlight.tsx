@@ -3,7 +3,7 @@ import { RECITERS } from "@/lib/reciters";
 import { ChevronLeft } from "lucide-react";
 import { ReciterAvatar } from "@/components/ReciterAvatar";
 
-const GLAZES = ["#1B3A8C", "#0E6B5A", "#B4472F", "#10275F"];
+const GLAZES = ["var(--g-cobalt)", "var(--g-emerald)", "var(--g-terracotta)", "var(--g-deep)"];
 
 /** The reciters as a run of glazed tiles in the wall's grammar. */
 export function RecitersHighlight() {
@@ -25,7 +25,7 @@ export function RecitersHighlight() {
             key={r.id}
             href={`/reciters/${encodeURIComponent(r.id)}`}
             className="wall-tile glaze group relative flex items-center gap-3 p-3 md:p-4 min-h-[5.5rem]"
-            style={{ backgroundColor: GLAZES[i % GLAZES.length], color: "#F4F6FB" }}
+            style={{ backgroundColor: GLAZES[i % GLAZES.length], color: "var(--g-on)" }}
           >
             <span className="zellige-lattice absolute inset-0 pointer-events-none opacity-60" />
             <span className="relative shrink-0">
@@ -33,7 +33,7 @@ export function RecitersHighlight() {
             </span>
             <span className="relative min-w-0">
               <span className="block font-bold text-sm leading-snug">{r.name}</span>
-              <span className="block text-xs mt-0.5" style={{ color: "#C9D5F0" }}>{r.country}</span>
+              <span className="block text-xs mt-0.5" style={{ color: "var(--g-on-muted)" }}>{r.country}</span>
             </span>
           </Link>
         ))}

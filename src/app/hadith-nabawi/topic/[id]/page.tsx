@@ -27,7 +27,7 @@ export default function TopicPage({ params }: { params: { id: string } }) {
       </Link>
       <header className="page-band page-band--terracotta text-center relative overflow-hidden mb-8">
         <h1 className="text-4xl md:text-5xl mb-2">{t.title}</h1>
-        <p className="text-sm" style={{ color: "#F7DCD4" }}>{toArabicNum(total)} حديثاً من البخاري ومسلم</p>
+        <p className="text-sm" style={{ color: "var(--g-on-muted)" }}>{toArabicNum(total)} حديثاً من البخاري ومسلم</p>
       </header>
       <div className="grid md:grid-cols-2 gap-8">
         {groups.map((g) => (

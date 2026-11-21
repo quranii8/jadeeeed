@@ -34,9 +34,9 @@ export default function BookPage({ params }: { params: { collection: string; boo
         {c.name}
       </Link>
       <header className={`page-band ${c.id === "bukhari" ? "page-band--cobalt" : "page-band--emerald"} text-center relative overflow-hidden mb-6`}>
-        <p className="text-sm mb-1" style={{ color: "#DCE4F6" }}>{c.name}</p>
+        <p className="text-sm mb-1" style={{ color: "var(--g-on-muted)" }}>{c.name}</p>
         <h1 className="text-3xl md:text-5xl leading-tight">{b.title}</h1>
-        <p className="mt-3 text-sm" style={{ color: "#DCE4F6" }}>
+        <p className="mt-3 text-sm" style={{ color: "var(--g-on-muted)" }}>
           {toArabicNum(b.count)} حديثاً، من رقم {toArabicNum(b.first)} إلى {toArabicNum(b.last)}
         </p>
       </header>

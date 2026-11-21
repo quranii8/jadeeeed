@@ -3,6 +3,10 @@ import Link from "next/link";
 import { getTajweedCategories } from "@/lib/tajweed";
 import { ChevronLeft } from "lucide-react";
 import { AppIcon } from "@/components/AppIcon";
+import tajweedExamples from "@/lib/tajweed-examples.json";
+import { toArabicNum } from "@/lib/utils";
+
+const EX = tajweedExamples as Record<string, { count: number }>;
 
 export const metadata: Metadata = {
   title: "أحكام التجويد",
@@ -31,7 +35,7 @@ export default function TajweedPage() {
             <div className="flex items-center gap-3 mb-4">
               <span
                 className="w-1.5 h-7 rounded"
-                style={{ background: "linear-gradient(to bottom, #1B3A8C, #2D54B8)" }}
+                style={{ background: "linear-gradient(to bottom, var(--g-cobalt), var(--g-cobalt-light))" }}
               />
               <h2 className="text-xl md:text-2xl font-extrabold">{cat.name}</h2>
               <span className="text-sm" style={{ color: "var(--text-muted)" }}>
@@ -63,10 +67,15 @@ export default function TajweedPage() {
                       </p>
                       <div
                         className="mt-2 text-xs font-semibold flex items-center gap-1"
-                        style={{ color: "#1B3A8C" }}
+                        style={{ color: "var(--primary)" }}
                       >
                         تعلّم
                         <ChevronLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" />
+                        {EX[rule.id] && (
+                          <span className="ms-auto font-semibold" style={{ color: "var(--gold-dark)" }}>
+                            {toArabicNum(EX[rule.id].count)} موضعاً
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>

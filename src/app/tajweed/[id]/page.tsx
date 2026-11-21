@@ -2,6 +2,11 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TAJWEED_RULES, getTajweedRule } from "@/lib/tajweed";
+import { TajweedInQuran } from "@/components/TajweedInQuran";
+import tajweedExamples from "@/lib/tajweed-examples.json";
+
+type ExSet = { count: number; examples: { s: number; a: number; before: string; mark: string; after: string }[] };
+const EX = tajweedExamples as Record<string, ExSet>;
 import { ArrowRight, Mic, AlertTriangle, CheckCircle, Target, BookOpen, Lightbulb } from "lucide-react";
 import { AppIcon } from "@/components/AppIcon";
 
@@ -41,7 +46,7 @@ export default function TajweedRulePage({ params }: PageProps) {
 
       {/* التعريف */}
       <div className="card p-6 md:p-8 mb-5">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#1B3A8C" }}>
+        <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "var(--g-cobalt)" }}>
           <BookOpen className="w-6 h-6" />
           التعريف
         </h2>
@@ -72,8 +77,8 @@ export default function TajweedRulePage({ params }: PageProps) {
 
       {/* وقت التطبيق */}
       {rule.timing && (
-        <div className="card p-6 md:p-8 mb-5" style={{ border: "1px solid #F0BE52" }}>
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#F0BE52" }}>
+        <div className="card p-6 md:p-8 mb-5" style={{ border: "1px solid var(--g-saffron-light)" }}>
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "var(--g-saffron-light)" }}>
             <Target className="w-6 h-6" />
             وقت التطبيق
           </h2>
@@ -123,6 +128,18 @@ export default function TajweedRulePage({ params }: PageProps) {
         </div>
       )}
 
+      {/* مواضع الحكم في المصحف كله */}
+      {EX[rule.id] && (
+        <div className="mb-5">
+          <TajweedInQuran title={rule.id === "lam-shamsiyyah" ? "اللام الشمسية في المصحف" : "مواضعه في المصحف"} count={EX[rule.id].count} examples={EX[rule.id].examples} />
+        </div>
+      )}
+      {rule.id === "lam-shamsiyyah" && EX["lam-qamariyyah"] && (
+        <div className="mb-5">
+          <TajweedInQuran title="اللام القمرية في المصحف" count={EX["lam-qamariyyah"].count} examples={EX["lam-qamariyyah"].examples} />
+        </div>
+      )}
+
       {/* الأمثلة */}
       <div className="card p-6 md:p-8 mb-5">
         <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "var(--gold-dark)" }}>
@@ -156,7 +173,7 @@ export default function TajweedRulePage({ params }: PageProps) {
                   <div className="text-xs font-semibold mb-1" style={{ color: "var(--text-muted)" }}>
                     كيفية القراءة:
                   </div>
-                  <p className="text-sm text-center" style={{ color: "#1B3A8C" }}>
+                  <p className="text-sm text-center" style={{ color: "var(--g-cobalt)" }}>
                     {ex.reading}
                   </p>
                 </div>
@@ -168,8 +185,8 @@ export default function TajweedRulePage({ params }: PageProps) {
 
       {/* النصائح */}
       {rule.tips && rule.tips.length > 0 && (
-        <div className="card p-6 md:p-8 mb-5" style={{ border: "1px solid #0E6B5A" }}>
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#0E6B5A" }}>
+        <div className="card p-6 md:p-8 mb-5" style={{ border: "1px solid var(--g-emerald)" }}>
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "var(--g-emerald)" }}>
             <CheckCircle className="w-6 h-6" />
             نصائح للتطبيق
           </h2>
@@ -249,12 +266,12 @@ export default function TajweedRulePage({ params }: PageProps) {
       {rule.notes && (
         <div
           className="card p-5 md:p-6 mb-5"
-          style={{ border: "1px solid #D99A1E", background: "rgba(217,119,6,.04)" }}
+          style={{ border: "1px solid var(--g-saffron)", background: "rgba(217,119,6,.04)" }}
         >
           <div className="flex items-start gap-3">
             <span className="text-2xl"><AppIcon name="lightbulb" /></span>
             <div>
-              <div className="font-bold mb-2" style={{ color: "#D99A1E" }}>ملاحظة مهمة</div>
+              <div className="font-bold mb-2" style={{ color: "var(--g-saffron)" }}>ملاحظة مهمة</div>
               <p className="text-sm leading-relaxed">{rule.notes}</p>
             </div>
           </div>
