@@ -3,8 +3,7 @@ import { AppIcon } from "@/components/AppIcon";
 import { TileStar } from "@/components/zellige/Rosette";
 import { RECITERS } from "@/lib/reciters";
 import { TAFASIR } from "@/lib/tafasir";
-import { HADITH_QUDSI } from "@/lib/hadith-qudsi";
-import { HADITH_NABAWI } from "@/lib/hadith-nabawi";
+import { SAHIHAYN_TOTAL, QUDSI_COUNT } from "@/lib/sahihayn";
 import { ASMA_ALLAH } from "@/lib/asma-allah";
 import { ADHKAR } from "@/lib/adhkar";
 import { TAJWEED_RULES } from "@/lib/tajweed";
@@ -28,8 +27,8 @@ const SECTIONS: Section[] = [
   { href: "/prophets", title: "قصص الأنبياء", desc: "القصة من الآيات والصحيحين، وفيلم لكل نبي", icon: "leaf", count: `${toArabicNum(PROPHETS.length)} نبياً`, glaze: "terracotta", span: "tall" },
   { href: "/reciters", title: "القرّاء", desc: "تلاوات متواصلة لأشهر القرّاء", icon: "mic", count: `${toArabicNum(RECITERS.length)} قارئاً`, glaze: "emerald" },
   { href: "/tafsir", title: "التفاسير", desc: "تفاسير معتمدة آية بآية", icon: "library", count: `${toArabicNum(TAFASIR.length)} تفاسير`, glaze: "saffron" },
-  { href: "/hadith-nabawi", title: "الأحاديث النبوية", desc: "مختارات بنص الحديث ومصدره", icon: "scroll-text", count: `${toArabicNum(HADITH_NABAWI.length)} حديثاً`, glaze: "ink" },
-  { href: "/hadith-qudsi", title: "الأحاديث القدسية", desc: "ما رواه النبي ﷺ عن ربه", icon: "sparkles", count: `${toArabicNum(HADITH_QUDSI.length)} حديثاً`, glaze: "cobalt" },
+  { href: "/hadith-nabawi", title: "صحيح البخاري ومسلم", desc: "الصحيحان كاملين، مرتبين على أبواب الفقه", icon: "scroll-text", count: `${toArabicNum(SAHIHAYN_TOTAL)} حديثاً`, glaze: "ink" },
+  { href: "/hadith-qudsi", title: "الأحاديث القدسية", desc: "ما رواه النبي ﷺ عن ربه، من الصحيحين", icon: "sparkles", count: `${toArabicNum(QUDSI_COUNT)} حديثاً`, glaze: "cobalt" },
   { href: "/asma-allah", title: "أسماء الله الحسنى", desc: "الأسماء ومعانيها", icon: "sparkle", count: `${toArabicNum(ASMA_ALLAH.length)} اسماً`, glaze: "emerald", span: "wide" },
   { href: "/adhkar", title: "الأذكار", desc: "أذكار اليوم والليلة مع العدّاد", icon: "hand-heart", count: `${toArabicNum(ADHKAR.length)} أبواب`, glaze: "saffron" },
   { href: "/prayer-times", title: "مواقيت الصلاة", desc: "حسب موقعك", icon: "mosque", count: "اليوم", glaze: "terracotta" },
