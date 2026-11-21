@@ -2,6 +2,11 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TAJWEED_RULES, getTajweedRule } from "@/lib/tajweed";
+import { TajweedInQuran } from "@/components/TajweedInQuran";
+import tajweedExamples from "@/lib/tajweed-examples.json";
+
+type ExSet = { count: number; examples: { s: number; a: number; before: string; mark: string; after: string }[] };
+const EX = tajweedExamples as Record<string, ExSet>;
 import { ArrowRight, Mic, AlertTriangle, CheckCircle, Target, BookOpen, Lightbulb } from "lucide-react";
 import { AppIcon } from "@/components/AppIcon";
 
@@ -120,6 +125,18 @@ export default function TajweedRulePage({ params }: PageProps) {
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {/* مواضع الحكم في المصحف كله */}
+      {EX[rule.id] && (
+        <div className="mb-5">
+          <TajweedInQuran title={rule.id === "lam-shamsiyyah" ? "اللام الشمسية في المصحف" : "مواضعه في المصحف"} count={EX[rule.id].count} examples={EX[rule.id].examples} />
+        </div>
+      )}
+      {rule.id === "lam-shamsiyyah" && EX["lam-qamariyyah"] && (
+        <div className="mb-5">
+          <TajweedInQuran title="اللام القمرية في المصحف" count={EX["lam-qamariyyah"].count} examples={EX["lam-qamariyyah"].examples} />
         </div>
       )}
 
