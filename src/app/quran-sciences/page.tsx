@@ -28,6 +28,14 @@ export default function QuranSciencesPage() {
         </div>
       </header>
 
+      <Link href="/quran-sciences/numbers" className="wall-tile glaze relative overflow-hidden block p-6 md:p-8 mb-8" style={{ backgroundColor: "var(--g-cobalt)", color: "var(--g-on)" }}>
+        <span className="zellige-lattice absolute inset-0 pointer-events-none opacity-60" />
+        <span className="relative block font-kufic font-bold text-3xl md:text-4xl">القرآن بالأرقام</span>
+        <span className="relative block mt-2 text-sm md:text-base" style={{ color: "var(--g-on-muted)" }}>
+          السور والآيات والكلمات والحروف، المكي والمدني، سجدات التلاوة، الحروف المقطعة، أطول آية، وأكثر الكلمات وروداً، محسوبة من نص المصحف.
+        </span>
+      </Link>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {QURAN_SCIENCES.map((s) => (
           <Link
