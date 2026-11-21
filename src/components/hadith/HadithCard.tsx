@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Check, ChevronDown, Copy, Share2 } from "lucide-react";
 import { TileStar } from "@/components/zellige/Rosette";
-import { SpeakButton } from "./SpeakButton";
 import { toArabicNum } from "@/lib/utils";
 import type { Hadith } from "@/lib/sahihayn";
 
@@ -93,7 +92,6 @@ export function HadithCard({
       </p>
 
       <footer className="mt-5 pt-4 flex flex-wrap items-center gap-2" style={{ borderTop: "1px solid var(--border-soft)" }}>
-        <SpeakButton id={`h-${h.id}`} text={h.matn} />
         <button
           type="button"
           onClick={copy}

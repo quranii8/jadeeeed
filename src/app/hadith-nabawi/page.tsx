@@ -7,7 +7,7 @@ import { toArabicNum } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "الأحاديث النبوية: صحيح البخاري وصحيح مسلم كاملين",
-  description: "كل أحاديث صحيح البخاري وصحيح مسلم بنصها العربي الكامل، مرتبة على الكتب وأبواب الفقه، مع البحث والاستماع.",
+  description: "كل أحاديث صحيح البخاري وصحيح مسلم بنصها العربي الكامل، مرتبة على الكتب وأبواب الفقه، مع البحث.",
 };
 
 export default function HadithHubPage() {
@@ -16,7 +16,7 @@ export default function HadithHubPage() {
       <header className="page-band page-band--cobalt text-center relative overflow-hidden mb-8">
         <h1 className="text-3xl md:text-5xl mb-3">الصحيحان</h1>
         <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: "#DCE4F6" }}>
-          صحيح البخاري وصحيح مسلم كاملين بنصهما العربي، مرتبين على كتب الإمامين وعلى أبواب الفقه، مع البحث في كل حديث والاستماع إليه.
+          صحيح البخاري وصحيح مسلم كاملين بنصهما العربي، مرتبين على كتب الإمامين وعلى أبواب الفقه، مع البحث في كل حديث.
         </p>
         <div className="mt-5 inline-flex flex-wrap justify-center gap-2 text-sm">
           <span className="px-3 py-1 rounded bg-white/15">{toArabicNum(SAHIHAYN_TOTAL)} حديثاً</span>
