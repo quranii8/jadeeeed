@@ -75,7 +75,7 @@ function loadCollection(col) {
 function findPhrase(text, phrase, fromIdx = 0) {
   const target = norm(phrase);
   for (let i = fromIdx; i < text.length; i++) {
-    if (/[\u0621-\u064A]/.test(text[i]) && norm(text.slice(i, i + phrase.length * 2)).startsWith(target)) return i;
+    if (/[\u0621-\u064A]/.test(text[i]) && (i === 0 || !/[\u0621-\u0652\u0670]/.test(text[i - 1])) && norm(text.slice(i, i + phrase.length * 2)).startsWith(target)) return i;
   }
   return -1;
 }
@@ -86,10 +86,11 @@ function hadith(h, where) {
   if (!rec) return fail(`${where}: ${h.col} ${h.num} غير موجود`);
   const full = rec.text;
   const q = full.indexOf('"');
-  if (q < 0) return fail(`${where}: لم أجد بداية المتن`);
+  if (q < 0 && !h.start) return fail(`${where}: لم أجد بداية المتن`);
   let start = q + 1;
   if (h.start) {
-    start = findPhrase(full, h.start, q);
+    // بداية صريحة: ابحث في النص كله (بعض الروايات يقع المتن المطلوب قبل أول علامة اقتباس)
+    start = findPhrase(full, h.start, 0);
     if (start < 0) return fail(`${where}: لم أجد بداية «${h.start}»`);
   }
   let end;
