@@ -35,18 +35,24 @@ export function Header() {
           <NavLink href="/surahs">السور</NavLink>
           <NavLink href="/tafsir">التفاسير</NavLink>
           <NavLink href="/reciters">القراء</NavLink>
+          <NavGroup label="الختمة والحفظ" items={[
+            { href: "/khatma", label: "ختمتي والورد اليومي" },
+            { href: "/hifz", label: "الحفظ والتسميع" },
+            { href: "/quran-search", label: "البحث في القرآن" },
+          ]} />
           <NavGroup label="المحتوى" items={[
             { href: "/prophets", label: "قصص الأنبياء" },
             { href: "/quran-sciences", label: "علوم القرآن" },
             { href: "/tajweed", label: "أحكام التجويد" },
             { href: "/hadith-qudsi", label: "الأحاديث القدسية" },
-            { href: "/hadith-nabawi", label: "الأحاديث النبوية" },
+            { href: "/hadith-nabawi", label: "صحيح البخاري ومسلم" },
           ]} />
           <NavGroup label="إسلاميات" items={[
             { href: "/adhkar", label: "الأذكار" },
             { href: "/asma-allah", label: "أسماء الله" },
             { href: "/prayer-times", label: "المواقيت" },
             { href: "/qibla", label: "القبلة" },
+            { href: "/hijri", label: "التقويم الهجري" },
           ]} />
         </nav>
 
@@ -109,6 +115,9 @@ export function Header() {
               <MobileNavLink href="/surahs" onClose={() => setMobileOpen(false)} icon="book-open">السور</MobileNavLink>
               <MobileNavLink href="/tafsir" onClose={() => setMobileOpen(false)} icon="library">التفاسير</MobileNavLink>
               <MobileNavLink href="/reciters" onClose={() => setMobileOpen(false)} icon="mic">القراء</MobileNavLink>
+              <MobileNavLink href="/khatma" onClose={() => setMobileOpen(false)} icon="target">ختمتي</MobileNavLink>
+              <MobileNavLink href="/hifz" onClose={() => setMobileOpen(false)} icon="repeat">الحفظ والتسميع</MobileNavLink>
+              <MobileNavLink href="/quran-search" onClose={() => setMobileOpen(false)} icon="search">البحث في القرآن</MobileNavLink>
             </MobileSection>
 
             <MobileSection title="المحتوى الإسلامي">
@@ -116,7 +125,7 @@ export function Header() {
               <MobileNavLink href="/quran-sciences" onClose={() => setMobileOpen(false)} icon="book-open">علوم القرآن</MobileNavLink>
               <MobileNavLink href="/tajweed" onClose={() => setMobileOpen(false)} icon="audio-waveform">أحكام التجويد</MobileNavLink>
               <MobileNavLink href="/hadith-qudsi" onClose={() => setMobileOpen(false)} icon="sparkles">الأحاديث القدسية</MobileNavLink>
-              <MobileNavLink href="/hadith-nabawi" onClose={() => setMobileOpen(false)} icon="scroll-text">الأحاديث النبوية</MobileNavLink>
+              <MobileNavLink href="/hadith-nabawi" onClose={() => setMobileOpen(false)} icon="scroll-text">صحيح البخاري ومسلم</MobileNavLink>
             </MobileSection>
 
             <MobileSection title="أدوات إسلامية">
@@ -124,6 +133,7 @@ export function Header() {
               <MobileNavLink href="/asma-allah" onClose={() => setMobileOpen(false)} icon="sparkles">أسماء الله</MobileNavLink>
               <MobileNavLink href="/prayer-times" onClose={() => setMobileOpen(false)} icon="mosque">المواقيت</MobileNavLink>
               <MobileNavLink href="/qibla" onClose={() => setMobileOpen(false)} icon="compass">القبلة</MobileNavLink>
+              <MobileNavLink href="/hijri" onClose={() => setMobileOpen(false)} icon="moon-star">التقويم الهجري</MobileNavLink>
             </MobileSection>
 
             <MobileSection title="حسابي">

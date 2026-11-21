@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { X, Play, Bookmark, Copy, Share2, BookOpen, GitCompare, Languages } from "lucide-react";
+import { X, Play, Bookmark, Copy, Share2, BookOpen, GitCompare, Languages, ImageDown } from "lucide-react";
+import { shareAsImage } from "@/lib/share-image";
 import { Surah } from "@/lib/surahs";
 import { useQuranStore } from "@/lib/store";
 import { TAFASIR, TRANSLATIONS } from "@/lib/tafasir";
@@ -123,6 +124,15 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
     showToast("تم النسخ");
   };
 
+  const handleImage = async () => {
+    showToast("جارٍ تجهيز الصورة…");
+    try {
+      await shareAsImage({ kind: "verse", text: verse.text, reference, filename: `aya-${surah.n}-${verse.num}` });
+    } catch {
+      showToast("تعذّر تجهيز الصورة");
+    }
+  };
+
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -184,6 +194,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
             />
             <ActionBtn icon={<Copy className="w-4 h-4" />} label="نسخ" onClick={handleCopy} />
             <ActionBtn icon={<Share2 className="w-4 h-4" />} label="مشاركة" onClick={handleShare} />
+            <ActionBtn icon={<ImageDown className="w-4 h-4" />} label="صورة" onClick={handleImage} />
           </div>
 
           {/* Tabs */}

@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // the hadith search API reads its index from disk
+  experimental: { outputFileTracingIncludes: { '/api/hadith/search': ['./data/sahihayn/**'], '/api/quran/search': ['./data/quran/**'] } },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'everyayah.com' },
