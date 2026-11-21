@@ -11,7 +11,7 @@ import { PlacesMap } from "@/components/prophets/PlacesMap";
 import { HadithList } from "@/components/prophets/HadithList";
 import { StoryQuiz } from "@/components/prophets/StoryQuiz";
 import { FullStory } from "@/components/prophets/FullStory";
-import { StoryFilm } from "@/components/prophets/film/StoryFilm";
+import { CinemaPlayerLazy as CinemaPlayer } from "@/components/prophets/cinema/CinemaPlayerLazy";
 
 interface PageProps {
   params: { id: string };
@@ -71,7 +71,7 @@ export default function ProphetPage({ params }: PageProps) {
       </header>
 
       <FullStory paragraphs={story.story} />
-      {story.film.length > 0 && <StoryFilm scenes={story.film} />}
+      {story.film.length > 0 && <CinemaPlayer shots={story.film} title={`قصة ${prophet.name} عليه السلام`} />}
       <StoryJourney stages={story.stages} />
       <PlacesMap places={story.places} />
       <HadithList items={story.hadith} />

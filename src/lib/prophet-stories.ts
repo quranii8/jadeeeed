@@ -44,10 +44,15 @@ export interface StoryParagraph {
   text: string;
   sources: StorySource[];
 }
-export interface FilmScene {
+/** لقطة من الفيلم: آية واحدة بنصّها وترجمتها (Sahih International) ومشهدها */
+export interface FilmShot {
   scene: string;
-  title: string;
-  verses: VerseGroup;
+  surah: number;
+  ayah: number;
+  surahName: string;
+  surahNameEn: string;
+  ar: string;
+  en: string;
 }
 export interface ProphetStory {
   id: string;
@@ -57,7 +62,7 @@ export interface ProphetStory {
   stages: StoryStage[];
   hadith: StoryHadith[];
   story: StoryParagraph[];
-  film: FilmScene[];
+  film: FilmShot[];
 }
 
 export const PROPHET_STORIES = data as ProphetStory[];

@@ -17,6 +17,7 @@ const require = createRequire(import.meta.url);
 const ROOT = new URL("../", import.meta.url);
 const spec = JSON.parse(readFileSync(new URL("content/prophet-stories.spec.json", ROOT), "utf8"));
 const quran = require("quran-json/dist/quran.json");
+const quranEn = require("quran-json/dist/quran_en.json");
 
 const COLLECTIONS = {
   bukhari: { name: "صحيح البخاري", slug: "bukhari" },
@@ -162,7 +163,16 @@ for (const p of spec.prophets) {
   const film = (p.film ?? []).map((sc, i) => {
     const r = verses(sc.ref);
     checkExpect(`${p.id} / مشهد ${i + 1} (${sc.ref})`, r.ayat.map((a) => a.text).join(" "), sc.expect);
-    return { scene: sc.scene, title: sc.title, verses: r };
+    if (r.from !== r.to) throw new Error(`مشهد الفيلم آية واحدة فقط: ${sc.ref}`);
+    return {
+      scene: sc.scene,
+      surah: r.surah,
+      ayah: r.from,
+      surahName: r.surahName,
+      surahNameEn: quranEn[r.surah - 1].transliteration,
+      ar: r.ayat[0].text,
+      en: quranEn[r.surah - 1].verses[r.from - 1].translation,
+    };
   });
 
   out.push({ id: p.id, title: p.title, intro: p.intro, places: p.places ?? [], stages, hadith: hs, story, film });

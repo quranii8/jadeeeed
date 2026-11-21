@@ -3099,159 +3099,111 @@
   "film": [
    {
     "scene": "city",
-    "title": "وإن يونس لمن المرسلين",
-    "verses": {
-     "surah": 37,
-     "surahName": "الصافات",
-     "from": 139,
-     "to": 139,
-     "ayat": [
-      {
-       "n": 139,
-       "text": "وَإِنَّ يُونُسَ لَمِنَ ٱلۡمُرۡسَلِينَ"
-      }
-     ]
-    }
+    "surah": 37,
+    "ayah": 139,
+    "surahName": "الصافات",
+    "surahNameEn": "As-Saffat",
+    "ar": "وَإِنَّ يُونُسَ لَمِنَ ٱلۡمُرۡسَلِينَ",
+    "en": "And indeed, Jonah was among the messengers"
    },
    {
     "scene": "ship",
-    "title": "الفلك المشحون",
-    "verses": {
-     "surah": 37,
-     "surahName": "الصافات",
-     "from": 140,
-     "to": 140,
-     "ayat": [
-      {
-       "n": 140,
-       "text": "إِذۡ أَبَقَ إِلَى ٱلۡفُلۡكِ ٱلۡمَشۡحُونِ"
-      }
-     ]
-    }
+    "surah": 37,
+    "ayah": 140,
+    "surahName": "الصافات",
+    "surahNameEn": "As-Saffat",
+    "ar": "إِذۡ أَبَقَ إِلَى ٱلۡفُلۡكِ ٱلۡمَشۡحُونِ",
+    "en": "[Mention] when he ran away to the laden ship"
    },
    {
-    "scene": "lots",
-    "title": "القرعة",
-    "verses": {
-     "surah": 37,
-     "surahName": "الصافات",
-     "from": 141,
-     "to": 141,
-     "ayat": [
-      {
-       "n": 141,
-       "text": "فَسَاهَمَ فَكَانَ مِنَ ٱلۡمُدۡحَضِينَ"
-      }
-     ]
-    }
+    "scene": "storm",
+    "surah": 37,
+    "ayah": 141,
+    "surahName": "الصافات",
+    "surahNameEn": "As-Saffat",
+    "ar": "فَسَاهَمَ فَكَانَ مِنَ ٱلۡمُدۡحَضِينَ",
+    "en": "And he drew lots and was among the losers"
    },
    {
     "scene": "whale",
-    "title": "الحوت",
-    "verses": {
-     "surah": 37,
-     "surahName": "الصافات",
-     "from": 142,
-     "to": 142,
-     "ayat": [
-      {
-       "n": 142,
-       "text": "فَٱلۡتَقَمَهُ ٱلۡحُوتُ وَهُوَ مُلِيمٞ"
-      }
-     ]
-    }
+    "surah": 37,
+    "ayah": 142,
+    "surahName": "الصافات",
+    "surahNameEn": "As-Saffat",
+    "ar": "فَٱلۡتَقَمَهُ ٱلۡحُوتُ وَهُوَ مُلِيمٞ",
+    "en": "Then the fish swallowed him, while he was blameworthy"
    },
    {
     "scene": "darkness",
-    "title": "في الظلمات",
-    "verses": {
-     "surah": 21,
-     "surahName": "الأنبياء",
-     "from": 87,
-     "to": 87,
-     "ayat": [
-      {
-       "n": 87,
-       "text": "وَذَا ٱلنُّونِ إِذ ذَّهَبَ مُغَٰضِبٗا فَظَنَّ أَن لَّن نَّقۡدِرَ عَلَيۡهِ فَنَادَىٰ فِي ٱلظُّلُمَٰتِ أَن لَّآ إِلَٰهَ إِلَّآ أَنتَ سُبۡحَٰنَكَ إِنِّي كُنتُ مِنَ ٱلظَّـٰلِمِينَ"
-      }
-     ]
-    }
+    "surah": 21,
+    "ayah": 87,
+    "surahName": "الأنبياء",
+    "surahNameEn": "Al-Anbya",
+    "ar": "وَذَا ٱلنُّونِ إِذ ذَّهَبَ مُغَٰضِبٗا فَظَنَّ أَن لَّن نَّقۡدِرَ عَلَيۡهِ فَنَادَىٰ فِي ٱلظُّلُمَٰتِ أَن لَّآ إِلَٰهَ إِلَّآ أَنتَ سُبۡحَٰنَكَ إِنِّي كُنتُ مِنَ ٱلظَّـٰلِمِينَ",
+    "en": "And [mention] the man of the fish, when he went off in anger and thought that We would not decree [anything] upon him. And he called out within the darknesses, \"There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers"
    },
    {
     "scene": "tasbih",
-    "title": "من المسبّحين",
-    "verses": {
-     "surah": 37,
-     "surahName": "الصافات",
-     "from": 143,
-     "to": 144,
-     "ayat": [
-      {
-       "n": 143,
-       "text": "فَلَوۡلَآ أَنَّهُۥ كَانَ مِنَ ٱلۡمُسَبِّحِينَ"
-      },
-      {
-       "n": 144,
-       "text": "لَلَبِثَ فِي بَطۡنِهِۦٓ إِلَىٰ يَوۡمِ يُبۡعَثُونَ"
-      }
-     ]
-    }
+    "surah": 37,
+    "ayah": 143,
+    "surahName": "الصافات",
+    "surahNameEn": "As-Saffat",
+    "ar": "فَلَوۡلَآ أَنَّهُۥ كَانَ مِنَ ٱلۡمُسَبِّحِينَ",
+    "en": "And had he not been of those who exalt Allah"
+   },
+   {
+    "scene": "abyss",
+    "surah": 37,
+    "ayah": 144,
+    "surahName": "الصافات",
+    "surahNameEn": "As-Saffat",
+    "ar": "لَلَبِثَ فِي بَطۡنِهِۦٓ إِلَىٰ يَوۡمِ يُبۡعَثُونَ",
+    "en": "He would have remained inside its belly until the Day they are resurrected"
    },
    {
     "scene": "rescue",
-    "title": "فاستجبنا له",
-    "verses": {
-     "surah": 21,
-     "surahName": "الأنبياء",
-     "from": 88,
-     "to": 88,
-     "ayat": [
-      {
-       "n": 88,
-       "text": "فَٱسۡتَجَبۡنَا لَهُۥ وَنَجَّيۡنَٰهُ مِنَ ٱلۡغَمِّۚ وَكَذَٰلِكَ نُـۨجِي ٱلۡمُؤۡمِنِينَ"
-      }
-     ]
-    }
+    "surah": 21,
+    "ayah": 88,
+    "surahName": "الأنبياء",
+    "surahNameEn": "Al-Anbya",
+    "ar": "فَٱسۡتَجَبۡنَا لَهُۥ وَنَجَّيۡنَٰهُ مِنَ ٱلۡغَمِّۚ وَكَذَٰلِكَ نُـۨجِي ٱلۡمُؤۡمِنِينَ",
+    "en": "So We responded to him and saved him from the distress. And thus do We save the believers"
    },
    {
     "scene": "shore",
-    "title": "شجرة من يقطين",
-    "verses": {
-     "surah": 37,
-     "surahName": "الصافات",
-     "from": 145,
-     "to": 146,
-     "ayat": [
-      {
-       "n": 145,
-       "text": "فَنَبَذۡنَٰهُ بِٱلۡعَرَآءِ وَهُوَ سَقِيمٞ"
-      },
-      {
-       "n": 146,
-       "text": "وَأَنۢبَتۡنَا عَلَيۡهِ شَجَرَةٗ مِّن يَقۡطِينٖ"
-      }
-     ]
-    }
+    "surah": 37,
+    "ayah": 145,
+    "surahName": "الصافات",
+    "surahNameEn": "As-Saffat",
+    "ar": "فَنَبَذۡنَٰهُ بِٱلۡعَرَآءِ وَهُوَ سَقِيمٞ",
+    "en": "But We threw him onto the open shore while he was ill"
+   },
+   {
+    "scene": "gourd",
+    "surah": 37,
+    "ayah": 146,
+    "surahName": "الصافات",
+    "surahNameEn": "As-Saffat",
+    "ar": "وَأَنۢبَتۡنَا عَلَيۡهِ شَجَرَةٗ مِّن يَقۡطِينٖ",
+    "en": "And We caused to grow over him a gourd vine"
+   },
+   {
+    "scene": "multitude",
+    "surah": 37,
+    "ayah": 147,
+    "surahName": "الصافات",
+    "surahNameEn": "As-Saffat",
+    "ar": "وَأَرۡسَلۡنَٰهُ إِلَىٰ مِاْئَةِ أَلۡفٍ أَوۡ يَزِيدُونَ",
+    "en": "And We sent him to [his people of] a hundred thousand or more"
    },
    {
     "scene": "believers",
-    "title": "فآمنوا",
-    "verses": {
-     "surah": 37,
-     "surahName": "الصافات",
-     "from": 147,
-     "to": 148,
-     "ayat": [
-      {
-       "n": 147,
-       "text": "وَأَرۡسَلۡنَٰهُ إِلَىٰ مِاْئَةِ أَلۡفٍ أَوۡ يَزِيدُونَ"
-      },
-      {
-       "n": 148,
-       "text": "فَـَٔامَنُواْ فَمَتَّعۡنَٰهُمۡ إِلَىٰ حِينٖ"
-      }
-     ]
-    }
+    "surah": 37,
+    "ayah": 148,
+    "surahName": "الصافات",
+    "surahNameEn": "As-Saffat",
+    "ar": "فَـَٔامَنُواْ فَمَتَّعۡنَٰهُمۡ إِلَىٰ حِينٖ",
+    "en": "And they believed, so We gave them enjoyment [of life] for a time"
    }
   ]
  },
