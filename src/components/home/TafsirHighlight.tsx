@@ -2,16 +2,14 @@ import Link from "next/link";
 import { TAFASIR } from "@/lib/tafasir";
 import { ChevronLeft } from "lucide-react";
 import { AppIcon } from "@/components/AppIcon";
+import { HeadingStar } from "@/components/zellige/Rosette";
 
 export function TafsirHighlight() {
   return (
     <section className="relative max-w-7xl mx-auto px-5 py-10">
       <div className="flex items-center justify-between gap-4 mb-5 flex-wrap">
         <div className="flex items-center gap-3">
-          <span
-            className="w-1.5 h-7 rounded"
-            style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
-          />
+          <HeadingStar />
           <h2 className="text-xl md:text-2xl font-extrabold">٨ تفاسير معتمدة بين يديك</h2>
         </div>
         <Link

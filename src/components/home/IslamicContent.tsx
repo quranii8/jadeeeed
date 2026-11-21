@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppIcon } from "@/components/AppIcon";
 import { HADITH_NABAWI } from "@/lib/hadith-nabawi";
+import { HeadingStar } from "@/components/zellige/Rosette";
 
 const CONTENT = [
   {
@@ -8,7 +9,7 @@ const CONTENT = [
     icon: "leaf",
     title: "قصص الأنبياء",
     desc: "قصص 25 نبياً ورسولاً عليهم السلام مع الدروس المستفادة من القرآن",
-    gradient: "linear-gradient(135deg, #16a34a, #84cc16)",
+    gradient: "linear-gradient(135deg, #0E6B5A, #1C8C76)",
     badge: "25 قصة",
   },
   {
@@ -16,7 +17,7 @@ const CONTENT = [
     icon: "book-open",
     title: "علوم القرآن",
     desc: "أسباب النزول، المكي والمدني، الناسخ والمنسوخ، إعجاز القرآن، والقراءات السبع",
-    gradient: "linear-gradient(135deg, #7c3aed, #a855f7)",
+    gradient: "linear-gradient(135deg, #1B3A8C, #2D54B8)",
     badge: "8 علوم",
   },
   {
@@ -24,7 +25,7 @@ const CONTENT = [
     icon: "audio-waveform",
     title: "أحكام التجويد",
     desc: "تعلّم أحكام التلاوة الصحيحة مع أمثلة عملية من القرآن الكريم",
-    gradient: "linear-gradient(135deg, #0ea5e9, #06b6d4)",
+    gradient: "linear-gradient(135deg, #1B3A8C, #2D54B8)",
     badge: "16 حكماً",
   },
   {
@@ -32,7 +33,7 @@ const CONTENT = [
     icon: "sparkles",
     title: "الأحاديث القدسية",
     desc: "ما يرويه النبي ﷺ عن ربه عز وجل من غير القرآن الكريم",
-    gradient: "linear-gradient(135deg, #be185d, #f0abfc)",
+    gradient: "linear-gradient(135deg, #B4472F, #CF6247)",
     badge: "20 حديثاً",
   },
   {
@@ -40,7 +41,7 @@ const CONTENT = [
   icon: "scroll-text",
   title: "الأحاديث النبوية",
   desc: "مختارات من أحاديث النبي ﷺ المأثورة عن الصحيحين والسنن",
-  gradient: "linear-gradient(135deg, #1B5E20, #2E7D32)",
+  gradient: "linear-gradient(135deg, #1B3A8C, #2D54B8)",
   badge: `${HADITH_NABAWI.length} حديثاً`,
 },
 ];
@@ -49,10 +50,7 @@ export function IslamicContent() {
   return (
     <section className="relative max-w-7xl mx-auto px-5 py-10">
       <div className="flex items-center gap-3 mb-2">
-        <span
-          className="w-1.5 h-7 rounded"
-          style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
-        />
+        <HeadingStar />
         <h2 className="text-xl md:text-2xl font-extrabold">محتوى تعليمي شامل</h2>
       </div>
       <p className="mb-6 text-sm md:text-base" style={{ color: "var(--text-muted)" }}>

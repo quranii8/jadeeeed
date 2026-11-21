@@ -35,8 +35,7 @@ export default function AdhkarCategoryPage({ params }: PageProps) {
       </Link>
 
       <header
-        className="rounded-3xl p-8 md:p-10 text-white text-center relative overflow-hidden mb-6"
-        style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-light))" }}
+        className="page-band page-band--emerald text-center relative overflow-hidden mb-6"
       >
         <div
           className="absolute inset-0 opacity-10"

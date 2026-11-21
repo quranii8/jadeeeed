@@ -1,105 +1,85 @@
-"use client";
-
 import Link from "next/link";
-import { Play, Headphones, BookOpen } from "lucide-react";
+import { BookOpen, Headphones } from "lucide-react";
 import { SearchBar } from "../SearchBar";
-import { AppIcon } from "@/components/AppIcon";
+import { Rosette } from "@/components/zellige/Rosette";
+import { verseOfTheDay } from "@/lib/daily-verses";
+import { toArabicNum } from "@/lib/utils";
 
+/**
+ * First viewport: a cobalt zellige field. The rosette is set tile by tile behind
+ * the verse of the day; search sits directly under it as the primary action.
+ */
 export function HomeHero() {
+  const v = verseOfTheDay();
+  const long = v.ar.length > 120;
+
   return (
-    <section className="relative max-w-7xl mx-auto px-5 pt-12 pb-8 text-center overflow-hidden">
-      {/* زخارف خلفية ناعمة */}
-      <div className="absolute inset-0 pointer-events-none -z-10">
-        <div
-          className="absolute top-0 right-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl"
-          style={{ background: "var(--gold)" }}
-        />
-        <div
-          className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full opacity-15 blur-3xl"
-          style={{ background: "var(--primary)" }}
-        />
+    <section className="glaze-field relative overflow-hidden" aria-labelledby="home-title">
+      <div className="zellige-lattice absolute inset-0 pointer-events-none" />
+
+      {/* the rosette: bleeds past the edges on phones, sits beside the verse on wide screens */}
+      <div className="pointer-events-none absolute left-1/2 top-[46%] -translate-x-1/2 -translate-y-1/2 w-[170vw] max-w-[1100px] sm:w-[120vw] opacity-95">
+        <Rosette className="w-full h-auto" />
       </div>
 
-      <div
-        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-5"
-        style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
-      >
-        <span className="relative flex h-2 w-2">
-          <span
-            className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-            style={{ background: "var(--primary)" }}
-          />
-          <span
-            className="relative inline-flex rounded-full h-2 w-2"
-            style={{ background: "var(--primary)" }}
-          />
-        </span>
-        منصة إسلامية متكاملة
-      </div>
+      <div className="relative max-w-5xl mx-auto px-5 pt-7 pb-12 md:pt-16 md:pb-24 flex flex-col items-center text-center">
+        <h1
+          id="home-title"
+          className="rise-in font-kufic font-bold text-[2.1rem] leading-[1.25] sm:text-5xl md:text-6xl"
+          style={{ color: "var(--on-field)", textShadow: "0 4px 24px rgba(10,22,56,.55)" }}
+        >
+          منصة القرآن الكريم
+        </h1>
+        <p className="rise-in mt-2 text-sm md:text-base font-medium" style={{ color: "var(--on-field-muted)", ["--d" as string]: "120ms" } as React.CSSProperties}>
+          اقرأ، واستمع، وتدبّر
+        </p>
 
-      <h1
-        className="font-extrabold leading-tight mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
-        style={{
-          backgroundImage: "linear-gradient(135deg, var(--primary), var(--gold-dark))",
-          WebkitBackgroundClip: "text",
-          backgroundClip: "text",
-          color: "transparent",
-        }}
-      >
-        رحلتك مع كتاب الله تبدأ هنا
-      </h1>
-
-      <p
-        className="max-w-2xl mx-auto text-base md:text-lg mb-7"
-        style={{ color: "var(--text-muted)" }}
-      >
-        قرآن بالخط العثماني، تلاوات لـ <strong style={{ color: "var(--primary)" }}>20+ قارئاً</strong> بدون انقطاع،
-        و <strong style={{ color: "var(--primary)" }}>8 تفاسير</strong>،
-        أذكار، أسماء الله الحسنى، مواقيت الصلاة، واتجاه القبلة.
-      </p>
-
-      <div className="mb-6">
-        <SearchBar />
-      </div>
-
-      <div className="flex flex-wrap gap-3 justify-center">
-        <Link href="/surah/1" className="btn btn-primary">
-          <Play className="w-4 h-4" />
-          ابدأ القراءة
-        </Link>
-        <Link href="/reciters" className="btn btn-outline">
-          <Headphones className="w-4 h-4" />
-          استمع الآن
-        </Link>
-        <Link href="/tafsir" className="btn btn-outline">
-          <BookOpen className="w-4 h-4" />
-          استكشف التفاسير
-        </Link>
-      </div>
-
-      {/* Feature pills */}
-      <div className="flex flex-wrap gap-2 justify-center mt-8 text-xs">
-        {[
-          { icon: "hand-heart", label: "أذكار" },
-          { icon: "sparkles", label: "أسماء الله" },
-          { icon: "mosque", label: "مواقيت الصلاة" },
-          { icon: "compass", label: "اتجاه القبلة" },
-          { icon: "moon", label: "وضع ليلي" },
-          { icon: "star", label: "محفوظات" },
-        ].map((f, i) => (
-          <span
-            key={i}
-            className="px-3 py-1.5 rounded-full font-semibold"
-            style={{
-              background: "var(--bg-soft)",
-              color: "var(--text-muted)",
-              border: "1px solid var(--border)",
-            }}
+        {/* the medallion: lime plaster set into the heart of the rosette */}
+        <figure
+          className="rise-in relative mt-6 md:mt-12 w-full max-w-[38rem] px-5 py-6 md:px-12 md:py-11"
+          style={{
+            background: "#EEF1EC",
+            color: "#0E1630",
+            clipPath: "polygon(9% 0, 91% 0, 100% 9%, 100% 91%, 91% 100%, 9% 100%, 0 91%, 0 9%)",
+            boxShadow: "0 30px 60px -20px rgba(6,14,40,.7)",
+            ["--d" as string]: "250ms",
+          } as React.CSSProperties}
+        >
+          <div className="zellige-lattice-ink absolute inset-0 pointer-events-none" />
+          <blockquote
+            className={`relative font-hafs ${long ? "text-[1.3rem] md:text-[2rem]" : "text-[1.6rem] md:text-[2.5rem]"} leading-[2.05]`}
+            lang="ar"
           >
-            <AppIcon name={f.icon} /> {f.label}
-          </span>
-        ))}
+            {v.ar}
+          </blockquote>
+          <figcaption className="relative mt-4 flex items-center justify-center gap-3 text-sm font-semibold" style={{ color: "#1B3A8C" }}>
+            <span className="h-px w-8" style={{ background: "#D99A1E" }} />
+            <Link href={`/surah/${v.s}#verse-${v.a}`} className="hover:underline">
+              سورة {v.name}، الآية {toArabicNum(v.a)}
+            </Link>
+            <span className="h-px w-8" style={{ background: "#D99A1E" }} />
+          </figcaption>
+        </figure>
+
+        <div className="relative w-full mt-6 md:mt-10">
+          <SearchBar />
+          <div className="mt-4 flex flex-wrap gap-3 justify-center">
+            <Link href="/surahs" className="btn btn-primary">
+              <BookOpen className="w-4 h-4" aria-hidden="true" />
+              ابدأ القراءة
+            </Link>
+            <Link
+              href="/reciters"
+              className="btn"
+              style={{ background: "rgba(238,241,236,.1)", borderColor: "rgba(238,241,236,.45)", color: "var(--on-field)" }}
+            >
+              <Headphones className="w-4 h-4" aria-hidden="true" />
+              استمع للقرّاء
+            </Link>
+          </div>
+        </div>
       </div>
+      <div className="tile-strip relative" />
     </section>
   );
 }

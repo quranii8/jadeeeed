@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AppIcon } from "@/components/AppIcon";
+import { HeadingStar } from "@/components/zellige/Rosette";
 
 interface Tool {
   href: string;
@@ -15,28 +16,28 @@ const TOOLS: Tool[] = [
     icon: "hand-heart",
     title: "الأذكار والأدعية",
     desc: "أذكار الصباح والمساء وأذكار الصلاة والنوم مع عدّاد تفاعلي",
-    gradient: "linear-gradient(135deg, #16a34a, #84cc16)",
+    gradient: "linear-gradient(135deg, #0E6B5A, #1C8C76)",
   },
   {
     href: "/asma-allah",
     icon: "sparkles",
     title: "أسماء الله الحسنى",
     desc: "الأسماء التسعة والتسعون مع شرح المعنى والدلالة لكل اسم",
-    gradient: "linear-gradient(135deg, #d97706, #f59e0b)",
+    gradient: "linear-gradient(135deg, #D99A1E, #F0BE52)",
   },
   {
     href: "/prayer-times",
     icon: "mosque",
     title: "مواقيت الصلاة",
     desc: "مواقيت دقيقة حسب موقعك مع عدّ تنازلي للصلاة القادمة",
-    gradient: "linear-gradient(135deg, #0ea5e9, #06b6d4)",
+    gradient: "linear-gradient(135deg, #1B3A8C, #2D54B8)",
   },
   {
     href: "/qibla",
     icon: "compass",
     title: "اتجاه القبلة",
     desc: "بوصلة احترافية تتبع حركة جهازك لتحديد اتجاه الكعبة المشرفة",
-    gradient: "linear-gradient(135deg, #7c3aed, #a855f7)",
+    gradient: "linear-gradient(135deg, #1B3A8C, #2D54B8)",
   },
 ];
 
@@ -44,10 +45,7 @@ export function IslamicTools() {
   return (
     <section className="relative max-w-7xl mx-auto px-5 py-10">
       <div className="flex items-center gap-3 mb-2">
-        <span
-          className="w-1.5 h-7 rounded"
-          style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
-        />
+        <HeadingStar />
         <h2 className="text-xl md:text-2xl font-extrabold">أدوات إسلامية متكاملة</h2>
       </div>
       <p className="mb-6 text-sm md:text-base" style={{ color: "var(--text-muted)" }}>

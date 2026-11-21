@@ -18,8 +18,7 @@ export default function ProphetsPage() {
     <section className="max-w-7xl mx-auto px-5 py-8">
       {/* Header */}
       <header
-        className="rounded-3xl p-8 md:p-10 text-white text-center relative overflow-hidden mb-8"
-        style={{ background: "linear-gradient(135deg, #14452F, #1B5E20 60%, #2E7D32)" }}
+        className="page-band page-band--terracotta text-center relative overflow-hidden mb-8"
       >
         <OrnamentPattern id="orn-prophets" />
         <div className="relative">
@@ -43,12 +42,12 @@ export default function ProphetsPage() {
           >
             <div
               className="absolute -top-12 -left-12 w-32 h-32 rounded-full opacity-10 transition-transform group-hover:scale-110"
-              style={{ background: "linear-gradient(135deg, #16a34a, #84cc16)" }}
+              style={{ background: "linear-gradient(135deg, #0E6B5A, #1C8C76)" }}
             />
             <div className="flex items-start gap-3 relative">
               <div
                 className="w-14 h-14 rounded-xl grid place-items-center text-2xl shrink-0 font-bold text-white shadow-md transition-transform group-hover:scale-110"
-                style={{ background: "linear-gradient(135deg, #16a34a, #84cc16)" }}
+                style={{ background: "linear-gradient(135deg, #0E6B5A, #1C8C76)" }}
               >
                 {p.name.charAt(0)}
               </div>
@@ -60,7 +59,7 @@ export default function ProphetsPage() {
                 {storyOf(p.id)?.title && (
                   <div
                     className="inline-block px-2 py-0.5 rounded-full text-[10px] font-semibold mb-2"
-                    style={{ background: "rgba(22,163,74,.15)", color: "#16a34a" }}
+                    style={{ background: "rgba(22,163,74,.15)", color: "#0E6B5A" }}
                   >
                     {storyOf(p.id)?.title}
                   </div>
@@ -70,7 +69,7 @@ export default function ProphetsPage() {
                 </p>
                 <div
                   className="mt-2 text-xs font-semibold flex items-center gap-1"
-                  style={{ color: "#16a34a" }}
+                  style={{ color: "#0E6B5A" }}
                 >
                   اقرأ القصة
                   <ChevronLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" />

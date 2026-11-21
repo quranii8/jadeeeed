@@ -36,8 +36,7 @@ export default function TafsirDetailPage({ params }: PageProps) {
 
       {/* Header */}
       <header
-        className="rounded-3xl p-8 md:p-10 text-white relative overflow-hidden mb-6"
-        style={{ background: `linear-gradient(135deg, ${tafsir.color}, ${tafsir.color}cc)` }}
+        className="page-band page-band--saffron-deep relative overflow-hidden mb-6"
       >
         <div className="flex items-start gap-5 relative">
           <div

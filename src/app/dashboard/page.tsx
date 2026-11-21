@@ -50,11 +50,9 @@ export default async function DashboardPage() {
     <section className="max-w-6xl mx-auto px-5 py-8">
       {/* Welcome */}
       <div
-        className="rounded-3xl p-8 text-white mb-6 relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, var(--primary), var(--gold-dark))" }}
+        className="page-band page-band--cobalt mb-6 relative overflow-hidden"
       >
-        <div className="absolute inset-0 opacity-10 pointer-events-none"
-             style={{ backgroundImage: "radial-gradient(circle at 80% 20%, white, transparent 50%)" }} />
+        <div className="zellige-lattice absolute inset-0 pointer-events-none" />
         <div className="relative">
           <div className="text-sm opacity-90 mb-1">مرحباً بك يا</div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-2">
@@ -72,25 +70,25 @@ export default async function DashboardPage() {
           icon={<BookmarkCheck className="w-6 h-6" />}
           label="الآيات المحفوظة"
           value={toArabicNum(bookmarksCount)}
-          color="#16a34a"
+          color="#0E6B5A"
         />
         <StatCard
           icon={<FileText className="w-6 h-6" />}
           label="الملاحظات"
           value={toArabicNum(notesCount)}
-          color="#0ea5e9"
+          color="#1B3A8C"
         />
         <StatCard
           icon={<BookOpen className="w-6 h-6" />}
           label="سور قرأتها"
           value={toArabicNum(uniqueSurahs)}
-          color="#7c3aed"
+          color="#1B3A8C"
         />
         <StatCard
           icon={<Clock className="w-6 h-6" />}
           label="وقت القراءة"
           value={`${toArabicNum(Math.floor(totalReadingTime / 60))} د`}
-          color="#d97706"
+          color="#D99A1E"
         />
       </div>
 
@@ -128,7 +126,7 @@ export default async function DashboardPage() {
                     key={b.id}
                     href={`/surah/${b.surah}#verse-${b.verse}`}
                     className="block p-3 rounded-lg transition-colors hover:bg-green-50 dark:hover:bg-green-900/10"
-                    style={{ borderRight: "3px solid var(--gold)" }}
+                    style={{ border: "1px solid var(--gold)" }}
                   >
                     <div className="font-bold text-sm mb-1">
                       {s?.a} : {toArabicNum(b.verse)}
@@ -167,7 +165,7 @@ export default async function DashboardPage() {
                     key={n.id}
                     href={`/surah/${n.surah}#verse-${n.verse}`}
                     className="block p-3 rounded-lg transition-colors hover:bg-green-50 dark:hover:bg-green-900/10"
-                    style={{ borderRight: "3px solid var(--primary)" }}
+                    style={{ border: "1px solid var(--primary)" }}
                   >
                     <div className="font-bold text-sm mb-1">
                       {s?.a} : {toArabicNum(n.verse)}

@@ -86,7 +86,7 @@ export function ReciterPlaylist({ reciterId, reciterName }: Props) {
           <button
             key={s.n}
             onClick={() => playSurah(s.n)}
-            className="flex items-center gap-3 p-3 rounded-xl text-right transition-all hover:bg-green-50 dark:hover:bg-green-900/20 group"
+            className="flex items-center gap-3 p-3 rounded-xl text-right transition-all hover:bg-[var(--primary-soft)] group"
           >
             <div
               className="w-10 h-10 rounded-full grid place-items-center text-white shrink-0 transition-transform group-hover:scale-110"

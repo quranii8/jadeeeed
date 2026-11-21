@@ -162,15 +162,9 @@ export function PrayerTimesWidget() {
           {/* الصلاة القادمة */}
           {next && (
             <div
-              className="rounded-3xl p-8 text-white text-center mb-5 relative overflow-hidden"
-              style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-light))" }}
+              className="page-band page-band--cobalt text-center relative overflow-hidden mb-5"
             >
-              <div
-                className="absolute inset-0 opacity-10 pointer-events-none"
-                style={{
-                  backgroundImage: "radial-gradient(circle at 80% 20%, white, transparent 50%)",
-                }}
-              />
+              <div className="zellige-lattice absolute inset-0 pointer-events-none" />
               <div className="relative">
                 <div className="text-sm opacity-90 mb-1">الصلاة القادمة</div>
                 <div className="text-5xl mb-2"><AppIcon name={PRAYER_ICONS[next.name]} /></div>

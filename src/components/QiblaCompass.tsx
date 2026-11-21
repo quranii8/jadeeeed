@@ -375,7 +375,7 @@ export function QiblaCompass() {
         style={{
           background: "var(--bg-soft)",
           color: "var(--text-muted)",
-          borderRight: "3px solid var(--gold)",
+          border: "1px solid var(--gold)",
         }}
       >
         <AppIcon name="lightbulb" /> <strong>ملاحظة:</strong> دقة البوصلة تعتمد على معايرة جهازك. للمعايرة على الموبايل، حرّك الجهاز على شكل رقم 8 في الهواء عدة مرات. تجنب وجود الجهاز قرب المعادن أو الأجهزة الكهربائية.

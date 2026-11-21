@@ -2,6 +2,7 @@ import Link from "next/link";
 import { RECITERS } from "@/lib/reciters";
 import { ChevronLeft, Mic } from "lucide-react";
 import { ReciterAvatar } from "@/components/ReciterAvatar";
+import { HeadingStar } from "@/components/zellige/Rosette";
 
 export function RecitersHighlight() {
   const featured = RECITERS.slice(0, 8);
@@ -10,10 +11,7 @@ export function RecitersHighlight() {
     <section className="relative max-w-7xl mx-auto px-5 py-10">
       <div className="flex items-center justify-between gap-4 mb-5 flex-wrap">
         <div className="flex items-center gap-3">
-          <span
-            className="w-1.5 h-7 rounded"
-            style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
-          />
+          <HeadingStar />
           <h2 className="text-xl md:text-2xl font-extrabold">أبرز القراء</h2>
         </div>
         <Link

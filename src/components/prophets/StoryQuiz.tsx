@@ -124,8 +124,8 @@ export function StoryQuiz({ story }: { story: ProphetStory }) {
                   onClick={() => choose(k)}
                   className="flex items-center justify-between gap-2 px-4 py-3 rounded-xl border text-right font-medium transition-colors"
                   style={{
-                    borderColor: state === "right" ? "#16a34a" : state === "wrong" ? "#dc2626" : "var(--border)",
-                    background: state === "right" ? "#16a34a1a" : state === "wrong" ? "#dc26261a" : "transparent",
+                    borderColor: state === "right" ? "#0E6B5A" : state === "wrong" ? "#dc2626" : "var(--border)",
+                    background: state === "right" ? "#0E6B5A1a" : state === "wrong" ? "#dc26261a" : "transparent",
                   }}
                 >
                   {o}

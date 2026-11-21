@@ -15,8 +15,7 @@ export default function TajweedPage() {
   return (
     <section className="max-w-7xl mx-auto px-5 py-8">
       <header
-        className="rounded-3xl p-8 md:p-10 text-white text-center relative overflow-hidden mb-8"
-        style={{ background: "linear-gradient(135deg, #0ea5e9, #06b6d4)" }}
+        className="page-band page-band--emerald text-center relative overflow-hidden mb-8"
       >
         <div className="text-5xl mb-3"><AppIcon name="audio-waveform" /></div>
         <h1 className="text-3xl md:text-4xl font-extrabold mb-2">أحكام التجويد</h1>
@@ -32,7 +31,7 @@ export default function TajweedPage() {
             <div className="flex items-center gap-3 mb-4">
               <span
                 className="w-1.5 h-7 rounded"
-                style={{ background: "linear-gradient(to bottom, #0ea5e9, #06b6d4)" }}
+                style={{ background: "linear-gradient(to bottom, #1B3A8C, #2D54B8)" }}
               />
               <h2 className="text-xl md:text-2xl font-extrabold">{cat.name}</h2>
               <span className="text-sm" style={{ color: "var(--text-muted)" }}>
@@ -64,7 +63,7 @@ export default function TajweedPage() {
                       </p>
                       <div
                         className="mt-2 text-xs font-semibold flex items-center gap-1"
-                        style={{ color: "#0ea5e9" }}
+                        style={{ color: "#1B3A8C" }}
                       >
                         تعلّم
                         <ChevronLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" />

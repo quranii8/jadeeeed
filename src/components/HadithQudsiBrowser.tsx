@@ -92,20 +92,20 @@ export function HadithQudsiBrowser({ hadiths }: Props) {
             <div
               key={h.n}
               className="card p-6 md:p-7 transition-all hover:shadow-md"
-              style={{ borderRight: "4px solid #be185d" }}
+              style={{ border: "1px solid #B4472F" }}
             >
               <div className="flex items-start justify-between mb-4 gap-3">
                 <div className="flex items-center gap-3">
                   <div
                     className="w-10 h-10 rounded-xl grid place-items-center font-bold text-white"
-                    style={{ background: "linear-gradient(135deg, #be185d, #f0abfc)" }}
+                    style={{ background: "linear-gradient(135deg, #B4472F, #CF6247)" }}
                   >
                     {toArabicNum(h.n)}
                   </div>
                   <div>
                     <div
                       className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold"
-                      style={{ background: "rgba(190,24,93,.12)", color: "#be185d" }}
+                      style={{ background: "rgba(190,24,93,.12)", color: "#B4472F" }}
                     >
                       {h.topic}
                     </div>

@@ -1,12 +1,19 @@
 import Link from "next/link";
+import { StarMark } from "@/components/zellige/Rosette";
 
 export function Footer() {
   return (
-    <footer
-      className="relative z-10 border-t mt-16 pt-10 pb-24 px-5"
-      style={{ background: "var(--bg-elev)", borderColor: "var(--border)" }}
-    >
-      <div className="max-w-6xl mx-auto">
+    <footer className="relative z-10 mt-20 glaze-field">
+      <div className="tile-strip" />
+      <div className="zellige-lattice absolute inset-0 top-[14px] pointer-events-none" />
+      <div className="relative max-w-6xl mx-auto px-5 pt-12 pb-28">
+        <div className="flex items-center gap-3 mb-10">
+          <StarMark size={48} />
+          <div>
+            <div className="font-kufic font-bold text-2xl" style={{ color: "var(--on-field)" }}>منصة القرآن الكريم</div>
+            <div className="text-sm" style={{ color: "var(--on-field-muted)" }}>اقرأ، واستمع، وتدبّر</div>
+          </div>
+        </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 text-sm">
           <FooterColumn title="القرآن">
             <FooterLink href="/surahs">السور</FooterLink>
@@ -36,11 +43,11 @@ export function Footer() {
           </FooterColumn>
         </div>
 
-        <div className="text-center pt-6 border-t" style={{ borderColor: "var(--border)" }}>
-          <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+        <div className="text-center pt-6 border-t" style={{ borderColor: "rgba(238,241,236,.2)" }}>
+          <p className="text-sm" style={{ color: "var(--on-field-muted)" }}>
             صُنع بحب لخدمة كتاب الله تعالى · © {new Date().getFullYear()}
           </p>
-          <p className="mt-1.5 text-xs" style={{ color: "var(--text-soft)" }}>
+          <p className="mt-1.5 text-xs" style={{ color: "var(--on-field-muted)", opacity: .8 }}>
             المصادر: api.alquran.cloud • mp3quran.net • everyayah.com • aladhan.com
           </p>
         </div>
@@ -52,7 +59,7 @@ export function Footer() {
 function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h4 className="font-bold mb-3 text-sm" style={{ color: "var(--primary)" }}>{title}</h4>
+      <h4 className="font-kufic font-bold mb-3 text-base" style={{ color: "var(--gold-light)" }}>{title}</h4>
       <div className="flex flex-col gap-2">{children}</div>
     </div>
   );
@@ -62,8 +69,8 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
   return (
     <Link
       href={href}
-      className="text-sm transition-colors hover:underline"
-      style={{ color: "var(--text-muted)" }}
+      className="text-sm transition-colors hover:underline hover:text-white"
+      style={{ color: "var(--on-field-muted)" }}
     >
       {children}
     </Link>

@@ -47,8 +47,7 @@ export default function ProphetPage({ params }: PageProps) {
       </Link>
 
       <header
-        className="rounded-3xl p-8 md:p-10 text-white relative overflow-hidden mb-5"
-        style={{ background: "linear-gradient(135deg, #14452F, #1B5E20 60%, #2E7D32)" }}
+        className="page-band page-band--terracotta relative overflow-hidden mb-5"
       >
         <OrnamentPattern id={`orn-${prophet.id}`} />
         <div className="relative">

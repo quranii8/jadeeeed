@@ -149,7 +149,7 @@ export function AsmaAllahBrowser({ names }: Props) {
 
               <div
                 className="p-5 rounded-xl"
-                style={{ background: "var(--bg-soft)", borderRight: "4px solid var(--primary)" }}
+                style={{ background: "var(--bg-soft)", border: "1px solid var(--primary)" }}
               >
                 <div
                   className="text-xs font-bold mb-3"

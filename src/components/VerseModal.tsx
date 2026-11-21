@@ -273,7 +273,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
                       <div
                         key={t.id}
                         className="p-4 rounded-xl"
-                        style={{ background: "var(--bg-soft)", borderRight: "3px solid var(--primary)" }}
+                        style={{ background: "var(--bg-soft)", border: "1px solid var(--primary)" }}
                       >
                         <div className="flex items-center gap-2 mb-2 text-xs font-semibold" style={{ color: "var(--primary)" }}>
                           

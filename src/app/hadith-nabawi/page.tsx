@@ -14,8 +14,7 @@ export default function HadithNabawiPage() {
     <section className="max-w-7xl mx-auto px-5 py-8">
       {/* Header */}
       <header
-        className="rounded-3xl p-8 md:p-10 text-white text-center relative overflow-hidden mb-8"
-        style={{ background: "linear-gradient(135deg, #1B5E20, #2E7D32)" }}
+        className="page-band page-band--cobalt text-center relative overflow-hidden mb-8"
       >
         <div className="absolute inset-0 opacity-10">
           <svg
@@ -56,7 +55,7 @@ export default function HadithNabawiPage() {
       {/* تعريف الحديث النبوي */}
       <div
         className="card p-5 mb-6"
-        style={{ borderRight: "4px solid var(--primary)", background: "var(--primary-soft)" }}
+        style={{ border: "1px solid var(--primary)", background: "var(--primary-soft)" }}
       >
         <p className="text-sm leading-relaxed">
           <AppIcon name="sparkle" /> <strong>تعريف الحديث النبوي:</strong> ما أُضيف إلى النبي ﷺ من أقوال وأفعال

@@ -5,6 +5,7 @@ import { Play } from "lucide-react";
 import { useQuranStore } from "@/lib/store";
 import { getSurah } from "@/lib/surahs";
 import { toArabicNum } from "@/lib/utils";
+import { HeadingStar } from "@/components/zellige/Rosette";
 
 export function ContinueReading() {
   const lastRead = useQuranStore((s) => s.lastRead);
@@ -15,7 +16,7 @@ export function ContinueReading() {
   return (
     <section className="relative max-w-7xl mx-auto px-5 py-6">
       <div className="flex items-center gap-3 mb-4">
-        <span className="w-1.5 h-7 rounded" style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }} />
+        <HeadingStar />
         <h2 className="text-xl md:text-2xl font-extrabold">تابع القراءة</h2>
       </div>
 

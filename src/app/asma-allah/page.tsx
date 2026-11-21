@@ -13,18 +13,9 @@ export default function AsmaAllahPage() {
     <section className="max-w-7xl mx-auto px-5 py-8">
       {/* Header مزخرف */}
       <header
-        className="rounded-3xl p-8 md:p-12 text-white text-center relative overflow-hidden mb-8"
-        style={{ background: "linear-gradient(135deg, var(--primary), var(--gold-dark))" }}
+        className="page-band page-band--emerald text-center relative overflow-hidden mb-8"
       >
-        <div
-          className="absolute inset-0 opacity-10 pointer-events-none"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 20% 30%, white 0%, transparent 30%),
-              radial-gradient(circle at 80% 70%, white 0%, transparent 30%)
-            `,
-          }}
-        />
+        <div className="zellige-lattice absolute inset-0 pointer-events-none" />
         <div className="relative">
           <div className="text-5xl mb-3"><AppIcon name="sparkles" /></div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-2">أسماء الله الحسنى</h1>

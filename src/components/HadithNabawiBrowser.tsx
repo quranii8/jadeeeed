@@ -47,7 +47,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
   const getGradeColor = (grade: string) => {
     switch (grade) {
       case "صحيح":
-        return { bg: "rgba(34,197,94,0.12)", text: "#22c55e" };
+        return { bg: "rgba(34,197,94,0.12)", text: "#1C8C76" };
       case "حسن":
         return { bg: "rgba(234,179,8,0.12)", text: "#eab308" };
       default:
@@ -187,7 +187,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
               <div
                 key={h.n}
                 className="card p-6 md:p-7 transition-all hover:shadow-md"
-                style={{ borderRight: "4px solid var(--gold)" }}
+                style={{ border: "1px solid var(--gold)" }}
               >
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4 gap-3">
