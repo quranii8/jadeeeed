@@ -86,8 +86,7 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
 
       {/* Header */}
       <header
-        className="rounded-3xl p-8 md:p-10 text-white text-center relative overflow-hidden mb-6"
-        style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-light))" }}
+        className="page-band page-band--cobalt text-center relative overflow-hidden mb-6"
       >
         <div
           className="absolute inset-0 pointer-events-none"
@@ -102,7 +101,7 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
           <div className="opacity-90 mt-2 text-base">
             {surah.e} — <em>{surah.trans}</em>
           </div>
-          <div className="inline-flex gap-3 mt-4 px-5 py-1.5 rounded-full text-sm bg-white/15 backdrop-blur">
+          <div className="inline-flex gap-3 mt-4 px-5 py-1.5 rounded text-sm bg-white/15 backdrop-blur">
             <span>{surah.t === "makki" ? "مكية" : "مدنية"}</span>
             <span>•</span>
             <span>{toArabicNum(surah.v)} آية</span>
@@ -232,7 +231,7 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
                   key={v.num}
                   id={`verse-${v.num}`}
                   data-verse-key={`${surah.n}:${v.num}`}
-                  className={`cursor-pointer transition-colors rounded-md hover:bg-green-50 dark:hover:bg-green-900/20 ${isBookmarked(surah.n, v.num) ? "bg-amber-100/40 dark:bg-amber-900/20" : ""}`}
+                  className={`cursor-pointer transition-colors rounded-md hover:bg-[var(--primary-soft)] ${isBookmarked(surah.n, v.num) ? "bg-amber-100/40 dark:bg-amber-900/20" : ""}`}
                   onClick={() => setOpenVerse(v.num)}
                 >
                   {v.text}

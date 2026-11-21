@@ -14,8 +14,7 @@ export default function HadithNabawiPage() {
     <section className="max-w-7xl mx-auto px-5 py-8">
       {/* Header */}
       <header
-        className="rounded-3xl p-8 md:p-10 text-white text-center relative overflow-hidden mb-8"
-        style={{ background: "linear-gradient(135deg, #1B5E20, #2E7D32)" }}
+        className="page-band page-band--cobalt text-center relative overflow-hidden mb-8"
       >
         <div className="absolute inset-0 opacity-10">
           <svg
@@ -48,7 +47,7 @@ export default function HadithNabawiPage() {
         <p className="text-base md:text-lg opacity-95 max-w-2xl mx-auto">
           مختارات من أحاديث النبي ﷺ المأثورة عن الصحيحين والسنن
         </p>
-        <div className="inline-block mt-5 px-5 py-2 rounded-full bg-white/20 backdrop-blur text-sm">
+        <div className="inline-block mt-5 px-5 py-2 rounded bg-white/20 backdrop-blur text-sm">
           {HADITH_NABAWI.length} حديثاً نبوياً مختاراً
         </div>
       </header>
@@ -56,7 +55,7 @@ export default function HadithNabawiPage() {
       {/* تعريف الحديث النبوي */}
       <div
         className="card p-5 mb-6"
-        style={{ borderRight: "4px solid var(--primary)", background: "var(--primary-soft)" }}
+        style={{ border: "1px solid var(--primary)", background: "var(--primary-soft)" }}
       >
         <p className="text-sm leading-relaxed">
           <AppIcon name="sparkle" /> <strong>تعريف الحديث النبوي:</strong> ما أُضيف إلى النبي ﷺ من أقوال وأفعال
@@ -85,7 +84,7 @@ export default function HadithNabawiPage() {
             (source) => (
               <span
                 key={source}
-                className="px-3 py-1 rounded-full text-xs"
+                className="px-3 py-1 rounded text-xs"
                 style={{
                   background: "var(--surface)",
                   color: "var(--primary)",

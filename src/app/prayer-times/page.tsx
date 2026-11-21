@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PrayerTimesWidget } from "@/components/PrayerTimesWidget";
+import { HeadingStar } from "@/components/zellige/Rosette";
 
 export const metadata: Metadata = {
   title: "مواقيت الصلاة",
@@ -10,10 +11,7 @@ export default function PrayerTimesPage() {
   return (
     <section className="max-w-4xl mx-auto px-5 py-8">
       <div className="flex items-center gap-3 mb-2">
-        <span
-          className="w-1.5 h-8 rounded"
-          style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
-        />
+        <HeadingStar />
         <h1 className="text-2xl md:text-3xl font-extrabold">مواقيت الصلاة</h1>
       </div>
       <p className="mb-8" style={{ color: "var(--text-muted)" }}>

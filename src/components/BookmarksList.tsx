@@ -44,7 +44,7 @@ export function BookmarksList() {
             <div
               key={`${b.surah}:${b.verse}`}
               className="card p-5"
-              style={{ borderRight: "4px solid var(--gold)" }}
+              style={{ border: "1px solid var(--gold)" }}
             >
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div>

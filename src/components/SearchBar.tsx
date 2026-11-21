@@ -62,13 +62,15 @@ export function SearchBar({ autoFocus, placeholder = "ابحث عن سورة، �
           if (e.key === "Enter" && matches[0]) goTo(matches[0].n);
         }}
         placeholder={placeholder}
-        className="w-full py-4 pr-14 pl-5 text-base rounded-full outline-none transition-all border-2"
+        className="w-full py-4 pr-14 pl-5 text-base outline-none transition-all border-2 placeholder:text-[var(--text-soft)]"
         style={{
           background: "var(--surface)",
           borderColor: "var(--border)",
           color: "var(--text)",
+          borderRadius: 4,
+          boxShadow: "var(--shadow)",
         }}
-        onFocusCapture={(e) => (e.currentTarget.style.borderColor = "var(--primary)")}
+        onFocusCapture={(e) => (e.currentTarget.style.borderColor = "var(--gold)")}
         onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
       />
       <Search
@@ -78,7 +80,7 @@ export function SearchBar({ autoFocus, placeholder = "ابحث عن سورة، �
 
       {open && q.trim() && (
         <div
-          className="absolute top-full mt-2 w-full rounded-2xl overflow-hidden shadow-lg z-50 animate-fade-in"
+          className="absolute top-full mt-2 w-full rounded overflow-hidden shadow-lg z-50 animate-fade-in text-right"
           style={{
             background: "var(--surface)",
             border: "1px solid var(--border)",

@@ -122,7 +122,7 @@ export function DhikrCounter({ dhikr, index }: Props) {
             style={{
               background: "var(--bg-soft)",
               color: "var(--text-muted)",
-              borderRight: "3px solid var(--gold)",
+              border: "1px solid var(--gold)",
             }}
           >
             <AppIcon name="sparkle" /> <strong style={{ color: "var(--gold-dark)" }}>الفضل:</strong> {dhikr.benefit}

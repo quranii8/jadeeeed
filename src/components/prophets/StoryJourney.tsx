@@ -32,7 +32,7 @@ export function StoryJourney({ stages }: { stages: StoryStage[] }) {
           <li key={k} className="shrink-0">
             <button
               onClick={() => go(k)}
-              className="flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium border transition-colors whitespace-nowrap"
+              className="flex items-center gap-2 px-3 py-2 rounded text-sm font-medium border transition-colors whitespace-nowrap"
               style={
                 k === i
                   ? { background: "var(--primary)", color: "white", borderColor: "var(--primary)" }

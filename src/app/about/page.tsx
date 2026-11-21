@@ -54,7 +54,7 @@ export default function AboutPage() {
             {TRANSLATIONS.map((t) => (
               <span
                 key={t.id}
-                className="px-3 py-1.5 rounded-full text-xs font-medium"
+                className="px-3 py-1.5 rounded text-xs font-medium"
                 style={{ background: "var(--bg-soft)", border: "1px solid var(--border)" }}
               >
                 {t.language}

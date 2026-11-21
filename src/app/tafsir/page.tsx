@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TAFASIR } from "@/lib/tafasir";
 import { ChevronLeft } from "lucide-react";
 import { AppIcon } from "@/components/AppIcon";
+import { HeadingStar } from "@/components/zellige/Rosette";
 
 export const metadata: Metadata = {
   title: "التفاسير المعتمدة",
@@ -13,7 +14,7 @@ export default function TafsirPage() {
   return (
     <section className="max-w-7xl mx-auto px-5 py-8">
       <div className="flex items-center gap-3 mb-2">
-        <span className="w-1.5 h-8 rounded" style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }} />
+        <HeadingStar />
         <h1 className="text-2xl md:text-3xl font-extrabold">التفاسير المعتمدة</h1>
       </div>
       <p className="mb-8 max-w-3xl" style={{ color: "var(--text-muted)" }}>
@@ -45,7 +46,7 @@ export default function TafsirPage() {
                 </p>
                 <div className="flex items-center gap-2 flex-wrap">
                   <span
-                    className="px-2 py-0.5 rounded-full text-[10px] font-semibold"
+                    className="px-2 py-0.5 rounded text-[10px] font-semibold"
                     style={{ background: `${t.color}15`, color: t.color }}
                   >
                     {t.approach}

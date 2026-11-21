@@ -36,8 +36,7 @@ export default function TafsirDetailPage({ params }: PageProps) {
 
       {/* Header */}
       <header
-        className="rounded-3xl p-8 md:p-10 text-white relative overflow-hidden mb-6"
-        style={{ background: `linear-gradient(135deg, ${tafsir.color}, ${tafsir.color}cc)` }}
+        className="page-band page-band--saffron-deep relative overflow-hidden mb-6"
       >
         <div className="flex items-start gap-5 relative">
           <div
@@ -67,7 +66,7 @@ export default function TafsirDetailPage({ params }: PageProps) {
             <Link
               key={t.id}
               href={`/tafsir/${encodeURIComponent(t.id)}`}
-              className="px-3 py-1.5 rounded-full text-sm font-medium transition-all card !py-2 hover:-translate-y-0.5"
+              className="px-3 py-1.5 rounded text-sm font-medium transition-all card !py-2 hover:-translate-y-0.5"
             >
               <AppIcon name={t.icon} /> {t.shortName}
             </Link>

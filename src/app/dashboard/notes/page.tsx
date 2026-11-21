@@ -7,6 +7,7 @@ import { ArrowRight, FileText } from "lucide-react";
 import { getSurah } from "@/lib/surahs";
 import { toArabicNum } from "@/lib/utils";
 import { NotesClient } from "@/components/dashboard/NotesClient";
+import { HeadingStar } from "@/components/zellige/Rosette";
 
 export const metadata = { title: "ملاحظاتي" };
 export const dynamic = "force-dynamic";
@@ -29,7 +30,7 @@ export default async function NotesPage() {
       </Link>
 
       <div className="flex items-center gap-3 mb-2">
-        <span className="w-1.5 h-8 rounded" style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }} />
+        <HeadingStar />
         <h1 className="text-2xl md:text-3xl font-extrabold">ملاحظاتي</h1>
       </div>
       <p className="mb-6" style={{ color: "var(--text-muted)" }}>

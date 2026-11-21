@@ -33,8 +33,7 @@ export default function ReciterPage({ params }: PageProps) {
       </Link>
 
       <header
-        className="rounded-3xl p-8 md:p-10 text-white relative overflow-hidden mb-6"
-        style={{ background: "linear-gradient(135deg, var(--primary), var(--gold-dark))" }}
+        className="page-band page-band--emerald relative overflow-hidden mb-6"
       >
         <div
           className="absolute inset-0 pointer-events-none opacity-10"
@@ -65,7 +64,7 @@ export default function ReciterPage({ params }: PageProps) {
               <span className="px-2 py-0.5 rounded bg-white/20">{reciter.bitrate}</span>
             </div>
             {reciter.fullSurahServer && (
-              <div className="mt-3 inline-block px-3 py-1 rounded-full text-xs bg-white/20">
+              <div className="mt-3 inline-block px-3 py-1 rounded text-xs bg-white/20">
                 <AppIcon name="check" /> تشغيل متواصل للسور الكاملة
               </div>
             )}

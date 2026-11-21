@@ -69,7 +69,7 @@ export function NotesClient({ initialNotes }: { initialNotes: Note[] }) {
         <div
           key={n.id}
           className="card p-5"
-          style={{ borderRight: "4px solid var(--primary)" }}
+          style={{ border: "1px solid var(--primary)" }}
         >
           <div className="flex items-center justify-between mb-3 gap-2">
             <Link

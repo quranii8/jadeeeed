@@ -162,15 +162,9 @@ export function PrayerTimesWidget() {
           {/* الصلاة القادمة */}
           {next && (
             <div
-              className="rounded-3xl p-8 text-white text-center mb-5 relative overflow-hidden"
-              style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-light))" }}
+              className="page-band page-band--cobalt text-center relative overflow-hidden mb-5"
             >
-              <div
-                className="absolute inset-0 opacity-10 pointer-events-none"
-                style={{
-                  backgroundImage: "radial-gradient(circle at 80% 20%, white, transparent 50%)",
-                }}
-              />
+              <div className="zellige-lattice absolute inset-0 pointer-events-none" />
               <div className="relative">
                 <div className="text-sm opacity-90 mb-1">الصلاة القادمة</div>
                 <div className="text-5xl mb-2"><AppIcon name={PRAYER_ICONS[next.name]} /></div>
@@ -180,7 +174,7 @@ export function PrayerTimesWidget() {
                 <div className="text-2xl font-bold tabular-nums" dir="ltr">
                   {next.time}
                 </div>
-                <div className="mt-3 inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur text-sm">
+                <div className="mt-3 inline-block px-4 py-1.5 rounded bg-white/20 backdrop-blur text-sm">
                   <Clock className="w-4 h-4 inline ml-1" />
                   {next.minutesLeft >= 60
                     ? `بعد ${toArabicNum(Math.floor(next.minutesLeft / 60))} ساعة و ${toArabicNum(next.minutesLeft % 60)} دقيقة`

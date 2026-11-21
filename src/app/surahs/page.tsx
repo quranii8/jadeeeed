@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SurahsBrowser } from "@/components/SurahsBrowser";
+import { HeadingStar } from "@/components/zellige/Rosette";
 
 export const metadata: Metadata = {
   title: "قائمة السور",
@@ -10,10 +11,7 @@ export default function SurahsPage() {
   return (
     <section className="max-w-7xl mx-auto px-5 py-8">
       <div className="flex items-center gap-3 mb-2">
-        <span
-          className="w-1.5 h-8 rounded"
-          style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
-        />
+        <HeadingStar />
         <h1 className="text-2xl md:text-3xl font-extrabold">سور القرآن الكريم</h1>
       </div>
       <p className="mb-6" style={{ color: "var(--text-muted)" }}>

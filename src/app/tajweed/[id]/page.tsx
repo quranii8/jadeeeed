@@ -31,8 +31,7 @@ export default function TajweedRulePage({ params }: PageProps) {
       </Link>
 
       <header
-        className="rounded-3xl p-8 md:p-10 text-white relative overflow-hidden mb-6"
-        style={{ background: "linear-gradient(135deg, #0ea5e9, #06b6d4)" }}
+        className="page-band page-band--emerald relative overflow-hidden mb-6"
       >
         <div className="text-sm opacity-90 mb-1">{rule.category}</div>
         <div className="text-5xl mb-3"><AppIcon name={rule.icon} /></div>
@@ -42,7 +41,7 @@ export default function TajweedRulePage({ params }: PageProps) {
 
       {/* التعريف */}
       <div className="card p-6 md:p-8 mb-5">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#0ea5e9" }}>
+        <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#1B3A8C" }}>
           <BookOpen className="w-6 h-6" />
           التعريف
         </h2>
@@ -51,7 +50,7 @@ export default function TajweedRulePage({ params }: PageProps) {
 
       {/* النطق الصحيح */}
       {rule.pronunciation && (
-        <div className="card p-6 md:p-8 mb-5" style={{ borderRight: "4px solid #8b5cf6" }}>
+        <div className="card p-6 md:p-8 mb-5" style={{ border: "1px solid #8b5cf6" }}>
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#8b5cf6" }}>
             <Mic className="w-6 h-6" />
             النطق الصحيح
@@ -73,8 +72,8 @@ export default function TajweedRulePage({ params }: PageProps) {
 
       {/* وقت التطبيق */}
       {rule.timing && (
-        <div className="card p-6 md:p-8 mb-5" style={{ borderRight: "4px solid #f59e0b" }}>
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#f59e0b" }}>
+        <div className="card p-6 md:p-8 mb-5" style={{ border: "1px solid #F0BE52" }}>
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#F0BE52" }}>
             <Target className="w-6 h-6" />
             وقت التطبيق
           </h2>
@@ -135,10 +134,10 @@ export default function TajweedRulePage({ params }: PageProps) {
             <div
               key={i}
               className="p-5 rounded-2xl"
-              style={{ background: "var(--bg-soft)", borderRight: "4px solid var(--gold)" }}
+              style={{ background: "var(--bg-soft)", border: "1px solid var(--gold)" }}
             >
               <div
-                className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3"
+                className="inline-block px-3 py-1 rounded text-xs font-semibold mb-3"
                 style={{ background: "var(--gold)", color: "white" }}
               >
                 {ex.rule}
@@ -157,7 +156,7 @@ export default function TajweedRulePage({ params }: PageProps) {
                   <div className="text-xs font-semibold mb-1" style={{ color: "var(--text-muted)" }}>
                     كيفية القراءة:
                   </div>
-                  <p className="text-sm text-center" style={{ color: "#0ea5e9" }}>
+                  <p className="text-sm text-center" style={{ color: "#1B3A8C" }}>
                     {ex.reading}
                   </p>
                 </div>
@@ -169,8 +168,8 @@ export default function TajweedRulePage({ params }: PageProps) {
 
       {/* النصائح */}
       {rule.tips && rule.tips.length > 0 && (
-        <div className="card p-6 md:p-8 mb-5" style={{ borderRight: "4px solid #10b981" }}>
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#10b981" }}>
+        <div className="card p-6 md:p-8 mb-5" style={{ border: "1px solid #0E6B5A" }}>
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#0E6B5A" }}>
             <CheckCircle className="w-6 h-6" />
             نصائح للتطبيق
           </h2>
@@ -187,7 +186,7 @@ export default function TajweedRulePage({ params }: PageProps) {
 
       {/* الأخطاء الشائعة */}
       {rule.commonMistakes && rule.commonMistakes.length > 0 && (
-        <div className="card p-6 md:p-8 mb-5" style={{ borderRight: "4px solid #ef4444" }}>
+        <div className="card p-6 md:p-8 mb-5" style={{ border: "1px solid #ef4444" }}>
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#ef4444" }}>
             <AlertTriangle className="w-6 h-6" />
             الأخطاء الشائعة
@@ -205,7 +204,7 @@ export default function TajweedRulePage({ params }: PageProps) {
 
       {/* التمرين */}
       {rule.exercise && (
-        <div className="card p-6 md:p-8 mb-5" style={{ borderRight: "4px solid #6366f1" }}>
+        <div className="card p-6 md:p-8 mb-5" style={{ border: "1px solid #6366f1" }}>
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#6366f1" }}>
             <Target className="w-6 h-6" />
             تمرين تطبيقي
@@ -236,7 +235,7 @@ export default function TajweedRulePage({ params }: PageProps) {
               <Link
                 key={rr}
                 href={`/tajweed/${rr}`}
-                className="px-4 py-2 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5"
+                className="px-4 py-2 rounded text-sm font-semibold transition-all hover:-translate-y-0.5"
                 style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
               >
                 {rr}
@@ -250,12 +249,12 @@ export default function TajweedRulePage({ params }: PageProps) {
       {rule.notes && (
         <div
           className="card p-5 md:p-6 mb-5"
-          style={{ borderRight: "4px solid #d97706", background: "rgba(217,119,6,.04)" }}
+          style={{ border: "1px solid #D99A1E", background: "rgba(217,119,6,.04)" }}
         >
           <div className="flex items-start gap-3">
             <span className="text-2xl"><AppIcon name="lightbulb" /></span>
             <div>
-              <div className="font-bold mb-2" style={{ color: "#d97706" }}>ملاحظة مهمة</div>
+              <div className="font-bold mb-2" style={{ color: "#D99A1E" }}>ملاحظة مهمة</div>
               <p className="text-sm leading-relaxed">{rule.notes}</p>
             </div>
           </div>

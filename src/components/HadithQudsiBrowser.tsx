@@ -50,7 +50,7 @@ export function HadithQudsiBrowser({ hadiths }: Props) {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="بحث في الأحاديث..."
-            className="w-full py-2.5 pr-10 pl-10 rounded-full text-sm outline-none border-2"
+            className="w-full py-2.5 pr-10 pl-10 rounded text-sm outline-none border-2"
             style={{
               background: "var(--surface)",
               borderColor: "var(--border)",
@@ -67,7 +67,7 @@ export function HadithQudsiBrowser({ hadiths }: Props) {
         <select
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
-          className="px-4 py-2.5 rounded-full text-sm outline-none border-2"
+          className="px-4 py-2.5 rounded text-sm outline-none border-2"
           style={{ background: "var(--surface)", borderColor: "var(--border)", color: "var(--text)" }}
         >
           <option value="all">كل المواضيع</option>
@@ -92,20 +92,20 @@ export function HadithQudsiBrowser({ hadiths }: Props) {
             <div
               key={h.n}
               className="card p-6 md:p-7 transition-all hover:shadow-md"
-              style={{ borderRight: "4px solid #be185d" }}
+              style={{ border: "1px solid #B4472F" }}
             >
               <div className="flex items-start justify-between mb-4 gap-3">
                 <div className="flex items-center gap-3">
                   <div
                     className="w-10 h-10 rounded-xl grid place-items-center font-bold text-white"
-                    style={{ background: "linear-gradient(135deg, #be185d, #f0abfc)" }}
+                    style={{ background: "linear-gradient(135deg, #B4472F, #CF6247)" }}
                   >
                     {toArabicNum(h.n)}
                   </div>
                   <div>
                     <div
-                      className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold"
-                      style={{ background: "rgba(190,24,93,.12)", color: "#be185d" }}
+                      className="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold"
+                      style={{ background: "rgba(190,24,93,.12)", color: "#B4472F" }}
                     >
                       {h.topic}
                     </div>

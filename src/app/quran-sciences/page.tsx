@@ -13,22 +13,16 @@ export default function QuranSciencesPage() {
   return (
     <section className="max-w-7xl mx-auto px-5 py-8">
       <header
-        className="rounded-3xl p-8 md:p-10 text-white text-center relative overflow-hidden mb-8"
-        style={{ background: "linear-gradient(135deg, #7c3aed, #a855f7)" }}
+        className="page-band page-band--emerald text-center relative overflow-hidden mb-8"
       >
-        <div
-          className="absolute inset-0 opacity-10 pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(circle at 30% 30%, white, transparent 40%)",
-          }}
-        />
+        <div className="zellige-lattice absolute inset-0 pointer-events-none" />
         <div className="relative">
           <div className="text-5xl mb-3"><AppIcon name="book-open" /></div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-2">علوم القرآن الكريم</h1>
           <p className="text-base md:text-lg opacity-95 max-w-2xl mx-auto">
             الأصول والمعارف التي يحتاجها كل مسلم لفهم كتاب الله
           </p>
-          <div className="inline-block mt-5 px-5 py-2 rounded-full bg-white/20 backdrop-blur text-sm">
+          <div className="inline-block mt-5 px-5 py-2 rounded bg-white/20 backdrop-blur text-sm">
             {QURAN_SCIENCES.length} علوم رئيسية
           </div>
         </div>
@@ -55,7 +49,7 @@ export default function QuranSciencesPage() {
                 </p>
                 <div
                   className="text-sm font-semibold flex items-center gap-1"
-                  style={{ color: "#7c3aed" }}
+                  style={{ color: "#1B3A8C" }}
                 >
                   استكشف
                   <ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />

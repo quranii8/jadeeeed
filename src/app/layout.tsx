@@ -54,8 +54,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#1B5E20" },
-    { media: "(prefers-color-scheme: dark)", color: "#0A0F0B" },
+    { media: "(prefers-color-scheme: light)", color: "#1B3A8C" },
+    { media: "(prefers-color-scheme: dark)", color: "#12245C" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -77,7 +77,7 @@ export default function RootLayout({
         <SessionProvider>
           <ThemeApplier />
           <Header />
-          <main className="relative z-10 pb-32">{children}</main>
+          <main className="relative z-10 pb-16">{children}</main>
           <Footer />
           <AudioPlayer />
         </SessionProvider>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ADHKAR } from "@/lib/adhkar";
 import { ChevronLeft } from "lucide-react";
 import { AppIcon } from "@/components/AppIcon";
+import { HeadingStar } from "@/components/zellige/Rosette";
 
 export const metadata: Metadata = {
   title: "الأذكار والأدعية",
@@ -13,10 +14,7 @@ export default function AdhkarPage() {
   return (
     <section className="max-w-7xl mx-auto px-5 py-8">
       <div className="flex items-center gap-3 mb-2">
-        <span
-          className="w-1.5 h-8 rounded"
-          style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
-        />
+        <HeadingStar />
         <h1 className="text-2xl md:text-3xl font-extrabold">الأذكار والأدعية</h1>
       </div>
       <p className="mb-8 max-w-3xl" style={{ color: "var(--text-muted)" }}>
@@ -41,7 +39,7 @@ export default function AdhkarPage() {
             </p>
             <div className="flex items-center justify-between relative">
               <span
-                className="px-3 py-1 rounded-full text-xs font-semibold"
+                className="px-3 py-1 rounded text-xs font-semibold"
                 style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
               >
                 {cat.items.length} ذكر

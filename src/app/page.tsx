@@ -1,22 +1,19 @@
 import { HomeHero } from "@/components/home/HomeHero";
-import { DailyVerse } from "@/components/home/DailyVerse";
-import { QuickStats } from "@/components/home/QuickStats";
-import { IslamicTools } from "@/components/home/IslamicTools";
-import { IslamicContent } from "@/components/home/IslamicContent";
-import { TafsirHighlight } from "@/components/home/TafsirHighlight";
-import { RecitersHighlight } from "@/components/home/RecitersHighlight";
 import { ContinueReading } from "@/components/home/ContinueReading";
+import { SectionWall } from "@/components/home/SectionWall";
+import { ProphetsBand } from "@/components/home/ProphetsBand";
+import { RecitersHighlight } from "@/components/home/RecitersHighlight";
+
+// the verse of the day turns over daily
+export const revalidate = 3600;
 
 export default function HomePage() {
   return (
     <>
       <HomeHero />
-      <DailyVerse />
-      <QuickStats />
       <ContinueReading />
-      <IslamicContent />
-      <IslamicTools />
-      <TafsirHighlight />
+      <SectionWall />
+      <ProphetsBand />
       <RecitersHighlight />
     </>
   );

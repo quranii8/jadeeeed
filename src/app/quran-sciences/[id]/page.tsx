@@ -35,8 +35,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
       </Link>
 
       <header
-        className="rounded-3xl p-8 md:p-10 text-white relative overflow-hidden mb-6"
-        style={{ background: "linear-gradient(135deg, #7c3aed, #a855f7)" }}
+        className="page-band page-band--emerald relative overflow-hidden mb-6"
       >
         <div className="text-5xl mb-3"><AppIcon name={science.icon} /></div>
         <h1 className="text-3xl md:text-4xl font-extrabold mb-2">{science.title}</h1>
@@ -46,7 +45,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
       {/* الوصف المطول */}
       {science.longDesc && (
         <div className="card p-6 md:p-8 mb-5">
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#7c3aed" }}>
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#1B3A8C" }}>
             <BookOpen className="w-6 h-6" />
             نبذة شاملة
           </h2>
@@ -59,7 +58,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
           <div key={i} className="card p-6 md:p-7">
             <h2
               className="text-xl font-bold mb-4 flex items-center gap-2"
-              style={{ color: "#7c3aed" }}
+              style={{ color: "#1B3A8C" }}
             >
               <span
                 className="w-8 h-8 rounded-full grid place-items-center text-sm"
@@ -76,7 +75,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
                   <li key={j} className="flex items-start gap-3 text-sm leading-relaxed">
                     <span
                       className="flex-shrink-0 w-5 h-5 rounded-full grid place-items-center text-xs"
-                      style={{ background: "rgba(124,58,237,.12)", color: "#7c3aed" }}
+                      style={{ background: "rgba(124,58,237,.12)", color: "#1B3A8C" }}
                     >
                       •
                     </span>
@@ -90,8 +89,8 @@ export default function ScienceDetailPage({ params }: PageProps) {
 
         {/* أمثلة تطبيقية */}
         {science.examples && science.examples.length > 0 && (
-          <div className="card p-6 md:p-7" style={{ borderRight: "4px solid #d97706" }}>
-            <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#d97706" }}>
+          <div className="card p-6 md:p-7" style={{ border: "1px solid #D99A1E" }}>
+            <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#D99A1E" }}>
               أمثلة تطبيقية
             </h2>
             <div className="space-y-3">
@@ -101,7 +100,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
                   className="p-4 rounded-xl"
                   style={{ background: "var(--bg-soft)" }}
                 >
-                  <div className="font-bold mb-2" style={{ color: "#d97706" }}>
+                  <div className="font-bold mb-2" style={{ color: "#D99A1E" }}>
                     {ex.title}
                   </div>
                   <p className="text-sm leading-relaxed">{ex.text}</p>
@@ -119,8 +118,8 @@ export default function ScienceDetailPage({ params }: PageProps) {
 
       {/* الفوائد */}
       {science.benefits && science.benefits.length > 0 && (
-        <div className="card p-6 md:p-8 mt-5" style={{ borderRight: "4px solid #10b981" }}>
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#10b981" }}>
+        <div className="card p-6 md:p-8 mt-5" style={{ border: "1px solid #0E6B5A" }}>
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: "#0E6B5A" }}>
             <Award className="w-6 h-6" />
             فوائد دراسة هذا العلم
           </h2>
@@ -179,7 +178,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
 
       {/* المراجع */}
       {science.references && science.references.length > 0 && (
-        <div className="card p-6 md:p-8 mt-5" style={{ borderRight: "4px solid #ec4899" }}>
+        <div className="card p-6 md:p-8 mt-5" style={{ border: "1px solid #ec4899" }}>
           <h2 className="text-xl font-bold mb-4" style={{ color: "#ec4899" }}>
             مراجع قرآنية
           </h2>
@@ -216,7 +215,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
                 <Link
                   key={topic}
                   href={`/quran-sciences/${topic}`}
-                  className="px-4 py-2 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5"
+                  className="px-4 py-2 rounded text-sm font-semibold transition-all hover:-translate-y-0.5"
                   style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
                 >
                   <AppIcon name={t.icon} /> {t.title}
