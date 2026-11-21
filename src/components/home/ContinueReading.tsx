@@ -5,7 +5,6 @@ import { Play } from "lucide-react";
 import { useQuranStore } from "@/lib/store";
 import { getSurah } from "@/lib/surahs";
 import { toArabicNum } from "@/lib/utils";
-import { HeadingStar } from "@/components/zellige/Rosette";
 
 export function ContinueReading() {
   const lastRead = useQuranStore((s) => s.lastRead);
@@ -14,34 +13,30 @@ export function ContinueReading() {
   if (!lastRead && history.length === 0) return null;
 
   return (
-    <section className="relative max-w-7xl mx-auto px-5 py-6">
+    <section className="relative max-w-6xl mx-auto px-4 md:px-5 pt-10">
       <div className="flex items-center gap-3 mb-4">
-        <HeadingStar />
-        <h2 className="text-xl md:text-2xl font-extrabold">تابع القراءة</h2>
+        <h2 className="font-kufic font-bold text-3xl md:text-3xl">تابع القراءة</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div className="tile-wall grid grid-cols-1 md:grid-cols-3 gap-[5px] p-[5px]" style={{ background: "var(--grout-wall)" }}>
         {lastRead && (() => {
           const s = getSurah(lastRead.surah);
           if (!s) return null;
           return (
             <Link
               href={`/surah/${s.n}${lastRead.verse ? `#verse-${lastRead.verse}` : ""}`}
-              className="card p-5 flex items-center gap-4 hover:-translate-y-0.5 transition-transform"
-              style={{ borderColor: "var(--primary)" }}
+              className="wall-tile glaze p-5 flex items-center gap-4"
+              style={{ backgroundColor: "#1B3A8C", color: "#F4F6FB" }}
             >
               <div
-                className="w-14 h-14 rounded-xl grid place-items-center text-white shrink-0"
-                style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-light))" }}
+                className="w-14 h-14 rounded grid place-items-center shrink-0"
+                style={{ background: "#D99A1E", color: "#1A1204" }}
               >
                 <Play className="w-6 h-6" />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-xs font-semibold mb-0.5" style={{ color: "var(--gold-dark)" }}>
-                  آخر قراءة
-                </div>
                 <div className="font-bold truncate">سورة {s.a}</div>
-                <div className="text-xs" style={{ color: "var(--text-muted)" }}>
+                <div className="text-xs" style={{ color: "#C9D5F0" }}>آخر قراءة، 
                   {lastRead.verse ? `الآية ${toArabicNum(lastRead.verse)}` : "البداية"}
                 </div>
               </div>
@@ -56,21 +51,18 @@ export function ContinueReading() {
             <Link
               key={h.surah}
               href={`/surah/${s.n}`}
-              className="card p-5 flex items-center gap-4 hover:-translate-y-0.5 transition-transform"
+              className="plaster-tile glaze p-5 flex items-center gap-4"
             >
               <div
-                className="w-14 h-14 rounded-xl grid place-items-center font-bold text-lg shrink-0"
+                className="w-14 h-14 rounded grid place-items-center font-bold text-lg shrink-0"
                 style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
               >
                 {toArabicNum(s.n)}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-xs font-semibold mb-0.5" style={{ color: "var(--text-soft)" }}>
-                  من السجل
-                </div>
                 <div className="font-bold truncate">سورة {s.a}</div>
                 <div className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  {toArabicNum(s.v)} آية
+                  من السجل، {toArabicNum(s.v)} آية
                 </div>
               </div>
             </Link>
