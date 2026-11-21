@@ -34,6 +34,21 @@ export interface StoryPlace {
   note: string;
   approx?: boolean;
 }
+export interface StorySource {
+  kind: "quran" | "hadith";
+  label: string;
+  href: string;
+  text: string;
+}
+export interface StoryParagraph {
+  text: string;
+  sources: StorySource[];
+}
+export interface FilmScene {
+  scene: string;
+  title: string;
+  verses: VerseGroup;
+}
 export interface ProphetStory {
   id: string;
   title: string;
@@ -41,6 +56,8 @@ export interface ProphetStory {
   places: StoryPlace[];
   stages: StoryStage[];
   hadith: StoryHadith[];
+  story: StoryParagraph[];
+  film: FilmScene[];
 }
 
 export const PROPHET_STORIES = data as ProphetStory[];

@@ -10,6 +10,8 @@ import { StoryJourney } from "@/components/prophets/StoryJourney";
 import { PlacesMap } from "@/components/prophets/PlacesMap";
 import { HadithList } from "@/components/prophets/HadithList";
 import { StoryQuiz } from "@/components/prophets/StoryQuiz";
+import { FullStory } from "@/components/prophets/FullStory";
+import { StoryFilm } from "@/components/prophets/film/StoryFilm";
 
 interface PageProps {
   params: { id: string };
@@ -68,6 +70,8 @@ export default function ProphetPage({ params }: PageProps) {
         </div>
       </header>
 
+      <FullStory paragraphs={story.story} />
+      {story.film.length > 0 && <StoryFilm scenes={story.film} />}
       <StoryJourney stages={story.stages} />
       <PlacesMap places={story.places} />
       <HadithList items={story.hadith} />

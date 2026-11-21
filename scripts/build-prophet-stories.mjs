@@ -138,7 +138,34 @@ for (const p of spec.prophets) {
     return { title: st.title, summary: st.summary, verses: vs };
   });
   const hs = (p.hadith ?? []).map((h, i) => hadith(h, `${p.id} / حديث ${i + 1} (${h.col} ${h.num})`)).filter(Boolean);
-  out.push({ id: p.id, title: p.title, intro: p.intro, places: p.places ?? [], stages, hadith: hs });
+
+  // القصة الكاملة: كل فقرة مع مصادرها المفحوصة
+  const story = (p.story ?? []).map((para, i) => ({
+    text: para.text,
+    sources: para.sources
+      .map((src, k) => {
+        const where = `${p.id} / فقرة ${i + 1} / مصدر ${k + 1}`;
+        if (src.hadith) {
+          const h = hadith(src.hadith, where);
+          return h && { kind: "hadith", label: `${h.collection} ${h.number}`, href: h.url, text: h.text };
+        }
+        const r = verses(src.ref);
+        const text = r.ayat.map((a) => a.text).join(" ");
+        checkExpect(where + ` (${src.ref})`, text, src.expect);
+        const range = r.from === r.to ? `${r.from}` : `${r.from}-${r.to}`;
+        return { kind: "quran", label: `${r.surahName.replace(/^سورة\s*/, "")} ${range}`, href: `/surah/${r.surah}`, text };
+      })
+      .filter(Boolean),
+  }));
+
+  // مشاهد القصة المتحركة: كل مشهد بآياته (للنص والتلاوة)
+  const film = (p.film ?? []).map((sc, i) => {
+    const r = verses(sc.ref);
+    checkExpect(`${p.id} / مشهد ${i + 1} (${sc.ref})`, r.ayat.map((a) => a.text).join(" "), sc.expect);
+    return { scene: sc.scene, title: sc.title, verses: r };
+  });
+
+  out.push({ id: p.id, title: p.title, intro: p.intro, places: p.places ?? [], stages, hadith: hs, story, film });
 }
 
 if (errors.length) {
