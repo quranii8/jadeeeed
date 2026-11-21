@@ -10,3 +10,7 @@ build/
 .vercel
 next-env.d.ts
 scripts/.cache/
+
+# local sqlite databases
+*.db
+*.db-journal

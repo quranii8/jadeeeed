@@ -17,9 +17,9 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
   );
 }
 
-// Demo Mode: تسجيل دخول بإيميل فقط (بدون كلمة مرور) - مناسب للتجربة
-// في الإنتاج: استخدم EmailProvider مع SMTP أو OAuth حقيقي
-providers.push(
+// Demo Mode: دخول بالإيميل فقط بدون كلمة مرور. أي شخص يكتب إيميل غيره يدخل حسابه،
+// لذلك مقفول افتراضياً ولا يعمل إلا للتجربة المحلية مع ENABLE_DEMO_LOGIN=true
+if (process.env.ENABLE_DEMO_LOGIN === "true") providers.push(
   CredentialsProvider({
     id: "demo",
     name: "تسجيل سريع (للتجربة)",

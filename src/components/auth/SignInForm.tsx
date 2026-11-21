@@ -109,7 +109,14 @@ export function SignInForm() {
         </>
       )}
 
-      {/* Demo (Email-only) */}
+      {providers && !providers.google && !providers.demo && (
+        <p className="text-sm text-center leading-relaxed" style={{ color: "var(--text-muted)" }}>
+          تسجيل الدخول غير متاح حالياً. محفوظاتك وقراءتك محفوظة على جهازك وتعمل بدون حساب.
+        </p>
+      )}
+
+      {/* Demo (Email-only): only when enabled on the server */}
+      {providers?.demo && (
       <form onSubmit={handleDemoSignIn} className="space-y-3">
         <div>
           <label className="block text-sm font-semibold mb-1.5">
@@ -171,6 +178,7 @@ export function SignInForm() {
           سيتم إنشاء حسابك تلقائياً عند أول دخول.
         </p>
       </form>
+      )}
     </div>
   );
 }
