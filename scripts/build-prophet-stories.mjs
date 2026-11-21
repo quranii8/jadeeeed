@@ -172,6 +172,7 @@ for (const p of spec.prophets) {
       surahNameEn: quranEn[r.surah - 1].transliteration,
       ar: r.ayat[0].text,
       en: quranEn[r.surah - 1].verses[r.from - 1].translation,
+      layers: sc.layers ?? null,
     };
   });
 

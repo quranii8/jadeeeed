@@ -47,6 +47,8 @@ export interface StoryParagraph {
 /** لقطة من الفيلم: آية واحدة بنصّها وترجمتها (Sahih International) ومشهدها */
 export interface FilmShot {
   scene: string;
+  /** طبقات مشهد تصريحية (kit.tsx)؛ إن غابت يُستعمل مشهد مرسوم يدوياً */
+  layers?: { type: string; [k: string]: unknown }[] | null;
   surah: number;
   ayah: number;
   surahName: string;

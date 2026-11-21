@@ -6,6 +6,7 @@ import type { FilmShot } from "@/lib/prophet-stories";
 import { getAyahAudioUrl } from "@/lib/utils";
 import { Defs, H, W } from "./art";
 import { SCENES } from "./scenes";
+import { LayeredScene, type Layer } from "./kit";
 
 const FPS = 30;
 const PAD_MS = 900;
@@ -13,7 +14,7 @@ const FADE_MS = 650;
 const RECITER = "Alafasy_128kbps";
 const AR = "٠١٢٣٤٥٦٧٨٩";
 const arNum = (n: number) => String(n).replace(/\d/g, (d) => AR[+d]);
-const SURAH_EN: Record<string, string> = { "As-Saffat": "AS-SAFFAT", "Al-Anbya": "AL-ANBIYA" };
+const SURAH_EN: Record<string, string> = { "Al-Anbya": "AL-ANBIYA" };
 /** مدة تقديرية عند كتم الصوت: حسب طول الآية */
 const silentMs = (s: FilmShot) => Math.max(5200, s.ar.split(" ").length * 620 + 2200);
 
@@ -33,6 +34,7 @@ function Medallion({ n, size }: { n: number; size: number }) {
 
 /** لقطة كاملة بقياس 1080×1920: المشهد + النص، ثم تُصغَّر لحجم الشاشة */
 function Shot({ shot, f, durF, textOpacity = 1 }: { shot: FilmShot; f: number; durF: number; textOpacity?: number }) {
+  const layers = shot.layers as Layer[] | null | undefined;
   const Scene = SCENES[shot.scene] ?? SCENES.city;
   const p = Math.min(1, f / durF);
   const scale = 1 + 0.07 * p;
@@ -46,13 +48,14 @@ function Shot({ shot, f, durF, textOpacity = 1 }: { shot: FilmShot; f: number; d
           <Defs />
           <defs>
             <linearGradient id="topShade" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#000" stopOpacity="0.7" />
+              <stop offset="0" stopColor="#000" stopOpacity={long ? 0.82 : 0.7} />
+              <stop offset="0.6" stopColor="#000" stopOpacity={long ? 0.55 : 0.35} />
               <stop offset="1" stopColor="#000" stopOpacity="0" />
             </linearGradient>
           </defs>
-          <Scene f={f} d={durF} />
+          {layers?.length ? <LayeredScene layers={layers} f={f} d={durF} /> : <Scene f={f} d={durF} />}
           <rect width={W} height={H} fill="url(#vignette)" />
-          <rect width={W} height={900} fill="url(#topShade)" />
+          <rect width={W} height={long ? 1450 : 1000} fill="url(#topShade)" />
         </svg>
       </div>
       <div style={{ position: "absolute", top: 250, left: 70, right: 70, textAlign: "center", opacity: a, transform: `translateY(${rise}px)` }}>
