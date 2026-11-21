@@ -517,7 +517,7 @@ function Crumble({ c, at = [0.3, 0.7] as [number, number] }: { c: Ctx; at?: [num
         const dy = p * (300 + random(`cy${i}`) * 300);
         return <polygon key={i} points={`${bx},${by} ${bx + 100},${by} ${bx + 50},${by - 130}`} transform={`translate(${dx} ${dy}) rotate(${p * 90 * (i % 2 ? 1 : -1)} ${bx + 50} ${by})`} fill={i % 2 ? "#6a5a6e" : "#5a4c60"} opacity={1 - p * 0.6} />;
       })}
-      <circle cx={540} cy={1500} r={p * 600} fill="#d8c8b0" opacity={p * 0.25} />
+      <circle cx={540} cy={1500} r={p * 600} fill="#3a2f3e" opacity={p * 0.2} />
     </g>
   );
 }
@@ -534,6 +534,267 @@ function Tablets({ c, appear = [0.2, 0.6] as [number, number] }: { c: Ctx; appea
             <line key={k} x1={540 + s * 70} y1={1100 + k * 55} x2={540 + s * 230} y2={1100 + k * 55} stroke="#8c7d64" strokeWidth={6} opacity={0.7} />
           ))}
         </g>
+      ))}
+    </g>
+  );
+}
+
+/** A single broad tree; `fall` drops its leaves (the forbidden tree / a withering) */
+function Tree({ c, x = 540, y = 1500, s = 1, fruit = false, fall }: { c: Ctx; x?: number; y?: number; s?: number; fruit?: boolean; fall?: [number, number] }) {
+  const p = fall ? prog(c, fall) : 0;
+  const sway = Math.sin(c.f / 40) * 6;
+  return (
+    <g transform={`translate(${x} ${y}) scale(${s})`}>
+      <path d="M -26 0 L -16 -330 Q 0 -360 16 -330 L 26 0 Z" fill="#4a3426" />
+      <path d="M -10 -250 Q -90 -320 -150 -330 M 10 -280 Q 90 -340 150 -360" stroke="#4a3426" strokeWidth={18} fill="none" strokeLinecap="round" />
+      {Array.from({ length: 9 }, (_, i) => {
+        const a = (i / 9) * Math.PI * 2;
+        const cx = Math.cos(a) * 170 + sway;
+        const cy = -420 + Math.sin(a) * 110 + p * (260 + random(`tl${i}`) * 200);
+        return <circle key={i} cx={cx} cy={cy} r={120} fill={i % 2 ? "#2f6b45" : "#3d7d52"} opacity={1 - p * 0.85} />;
+      })}
+      <circle cx={sway} cy={-430} r={150} fill="#357549" opacity={1 - p * 0.85} />
+      {fruit && [[-90, -380], [70, -470], [130, -360], [-30, -500], [10, -340]].map(([fx, fy], i) => (
+        <circle key={i} cx={fx + sway} cy={fy} r={20} fill="#e0b04f" opacity={1 - p} />
+      ))}
+    </g>
+  );
+}
+
+/** Howling wind: streaks of sand sweeping across */
+function Wind({ c, n = 60, color = "#e7c79a", at }: { c: Ctx; n?: number; color?: string; at?: [number, number] }) {
+  const p = at ? prog(c, at) : 1;
+  return (
+    <g opacity={p}>
+      {Array.from({ length: n }, (_, i) => {
+        const y = 300 + random(`wy${i}`) * 1600;
+        const len = 120 + random(`wl${i}`) * 260;
+        const x = ((random(`wx${i}`) * 2400 + c.f * (28 + random(`ws${i}`) * 30)) % 2400) - 600;
+        return <line key={i} x1={x} y1={y} x2={x + len} y2={y - len * 0.12} stroke={color} strokeWidth={3 + random(`wt${i}`) * 5} strokeLinecap="round" opacity={0.25 + random(`wo${i}`) * 0.4} />;
+      })}
+    </g>
+  );
+}
+
+/** Hollow fallen palm trunks (69:7) */
+function Trunks({ c, y = 1560, appear }: { c: Ctx; y?: number; appear?: [number, number] }) {
+  const p = appear ? prog(c, appear) : 1;
+  const xs = [140, 380, 620, 860, 260, 740];
+  return (
+    <g opacity={p}>
+      {xs.map((x, i) => (
+        <g key={i} transform={`translate(${x} ${y + (i > 3 ? 120 : 0)}) rotate(${(i % 2 ? 1 : -1) * (6 + i * 3)})`}>
+          <rect x={-150} y={-28} width={300} height={56} rx={26} fill="#5a3f2b" />
+          <ellipse cx={150} cy={0} rx={16} ry={28} fill="#22160f" />
+          {[-110, -60, -10, 40, 90].map((dx) => (
+            <line key={dx} x1={dx} y1={-28} x2={dx + 20} y2={28} stroke="#3e2a1d" strokeWidth={5} />
+          ))}
+        </g>
+      ))}
+    </g>
+  );
+}
+
+function Camel({ x, y, s = 1, o = 1 }: { x: number; y: number; s?: number; o?: number }) {
+  return (
+    <g transform={`translate(${x} ${y}) scale(${s})`} opacity={o} fill="#c99a62">
+      <ellipse cx={0} cy={-210} rx={170} ry={80} />
+      <ellipse cx={-10} cy={-280} rx={80} ry={60} />
+      <path d="M 140 -230 Q 200 -300 200 -400 L 240 -410 Q 270 -400 290 -380 L 290 -360 L 240 -360 Q 240 -280 190 -190 Z" />
+      {[-120, -70, 80, 130].map((dx) => (
+        <rect key={dx} x={dx - 12} y={-160} width={24} height={160} rx={10} fill="#b38550" />
+      ))}
+    </g>
+  );
+}
+
+/** Mountains with homes carved into the rock (Thamud, al-Hijr) */
+function RockHouses({ y = 1500, color = "#5e3b2b" }: { y?: number; color?: string }) {
+  return (
+    <g>
+      <path d={`M 0 ${y} L 0 ${y - 520} Q 160 ${y - 640} 320 ${y - 560} Q 480 ${y - 720} 680 ${y - 600} Q 860 ${y - 700} 1080 ${y - 560} L 1080 ${y} Z`} fill={color} />
+      {[[130, 260], [330, 330], [560, 390], [780, 330], [960, 280], [250, 140], [680, 160], [900, 120]].map(([x, h], i) => (
+        <g key={i}>
+          <rect x={x - 46} y={y - h - 110} width={92} height={110} fill="#1f120b" />
+          <path d={`M ${x - 46} ${y - h - 110} L ${x} ${y - h - 160} L ${x + 46} ${y - h - 110} Z`} fill="#1f120b" />
+          <rect x={x - 62} y={y - h - 4} width={124} height={10} fill="#7d4f37" />
+        </g>
+      ))}
+      <rect x={0} y={y} width={W} height={H - y} fill="#6e4733" />
+    </g>
+  );
+}
+
+/** Stones of baked clay raining down (11:82) */
+function Stones({ c, n = 40, at = [0.1, 1] as [number, number] }: { c: Ctx; n?: number; at?: [number, number] }) {
+  const p = prog(c, at);
+  return (
+    <g>
+      {Array.from({ length: n }, (_, i) => {
+        const x = random(`sx${i}`) * W;
+        const start = random(`st${i}`);
+        const t = (p * 2.2 + start) % 1;
+        const y = -100 + t * 2100;
+        return (
+          <g key={i} opacity={p > 0 ? 1 : 0}>
+            <line x1={x - 30} y1={y - 140} x2={x} y2={y} stroke="#ffb35c" strokeWidth={6} opacity={0.35} />
+            <circle cx={x} cy={y} r={12 + random(`sr${i}`) * 12} fill="#8a4b2f" />
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
+/** A balance with pans that settle level when `level` runs */
+function Scales({ c, x = 540, y = 1350, level }: { c: Ctx; x?: number; y?: number; level?: [number, number] }) {
+  const p = level ? prog(c, level) : 0;
+  const tilt = (1 - p) * 16 + Math.sin(c.f / 20) * (1 - p) * 2;
+  const r = (tilt * Math.PI) / 180;
+  const lx = x - Math.cos(r) * 300, ly = y - 380 - Math.sin(r) * 300;
+  const rx = x + Math.cos(r) * 300, ry = y - 380 + Math.sin(r) * 300;
+  const pan = (px: number, py: number) => (
+    <g>
+      <line x1={px} y1={py} x2={px - 90} y2={py + 220} stroke="#C8A951" strokeWidth={4} />
+      <line x1={px} y1={py} x2={px + 90} y2={py + 220} stroke="#C8A951" strokeWidth={4} />
+      <path d={`M ${px - 120} ${py + 220} Q ${px} ${py + 290} ${px + 120} ${py + 220} Z`} fill="#C8A951" />
+    </g>
+  );
+  return (
+    <g>
+      <rect x={x - 14} y={y - 400} width={28} height={400} fill="#a88a3f" />
+      <rect x={x - 120} y={y - 10} width={240} height={30} rx={8} fill="#a88a3f" />
+      <line x1={lx} y1={ly} x2={rx} y2={ry} stroke="#d9b65e" strokeWidth={16} strokeLinecap="round" />
+      <circle cx={x} cy={y - 380} r={22} fill="#f0d79a" />
+      {pan(lx, ly)}
+      {pan(rx, ry)}
+    </g>
+  );
+}
+
+/** An ark-like chest of tablets / an open book of light */
+function Book({ c, y = 1350, appear }: { c: Ctx; y?: number; appear?: [number, number] }) {
+  const p = appear ? prog(c, appear) : 1;
+  const open = p * 0.9;
+  return (
+    <g opacity={p} transform={`translate(540 ${y})`}>
+      <circle cx={0} cy={-80} r={360} fill="url(#orb)" opacity={0.35 * p} />
+      <path d={`M 0 0 L ${-300 * open - 20} ${-40 * open} L ${-300 * open - 20} ${-260} L 0 -220 Z`} fill="#f4ead2" />
+      <path d={`M 0 0 L ${300 * open + 20} ${-40 * open} L ${300 * open + 20} ${-260} L 0 -220 Z`} fill="#ece0c2" />
+      {[0, 1, 2, 3, 4].map((r) => (
+        <g key={r} opacity={0.6}>
+          <line x1={-40} y1={-190 + r * 34} x2={-250 * open} y2={-205 + r * 34} stroke="#a88a3f" strokeWidth={4} />
+          <line x1={40} y1={-190 + r * 34} x2={250 * open} y2={-205 + r * 34} stroke="#a88a3f" strokeWidth={4} />
+        </g>
+      ))}
+      <line x1={0} y1={0} x2={0} y2={-220} stroke="#C8A951" strokeWidth={6} />
+    </g>
+  );
+}
+
+/** Lamp / mihrab niche (Maryam's sanctuary, Zakariya's prayer) */
+function Mihrab({ c, y = 1650, glow = 1 }: { c: Ctx; y?: number; glow?: number }) {
+  return (
+    <g>
+      <path d={`M 250 ${y} L 250 ${y - 650} Q 250 ${y - 980} 540 ${y - 1050} Q 830 ${y - 980} 830 ${y - 650} L 830 ${y} Z`} fill="#1d1610" stroke="#C8A951" strokeWidth={10} />
+      <path d={`M 300 ${y} L 300 ${y - 640} Q 300 ${y - 930} 540 ${y - 990} Q 780 ${y - 930} 780 ${y - 640} L 780 ${y} Z`} fill="#2a2016" />
+      <line x1={540} y1={y - 990} x2={540} y2={y - 720} stroke="#C8A951" strokeWidth={3} />
+      <circle cx={540} cy={y - 690} r={90} fill="url(#orb)" opacity={(0.6 + Math.sin(c.f / 12) * 0.1) * glow} />
+      <path d={`M 510 ${y - 720} L 570 ${y - 720} L 560 ${y - 660} L 520 ${y - 660} Z`} fill="#f0d79a" opacity={0.9} />
+      <rect x={0} y={y} width={W} height={H - y} fill="#17110c" />
+    </g>
+  );
+}
+
+/** Iron rings softening into chain mail (34:10-11) */
+function Iron({ c, soften }: { c: Ctx; soften?: [number, number] }) {
+  const p = soften ? prog(c, soften) : 1;
+  return (
+    <g>
+      <circle cx={540} cy={1350} r={420} fill="url(#orb)" opacity={0.25 + 0.25 * p} />
+      {Array.from({ length: 30 }, (_, i) => {
+        const col = i % 6, row = Math.floor(i / 6);
+        const x = 300 + col * 96 + (row % 2) * 48;
+        const y = 1150 + row * 84;
+        const glowC = p > 0.3 ? "#f2a35a" : "#7d8592";
+        return <circle key={i} cx={x} cy={y + (1 - p) * (random(`ir${i}`) - 0.5) * 120} r={44} fill="none" stroke={glowC} strokeWidth={14} opacity={0.4 + 0.6 * Math.min(1, p * 1.4)} />;
+      })}
+    </g>
+  );
+}
+
+/** A line of ants marching to their dwellings (27:18) */
+function Ants({ c, y = 1650, n = 26 }: { c: Ctx; y?: number; n?: number }) {
+  return (
+    <g>
+      {Array.from({ length: n }, (_, i) => {
+        const x = ((i * 70 + c.f * 3) % 1300) - 100;
+        const yy = y + Math.sin(i) * 20;
+        const leg = Math.sin(c.f / 2 + i) * 4;
+        return (
+          <g key={i} fill="#1a120c">
+            <ellipse cx={x} cy={yy} rx={10} ry={7} />
+            <ellipse cx={x + 14} cy={yy - 2} rx={7} ry={6} />
+            <ellipse cx={x - 14} cy={yy - 1} rx={12} ry={8} />
+            <line x1={x - 4} y1={yy} x2={x - 10 + leg} y2={yy + 14} stroke="#1a120c" strokeWidth={3} />
+            <line x1={x + 4} y1={yy} x2={x + 10 - leg} y2={yy + 14} stroke="#1a120c" strokeWidth={3} />
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
+/** A glass palace floor shimmering like water (27:44) */
+function GlassFloor({ c, y = 1350 }: { c: Ctx; y?: number }) {
+  return (
+    <g>
+      <rect x={0} y={y} width={W} height={H - y} fill="#8fc3dd" opacity={0.55} />
+      {Array.from({ length: 8 }, (_, i) => (
+        <line key={i} x1={0} y1={y + 40 + i * 70 + Math.sin(c.f / 15 + i) * 8} x2={W} y2={y + 40 + i * 70 + Math.cos(c.f / 15 + i) * 8} stroke="#e8f6ff" strokeWidth={3} opacity={0.5} />
+      ))}
+      {[120, 330, 540, 750, 960].map((x) => (
+        <g key={x}>
+          <rect x={x - 34} y={y - 700} width={68} height={700} fill="#e8dcc0" />
+          <rect x={x - 34} y={y} width={68} height={300} fill="#e8dcc0" opacity={0.25} />
+        </g>
+      ))}
+      <rect x={0} y={y - 760} width={W} height={70} fill="#d9c89f" />
+    </g>
+  );
+}
+
+/** A cave mouth with a spider web across it (9:40) */
+function Cave({ c, web }: { c: Ctx; web?: [number, number] }) {
+  const p = web ? prog(c, web) : 1;
+  return (
+    <g>
+      <path d="M 0 1920 L 0 900 Q 300 700 540 760 Q 820 680 1080 880 L 1080 1920 Z" fill="#3b2e26" />
+      <path d="M 260 1920 L 300 1300 Q 540 1080 780 1300 L 820 1920 Z" fill="#0b0806" />
+      <g stroke="#e9e2d0" strokeWidth={2.5} opacity={0.75 * p} fill="none">
+        {Array.from({ length: 8 }, (_, i) => {
+          const a = (i / 8) * Math.PI * 2;
+          return <line key={i} x1={540} y1={1420} x2={540 + Math.cos(a) * 260 * p} y2={1420 + Math.sin(a) * 260 * p} />;
+        })}
+        {[60, 120, 180, 240].map((r) => (
+          <circle key={r} cx={540} cy={1420} r={r * p} />
+        ))}
+      </g>
+    </g>
+  );
+}
+
+/** Abrahamic table spread from the sky (5:114) */
+function Table({ c, appear }: { c: Ctx; appear?: [number, number] }) {
+  const p = appear ? prog(c, appear) : 1;
+  const y = lerp(500, 1350, p);
+  return (
+    <g>
+      <circle cx={540} cy={y - 60} r={360} fill="url(#orb)" opacity={0.3} />
+      <ellipse cx={540} cy={y} rx={320} ry={60} fill="#e9dcc0" />
+      <ellipse cx={540} cy={y + 14} rx={320} ry={60} fill="none" stroke="#C8A951" strokeWidth={6} />
+      {[[-160, -30], [-40, -40], [80, -36], [190, -24]].map(([dx, dy], i) => (
+        <ellipse key={i} cx={540 + dx} cy={y + dy} rx={56} ry={24} fill={i % 2 ? "#c78b4a" : "#d9a45a"} />
       ))}
     </g>
   );
@@ -684,6 +945,36 @@ export function renderLayer(l: Layer, c: Ctx, i: number): React.ReactNode {
       const p = prog(c, l.at);
       return <Orb key={k} x={lerp(l.x0 ?? l.x ?? 540, l.x1 ?? l.x ?? 540, p)} y={lerp(l.y0 ?? l.y ?? 900, l.y1 ?? l.y ?? 900, p)} r={l.r ?? 34} f={c.f} rays={l.rays ?? true} glow={l.glow ?? 1} />;
     }
+    case "tree":
+      return <Tree key={k} c={c} x={l.x} y={l.y} s={l.s} fruit={l.fruit} fall={l.fall} />;
+    case "wind":
+      return <Wind key={k} c={c} n={l.n} color={l.color} at={l.at} />;
+    case "trunks":
+      return <Trunks key={k} c={c} y={l.y} appear={l.appear} />;
+    case "camel": {
+      const p = prog(c, l.at);
+      return <Camel key={k} x={lerp(l.x0 ?? l.x ?? 540, l.x1 ?? l.x ?? 540, p)} y={l.y ?? 1600} s={l.s ?? 1} o={l.appear ? prog(c, l.appear) : 1} />;
+    }
+    case "rockHouses":
+      return <RockHouses key={k} y={l.y} color={l.color} />;
+    case "stones":
+      return <Stones key={k} c={c} n={l.n} at={l.at} />;
+    case "scales":
+      return <Scales key={k} c={c} x={l.x} y={l.y} level={l.level} />;
+    case "book":
+      return <Book key={k} c={c} y={l.y} appear={l.appear} />;
+    case "mihrab":
+      return <Mihrab key={k} c={c} y={l.y} glow={l.glow} />;
+    case "iron":
+      return <Iron key={k} c={c} soften={l.soften} />;
+    case "ants":
+      return <Ants key={k} c={c} y={l.y} n={l.n} />;
+    case "glassFloor":
+      return <GlassFloor key={k} c={c} y={l.y} />;
+    case "cave":
+      return <Cave key={k} c={c} web={l.web} />;
+    case "table":
+      return <Table key={k} c={c} appear={l.appear} />;
     case "none":
       return <Rainbowless key={k} />;
     default:
@@ -693,5 +984,8 @@ export function renderLayer(l: Layer, c: Ctx, i: number): React.ReactNode {
 
 export function LayeredScene({ layers, f, d }: { layers: Layer[]; f: number; d: number }) {
   const c = { f, d };
-  return <>{layers.map((l, i) => renderLayer(l, c, i))}</>;
+  const q = layers.find((l) => l.type === "quake");
+  const amp = q ? (q.amp ?? 18) * (prog(c, q.at) > 0 && prog(c, q.at) < 1 ? 1 : 0) : 0;
+  const t = amp ? `translate(${Math.sin(f * 2.3) * amp} ${Math.cos(f * 3.1) * amp * 0.6})` : undefined;
+  return <g transform={t}>{layers.map((l, i) => renderLayer(l, c, i))}</g>;
 }
