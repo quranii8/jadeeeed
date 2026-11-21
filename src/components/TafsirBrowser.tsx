@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { SURAHS } from "@/lib/surahs";
-import { toArabicNum } from "@/lib/utils";
+import { stripBismillah, toArabicNum } from "@/lib/utils";
+import { fetchSurahTafsir } from "@/lib/tafsir-source";
 import Link from "next/link";
 
 interface Props {
@@ -24,14 +25,14 @@ export function TafsirBrowser({ tafsirId, tafsirColor }: Props) {
 
     Promise.all([
       fetch(`https://api.alquran.cloud/v1/surah/${surahNum}/quran-uthmani`).then((r) => r.json()),
-      fetch(`https://api.alquran.cloud/v1/surah/${surahNum}/${tafsirId}`).then((r) => r.json()),
+      fetchSurahTafsir(tafsirId, surahNum).catch(() => [] as string[]),
     ])
       .then(([ar, tafsir]) => {
         if (cancel) return;
         const merged = ar.data.ayahs.map((a: any, i: number) => ({
           num: a.numberInSurah,
-          ar: a.text,
-          tafsir: tafsir?.data?.ayahs?.[i]?.text || "—",
+          ar: i === 0 ? stripBismillah(a.text, surahNum) : a.text,
+          tafsir: tafsir[i] || "—",
         }));
         setVerses(merged);
       })
@@ -103,7 +104,7 @@ export function TafsirBrowser({ tafsirId, tafsirColor }: Props) {
                 </p>
               </div>
               <div
-                className="text-sm md:text-base leading-relaxed pr-10"
+                className="text-sm md:text-base leading-relaxed pr-10 whitespace-pre-line"
                 style={{ color: "var(--text-muted)" }}
               >
                 {v.tafsir}

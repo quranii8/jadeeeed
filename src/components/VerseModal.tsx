@@ -6,7 +6,9 @@ import { Surah } from "@/lib/surahs";
 import { useQuranStore } from "@/lib/store";
 import { TAFASIR, TRANSLATIONS } from "@/lib/tafasir";
 import { toArabicNum } from "@/lib/utils";
+import { fetchAyahTafsir, fetchAyahTafsirs } from "@/lib/tafsir-source";
 import Link from "next/link";
+import { AppIcon } from "@/components/AppIcon";
 
 interface Verse {
   num: number;
@@ -55,11 +57,10 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
     if (tab !== "tafsir") return;
     let cancel = false;
     setTafsirLoading(true);
-    fetch(`https://api.alquran.cloud/v1/ayah/${surah.n}:${verse.num}/${selectedTafsir}`)
-      .then((r) => r.json())
-      .then((d) => {
+    fetchAyahTafsir(selectedTafsir, surah.n, verse.num)
+      .then((text) => {
         if (cancel) return;
-        setTafsirText(d?.data?.text || "تعذّر تحميل التفسير.");
+        setTafsirText(text || "تعذّر تحميل التفسير.");
       })
       .catch(() => !cancel && setTafsirText("تعذّر تحميل التفسير."))
       .finally(() => !cancel && setTafsirLoading(false));
@@ -71,15 +72,9 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
     if (tab !== "compare") return;
     let cancel = false;
     setCompareLoading(true);
-    const editions = TAFASIR.map((t) => t.id).join(",");
-    fetch(`https://api.alquran.cloud/v1/ayah/${surah.n}:${verse.num}/editions/${editions}`)
-      .then((r) => r.json())
-      .then((d) => {
+    fetchAyahTafsirs(TAFASIR.map((t) => t.id), surah.n, verse.num)
+      .then((arr) => {
         if (cancel) return;
-        const arr = (d?.data || []).map((x: any) => ({
-          id: x.edition.identifier,
-          text: x.text,
-        }));
         setCompareData(arr);
       })
       .catch(() => !cancel && setCompareData([]))
@@ -120,12 +115,12 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
       text: verse.text,
       reference,
     });
-    showToast(added ? "✦ تم الحفظ" : "تمت الإزالة من المحفوظات");
+    showToast(added ? "تم الحفظ" : "تمت الإزالة من المحفوظات");
   };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(`${verse.text}\n\n﴿ ${reference} ﴾`);
-    showToast("تم النسخ ✓");
+    showToast("تم النسخ");
   };
 
   const handleShare = async () => {
@@ -183,7 +178,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
             <ActionBtn icon={<Play className="w-4 h-4" />} label="استماع" onClick={onPlay} />
             <ActionBtn
               icon={<Bookmark className="w-4 h-4" fill={bookmarked ? "currentColor" : "none"} />}
-              label={bookmarked ? "محفوظة ★" : "حفظ"}
+              label={bookmarked ? "محفوظة" : "حفظ"}
               onClick={handleBookmark}
               active={bookmarked}
             />
@@ -221,7 +216,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
                         border: `1px solid ${selectedTafsir === t.id ? t.color : "var(--border)"}`,
                       }}
                     >
-                      {t.icon} {t.shortName}
+                      <AppIcon name={t.icon} /> {t.shortName}
                     </button>
                   ))}
                 </div>
@@ -253,11 +248,11 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
                         style={{ background: "var(--bg-soft)", borderRight: `4px solid ${t.color}` }}
                       >
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-lg">{t.icon}</span>
+                          <span className="text-lg"><AppIcon name={t.icon} /></span>
                           <div className="font-bold text-sm" style={{ color: t.color }}>{t.shortName}</div>
                           <span className="text-[10px]" style={{ color: "var(--text-muted)" }}>{t.era}</span>
                         </div>
-                        <p className="text-sm leading-relaxed">
+                        <p className="text-sm leading-relaxed whitespace-pre-line">
                           {item?.text || "—"}
                         </p>
                       </div>
@@ -281,7 +276,7 @@ export function VerseModal({ surah, verse, onClose, onPlay }: Props) {
                         style={{ background: "var(--bg-soft)", borderRight: "3px solid var(--primary)" }}
                       >
                         <div className="flex items-center gap-2 mb-2 text-xs font-semibold" style={{ color: "var(--primary)" }}>
-                          <span className="text-base">{t.flag}</span>
+                          
                           {t.language} — {t.name}
                         </div>
                         <p
@@ -356,7 +351,7 @@ function TafsirCard({ loading, text, tafsirId }: { loading: boolean; text: strin
       style={{ background: "var(--bg-soft)", borderRight: `4px solid ${tafsir.color}` }}
     >
       <div className="flex items-center gap-2 mb-3 flex-wrap">
-        <span className="text-2xl">{tafsir.icon}</span>
+        <span className="text-2xl"><AppIcon name={tafsir.icon} /></span>
         <div>
           <div className="font-bold" style={{ color: tafsir.color }}>{tafsir.name}</div>
           <div className="text-xs" style={{ color: "var(--text-muted)" }}>{tafsir.author}</div>
@@ -376,7 +371,7 @@ function TafsirCard({ loading, text, tafsirId }: { loading: boolean; text: strin
           <div className="skeleton h-4 w-4/6" />
         </div>
       ) : (
-        <p className="text-sm md:text-base leading-loose">{text}</p>
+        <p className="text-sm md:text-base leading-loose whitespace-pre-line">{text}</p>
       )}
     </div>
   );

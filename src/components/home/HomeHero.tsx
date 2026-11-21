@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Play, Headphones, BookOpen } from "lucide-react";
 import { SearchBar } from "../SearchBar";
+import { AppIcon } from "@/components/AppIcon";
 
 export function HomeHero() {
   return (
@@ -79,12 +80,12 @@ export function HomeHero() {
       {/* Feature pills */}
       <div className="flex flex-wrap gap-2 justify-center mt-8 text-xs">
         {[
-          { emoji: "🤲", label: "أذكار" },
-          { emoji: "✨", label: "أسماء الله" },
-          { emoji: "🕌", label: "مواقيت الصلاة" },
-          { emoji: "🧭", label: "اتجاه القبلة" },
-          { emoji: "🌙", label: "وضع ليلي" },
-          { emoji: "★", label: "محفوظات" },
+          { icon: "hand-heart", label: "أذكار" },
+          { icon: "sparkles", label: "أسماء الله" },
+          { icon: "mosque", label: "مواقيت الصلاة" },
+          { icon: "compass", label: "اتجاه القبلة" },
+          { icon: "moon", label: "وضع ليلي" },
+          { icon: "star", label: "محفوظات" },
         ].map((f, i) => (
           <span
             key={i}
@@ -95,7 +96,7 @@ export function HomeHero() {
               border: "1px solid var(--border)",
             }}
           >
-            {f.emoji} {f.label}
+            <AppIcon name={f.icon} /> {f.label}
           </span>
         ))}
       </div>

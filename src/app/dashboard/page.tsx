@@ -6,6 +6,7 @@ import { prisma } from "@/lib/prisma";
 import { BookmarkCheck, FileText, Clock, Award, BookOpen, Settings } from "lucide-react";
 import { getSurah } from "@/lib/surahs";
 import { toArabicNum } from "@/lib/utils";
+import { AppIcon } from "@/components/AppIcon";
 
 export const metadata = {
   title: "لوحة التحكم",
@@ -60,7 +61,7 @@ export default async function DashboardPage() {
             {session.user.name || session.user.email?.split("@")[0]}
           </h1>
           <p className="opacity-95 text-sm md:text-base">
-            هذه لوحة تحكمك الشخصية — تابع رحلتك مع كتاب الله 🌿
+            هذه لوحة تحكمك الشخصية — تابع رحلتك مع كتاب الله <AppIcon name="leaf" />
           </p>
         </div>
       </div>
@@ -95,10 +96,10 @@ export default async function DashboardPage() {
 
       {/* Quick Actions */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-        <QuickAction href="/surah/1" icon="📖" label="ابدأ قراءة" />
-        <QuickAction href="/bookmarks" icon="★" label="محفوظاتي" />
-        <QuickAction href="/dashboard/notes" icon="📝" label="ملاحظاتي" />
-        <QuickAction href="/dashboard/settings" icon="⚙️" label="الإعدادات" />
+        <QuickAction href="/surah/1" icon="book-open" label="ابدأ قراءة" />
+        <QuickAction href="/bookmarks" icon="star" label="محفوظاتي" />
+        <QuickAction href="/dashboard/notes" icon="pen-line" label="ملاحظاتي" />
+        <QuickAction href="/dashboard/settings" icon="settings" label="الإعدادات" />
       </div>
 
       {/* Recent Activity */}
@@ -189,10 +190,10 @@ export default async function DashboardPage() {
           الإنجازات
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-          <Achievement title="القارئ المبتدئ" description="قرأت أول سورة" achieved={uniqueSurahs >= 1} icon="🌱" />
-          <Achievement title="القارئ النشيط" description="قرأت 10 سور" achieved={uniqueSurahs >= 10} icon="📖" />
-          <Achievement title="الحافظ" description="حفظت 10 آيات" achieved={bookmarksCount >= 10} icon="★" />
-          <Achievement title="المتأمّل" description="كتبت 5 ملاحظات" achieved={notesCount >= 5} icon="✍️" />
+          <Achievement title="القارئ المبتدئ" description="قرأت أول سورة" achieved={uniqueSurahs >= 1} icon="sprout" />
+          <Achievement title="القارئ النشيط" description="قرأت 10 سور" achieved={uniqueSurahs >= 10} icon="book-open" />
+          <Achievement title="الحافظ" description="حفظت 10 آيات" achieved={bookmarksCount >= 10} icon="star" />
+          <Achievement title="المتأمّل" description="كتبت 5 ملاحظات" achieved={notesCount >= 5} icon="pen-line" />
         </div>
       </div>
     </section>
@@ -224,7 +225,7 @@ function QuickAction({ href, icon, label }: { href: string; icon: string; label:
       href={href}
       className="card p-4 flex items-center gap-3 transition-all hover:-translate-y-0.5 hover:border-green-600"
     >
-      <span className="text-2xl">{icon}</span>
+      <span className="text-2xl" style={{ color: "var(--primary)" }}><AppIcon name={icon} /></span>
       <span className="font-bold text-sm">{label}</span>
     </Link>
   );
@@ -241,12 +242,12 @@ function Achievement({ title, description, achieved, icon }: { title: string; de
       }}
     >
       <div className="text-3xl mb-1" style={{ filter: achieved ? "none" : "grayscale(100%)" }}>
-        {icon}
+        <AppIcon name={icon} />
       </div>
       <div className="font-bold text-xs mb-0.5">{title}</div>
       <div className="text-[10px]" style={{ color: "var(--text-muted)" }}>{description}</div>
       {achieved && (
-        <div className="text-[10px] font-bold mt-1" style={{ color: "var(--primary)" }}>✓ مُنجز</div>
+        <div className="text-[10px] font-bold mt-1" style={{ color: "var(--primary)" }}><AppIcon name="check" /> مُنجز</div>
       )}
     </div>
   );

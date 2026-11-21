@@ -14,7 +14,7 @@ export default function RecitersPage() {
     <section className="max-w-7xl mx-auto px-5 py-8">
       <div className="flex items-center gap-3 mb-2">
         <span className="w-1.5 h-8 rounded" style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }} />
-        <h1 className="text-2xl md:text-3xl font-extrabold">🎙️ القراء</h1>
+        <h1 className="text-2xl md:text-3xl font-extrabold">القراء</h1>
       </div>
       <p className="mb-8" style={{ color: "var(--text-muted)" }}>
         {RECITERS.length} قارئاً من أشهر قراء العالم الإسلامي. اختر قارئاً للاستماع لتلاوته الكاملة لأي سورة.

@@ -74,14 +74,14 @@ export const PRAYER_NAMES_AR: Record<keyof PrayerTimings, string> = {
 
 /** أيقونات الصلوات */
 export const PRAYER_ICONS: Record<keyof PrayerTimings, string> = {
-  Fajr: "🌌",
-  Sunrise: "🌅",
-  Dhuhr: "☀️",
-  Asr: "🌤️",
-  Maghrib: "🌇",
-  Isha: "🌃",
-  Imsak: "🍽️",
-  Midnight: "🌙",
+  Fajr: "moon-star",
+  Sunrise: "sunrise",
+  Dhuhr: "sun",
+  Asr: "cloud-sun",
+  Maghrib: "sunset",
+  Isha: "moon",
+  Imsak: "utensils",
+  Midnight: "moon",
 };
 
 /** الصلوات الخمس فقط (الأهم) */

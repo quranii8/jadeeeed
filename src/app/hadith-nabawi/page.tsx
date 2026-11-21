@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HADITH_NABAWI } from "@/lib/hadith-nabawi";
 import { HadithNabawiBrowser } from "@/components/HadithNabawiBrowser";
+import { AppIcon } from "@/components/AppIcon";
 
 export const metadata: Metadata = {
   title: "الأحاديث النبوية الشريفة",
@@ -40,7 +41,7 @@ export default function HadithNabawiPage() {
           </svg>
         </div>
 
-        <div className="text-5xl mb-3">📿</div>
+        <div className="text-5xl mb-3"><AppIcon name="scroll-text" /></div>
         <h1 className="text-3xl md:text-4xl font-extrabold mb-2">
           الأحاديث النبوية الشريفة
         </h1>
@@ -58,7 +59,7 @@ export default function HadithNabawiPage() {
         style={{ borderRight: "4px solid var(--primary)", background: "var(--primary-soft)" }}
       >
         <p className="text-sm leading-relaxed">
-          ✦ <strong>تعريف الحديث النبوي:</strong> ما传给 النبي ﷺ من أقوال وأفعال
+          <AppIcon name="sparkle" /> <strong>تعريف الحديث النبوي:</strong> ما أُضيف إلى النبي ﷺ من أقوال وأفعال
           وتقريرات وصفات. والأحاديث النبوية الشريفة المصدر الثاني للتشريع الإسلامي
           بعد القرآن الكريم، وهي وحي من الله تعالى يُلقيه على رسوله ﷺ.
         </p>
@@ -73,7 +74,7 @@ export default function HadithNabawiPage() {
         style={{ background: "var(--bg-soft)" }}
       >
         <h3 className="font-bold mb-2" style={{ color: "var(--text)" }}>
-          📚 مصادر الأحاديث
+          مصادر الأحاديث
         </h3>
         <p className="text-sm" style={{ color: "var(--text-muted)" }}>
           الصحيحين (البخاري ومسلم)، والسنن الأربعة (أبي داود، والترمذي، والنسائي،

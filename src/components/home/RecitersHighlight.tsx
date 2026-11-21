@@ -14,7 +14,7 @@ export function RecitersHighlight() {
             className="w-1.5 h-7 rounded"
             style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
           />
-          <h2 className="text-xl md:text-2xl font-extrabold">🎙️ أبرز القراء</h2>
+          <h2 className="text-xl md:text-2xl font-extrabold">أبرز القراء</h2>
         </div>
         <Link
           href="/reciters"

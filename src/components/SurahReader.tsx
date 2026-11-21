@@ -9,6 +9,7 @@ import { useAudioStore, AudioQueueItem } from "@/lib/audio-store";
 import { toArabicNum, getAyahAudioUrl } from "@/lib/utils";
 import { getReciter, getFullSurahUrl } from "@/lib/reciters";
 import { VerseModal } from "./VerseModal";
+import { AppIcon } from "@/components/AppIcon";
 
 interface Verse {
   num: number;
@@ -102,7 +103,7 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
             {surah.e} — <em>{surah.trans}</em>
           </div>
           <div className="inline-flex gap-3 mt-4 px-5 py-1.5 rounded-full text-sm bg-white/15 backdrop-blur">
-            <span>{surah.t === "makki" ? "🕋 مكية" : "🕌 مدنية"}</span>
+            <span>{surah.t === "makki" ? "مكية" : "مدنية"}</span>
             <span>•</span>
             <span>{toArabicNum(surah.v)} آية</span>
             <span>•</span>
@@ -189,7 +190,7 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
       {/* الآيات */}
       {verses.length === 0 ? (
         <div className="card p-10 text-center">
-          <div className="text-5xl mb-3">⚠️</div>
+          <div className="text-5xl mb-3"><AppIcon name="triangle-alert" /></div>
           <p style={{ color: "var(--text-muted)" }}>تعذّر تحميل الآيات. تحقق من الاتصال بالإنترنت.</p>
         </div>
       ) : (

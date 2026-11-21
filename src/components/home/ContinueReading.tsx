@@ -16,7 +16,7 @@ export function ContinueReading() {
     <section className="relative max-w-7xl mx-auto px-5 py-6">
       <div className="flex items-center gap-3 mb-4">
         <span className="w-1.5 h-7 rounded" style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }} />
-        <h2 className="text-xl md:text-2xl font-extrabold">📚 تابع القراءة</h2>
+        <h2 className="text-xl md:text-2xl font-extrabold">تابع القراءة</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">

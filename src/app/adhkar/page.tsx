@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ADHKAR } from "@/lib/adhkar";
 import { ChevronLeft } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 
 export const metadata: Metadata = {
   title: "الأذكار والأدعية",
@@ -16,7 +17,7 @@ export default function AdhkarPage() {
           className="w-1.5 h-8 rounded"
           style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
         />
-        <h1 className="text-2xl md:text-3xl font-extrabold">🤲 الأذكار والأدعية</h1>
+        <h1 className="text-2xl md:text-3xl font-extrabold">الأذكار والأدعية</h1>
       </div>
       <p className="mb-8 max-w-3xl" style={{ color: "var(--text-muted)" }}>
         مجموعة من الأذكار اليومية والأدعية المأثورة من القرآن الكريم والسنة النبوية، مع عدّاد تفاعلي وذكر للمصدر والفائدة.
@@ -33,7 +34,7 @@ export default function AdhkarPage() {
               className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-10 transition-transform group-hover:scale-110"
               style={{ background: "var(--primary)" }}
             />
-            <div className="text-5xl mb-3 relative">{cat.icon}</div>
+            <div className="text-5xl mb-3 relative"><AppIcon name={cat.icon} /></div>
             <h2 className="text-xl font-bold mb-2 relative">{cat.title}</h2>
             <p className="text-sm mb-4 relative" style={{ color: "var(--text-muted)" }}>
               {cat.description}
@@ -63,7 +64,7 @@ export default function AdhkarPage() {
           href="/asma-allah"
           className="card p-5 flex items-center gap-3 transition-all hover:border-green-600"
         >
-          <div className="text-3xl">✨</div>
+          <div className="text-3xl"><AppIcon name="sparkles" /></div>
           <div>
             <div className="font-bold">أسماء الله الحسنى</div>
             <div className="text-xs" style={{ color: "var(--text-muted)" }}>99 اسماً مع شرحها</div>
@@ -73,7 +74,7 @@ export default function AdhkarPage() {
           href="/prayer-times"
           className="card p-5 flex items-center gap-3 transition-all hover:border-green-600"
         >
-          <div className="text-3xl">🕌</div>
+          <div className="text-3xl"><AppIcon name="mosque" /></div>
           <div>
             <div className="font-bold">مواقيت الصلاة</div>
             <div className="text-xs" style={{ color: "var(--text-muted)" }}>حسب موقعك</div>
@@ -83,7 +84,7 @@ export default function AdhkarPage() {
           href="/qibla"
           className="card p-5 flex items-center gap-3 transition-all hover:border-green-600"
         >
-          <div className="text-3xl">🧭</div>
+          <div className="text-3xl"><AppIcon name="compass" /></div>
           <div>
             <div className="font-bold">اتجاه القبلة</div>
             <div className="text-xs" style={{ color: "var(--text-muted)" }}>بوصلة تفاعلية</div>

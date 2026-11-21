@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { Search, Copy, BookOpen, X, Filter } from "lucide-react";
 import { HadithNabawi } from "@/lib/hadith-nabawi";
 import { toArabicNum } from "@/lib/utils";
+import { AppIcon } from "@/components/AppIcon";
 
 interface Props {
   hadiths: HadithNabawi[];
@@ -56,25 +57,25 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
 
   const getTopicIcon = (topic: string) => {
     const icons: Record<string, string> = {
-      "أركان الإسلام": "🕋",
-      "الإيمان": "🌟",
-      "الصلاة": "🕌",
-      "الأذان": "📢",
-      "صلاة الجمعة": "🕌",
-      "الزكاة والصدقة": "💰",
-      "الصيام": "🌙",
-      "الحج": "🏔️",
-      "حسن الخلق": "💎",
-      "المعاملات": "🤝",
-      "العلم": "📚",
-      "الذكر": "🔔",
-      "التحذيرات": "⚠️",
-      "الدعاء": "🤲",
-      "العلاقات الاجتماعية": "👨‍👩‍👧‍👦",
-      "الفضائل": "⭐",
-      "الجهاد": "⚔️",
+      "أركان الإسلام": "kaaba",
+      "الإيمان": "star",
+      "الصلاة": "mosque",
+      "الأذان": "megaphone",
+      "صلاة الجمعة": "mosque",
+      "الزكاة والصدقة": "coins",
+      "الصيام": "moon",
+      "الحج": "mountain",
+      "حسن الخلق": "gem",
+      "المعاملات": "handshake",
+      "العلم": "library",
+      "الذكر": "bell",
+      "التحذيرات": "triangle-alert",
+      "الدعاء": "hand-heart",
+      "العلاقات الاجتماعية": "users",
+      "الفضائل": "star",
+      "الجهاد": "swords",
     };
-    return icons[topic] || "📿";
+    return icons[topic] || "scroll-text";
   };
 
   return (
@@ -121,7 +122,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
           <option value="all">كل المواضيع</option>
           {topics.map((t) => (
             <option key={t} value={t}>
-              {getTopicIcon(t)} {t}
+              {t}
             </option>
           ))}
         </select>
@@ -137,8 +138,8 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
           }}
         >
           <option value="all">كل الدرجات</option>
-          <option value="صحيح">✅ صحيح</option>
-          <option value="حسن">⚠️ حسن</option>
+          <option value="صحيح">صحيح</option>
+          <option value="حسن">حسن</option>
         </select>
       </div>
 
@@ -172,7 +173,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
 
       {filtered.length === 0 ? (
         <div className="card p-10 text-center">
-          <div className="text-5xl mb-3">🔍</div>
+          <div className="text-5xl mb-3"><AppIcon name="search" /></div>
           <p style={{ color: "var(--text-muted)" }}>لا توجد نتائج مطابقة</p>
           <p className="text-sm mt-2" style={{ color: "var(--text-muted)" }}>
             جرّب تغيير كلمات البحث أو الفلاتر
@@ -207,7 +208,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
                           color: "var(--primary)",
                         }}
                       >
-                        {getTopicIcon(h.topic)} {h.topic}
+                        <AppIcon name={getTopicIcon(h.topic)} /> {h.topic}
                       </span>
                       <span
                         className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold"
@@ -252,7 +253,7 @@ export function HadithNabawiBrowser({ hadiths }: Props) {
                     className="mt-3 text-sm p-3 rounded-lg"
                     style={{ background: "var(--bg-soft)", color: "var(--text)" }}
                   >
-                    💡 <strong style={{ color: "var(--gold-dark)" }}>الفائدة:</strong>{" "}
+                    <AppIcon name="lightbulb" /> <strong style={{ color: "var(--gold-dark)" }}>الفائدة:</strong>{" "}
                     {h.benefit}
                   </div>
                 )}

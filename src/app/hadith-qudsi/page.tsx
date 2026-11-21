@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HADITH_QUDSI } from "@/lib/hadith-qudsi";
 import { HadithQudsiBrowser } from "@/components/HadithQudsiBrowser";
+import { AppIcon } from "@/components/AppIcon";
 
 export const metadata: Metadata = {
   title: "الأحاديث القدسية",
@@ -14,7 +15,7 @@ export default function HadithQudsiPage() {
         className="rounded-3xl p-8 md:p-10 text-white text-center relative overflow-hidden mb-8"
         style={{ background: "linear-gradient(135deg, #be185d, #f0abfc)" }}
       >
-        <div className="text-5xl mb-3">✨</div>
+        <div className="text-5xl mb-3"><AppIcon name="sparkles" /></div>
         <h1 className="text-3xl md:text-4xl font-extrabold mb-2">الأحاديث القدسية</h1>
         <p className="text-base md:text-lg opacity-95 max-w-2xl mx-auto">
           الأحاديث التي يرويها النبي ﷺ عن ربّه عز وجل
@@ -29,7 +30,7 @@ export default function HadithQudsiPage() {
         style={{ borderRight: "4px solid #be185d", background: "rgba(190,24,93,.04)" }}
       >
         <p className="text-sm leading-relaxed">
-          ✦ <strong>تعريف الحديث القدسي:</strong> ما يرويه النبي ﷺ عن ربه تبارك وتعالى من
+          <AppIcon name="sparkle" /> <strong>تعريف الحديث القدسي:</strong> ما يرويه النبي ﷺ عن ربه تبارك وتعالى من
           غير القرآن. يختلف عن القرآن في أنه ليس متعبداً بتلاوته ولا معجزاً، لكنه وحي من الله.
         </p>
       </div>

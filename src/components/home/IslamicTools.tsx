@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AppIcon } from "@/components/AppIcon";
 
 interface Tool {
   href: string;
@@ -11,28 +12,28 @@ interface Tool {
 const TOOLS: Tool[] = [
   {
     href: "/adhkar",
-    icon: "🤲",
+    icon: "hand-heart",
     title: "الأذكار والأدعية",
     desc: "أذكار الصباح والمساء وأذكار الصلاة والنوم مع عدّاد تفاعلي",
     gradient: "linear-gradient(135deg, #16a34a, #84cc16)",
   },
   {
     href: "/asma-allah",
-    icon: "✨",
+    icon: "sparkles",
     title: "أسماء الله الحسنى",
     desc: "الأسماء التسعة والتسعون مع شرح المعنى والدلالة لكل اسم",
     gradient: "linear-gradient(135deg, #d97706, #f59e0b)",
   },
   {
     href: "/prayer-times",
-    icon: "🕌",
+    icon: "mosque",
     title: "مواقيت الصلاة",
     desc: "مواقيت دقيقة حسب موقعك مع عدّ تنازلي للصلاة القادمة",
     gradient: "linear-gradient(135deg, #0ea5e9, #06b6d4)",
   },
   {
     href: "/qibla",
-    icon: "🧭",
+    icon: "compass",
     title: "اتجاه القبلة",
     desc: "بوصلة احترافية تتبع حركة جهازك لتحديد اتجاه الكعبة المشرفة",
     gradient: "linear-gradient(135deg, #7c3aed, #a855f7)",
@@ -47,7 +48,7 @@ export function IslamicTools() {
           className="w-1.5 h-7 rounded"
           style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
         />
-        <h2 className="text-xl md:text-2xl font-extrabold">🌟 أدوات إسلامية متكاملة</h2>
+        <h2 className="text-xl md:text-2xl font-extrabold">أدوات إسلامية متكاملة</h2>
       </div>
       <p className="mb-6 text-sm md:text-base" style={{ color: "var(--text-muted)" }}>
         أدوات تساعدك في يومك: الأذكار، أسماء الله، مواقيت الصلاة، واتجاه القبلة — كل ذلك في مكان واحد.
@@ -68,7 +69,7 @@ export function IslamicTools() {
               className="w-14 h-14 rounded-2xl text-3xl mb-4 grid place-items-center text-white shadow-md transition-transform group-hover:scale-110 relative"
               style={{ background: t.gradient }}
             >
-              {t.icon}
+              <AppIcon name={t.icon} />
             </div>
             <h3 className="font-bold text-lg mb-2 relative">{t.title}</h3>
             <p className="text-sm leading-relaxed relative" style={{ color: "var(--text-muted)" }}>

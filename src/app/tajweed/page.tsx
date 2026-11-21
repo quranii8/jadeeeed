@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getTajweedCategories } from "@/lib/tajweed";
 import { ChevronLeft } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 
 export const metadata: Metadata = {
   title: "أحكام التجويد",
@@ -17,7 +18,7 @@ export default function TajweedPage() {
         className="rounded-3xl p-8 md:p-10 text-white text-center relative overflow-hidden mb-8"
         style={{ background: "linear-gradient(135deg, #0ea5e9, #06b6d4)" }}
       >
-        <div className="text-5xl mb-3">🎵</div>
+        <div className="text-5xl mb-3"><AppIcon name="audio-waveform" /></div>
         <h1 className="text-3xl md:text-4xl font-extrabold mb-2">أحكام التجويد</h1>
         <p className="text-base md:text-lg opacity-95 max-w-2xl mx-auto">
           ﴿وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا﴾ — تعلّم أحكام التجويد مع أمثلة عملية
@@ -51,7 +52,7 @@ export default function TajweedPage() {
                       className="w-12 h-12 rounded-xl grid place-items-center text-2xl shrink-0 transition-transform group-hover:scale-110"
                       style={{ background: "rgba(14,165,233,.1)" }}
                     >
-                      {rule.icon}
+                      <AppIcon name={rule.icon} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-bold text-base mb-1">{rule.title}</h3>

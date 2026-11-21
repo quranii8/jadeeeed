@@ -6,6 +6,7 @@ import { SURAHS } from "@/lib/surahs";
 import { useQuranStore } from "@/lib/store";
 import { toArabicNum } from "@/lib/utils";
 import { Search } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 
 type Filter = "all" | "makki" | "madani" | "bookmarked";
 
@@ -41,9 +42,9 @@ export function SurahsBrowser() {
         <div className="flex flex-wrap gap-2 flex-1">
           {([
             ["all", "الكل"],
-            ["makki", "🕋 المكية"],
-            ["madani", "🕌 المدنية"],
-            ["bookmarked", "★ المحفوظة"],
+            ["makki", "المكية"],
+            ["madani", "المدنية"],
+            ["bookmarked", "المحفوظة"],
           ] as const).map(([key, label]) => (
             <button
               key={key}
@@ -88,7 +89,7 @@ export function SurahsBrowser() {
       {/* الشبكة */}
       {list.length === 0 ? (
         <div className="text-center py-16">
-          <div className="text-5xl mb-3">📭</div>
+          <div className="text-5xl mb-3"><AppIcon name="inbox" /></div>
           <p style={{ color: "var(--text-muted)" }}>لا توجد سور مطابقة</p>
         </div>
       ) : (
@@ -116,7 +117,7 @@ export function SurahsBrowser() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="font-quran text-xl font-bold">{s.a}</span>
-                  {bookmarkedSurahs.has(s.n) && <span style={{ color: "var(--gold)" }}>★</span>}
+                  {bookmarkedSurahs.has(s.n) && <span style={{ color: "var(--gold)" }}><AppIcon name="star" /></span>}
                 </div>
                 <div className="flex items-center gap-2 text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
                   <span>{s.e}</span>

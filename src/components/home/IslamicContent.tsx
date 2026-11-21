@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { AppIcon } from "@/components/AppIcon";
+import { HADITH_NABAWI } from "@/lib/hadith-nabawi";
 
 const CONTENT = [
   {
     href: "/prophets",
-    icon: "🌿",
+    icon: "leaf",
     title: "قصص الأنبياء",
     desc: "قصص 25 نبياً ورسولاً عليهم السلام مع الدروس المستفادة من القرآن",
     gradient: "linear-gradient(135deg, #16a34a, #84cc16)",
@@ -11,7 +13,7 @@ const CONTENT = [
   },
   {
     href: "/quran-sciences",
-    icon: "📖",
+    icon: "book-open",
     title: "علوم القرآن",
     desc: "أسباب النزول، المكي والمدني، الناسخ والمنسوخ، إعجاز القرآن، والقراءات السبع",
     gradient: "linear-gradient(135deg, #7c3aed, #a855f7)",
@@ -19,7 +21,7 @@ const CONTENT = [
   },
   {
     href: "/tajweed",
-    icon: "🎵",
+    icon: "audio-waveform",
     title: "أحكام التجويد",
     desc: "تعلّم أحكام التلاوة الصحيحة مع أمثلة عملية من القرآن الكريم",
     gradient: "linear-gradient(135deg, #0ea5e9, #06b6d4)",
@@ -27,7 +29,7 @@ const CONTENT = [
   },
   {
     href: "/hadith-qudsi",
-    icon: "✨",
+    icon: "sparkles",
     title: "الأحاديث القدسية",
     desc: "ما يرويه النبي ﷺ عن ربه عز وجل من غير القرآن الكريم",
     gradient: "linear-gradient(135deg, #be185d, #f0abfc)",
@@ -35,11 +37,11 @@ const CONTENT = [
   },
   {
   href: "/hadith-nabawi",
-  icon: "📿",
+  icon: "scroll-text",
   title: "الأحاديث النبوية",
   desc: "مختارات من أحاديث النبي ﷺ المأثورة عن الصحيحين والسنن",
   gradient: "linear-gradient(135deg, #1B5E20, #2E7D32)",
-  badge: "60 حديثاً",
+  badge: `${HADITH_NABAWI.length} حديثاً`,
 },
 ];
 
@@ -51,7 +53,7 @@ export function IslamicContent() {
           className="w-1.5 h-7 rounded"
           style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
         />
-        <h2 className="text-xl md:text-2xl font-extrabold">📚 محتوى تعليمي شامل</h2>
+        <h2 className="text-xl md:text-2xl font-extrabold">محتوى تعليمي شامل</h2>
       </div>
       <p className="mb-6 text-sm md:text-base" style={{ color: "var(--text-muted)" }}>
         تعمّق في فهم دينك مع محتوى منهجي مأخوذ من المصادر الأصلية المعتمدة.
@@ -72,7 +74,7 @@ export function IslamicContent() {
               className="w-14 h-14 rounded-2xl text-3xl mb-4 grid place-items-center text-white shadow-md transition-transform group-hover:scale-110 relative"
               style={{ background: c.gradient }}
             >
-              {c.icon}
+              <AppIcon name={c.icon} />
             </div>
             <div className="flex items-center gap-2 mb-2 relative">
               <h3 className="font-bold text-lg">{c.title}</h3>

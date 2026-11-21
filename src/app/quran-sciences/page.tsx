@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { QURAN_SCIENCES } from "@/lib/quran-sciences";
 import { ChevronLeft } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 
 export const metadata: Metadata = {
   title: "علوم القرآن",
@@ -22,7 +23,7 @@ export default function QuranSciencesPage() {
           }}
         />
         <div className="relative">
-          <div className="text-5xl mb-3">📖</div>
+          <div className="text-5xl mb-3"><AppIcon name="book-open" /></div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-2">علوم القرآن الكريم</h1>
           <p className="text-base md:text-lg opacity-95 max-w-2xl mx-auto">
             الأصول والمعارف التي يحتاجها كل مسلم لفهم كتاب الله
@@ -45,7 +46,7 @@ export default function QuranSciencesPage() {
                 className="w-14 h-14 rounded-2xl grid place-items-center text-3xl shrink-0 transition-transform group-hover:scale-110"
                 style={{ background: "rgba(124,58,237,.12)" }}
               >
-                {s.icon}
+                <AppIcon name={s.icon} />
               </div>
               <div className="flex-1 min-w-0">
                 <h2 className="font-bold text-lg mb-1">{s.title}</h2>

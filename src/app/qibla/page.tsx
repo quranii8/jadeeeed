@@ -14,7 +14,7 @@ export default function QiblaPage() {
           className="w-1.5 h-8 rounded"
           style={{ background: "linear-gradient(to bottom, var(--primary), var(--gold))" }}
         />
-        <h1 className="text-2xl md:text-3xl font-extrabold">🧭 اتجاه القبلة</h1>
+        <h1 className="text-2xl md:text-3xl font-extrabold">اتجاه القبلة</h1>
       </div>
       <p className="mb-6" style={{ color: "var(--text-muted)" }}>
         بوصلة احترافية لتحديد اتجاه الكعبة المشرفة من موقعك الحالي. على الجوال، قم بتفعيل البوصلة لاتباع اتجاه الجهاز.

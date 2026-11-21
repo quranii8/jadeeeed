@@ -8,6 +8,7 @@ import {
   bearingToDirection,
 } from "@/lib/qibla";
 import { toArabicNum } from "@/lib/utils";
+import { AppIcon } from "@/components/AppIcon";
 
 type LocState =
   | { status: "loading" }
@@ -241,7 +242,7 @@ export function QiblaCompass() {
                       : "0 4px 12px rgba(0,0,0,0.3)",
                   }}
                 >
-                  🕋
+                  <AppIcon name="kaaba" />
                 </div>
 
                 {/* خط من المركز للكعبة */}
@@ -296,7 +297,7 @@ export function QiblaCompass() {
                 className="text-2xl font-bold animate-pulse"
                 style={{ color: "var(--gold-dark)" }}
               >
-                ✦ أنت تواجه القبلة الآن ✦
+                <AppIcon name="sparkle" /> أنت تواجه القبلة الآن <AppIcon name="sparkle" />
               </div>
             ) : orientationActive ? (
               <div className="text-base font-semibold" style={{ color: "var(--primary)" }}>
@@ -359,7 +360,7 @@ export function QiblaCompass() {
         </div>
         <div className="card p-5">
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-lg">🕋</span>
+            <span className="text-lg"><AppIcon name="kaaba" /></span>
             <div className="font-bold text-sm">إحداثيات الكعبة</div>
           </div>
           <div className="text-sm" style={{ color: "var(--text-muted)" }} dir="ltr">
@@ -377,7 +378,7 @@ export function QiblaCompass() {
           borderRight: "3px solid var(--gold)",
         }}
       >
-        💡 <strong>ملاحظة:</strong> دقة البوصلة تعتمد على معايرة جهازك. للمعايرة على الموبايل، حرّك الجهاز على شكل رقم 8 في الهواء عدة مرات. تجنب وجود الجهاز قرب المعادن أو الأجهزة الكهربائية.
+        <AppIcon name="lightbulb" /> <strong>ملاحظة:</strong> دقة البوصلة تعتمد على معايرة جهازك. للمعايرة على الموبايل، حرّك الجهاز على شكل رقم 8 في الهواء عدة مرات. تجنب وجود الجهاز قرب المعادن أو الأجهزة الكهربائية.
       </div>
     </>
   );

@@ -35,8 +35,22 @@ export function debounce<T extends (...args: any[]) => any>(fn: T, delay: number
   };
 }
 
-/** إزالة البسملة من بداية أول آية (لكل السور عدا الفاتحة والتوبة) */
+/** إزالة التشكيل والتطويل وتوحيد ألف الوصل — للمقارنة فقط */
+function normalizeArabic(word: string): string {
+  return word
+    .replace(/[ؐ-ًؚ-ٰٟۖ-ۭـ﻿]/g, "")
+    .replace(/ٱ/g, "ا");
+}
+
+const BASMALA_WORDS = ["بسم", "الله", "الرحمن", "الرحيم"];
+
+/**
+ * إزالة البسملة من بداية أول آية (لكل السور عدا الفاتحة والتوبة).
+ * المقارنة كلمة بكلمة بعد إزالة التشكيل، لأن المصدر يكتب "ٱلرَّحْمَـٰنِ" بتطويل.
+ */
 export function stripBismillah(text: string, surahNum: number): string {
   if (surahNum === 1 || surahNum === 9) return text;
-  return text.replace(/^بِسْمِ\s*ٱللَّهِ\s*ٱلرَّحْمَٰنِ\s*ٱلرَّحِيمِ\s*/, "");
+  const words = text.trim().split(/\s+/);
+  const isBasmala = BASMALA_WORDS.every((w, i) => normalizeArabic(words[i] ?? "") === w);
+  return isBasmala ? words.slice(BASMALA_WORDS.length).join(" ") : text;
 }

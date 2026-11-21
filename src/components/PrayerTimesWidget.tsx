@@ -12,6 +12,7 @@ import {
   CALCULATION_METHODS,
 } from "@/lib/prayer-times";
 import { toArabicNum } from "@/lib/utils";
+import { AppIcon } from "@/components/AppIcon";
 
 type LocationState =
   | { status: "idle" }
@@ -172,7 +173,7 @@ export function PrayerTimesWidget() {
               />
               <div className="relative">
                 <div className="text-sm opacity-90 mb-1">الصلاة القادمة</div>
-                <div className="text-5xl mb-2">{PRAYER_ICONS[next.name]}</div>
+                <div className="text-5xl mb-2"><AppIcon name={PRAYER_ICONS[next.name]} /></div>
                 <div className="text-3xl md:text-4xl font-bold mb-2">
                   {PRAYER_NAMES_AR[next.name]}
                 </div>
@@ -203,7 +204,7 @@ export function PrayerTimesWidget() {
                   }}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-3xl">{PRAYER_ICONS[p]}</span>
+                    <span className="text-3xl"><AppIcon name={PRAYER_ICONS[p]} /></span>
                     <div>
                       <div className="font-bold">{PRAYER_NAMES_AR[p]}</div>
                       {isNext && (
@@ -211,7 +212,7 @@ export function PrayerTimesWidget() {
                           className="text-xs font-semibold"
                           style={{ color: "var(--primary)" }}
                         >
-                          ⬅ الصلاة القادمة
+                           الصلاة القادمة
                         </div>
                       )}
                     </div>
@@ -232,7 +233,7 @@ export function PrayerTimesWidget() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
             {(["Sunrise", "Imsak", "Midnight"] as const).map((p) => (
               <div key={p} className="card p-3 text-center">
-                <div className="text-xl mb-1">{PRAYER_ICONS[p]}</div>
+                <div className="text-xl mb-1"><AppIcon name={PRAYER_ICONS[p]} /></div>
                 <div className="text-xs" style={{ color: "var(--text-muted)" }}>
                   {PRAYER_NAMES_AR[p]}
                 </div>

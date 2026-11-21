@@ -2,6 +2,7 @@ import Link from "next/link";
 import { TAFASIR } from "@/lib/tafasir";
 import { TRANSLATIONS } from "@/lib/tafasir";
 import { RECITERS } from "@/lib/reciters";
+import { AppIcon } from "@/components/AppIcon";
 
 export const metadata = {
   title: "عن المنصة",
@@ -25,7 +26,7 @@ export default function AboutPage() {
       </div>
 
       <div className="space-y-5">
-        <Card title="🎯 رسالتنا">
+        <Card title="رسالتنا">
           <p>
             تقديم تجربة رقمية متكاملة للقرآن الكريم تجمع بين <strong>القراءة</strong> بالخط العثماني الأصيل،
             و<strong>الاستماع</strong> لأشهر القراء، و<strong>التفسير</strong> من أعظم كتب التراث الإسلامي،
@@ -33,12 +34,12 @@ export default function AboutPage() {
           </p>
         </Card>
 
-        <Card title="📚 التفاسير المعتمدة">
+        <Card title="التفاسير المعتمدة">
           <p className="mb-3">نقدم {toArabic(TAFASIR.length)} تفاسير من كبار علماء الأمة:</p>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {TAFASIR.map((t) => (
               <li key={t.id} className="text-sm flex items-center gap-2">
-                <span style={{ color: t.color }}>{t.icon}</span>
+                <span style={{ color: t.color }}><AppIcon name={t.icon} /></span>
                 <span>
                   <strong>{t.name}</strong> — <span style={{ color: "var(--text-muted)" }}>{t.era}</span>
                 </span>
@@ -47,7 +48,7 @@ export default function AboutPage() {
           </ul>
         </Card>
 
-        <Card title="🌍 الترجمات المتوفرة">
+        <Card title="الترجمات المتوفرة">
           <p className="mb-3">{toArabic(TRANSLATIONS.length)} ترجمات بـ {toArabic(new Set(TRANSLATIONS.map((t) => t.language)).size)} لغات:</p>
           <div className="flex flex-wrap gap-2">
             {TRANSLATIONS.map((t) => (
@@ -56,20 +57,20 @@ export default function AboutPage() {
                 className="px-3 py-1.5 rounded-full text-xs font-medium"
                 style={{ background: "var(--bg-soft)", border: "1px solid var(--border)" }}
               >
-                {t.flag} {t.language}
+                {t.language}
               </span>
             ))}
           </div>
         </Card>
 
-        <Card title="🎙️ القراء">
+        <Card title="القراء">
           <p>
             نوفر تلاوات أكثر من <strong>{toArabic(RECITERS.length)} قارئاً</strong> من مختلف الدول الإسلامية،
             بأنماط مختلفة (المرتل، المجوّد، التعليمي).
           </p>
         </Card>
 
-        <Card title="🔧 التقنيات المستخدمة">
+        <Card title="التقنيات المستخدمة">
           <ul className="space-y-1 text-sm">
             <li>• <strong>Next.js 14</strong> (App Router) + TypeScript</li>
             <li>• <strong>Tailwind CSS</strong> للتصميم</li>
@@ -80,7 +81,7 @@ export default function AboutPage() {
           </ul>
         </Card>
 
-        <Card title="🌐 المصادر">
+        <Card title="المصادر">
           <ul className="space-y-2 text-sm">
             <li>
               <strong>النص القرآني والتفاسير والترجمات:</strong>{" "}
@@ -100,7 +101,7 @@ export default function AboutPage() {
           </ul>
         </Card>
 
-        <Card title="❤️ المساهمة">
+        <Card title="المساهمة">
           <p className="mb-3">
             هذا المشروع <strong>مفتوح المصدر</strong> ومجاني تماماً. نرحب بمساهماتك سواء كانت:
           </p>
