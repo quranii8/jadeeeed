@@ -694,13 +694,14 @@ function Book({ c, y = 1350, appear }: { c: Ctx; y?: number; appear?: [number, n
 
 /** Lamp / mihrab niche (Maryam's sanctuary, Zakariya's prayer) */
 function Mihrab({ c, y = 1650, glow = 1 }: { c: Ctx; y?: number; glow?: number }) {
+  // arch height kept under ~760px so long verses above stay readable
   return (
     <g>
-      <path d={`M 250 ${y} L 250 ${y - 650} Q 250 ${y - 980} 540 ${y - 1050} Q 830 ${y - 980} 830 ${y - 650} L 830 ${y} Z`} fill="#1d1610" stroke="#C8A951" strokeWidth={10} />
-      <path d={`M 300 ${y} L 300 ${y - 640} Q 300 ${y - 930} 540 ${y - 990} Q 780 ${y - 930} 780 ${y - 640} L 780 ${y} Z`} fill="#2a2016" />
-      <line x1={540} y1={y - 990} x2={540} y2={y - 720} stroke="#C8A951" strokeWidth={3} />
-      <circle cx={540} cy={y - 690} r={90} fill="url(#orb)" opacity={(0.6 + Math.sin(c.f / 12) * 0.1) * glow} />
-      <path d={`M 510 ${y - 720} L 570 ${y - 720} L 560 ${y - 660} L 520 ${y - 660} Z`} fill="#f0d79a" opacity={0.9} />
+      <path d={`M 290 ${y} L 290 ${y - 460} Q 290 ${y - 700} 540 ${y - 760} Q 790 ${y - 700} 790 ${y - 460} L 790 ${y} Z`} fill="#1d1610" stroke="#C8A951" strokeWidth={10} />
+      <path d={`M 335 ${y} L 335 ${y - 450} Q 335 ${y - 660} 540 ${y - 710} Q 745 ${y - 660} 745 ${y - 450} L 745 ${y} Z`} fill="#2a2016" />
+      <line x1={540} y1={y - 710} x2={540} y2={y - 520} stroke="#C8A951" strokeWidth={3} />
+      <circle cx={540} cy={y - 490} r={90} fill="url(#orb)" opacity={(0.6 + Math.sin(c.f / 12) * 0.1) * glow} />
+      <path d={`M 510 ${y - 520} L 570 ${y - 520} L 560 ${y - 460} L 520 ${y - 460} Z`} fill="#f0d79a" opacity={0.9} />
       <rect x={0} y={y} width={W} height={H - y} fill="#17110c" />
     </g>
   );
@@ -768,7 +769,7 @@ function GlassFloor({ c, y = 1350 }: { c: Ctx; y?: number }) {
 function Cave({ c, web }: { c: Ctx; web?: [number, number] }) {
   const p = web ? prog(c, web) : 1;
   return (
-    <g>
+    <g transform="translate(0 380)">
       <path d="M 0 1920 L 0 900 Q 300 700 540 760 Q 820 680 1080 880 L 1080 1920 Z" fill="#3b2e26" />
       <path d="M 260 1920 L 300 1300 Q 540 1080 780 1300 L 820 1920 Z" fill="#0b0806" />
       <g stroke="#e9e2d0" strokeWidth={2.5} opacity={0.75 * p} fill="none">
