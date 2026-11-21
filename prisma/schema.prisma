@@ -1,12 +1,12 @@
 // منصة القرآن الكريم - Database Schema
-// نستخدم SQLite للتطوير (يمكن التحويل لـ PostgreSQL بسهولة في الإنتاج)
+// PostgreSQL (Neon عبر Vercel). الجداول تُنشأ تلقائياً وقت النشر (scripts/db-sync.mjs).
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -64,6 +64,18 @@ model User {
   notes        Note[]
   readingLog   ReadingLog[]
   preferences  UserPreference?
+  state        UserState?
+}
+
+// كل ما يحفظه الزائر على جهازه (المحفوظات، آخر قراءة، السجل، الختمة، الأحاديث المحفوظة، الثيم)
+// يُزامَن هنا كاملاً حتى يجده على أي جهاز يسجّل منه
+model UserState {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  data      Json
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Bookmark {

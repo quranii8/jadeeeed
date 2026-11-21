@@ -6,6 +6,8 @@ import { Footer } from "@/components/Footer";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import { ThemeApplier } from "@/components/ThemeApplier";
 import { PwaRegister } from "@/components/PwaRegister";
+import { ProgressSync } from "@/components/auth/ProgressSync";
+import { Analytics } from "@vercel/analytics/next";
 import { SessionProvider } from "@/components/auth/SessionProvider";
 
 const amiri = Amiri({
@@ -93,7 +95,9 @@ export default function RootLayout({
           <Footer />
           <AudioPlayer />
           <PwaRegister />
+          <ProgressSync />
         </SessionProvider>
+        <Analytics />
       </body>
     </html>
   );
