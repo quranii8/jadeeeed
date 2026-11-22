@@ -17,14 +17,14 @@ export function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 glaze-field" style={{ boxShadow: "0 8px 24px -12px rgba(6,14,40,.6)" }}>
+    <header className="sticky top-0 z-50 marble-bar">
       <div className="max-w-7xl mx-auto px-4 md:px-5 py-2.5 flex items-center gap-3 md:gap-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 shrink-0" style={{ color: "var(--on-field)" }}>
+        <Link href="/" className="flex items-center gap-2.5 shrink-0" style={{ color: "var(--g-cobalt)" }}>
           <StarMark size={40} />
           <span className="leading-tight">
             <span className="block font-kufic font-bold text-[1.05rem] md:text-lg">منصة القرآن الكريم</span>
-            <span className="hidden sm:block text-[11px] font-medium" style={{ color: "var(--on-field-muted)" }}>
+            <span className="hidden sm:block text-[11px] font-medium" style={{ color: "#5F6E72" }}>
               اقرأ، واستمع، وتدبّر
             </span>
           </span>
@@ -91,7 +91,6 @@ export function Header() {
         </div>
       </div>
 
-      <div className="tile-strip" style={{ height: 8, backgroundSize: "32px 8px" }} />
 
       {/* Search bar (expanded) */}
       {searchOpen && (
