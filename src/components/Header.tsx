@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, Moon, Sun, Search, X } from "lucide-react";
 import { useQuranStore } from "@/lib/store";
@@ -8,7 +9,8 @@ import { SearchBar } from "./SearchBar";
 import { UserMenu } from "./auth/UserMenu";
 import { AppIcon } from "@/components/AppIcon";
 import { StarMark } from "@/components/zellige/Rosette";
-import { SkinSwitch } from "./SkinSwitch";
+import { SkinSwitch, SKINS } from "./SkinSwitch";
+import { useExtras } from "@/lib/extras-store";
 
 export function Header() {
   const theme = useQuranStore((s) => s.theme);
@@ -69,15 +71,18 @@ export function Header() {
           >
             <Search className="w-5 h-5" />
           </button>
-          <button
-            className="icon-btn field-btn"
-            onClick={toggleTheme}
-            aria-label="تبديل الوضع"
-          >
-            {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
-
-          <SkinSwitch compact />
+          {/* on phones the look controls live in the menu, under a labelled row, so the bar keeps only search and menu */}
+          <div className="hidden sm:flex items-center gap-1">
+            <button
+              className="icon-btn field-btn"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "الوضع النهاري" : "الوضع الليلي"}
+              title={theme === "dark" ? "الوضع النهاري" : "الوضع الليلي"}
+            >
+              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+            <SkinSwitch compact />
+          </div>
           <UserMenu />
 
           <button
@@ -138,6 +143,8 @@ export function Header() {
               <MobileNavLink href="/hijri" onClose={() => setMobileOpen(false)} icon="moon-star">التقويم الهجري</MobileNavLink>
             </MobileSection>
 
+            <AppearanceRow />
+
             <MobileSection title="حسابي">
               <MobileNavLink href="/dashboard" onClose={() => setMobileOpen(false)} icon="bar-chart">لوحة التحكم</MobileNavLink>
               <MobileNavLink href="/bookmarks" onClose={() => setMobileOpen(false)} icon="star">المحفوظات</MobileNavLink>
@@ -150,18 +157,25 @@ export function Header() {
   );
 }
 
+function isActive(pathname: string, href: string) {
+  return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
+}
+
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const pathname = usePathname();
   return (
-    <Link href={href} className="field-link px-3 py-2 font-medium text-sm">
+    <Link href={href} aria-current={isActive(pathname, href) ? "page" : undefined} className="field-link px-3 py-2 font-medium text-sm">
       {children}
     </Link>
   );
 }
 
 function NavGroup({ label, items }: { label: string; items: { href: string; label: string }[] }) {
+  const pathname = usePathname();
+  const current = items.some((i) => isActive(pathname, i.href));
   return (
     <div className="relative group">
-      <button className="field-link px-3 py-2 font-medium text-sm" aria-haspopup="true">
+      <button className="field-link px-3 py-2 font-medium text-sm" aria-haspopup="true" aria-current={current ? "page" : undefined}>
         {label}
       </button>
       <div className="absolute top-full right-0 mt-1 hidden group-hover:block group-focus-within:block min-w-[210px] py-2 rounded shadow-lg z-50"
@@ -170,7 +184,8 @@ function NavGroup({ label, items }: { label: string; items: { href: string; labe
           <Link
             key={item.href}
             href={item.href}
-            className="block px-4 py-2 text-sm transition-colors hover:bg-[var(--primary-soft)]"
+            aria-current={isActive(pathname, item.href) ? "page" : undefined}
+            className="block px-4 py-2.5 text-sm transition-colors hover:bg-[var(--primary-soft)] aria-[current=page]:font-bold"
             style={{ color: "var(--text)" }}
           >
             {item.label}
@@ -203,15 +218,52 @@ function MobileNavLink({
   onClose: () => void;
   icon: string;
 }) {
+  const pathname = usePathname();
+  const active = isActive(pathname, href);
   return (
     <Link
       href={href}
       onClick={onClose}
-      className="px-3 py-2.5 rounded-xl font-medium text-sm transition-colors flex items-center gap-2"
-      style={{ background: "var(--bg-soft)", color: "var(--text)" }}
+      aria-current={active ? "page" : undefined}
+      className="min-h-11 px-3 py-2.5 rounded-xl font-medium text-sm transition-colors flex items-center gap-2"
+      style={{ background: active ? "var(--primary-soft)" : "var(--bg-soft)", color: active ? "var(--primary)" : "var(--text)", boxShadow: active ? "inset 0 0 0 1px var(--primary)" : undefined }}
     >
       <span className="text-base" style={{ color: "var(--primary)" }}><AppIcon name={icon} /></span>
       {children}
     </Link>
+  );
+}
+
+/** Theme and skin, labelled, for the phone menu. */
+function AppearanceRow() {
+  const theme = useQuranStore((s) => s.theme);
+  const toggleTheme = useQuranStore((s) => s.toggleTheme);
+  const skin = useExtras((s) => s.skin);
+  const setSkin = useExtras((s) => s.setSkin);
+  const chip = "min-h-11 px-3 py-2.5 rounded-xl font-medium text-sm transition-colors flex items-center justify-center gap-2";
+  return (
+    <MobileSection title="المظهر">
+      <button type="button" onClick={toggleTheme} className={`${chip} col-span-2`} style={{ background: "var(--bg-soft)", color: "var(--text)" }}>
+        {theme === "dark" ? <Sun className="w-4 h-4" aria-hidden="true" /> : <Moon className="w-4 h-4" aria-hidden="true" />}
+        {theme === "dark" ? "التبديل إلى الوضع النهاري" : "التبديل إلى الوضع الليلي"}
+      </button>
+      {SKINS.map((k) => (
+        <button
+          key={k.id}
+          type="button"
+          onClick={() => setSkin(k.id)}
+          aria-pressed={skin === k.id}
+          className={chip}
+          style={{
+            background: skin === k.id ? "var(--primary-soft)" : "var(--bg-soft)",
+            color: skin === k.id ? "var(--primary)" : "var(--text)",
+            boxShadow: skin === k.id ? "inset 0 0 0 1px var(--primary)" : undefined,
+          }}
+        >
+          <span className="w-3.5 h-3.5 rounded-full shrink-0" style={{ background: k.swatch[0], boxShadow: `inset 0 0 0 3px ${k.swatch[1]}` }} aria-hidden="true" />
+          {k.label}
+        </button>
+      ))}
+    </MobileSection>
   );
 }

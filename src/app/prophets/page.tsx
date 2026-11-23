@@ -40,14 +40,10 @@ export default function ProphetsPage() {
             href={`/prophets/${p.id}`}
             className="card p-5 transition-all hover:-translate-y-1 hover:shadow-lg group relative overflow-hidden"
           >
-            <div
-              className="absolute -top-12 -left-12 w-32 h-32 rounded-full opacity-10 transition-transform group-hover:scale-110"
-              style={{ background: "linear-gradient(135deg, var(--g-emerald), var(--g-emerald-light))" }}
-            />
             <div className="flex items-start gap-3 relative">
               <div
-                className="w-14 h-14 rounded-xl grid place-items-center text-2xl shrink-0 font-bold text-white shadow-md transition-transform group-hover:scale-110"
-                style={{ background: "linear-gradient(135deg, var(--g-emerald), var(--g-emerald-light))" }}
+                className="w-14 h-14 rounded-xl grid place-items-center text-2xl shrink-0 font-bold font-kufic transition-transform group-hover:scale-105"
+                style={{ background: "color-mix(in srgb, var(--emerald) 14%, transparent)", color: "var(--emerald)", boxShadow: "inset 0 0 0 1px color-mix(in srgb, var(--emerald) 35%, transparent)" }}
               >
                 {p.name.charAt(0)}
               </div>
@@ -58,8 +54,8 @@ export default function ProphetsPage() {
                 </div>
                 {storyOf(p.id)?.title && (
                   <div
-                    className="inline-block px-2 py-0.5 rounded text-[10px] font-semibold mb-2"
-                    style={{ background: "rgba(22,163,74,.15)", color: "var(--g-emerald)" }}
+                    className="inline-block px-2 py-0.5 rounded text-xs font-semibold mb-2"
+                    style={{ background: "color-mix(in srgb, var(--emerald) 14%, transparent)", color: "var(--emerald)" }}
                   >
                     {storyOf(p.id)?.title}
                   </div>
@@ -69,7 +65,7 @@ export default function ProphetsPage() {
                 </p>
                 <div
                   className="mt-2 text-xs font-semibold flex items-center gap-1"
-                  style={{ color: "var(--g-emerald)" }}
+                  style={{ color: "var(--emerald)" }}
                 >
                   اقرأ القصة
                   <ChevronLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" />

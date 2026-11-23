@@ -53,7 +53,7 @@ export function SurahsBrowser() {
               className="px-4 py-2 rounded text-sm font-medium transition-all"
               style={{
                 background: filter === key ? "var(--primary)" : "var(--surface)",
-                color: filter === key ? "white" : "var(--text-muted)",
+                color: filter === key ? "var(--on-primary)" : "var(--text-muted)",
                 border: `1px solid ${filter === key ? "var(--primary)" : "var(--border)"}`,
               }}
             >

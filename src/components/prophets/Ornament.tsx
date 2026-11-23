@@ -1,7 +1,7 @@
 /** زخرفة هندسية إسلامية (نجمة ثمانية متكررة) تُستخدم خلفيةً للعناوين */
 export function OrnamentPattern({ id = "orn", opacity = 0.14 }: { id?: string; opacity?: number }) {
   return (
-    <svg className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true" style={{ opacity }}>
+    <svg className="ornament-pattern absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true" style={{ opacity }}>
       <defs>
         <pattern id={id} width="56" height="56" patternUnits="userSpaceOnUse">
           <g fill="none" stroke="white" strokeWidth="1.2">

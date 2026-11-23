@@ -146,7 +146,7 @@ export default function ScienceDetailPage({ params }: PageProps) {
               <div key={i} className="flex items-start gap-3 text-base leading-relaxed">
                 <span
                   className="flex-shrink-0 w-6 h-6 rounded-full grid place-items-center text-xs font-bold"
-                  style={{ background: "var(--primary)", color: "#fff" }}
+                  style={{ background: "var(--primary)", color: "var(--on-primary)" }}
                 >
                   {i + 1}
                 </span>

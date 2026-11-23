@@ -118,7 +118,7 @@ export function HifzTrainer() {
           <span className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text-muted)" }}>تكرار كل آية</span>
           <div className="flex gap-1.5">
             {[1, 3, 5, 10].map((n) => (
-              <button key={n} type="button" onClick={() => setRepeat(n)} className="flex-1 py-2.5 rounded font-bold text-sm" style={{ background: repeat === n ? "var(--primary)" : "var(--bg-soft)", color: repeat === n ? "var(--g-on)" : "var(--text)" }} aria-pressed={repeat === n}>
+              <button key={n} type="button" onClick={() => setRepeat(n)} className="flex-1 py-2.5 rounded font-bold text-sm" style={{ background: repeat === n ? "var(--primary)" : "var(--bg-soft)", color: repeat === n ? "var(--on-primary)" : "var(--text)" }} aria-pressed={repeat === n}>
                 {toArabicNum(n)}
               </button>
             ))}

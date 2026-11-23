@@ -25,7 +25,9 @@ export function getReciterAvatar(name: string, size: number = 200): string {
   const seed = hashCode(name);
   const palette = ARABIC_COLORS[seed % ARABIC_COLORS.length];
   const [c1, c2] = palette;
-  const initial = name.trim().charAt(0);
+  // skip the definite article, so الحصري and المنشاوي do not both become "ا"
+  const first = name.trim().split(/\s+/)[0] ?? "";
+  const initial = (first.startsWith("ال") && first.length > 2 ? first.slice(2) : first).charAt(0) || name.trim().charAt(0);
   const fontSize = size * 0.45;
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}">

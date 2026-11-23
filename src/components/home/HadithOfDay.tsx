@@ -13,10 +13,10 @@ export function HadithOfDay() {
   return (
     <section className="relative max-w-6xl mx-auto px-4 md:px-5 pt-14 md:pt-20" aria-labelledby="hadith-day">
       <h2 id="hadith-day" className="font-kufic font-bold text-3xl md:text-4xl mb-5">حديث اليوم</h2>
-      <div className="p-[5px]" style={{ background: "var(--grout-wall)" }}>
+      <div className="hadith-frame p-[5px]" style={{ background: "var(--grout-wall)" }}>
         <figure className="plaster-tile relative overflow-hidden p-6 md:p-12 text-center">
-          <TileStar color="var(--border)" size={260} className="absolute -top-20 -right-20 pointer-events-none" />
-          <TileStar color="var(--border)" size={200} className="absolute -bottom-16 -left-16 pointer-events-none" />
+          <TileStar color="var(--border)" size={260} className="tile-star absolute -top-20 -right-20 pointer-events-none" />
+          <TileStar color="var(--border)" size={200} className="tile-star absolute -bottom-16 -left-16 pointer-events-none" />
           <blockquote className="relative font-quran text-[1.6rem] md:text-[2.2rem] leading-[2] max-w-3xl mx-auto">{h.matn}</blockquote>
           <figcaption className="relative mt-5 flex items-center justify-center gap-3 text-sm font-semibold" style={{ color: "var(--primary)" }}>
             <span className="h-px w-8" style={{ background: "var(--gold)" }} />
