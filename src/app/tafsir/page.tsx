@@ -3,7 +3,6 @@ import Link from "next/link";
 import { TAFASIR } from "@/lib/tafasir";
 import { ChevronLeft } from "lucide-react";
 import { AppIcon } from "@/components/AppIcon";
-import { HeadingStar } from "@/components/zellige/Rosette";
 
 export const metadata: Metadata = {
   title: "التفاسير المعتمدة",
@@ -13,13 +12,12 @@ export const metadata: Metadata = {
 export default function TafsirPage() {
   return (
     <section className="max-w-7xl mx-auto px-5 py-8">
-      <div className="flex items-center gap-3 mb-2">
-        <HeadingStar />
-        <h1 className="text-2xl md:text-3xl font-extrabold">التفاسير المعتمدة</h1>
-      </div>
-      <p className="mb-8 max-w-3xl" style={{ color: "var(--text-muted)" }}>
-        مجموعة منتقاة من أعظم تفاسير القرآن الكريم عبر التاريخ الإسلامي — من تفاسير المأثور للسلف، إلى التفاسير المعاصرة الميسّرة. اختر تفسيراً للتعرف عليه أكثر، أو استخدم خاصية <strong style={{ color: "var(--primary)" }}>المقارنة</strong> داخل أي آية لرؤية كل التفاسير جنباً إلى جنب.
-      </p>
+      <header className="page-band page-band--saffron-deep text-center relative overflow-hidden mb-8">
+        <h1 className="text-4xl md:text-5xl mb-3">التفاسير المعتمدة</h1>
+        <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--g-on-muted)" }}>
+          مجموعة منتقاة من أعظم تفاسير القرآن الكريم عبر التاريخ الإسلامي — من تفاسير المأثور للسلف، إلى التفاسير المعاصرة الميسّرة. اختر تفسيراً للتعرف عليه أكثر، أو استخدم خاصية <strong style={{ color: "var(--g-saffron-light)" }}>المقارنة</strong> داخل أي آية لرؤية كل التفاسير جنباً إلى جنب.
+        </p>
+      </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {TAFASIR.map((t) => (

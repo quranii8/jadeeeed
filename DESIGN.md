@@ -276,3 +276,14 @@ Ease-out `cubic-bezier(.16, 1, .3, 1)` for every entrance and state change. Tile
 - **Don't** put long reading text directly on a lattice-patterned glaze field.
 - **Don't** use more than one saffron button group on a screen.
 - **Don't** round anything into pills or bubbles; the largest radius in the scale is 10px.
+
+## Fajr (default world)
+
+The site opens in the Fajr skin (`data-skin="fajr"`), a cinematic night turning to dawn over misty hills. Andalus and Kiswah remain selectable from the skin switch.
+
+- **Sky fields:** the header is night glass with an 18px backdrop blur and one gold hairline. The footer, page bands and home hero are patches of night sky: stars, a horizon glow tinted by each band's colour, and a hill silhouette.
+- **Horizon line:** the zellige tile strip becomes a single 1px line of first light (`#F3CD7E`, fading out at both ends).
+- **Panes:** section tiles and cards use a 14px radius. At night they are glass; at dawn (light mode) they are warm paper (`#FBF9F4` on `#F3EFE7`). Hover lifts a pane 4px with a gold edge.
+- **Accent:** dawn gold `#E2B35A`, used for primary buttons, which are pills.
+- **Home hero:** the verse of the day rises word by word over a looping misty-dawn video. A painted CSS/SVG dawn sits under the video for first paint, slow links and reduced motion.
+- **Motion:** tiles rise into place on scroll (view timeline), and the hero scene sinks as it scrolls away. All of it is disabled under `prefers-reduced-motion`.

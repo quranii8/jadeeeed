@@ -56,7 +56,7 @@ interface QuranStore {
 export const useQuranStore = create<QuranStore>()(
   persist(
     (set, get) => ({
-      theme: "light",
+      theme: "dark",
       fontSize: 1.7,
       readMode: "page",
       showTranslation: false,
@@ -110,6 +110,9 @@ export const useQuranStore = create<QuranStore>()(
     }),
     {
       name: "quran-platform-store",
+      // v1: the cinematic redesign opens at night; readers can switch to light again and it sticks
+      version: 1,
+      migrate: (state, version) => (version < 1 ? { ...(state as object), theme: "dark" } : state) as never,
       partialize: (s) => ({
         theme: s.theme,
         fontSize: s.fontSize,

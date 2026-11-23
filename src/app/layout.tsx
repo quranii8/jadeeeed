@@ -60,8 +60,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "var(--g-cobalt)" },
-    { media: "(prefers-color-scheme: dark)", color: "#12245C" },
+    { media: "(prefers-color-scheme: light)", color: "#070B1E" },
+    { media: "(prefers-color-scheme: dark)", color: "#070B1E" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -76,14 +76,15 @@ export default function RootLayout({
     <html
       lang="ar"
       dir="rtl"
-      className={`${amiri.variable} ${notoKufi.variable} ${notoNaskh.variable} ${inter.variable}`}
+      data-skin="fajr"
+      className={`dark ${amiri.variable} ${notoKufi.variable} ${notoNaskh.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
       <head>
         {/* apply the saved skin and light/dark before the first paint, so the page never flashes the wrong colours */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var e=JSON.parse(localStorage.getItem("quran-platform-extras")||"{}").state||{};if(e.skin)document.documentElement.dataset.skin=e.skin;var q=JSON.parse(localStorage.getItem("quran-platform-store")||"{}").state||{};if(q.theme==="dark")document.documentElement.classList.add("dark")}catch(_){}`,
+            __html: `try{var d=document.documentElement,x=JSON.parse(localStorage.getItem("quran-platform-extras")||"{}"),e=x.state||{};if(e.skin&&x.version>=1)d.dataset.skin=e.skin;var y=JSON.parse(localStorage.getItem("quran-platform-store")||"{}"),q=y.state||{};if(q.theme==="light"&&y.version>=1)d.classList.remove("dark")}catch(_){}`,
           }}
         />
       </head>

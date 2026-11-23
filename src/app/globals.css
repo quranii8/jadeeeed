@@ -590,3 +590,215 @@ h1, h2 { text-wrap: balance; }
   .cine-stage, .cine-content { transform: none; }
   .cine-content { opacity: 1; }
 }
+
+/* ============================================================
+   Skin: Fajr, the default cinematic world. Night sky turning to dawn
+   over misty hills; one gold horizon line instead of tile borders.
+   Light = dawn (warm paper to read on under a night sky),
+   dark = night (everything in the sky).
+   ============================================================ */
+[data-skin="fajr"] {
+  --g-cobalt: #1C2A6E;
+  --g-deep: #0B1233;
+  --g-cobalt-light: #3A4BA0;
+  --g-emerald: #123F4A;
+  --g-emerald-light: #1E5C68;
+  --g-saffron: #E2B35A;
+  --g-saffron-light: #F3CD7E;
+  --g-saffron-deep: #7A5418;
+  --g-terracotta: #4A2F6B;
+  --g-terracotta-light: #6A4A92;
+  --g-terracotta-deep: #2E1C47;
+  --g-terracotta-night: #22143A;
+  --g-ink: #070B1E;
+  --g-plaster: #F5F0E6;
+  --g-on: #F7F3EA;
+  --g-on-muted: #C9C5DE;
+  --g-on-saffron: #1A1204;
+  --g-on-saffron-muted: #4A3410;
+  --g-orb: #FFF4D6;
+  --lattice-stroke: rgba(255,255,255,.08);
+
+  --field: #070B1E;
+  --field-deep: #050816;
+  --on-field: #F7F3EA;
+  --on-field-muted: #B9B6D3;
+  --grout: rgba(226,179,90,.5);
+  --grout-wall: transparent;
+
+  --primary: #3A4BA0;
+  --primary-dark: #1C2A6E;
+  --primary-light: #5A6BC0;
+  --primary-soft: #E9E6F3;
+  --gold: #E2B35A;
+  --gold-light: #F3CD7E;
+  --gold-dark: #8A6016;
+  --emerald: #1E6F7C;
+  --terracotta: #6A4A92;
+
+  --bg: #F3EFE7;
+  --bg-elev: #FBF9F4;
+  --bg-soft: #EAE4D8;
+  --surface: #FBF9F4;
+  --border: #DDD5C6;
+  --border-soft: #E8E1D4;
+  --text: #12142A;
+  --text-muted: #4A4C66;
+  --text-soft: #67697F;
+
+  --radius-cine: 14px;
+  --night-sky: radial-gradient(120% 90% at 50% 120%, rgba(180,151,204,.42), rgba(180,151,204,0) 60%),
+               radial-gradient(70% 60% at 50% 110%, rgba(243,205,126,.28), rgba(243,205,126,0) 65%),
+               linear-gradient(180deg, #070B1E 0%, #121B4D 55%, #2F2C6E 100%);
+  --stars: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cg fill='white'%3E%3Ccircle cx='12' cy='20' r='.9' opacity='.7'/%3E%3Ccircle cx='64' cy='8' r='.6' opacity='.5'/%3E%3Ccircle cx='101' cy='42' r='1.1' opacity='.65'/%3E%3Ccircle cx='150' cy='18' r='.7' opacity='.55'/%3E%3Ccircle cx='38' cy='88' r='.6' opacity='.45'/%3E%3Ccircle cx='132' cy='96' r='.9' opacity='.6'/%3E%3Ccircle cx='80' cy='128' r='.6' opacity='.4'/%3E%3Ccircle cx='170' cy='150' r='.8' opacity='.5'/%3E%3Ccircle cx='22' cy='160' r='.7' opacity='.45'/%3E%3C/g%3E%3C/svg%3E");
+  --hills: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath d='M0 70 C180 40 320 60 480 38 S780 10 940 44 1220 70 1440 40 V120 H0Z' fill='%23ffffff' fill-opacity='.05'/%3E%3Cpath d='M0 96 C200 70 420 92 640 74 S1060 60 1240 82 1380 94 1440 88 V120 H0Z' fill='%23050816' fill-opacity='.55'/%3E%3C/svg%3E");
+}
+[data-skin="fajr"].dark {
+  --primary: #A9B6F2;
+  --primary-dark: #7F8FDD;
+  --primary-light: #C6CFF7;
+  --primary-soft: rgba(169,182,242,.12);
+  --gold: #F0C46E;
+  --gold-light: #F7D693;
+  --gold-dark: #F0C46E;
+  --emerald: #5FC2C9;
+  --terracotta: #C3A2EA;
+  --grout-wall: transparent;
+
+  --bg: #070B1E;
+  --bg-elev: #0E1430;
+  --bg-soft: #0B1128;
+  --surface: rgba(20,27,64,.62);
+  --border: rgba(185,182,211,.18);
+  --border-soft: rgba(185,182,211,.1);
+  --text: #F2EFE8;
+  --text-muted: #BBB9D2;
+  --text-soft: #8F8DAE;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
+  --shadow: 0 10px 30px -12px rgba(0,0,0,.7);
+  --shadow-lg: 0 24px 60px -18px rgba(0,0,0,.8);
+}
+
+/* the night sits behind every page; daylight readers get the dawn wash at the top */
+[data-skin="fajr"] body {
+  background:
+    radial-gradient(1100px 520px at 50% -160px, rgba(90,79,158,.22), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+[data-skin="fajr"].dark body {
+  background:
+    var(--stars) 0 0 / 180px 180px,
+    radial-gradient(1200px 640px at 50% -200px, rgba(90,79,158,.35), transparent 70%),
+    radial-gradient(900px 500px at 85% 110%, rgba(226,179,90,.06), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+[data-skin="fajr"] ::selection { background: #E2B35A; color: #12142A; }
+
+/* sky fields: header, footer and bands are night glass */
+[data-skin="fajr"] .glaze-field { background: rgba(7,11,30,.78); color: var(--on-field); }
+[data-skin="fajr"] header.glaze-field {
+  -webkit-backdrop-filter: saturate(1.4) blur(18px);
+  backdrop-filter: saturate(1.4) blur(18px);
+  box-shadow: 0 1px 0 rgba(226,179,90,.28), 0 12px 32px -18px rgba(0,0,0,.8) !important;
+}
+[data-skin="fajr"] footer.glaze-field { background: var(--night-sky); }
+[data-skin="fajr"] .zellige-lattice { background-image: var(--stars); background-size: 180px 180px; }
+[data-skin="fajr"] .zellige-lattice-ink { background-image: none; }
+
+/* the tile strip becomes the horizon: one line of first light */
+[data-skin="fajr"] .tile-strip {
+  height: 1px !important;
+  background: linear-gradient(90deg, rgba(226,179,90,0), rgba(243,205,126,.9) 50%, rgba(226,179,90,0)) !important;
+  box-shadow: 0 0 18px 2px rgba(243,205,126,.25);
+}
+[data-skin="fajr"] header .tile-strip, [data-skin="fajr"] header + .tile-strip { display: none; }
+
+[data-skin="fajr"] .field-link:hover, [data-skin="fajr"] .field-link[aria-current="page"] { color: #fff; border-bottom-color: var(--g-saffron-light); }
+[data-skin="fajr"] .field-btn:hover { background: rgba(255,255,255,.08); }
+
+/* page bands: each section opens on its own patch of sky, lit from the horizon in its colour */
+[data-skin="fajr"] .page-band {
+  border-radius: var(--radius-cine);
+  overflow: hidden;
+  isolation: isolate;
+  padding-top: 2.75rem;
+  padding-bottom: 3.6rem;
+  background:
+    radial-gradient(90% 120% at 50% 135%, color-mix(in srgb, var(--band) 85%, #F3CD7E 15%), transparent 62%),
+    radial-gradient(60% 70% at 50% 120%, rgba(243,205,126,.22), transparent 70%),
+    linear-gradient(180deg, #070B1E 0%, color-mix(in srgb, var(--band) 45%, #070B1E) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 30px 60px -30px rgba(0,0,0,.6);
+  color: var(--g-on);
+}
+@media (min-width: 768px) { [data-skin="fajr"] .page-band { padding-top: 4rem; padding-bottom: 4.75rem; } }
+[data-skin="fajr"] .page-band::before { background-image: var(--stars); background-size: 180px 180px; opacity: .9; z-index: -1; }
+[data-skin="fajr"] .page-band::after {
+  height: 46px;
+  background: var(--hills) bottom / 100% 100% no-repeat;
+  z-index: -1;
+  border-bottom: 1px solid rgba(243,205,126,.35);
+}
+[data-skin="fajr"] .page-band h1 { color: #FBF8F1; text-shadow: 0 2px 24px rgba(0,0,0,.45); font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.25; }
+[data-skin="fajr"] .page-band p { color: rgba(247,243,234,.8); }
+[data-skin="fajr"] .page-band--cobalt { --band: #2E3F9E; }
+[data-skin="fajr"] .page-band--emerald { --band: #1E6F7C; }
+[data-skin="fajr"] .page-band--terracotta { --band: #6A4A92; }
+[data-skin="fajr"] .page-band--ink { --band: #1C2A6E; }
+[data-skin="fajr"] .page-band--saffron-deep { --band: #9A6A1C; }
+
+/* section tiles: deep-glazed panes of night, lit from below, lifting toward you on hover */
+[data-skin="fajr"] .tile-wall { gap: 12px; padding: 0; }
+[data-skin="fajr"] .wall-tile {
+  border-radius: var(--radius-cine);
+  overflow: hidden;
+  background-image:
+    radial-gradient(120% 80% at 50% 130%, rgba(255,255,255,.16), transparent 60%),
+    linear-gradient(180deg, rgba(7,11,30,.35), rgba(7,11,30,0) 45%) !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 18px 40px -22px rgba(0,0,0,.7);
+  transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out);
+}
+[data-skin="fajr"] .wall-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: inset 0 0 0 1px rgba(243,205,126,.35), 0 28px 50px -22px rgba(0,0,0,.8), 0 0 40px -10px rgba(243,205,126,.25);
+}
+[data-skin="fajr"] .wall-tile .zellige-lattice { opacity: .5; }
+@keyframes fajr-rise { from { opacity: 0; transform: translateY(24px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@supports (animation-timeline: view()) {
+  [data-skin="fajr"] .wall-tile {
+    animation: fajr-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+}
+
+/* reading surfaces: glass at night, paper at dawn */
+[data-skin="fajr"] .card { border-radius: var(--radius-cine); }
+[data-skin="fajr"].dark .card,
+[data-skin="fajr"].dark .plaster-tile {
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-color: var(--border-soft);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05), var(--shadow);
+}
+[data-skin="fajr"].dark .plaster-tile { background-image: linear-gradient(160deg, rgba(255,255,255,.05), transparent 45%); }
+[data-skin="fajr"].dark .plaster-tile:hover { background-color: rgba(30,40,90,.75); }
+[data-skin="fajr"] .btn { border-radius: 999px; }
+[data-skin="fajr"] .btn-primary { box-shadow: 0 8px 28px -8px rgba(243,205,126,.55); }
+[data-skin="fajr"] .btn-primary:hover { box-shadow: 0 12px 36px -8px rgba(243,205,126,.7); }
+[data-skin="fajr"].dark .btn-outline { background: rgba(255,255,255,.04); }
+[data-skin="fajr"] .glaze::after { background: linear-gradient(115deg, transparent 42%, rgba(243,205,126,.16) 50%, transparent 58%); }
+[data-skin="fajr"] .verse-end-mark { background: none; }
+[data-skin="fajr"] ::-webkit-scrollbar-thumb { background: rgba(185,182,211,.35); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-skin="fajr"] .wall-tile { animation: none !important; transition: none; }
+}
+/* the prophets band: a night that warms toward the horizon behind the arch */
+[data-skin="fajr"] .prophets-band {
+  background:
+    radial-gradient(50% 70% at 22% 70%, rgba(243,205,126,.18), transparent 70%),
+    radial-gradient(90% 90% at 50% 120%, rgba(106,74,146,.75), transparent 70%),
+    linear-gradient(180deg, #070B1E 0%, #1B1A4A 60%, #2E1C47 100%) !important;
+}

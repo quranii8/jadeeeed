@@ -6,7 +6,7 @@ import { persist } from "zustand/middleware";
 export type SavedHadith = { c: string; book: number; id: number; num: string; matn: string; savedAt: number };
 export type Khatma = { start: string; days: number; done: number[] }; // start = YYYY-MM-DD, done = finished day indexes
 
-export type Skin = "andalus" | "kiswah";
+export type Skin = "fajr" | "andalus" | "kiswah";
 
 type Extras = {
   skin: Skin;
@@ -25,7 +25,7 @@ export const todayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMo
 export const useExtras = create<Extras>()(
   persist(
     (set, get) => ({
-      skin: "andalus",
+      skin: "fajr",
       setSkin: (skin) => set({ skin }),
       hadiths: [],
       toggleHadith: (h) => {
@@ -43,6 +43,11 @@ export const useExtras = create<Extras>()(
       },
       endKhatma: () => set({ khatma: null }),
     }),
-    { name: "quran-platform-extras" }
+    {
+      name: "quran-platform-extras",
+      // v1: the site moved to the cinematic Fajr world; everyone starts there once, then their choice sticks
+      version: 1,
+      migrate: (state, version) => (version < 1 ? { ...(state as Extras), skin: "fajr" } : state) as Extras,
+    }
   )
 );

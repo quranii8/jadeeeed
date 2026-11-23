@@ -3,7 +3,6 @@ import Link from "next/link";
 import { RECITERS } from "@/lib/reciters";
 import { Mic, MapPin } from "lucide-react";
 import { ReciterAvatar } from "@/components/ReciterAvatar";
-import { HeadingStar } from "@/components/zellige/Rosette";
 
 export const metadata: Metadata = {
   title: "القراء",
@@ -13,13 +12,12 @@ export const metadata: Metadata = {
 export default function RecitersPage() {
   return (
     <section className="max-w-7xl mx-auto px-5 py-8">
-      <div className="flex items-center gap-3 mb-2">
-        <HeadingStar />
-        <h1 className="text-2xl md:text-3xl font-extrabold">القراء</h1>
-      </div>
-      <p className="mb-8" style={{ color: "var(--text-muted)" }}>
-        {RECITERS.length} قارئاً من أشهر قراء العالم الإسلامي. اختر قارئاً للاستماع لتلاوته الكاملة لأي سورة.
-      </p>
+      <header className="page-band page-band--emerald text-center relative overflow-hidden mb-8">
+        <h1 className="text-4xl md:text-5xl mb-3">القراء</h1>
+        <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--g-on-muted)" }}>
+          {RECITERS.length} قارئاً من أشهر قراء العالم الإسلامي. اختر قارئاً للاستماع لتلاوته الكاملة لأي سورة.
+        </p>
+      </header>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {RECITERS.map((r) => (
