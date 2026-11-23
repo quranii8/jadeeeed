@@ -104,7 +104,7 @@ export function HadithCard({
             type="button"
             onClick={() => toggleHadith({ c: origin.c, book: origin.book, id: h.id, num: h.num, matn: h.matn })}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded"
-            style={{ background: saved ? "var(--primary)" : "var(--primary-soft)", color: saved ? "var(--g-on)" : "var(--primary)" }}
+            style={{ background: saved ? "var(--primary)" : "var(--primary-soft)", color: saved ? "var(--on-primary)" : "var(--primary)" }}
             aria-pressed={saved}
           >
             {saved ? <BookmarkCheck className="w-3.5 h-3.5" aria-hidden="true" /> : <Bookmark className="w-3.5 h-3.5" aria-hidden="true" />}

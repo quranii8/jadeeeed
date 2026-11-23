@@ -47,7 +47,7 @@ export function SettingsClient({ user }: Props) {
               className="px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
               style={{
                 background: theme === "light" ? "var(--primary)" : "var(--bg-soft)",
-                color: theme === "light" ? "white" : "var(--text-muted)",
+                color: theme === "light" ? "var(--on-primary)" : "var(--text-muted)",
               }}
             >
               <AppIcon name="sun" /> نهاري
@@ -57,7 +57,7 @@ export function SettingsClient({ user }: Props) {
               className="px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
               style={{
                 background: theme === "dark" ? "var(--primary)" : "var(--bg-soft)",
-                color: theme === "dark" ? "white" : "var(--text-muted)",
+                color: theme === "dark" ? "var(--on-primary)" : "var(--text-muted)",
               }}
             >
               <AppIcon name="moon" /> ليلي
@@ -98,7 +98,7 @@ export function SettingsClient({ user }: Props) {
             className="px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
             style={{
               background: showTranslation ? "var(--primary)" : "var(--bg-soft)",
-              color: showTranslation ? "white" : "var(--text-muted)",
+              color: showTranslation ? "var(--on-primary)" : "var(--text-muted)",
             }}
           >
             {showTranslation ? "مفعّل" : "معطّل"}

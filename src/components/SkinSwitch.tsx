@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useExtras, type Skin } from "@/lib/extras-store";
 
-const SKINS: { id: Skin; label: string; swatch: [string, string] }[] = [
+export const SKINS: { id: Skin; label: string; swatch: [string, string] }[] = [
   { id: "fajr", label: "الفجر", swatch: ["#1C2A6E", "#E2B35A"] },
   { id: "andalus", label: "الأندلسي", swatch: ["#1B3A8C", "#D99A1E"] },
   { id: "kiswah", label: "الكسوة", swatch: ["#121214", "#C9A24B"] },
@@ -22,7 +22,7 @@ export function SkinSwitch({ compact = false }: { compact?: boolean }) {
     <button
       type="button"
       onClick={() => setSkin(next.id)}
-      className={`field-btn inline-flex items-center gap-2 rounded ${compact ? "w-10 h-10 justify-center" : "px-3 h-10 text-sm font-semibold"}`}
+      className={`field-btn inline-flex items-center gap-2 rounded ${compact ? "w-11 h-11 justify-center" : "px-3 h-11 text-sm font-semibold"}`}
       aria-label={`تغيير الثيم إلى ${next.label}`}
       title={`ثيم ${next.label}`}
     >

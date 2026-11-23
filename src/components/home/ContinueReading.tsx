@@ -36,7 +36,7 @@ export function ContinueReading() {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="font-bold truncate">سورة {s.a}</div>
-                <div className="text-xs" style={{ color: "var(--g-on-muted)" }}>آخر قراءة، 
+                <div className="text-xs" style={{ color: "var(--g-on-muted)" }}>آخر قراءة،{" "}
                   {lastRead.verse ? `الآية ${toArabicNum(lastRead.verse)}` : "البداية"}
                 </div>
               </div>

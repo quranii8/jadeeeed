@@ -17,7 +17,7 @@ function SourceChip({ src, open, onClick }: { src: StorySource; open: boolean; o
       className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold border transition-colors"
       style={
         open
-          ? { background: "var(--primary)", color: "white", borderColor: "var(--primary)" }
+          ? { background: "var(--primary)", color: "var(--on-primary)", borderColor: "var(--primary)" }
           : { background: "var(--primary-soft)", color: "var(--primary)", borderColor: "transparent" }
       }
     >

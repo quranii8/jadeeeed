@@ -12,7 +12,7 @@ function HadithCard({ h }: { h: StoryHadith }) {
   const long = h.text.length > LONG;
   const shown = !long || open ? h.text : h.text.slice(0, h.text.lastIndexOf(" ", LONG)) + "…";
   return (
-    <figure className="rounded-2xl p-5 border" style={{ borderColor: "var(--border)", background: "var(--bg-elev)" }}>
+    <figure className="py-5 border-t first:border-t-0 first:pt-0" style={{ borderColor: "var(--border)" }}>
       {h.context && (
         <p className="text-xs mb-2" style={{ color: "var(--text-muted)" }}>
           {h.context}

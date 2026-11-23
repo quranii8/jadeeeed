@@ -28,7 +28,7 @@ export function SurahStatsTable({ rows }: { rows: Row[] }) {
       <div className="flex flex-wrap items-center gap-2 mb-3">
         <span className="text-sm font-semibold" style={{ color: "var(--text-muted)" }}>رتّب حسب:</span>
         {COLS.map((c) => (
-          <button key={c.k} type="button" onClick={() => setK(c.k)} className="px-3 py-1.5 rounded text-sm font-semibold" style={{ background: k === c.k ? "var(--primary)" : "var(--surface)", color: k === c.k ? "var(--g-on)" : "var(--text)", border: "1px solid var(--border)" }} aria-pressed={k === c.k}>
+          <button key={c.k} type="button" onClick={() => setK(c.k)} className="px-3 py-1.5 rounded text-sm font-semibold" style={{ background: k === c.k ? "var(--primary)" : "var(--surface)", color: k === c.k ? "var(--on-primary)" : "var(--text)", border: "1px solid var(--border)" }} aria-pressed={k === c.k}>
             {c.label}
           </button>
         ))}

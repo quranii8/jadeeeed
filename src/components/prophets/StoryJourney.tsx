@@ -35,7 +35,7 @@ export function StoryJourney({ stages }: { stages: StoryStage[] }) {
               className="flex items-center gap-2 px-3 py-2 rounded text-sm font-medium border transition-colors whitespace-nowrap"
               style={
                 k === i
-                  ? { background: "var(--primary)", color: "white", borderColor: "var(--primary)" }
+                  ? { background: "var(--primary)", color: "var(--on-primary)", borderColor: "var(--primary)" }
                   : k < i
                     ? { background: "var(--primary-soft)", color: "var(--primary)", borderColor: "transparent" }
                     : { background: "transparent", color: "var(--text-muted)", borderColor: "var(--border)" }

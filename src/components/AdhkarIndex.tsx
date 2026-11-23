@@ -28,7 +28,7 @@ export function AdhkarIndex({ groups, chapters }: { groups: DhikrGroup[]; chapte
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="ابحث عن ذكر أو مناسبة: السفر، المطر، الكرب…"
+          placeholder="ابحث عن ذكر أو مناسبة…"
           className="w-full py-4 pr-14 pl-5 text-base outline-none border-2 rounded"
           style={{ background: "var(--surface)", borderColor: "var(--border)", color: "var(--text)", boxShadow: "var(--shadow)" }}
           aria-label="بحث في الأذكار"
@@ -45,7 +45,7 @@ export function AdhkarIndex({ groups, chapters }: { groups: DhikrGroup[]; chapte
             aria-selected={g === x.id}
             onClick={() => setG(x.id)}
             className="px-3.5 py-2 rounded text-sm font-semibold"
-            style={{ background: g === x.id ? "var(--primary)" : "var(--surface)", color: g === x.id ? "var(--g-on)" : "var(--text)", border: "1px solid var(--border)" }}
+            style={{ background: g === x.id ? "var(--primary)" : "var(--surface)", color: g === x.id ? "var(--on-primary)" : "var(--text)", border: "1px solid var(--border)" }}
           >
             {x.title}
           </button>

@@ -72,7 +72,7 @@ export function DhikrCounter({ dhikr, index }: Props) {
               className="w-9 h-9 rounded-full grid place-items-center text-sm font-bold"
               style={{
                 background: done ? "var(--primary)" : "var(--primary-soft)",
-                color: done ? "white" : "var(--primary)",
+                color: done ? "var(--on-primary)" : "var(--primary)",
               }}
             >
               {done ? <Check className="w-5 h-5" /> : toArabicNum(index)}
@@ -136,7 +136,7 @@ export function DhikrCounter({ dhikr, index }: Props) {
           className="w-full py-4 rounded-xl font-bold text-base transition-all flex items-center justify-center gap-3 select-none"
           style={{
             background: done ? "var(--primary)" : "var(--primary-soft)",
-            color: done ? "white" : "var(--primary)",
+            color: done ? "var(--on-primary)" : "var(--primary)",
             cursor: isComplete ? "default" : "pointer",
           }}
           onTouchStart={(e) => {

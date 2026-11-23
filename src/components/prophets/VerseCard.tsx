@@ -61,8 +61,8 @@ export function VerseCard({ group }: { group: VerseGroup }) {
         </Link>
         <button
           onClick={toggle}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold text-white"
-          style={{ background: "var(--primary)" }}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold"
+          style={{ background: "var(--primary)", color: "var(--on-primary)" }}
           aria-label={playing !== null ? "إيقاف التلاوة" : "استمع للتلاوة"}
         >
           {playing !== null ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}

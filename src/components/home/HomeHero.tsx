@@ -28,9 +28,6 @@ export function HomeHero() {
           </h1>
           <span className="cine-rule" aria-hidden="true" />
         </div>
-        <p className="cine-in mt-2 text-xs md:text-sm font-medium" style={{ color: "rgba(244,246,251,.72)", ["--d" as string]: "120ms" } as React.CSSProperties}>
-          آية اليوم
-        </p>
 
         <figure className="mt-6 md:mt-8 w-full max-w-4xl">
           <blockquote
@@ -54,7 +51,7 @@ export function HomeHero() {
           >
             <span className="h-px w-8" style={{ background: "var(--g-saffron)" }} aria-hidden="true" />
             <Link href={`/surah/${v.s}#verse-${v.a}`} className="cine-cite">
-              سورة {v.name}، الآية {toArabicNum(v.a)}
+              آية اليوم · سورة {v.name}، الآية {toArabicNum(v.a)}
             </Link>
             <span className="h-px w-8" style={{ background: "var(--g-saffron)" }} aria-hidden="true" />
           </figcaption>

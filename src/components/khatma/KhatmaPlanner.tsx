@@ -129,7 +129,7 @@ export function KhatmaPlanner() {
                   type="button"
                   onClick={() => toggleDay(i)}
                   className="w-9 h-9 shrink-0 grid place-items-center rounded font-bold text-sm"
-                  style={{ background: done ? "var(--emerald)" : "var(--bg-soft)", color: done ? "var(--g-on)" : "var(--text-muted)" }}
+                  style={{ background: done ? "var(--emerald)" : "var(--bg-soft)", color: done ? "var(--on-primary)" : "var(--text-muted)" }}
                   aria-label={done ? `إلغاء إتمام اليوم ${i + 1}` : `تم اليوم ${i + 1}`}
                   aria-pressed={done}
                 >

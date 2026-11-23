@@ -69,9 +69,11 @@
   --shadow: 0 6px 18px -6px rgba(14, 22, 48, .18), 0 2px 4px rgba(14, 22, 48, .06);
   --shadow-lg: 0 18px 40px -12px rgba(14, 22, 48, .28);
   --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --on-primary: #FFFFFF;
 }
 
 .dark {
+  --on-primary: #0A1128;
   --primary: #7C9CF2;
   --primary-dark: #5878D8;
   --primary-light: #A2B8F6;
@@ -267,6 +269,7 @@ h1, h2 { text-wrap: balance; }
   --text-soft: #6B614C;
 }
 [data-skin="kiswah"].dark {
+  --on-primary: #121214;
   --field: var(--g-cobalt);
   --field-deep: var(--g-deep);
   --grout: rgba(201,162,75,.6);
@@ -412,7 +415,7 @@ h1, h2 { text-wrap: balance; }
   }
 
   .icon-btn {
-    @apply w-10 h-10 grid place-items-center;
+    @apply w-11 h-11 grid place-items-center;
     border-radius: 4px;
     color: var(--text-muted);
     transition: background-color .2s, color .2s;
@@ -431,6 +434,7 @@ h1, h2 { text-wrap: balance; }
     font-size: .55em;
     font-weight: 700;
     position: relative;
+    isolation: isolate;
     background: radial-gradient(circle, var(--bg) 60%, transparent 62%);
   }
   .verse-end-mark::before {
@@ -470,7 +474,7 @@ h1, h2 { text-wrap: balance; }
 /* البسملة */
 .bismillah-decorated {
   text-align: center;
-  font-family: var(--font-amiri), serif;
+  font-family: "Hafs", var(--font-amiri), serif;
   color: var(--primary);
   position: relative;
   padding: 20px;
@@ -654,6 +658,7 @@ h1, h2 { text-wrap: balance; }
   --hills: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath d='M0 70 C180 40 320 60 480 38 S780 10 940 44 1220 70 1440 40 V120 H0Z' fill='%23ffffff' fill-opacity='.05'/%3E%3Cpath d='M0 96 C200 70 420 92 640 74 S1060 60 1240 82 1380 94 1440 88 V120 H0Z' fill='%23050816' fill-opacity='.55'/%3E%3C/svg%3E");
 }
 [data-skin="fajr"].dark {
+  --on-primary: #0B1233;
   --primary: #A9B6F2;
   --primary-dark: #7F8FDD;
   --primary-light: #C6CFF7;
@@ -763,15 +768,19 @@ h1, h2 { text-wrap: balance; }
   transform: translateY(-4px);
   box-shadow: inset 0 0 0 1px rgba(243,205,126,.35), 0 28px 50px -22px rgba(0,0,0,.8), 0 0 40px -10px rgba(243,205,126,.25);
 }
-[data-skin="fajr"] .wall-tile .zellige-lattice { opacity: .5; }
-@keyframes fajr-rise { from { opacity: 0; transform: translateY(24px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+/* tiles settle into place as they enter, and are fully sharp before they are half on screen */
+@keyframes fajr-rise { from { opacity: .2; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @supports (animation-timeline: view()) {
   [data-skin="fajr"] .wall-tile {
     animation: fajr-rise linear both;
     animation-timeline: view();
-    animation-range: entry 0% cover 25%;
+    animation-range: entry 0% entry 70%;
   }
 }
+/* the zellige ornament belongs to the Andalus world; under Fajr the panes carry only their light */
+[data-skin="fajr"] .tile-star,
+[data-skin="fajr"] .ornament-pattern,
+[data-skin="fajr"] .wall-tile .zellige-lattice { display: none; }
 
 /* reading surfaces: glass at night, paper at dawn */
 [data-skin="fajr"] .card { border-radius: var(--radius-cine); }
@@ -802,3 +811,98 @@ h1, h2 { text-wrap: balance; }
     radial-gradient(90% 90% at 50% 120%, rgba(106,74,146,.75), transparent 70%),
     linear-gradient(180deg, #070B1E 0%, #1B1A4A 60%, #2E1C47 100%) !important;
 }
+[data-skin="fajr"] .hadith-frame { padding: 0; }
+[data-skin="fajr"] .hadith-frame .plaster-tile { border-radius: var(--radius-cine); }
+
+/* ============================================================
+   Fajr at dawn (light theme): the same world after first light.
+   The sky has turned pale lilac and peach, the panes are tinted
+   glass in the dawn colours, ink is deep night blue. Only the home
+   hero keeps its night scene: it is the moment before dawn.
+   ============================================================ */
+[data-skin="fajr"]:not(.dark) {
+  --g-deep: #DCD7EC;
+  --g-cobalt: #DDE1F6;
+  --g-emerald: #D3EBEA;
+  --g-terracotta: #E9DEF4;
+  --g-ink: #E4E1EE;
+  --g-saffron: #F5DDA6;
+  --g-saffron-deep: #EFD3A6;
+  --g-terracotta-deep: #C9B6E2;
+  --g-terracotta-night: #B39BD6;
+  --g-on: #16183A;
+  --g-on-muted: #4A4C6E;
+  --g-on-saffron: #2A1D05;
+  --g-on-saffron-muted: #5A4416;
+
+  --field: rgba(251,249,244,.8);
+  --field-deep: #F3EFE7;
+  --on-field: #16183A;
+  --on-field-muted: #4A4C6E;
+
+  --stars: none;
+  --hills: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath d='M0 70 C180 40 320 60 480 38 S780 10 940 44 1220 70 1440 40 V120 H0Z' fill='%23ffffff' fill-opacity='.45'/%3E%3Cpath d='M0 96 C200 70 420 92 640 74 S1060 60 1240 82 1380 94 1440 88 V120 H0Z' fill='%23F3EFE7'/%3E%3C/svg%3E");
+}
+[data-skin="fajr"]:not(.dark) body {
+  background:
+    radial-gradient(1100px 520px at 50% -160px, rgba(180,151,204,.28), transparent 70%),
+    radial-gradient(900px 480px at 90% 0, rgba(243,205,126,.18), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+[data-skin="fajr"]:not(.dark) header.glaze-field {
+  background: rgba(251,249,244,.82);
+  box-shadow: 0 1px 0 rgba(138,96,22,.28), 0 10px 30px -20px rgba(22,24,58,.35) !important;
+}
+[data-skin="fajr"]:not(.dark) .field-link:hover,
+[data-skin="fajr"]:not(.dark) .field-link[aria-current="page"] { color: #16183A; border-bottom-color: #C9962F; }
+[data-skin="fajr"]:not(.dark) .field-btn:hover { background: rgba(22,24,58,.06); color: #16183A; }
+
+/* bands and footer: a dawn sky, lilac above and warm at the horizon */
+[data-skin="fajr"]:not(.dark) .page-band {
+  background:
+    radial-gradient(80% 120% at 50% 135%, rgba(243,190,120,.55), transparent 62%),
+    radial-gradient(70% 90% at 50% 120%, color-mix(in srgb, var(--band) 60%, transparent), transparent 70%),
+    linear-gradient(180deg, #E4E0F2 0%, color-mix(in srgb, var(--band) 35%, #F6EEE6) 100%);
+  box-shadow: inset 0 0 0 1px rgba(22,24,58,.06), 0 24px 50px -32px rgba(22,24,58,.35);
+  color: var(--g-on);
+}
+[data-skin="fajr"]:not(.dark) .page-band h1 { color: #16183A; text-shadow: none; }
+[data-skin="fajr"]:not(.dark) .page-band p { color: #3E4064; }
+[data-skin="fajr"]:not(.dark) .page-band::after { border-bottom-color: rgba(201,150,47,.55); }
+[data-skin="fajr"]:not(.dark) .page-band .bg-white\/15 { background: rgba(255,255,255,.55); }
+[data-skin="fajr"]:not(.dark) .page-band--cobalt { --band: #B9C1EC; }
+[data-skin="fajr"]:not(.dark) .page-band--emerald { --band: #A9D8D6; }
+[data-skin="fajr"]:not(.dark) .page-band--terracotta { --band: #D3BEEA; }
+[data-skin="fajr"]:not(.dark) .page-band--ink { --band: #C8C3DE; }
+[data-skin="fajr"]:not(.dark) .page-band--saffron-deep { --band: #F0CE8C; }
+[data-skin="fajr"]:not(.dark) footer.glaze-field {
+  background:
+    radial-gradient(80% 90% at 50% 120%, rgba(243,190,120,.45), transparent 65%),
+    linear-gradient(180deg, #EDE8F4 0%, #E4DCF0 55%, #F2E2D4 100%);
+}
+[data-skin="fajr"]:not(.dark) .prophets-band {
+  background:
+    radial-gradient(50% 70% at 22% 70%, rgba(243,190,120,.45), transparent 70%),
+    radial-gradient(90% 90% at 50% 120%, rgba(201,182,226,.9), transparent 70%),
+    linear-gradient(180deg, #ECE8F6 0%, #E2D8F1 60%, #E8D3E8 100%) !important;
+}
+
+/* panes: dawn-tinted glass, lit from below; shadows soften to the light */
+[data-skin="fajr"]:not(.dark) .wall-tile {
+  background-image:
+    radial-gradient(120% 80% at 50% 130%, rgba(255,255,255,.75), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 45%) !important;
+  box-shadow: inset 0 0 0 1px rgba(22,24,58,.07), 0 14px 30px -22px rgba(22,24,58,.35);
+}
+[data-skin="fajr"]:not(.dark) .wall-tile:hover {
+  box-shadow: inset 0 0 0 1px rgba(201,150,47,.55), 0 22px 40px -24px rgba(22,24,58,.45);
+}
+[data-skin="fajr"]:not(.dark) .btn-primary { box-shadow: 0 8px 22px -10px rgba(138,96,22,.55); }
+[data-skin="fajr"]:not(.dark) .tile-strip { background: linear-gradient(90deg, rgba(201,150,47,0), rgba(201,150,47,.85) 50%, rgba(201,150,47,0)) !important; box-shadow: none; }
+/* the glazed lip (a 3px foot shadow) belongs to zellige; Fajr panes take one even hairline */
+[data-skin="fajr"]:not(.dark) .plaster-tile { box-shadow: inset 0 0 0 1px rgba(22,24,58,.06), 0 12px 30px -24px rgba(22,24,58,.35); border-radius: var(--radius-cine); }
+[data-skin="fajr"].dark .plaster-tile { border-radius: var(--radius-cine); }
+/* Fajr shapes: controls and fields follow the pane radius family, not zellige's square shoulders */
+[data-skin="fajr"] .icon-btn { border-radius: 12px; }
+[data-skin="fajr"] { --search-radius: var(--radius-cine); }

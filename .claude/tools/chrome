@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Chrome launcher for the design skills (taste, impeccable, playwright-cli).
+# Finds a local Chrome/Chromium and adds --no-sandbox only when running as root
+# (cloud containers), where Chrome otherwise refuses to start.
+for c in "${CHROME_BIN:-}" /opt/pw-browsers/chromium /usr/bin/google-chrome /usr/bin/google-chrome-stable \
+         /usr/bin/chromium /usr/bin/chromium-browser /snap/bin/chromium \
+         "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" "/Applications/Chromium.app/Contents/MacOS/Chromium"; do
+  if [ -n "$c" ] && [ -x "$c" ]; then
+    if [ "$(id -u)" = "0" ]; then exec "$c" --no-sandbox "$@"; else exec "$c" "$@"; fi
+  fi
+done
+echo "chrome: no Chrome or Chromium found; set CHROME_BIN" >&2
+exit 127

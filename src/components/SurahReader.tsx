@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowLeft, Play, Languages, Type, Headphones } from "lucide-react";
+import { ArrowRight, ArrowLeft, Play, Languages, Type, Headphones, SlidersHorizontal, Minus, Plus, RotateCw } from "lucide-react";
 import { Surah } from "@/lib/surahs";
 import { useQuranStore } from "@/lib/store";
 import { useAudioStore, AudioQueueItem } from "@/lib/audio-store";
@@ -29,6 +29,7 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
   const { setLastRead, addToHistory, isBookmarked } = useQuranStore();
   const setQueue = useAudioStore((s) => s.setQueue);
   const [openVerse, setOpenVerse] = useState<number | null>(null);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   useEffect(() => {
     setLastRead(surah.n);
@@ -111,71 +112,78 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
         </div>
       </header>
 
-      {/* Reading Controls */}
+      {/* Reading controls: on phones a single row (listen + settings) that scrolls away with the page,
+          so nothing sits over the text; from md up the full card stays pinned under the header. */}
       <div
-        className="card p-3 mb-5 flex flex-wrap gap-2 items-center sticky top-[72px] z-30"
+        className="card p-2.5 md:p-3 mb-5 md:sticky md:top-[72px] z-30"
         style={{ backdropFilter: "blur(10px)", background: "var(--surface)" }}
       >
-        <ControlGroup label="عرض">
-          <button
-            onClick={() => setReadMode("page")}
-            className="px-3 py-1.5 rounded-md text-sm transition"
-            style={{ background: readMode === "page" ? "var(--primary)" : "transparent", color: readMode === "page" ? "white" : "var(--text-muted)" }}
-          >
-            صفحة
-          </button>
-          <button
-            onClick={() => setReadMode("list")}
-            className="px-3 py-1.5 rounded-md text-sm transition"
-            style={{ background: readMode === "list" ? "var(--primary)" : "transparent", color: readMode === "list" ? "white" : "var(--text-muted)" }}
-          >
-            قائمة
-          </button>
-        </ControlGroup>
-
-        <ControlGroup label={<><Type className="w-3.5 h-3.5 inline" /> الخط</>}>
-          <input
-            type="range"
-            min="1.2"
-            max="2.6"
-            step="0.1"
-            value={fontSize}
-            onChange={(e) => setFontSize(parseFloat(e.target.value))}
-            className="w-24"
-            style={{ accentColor: "var(--primary)" }}
-          />
-        </ControlGroup>
-
-        <ControlGroup label={<><Languages className="w-3.5 h-3.5 inline" /> الترجمة</>}>
-          <button
-            onClick={toggleTranslation}
-            className="px-3 py-1.5 rounded-md text-sm transition"
-            style={{
-              background: showTranslation ? "var(--primary)" : "transparent",
-              color: showTranslation ? "white" : "var(--text-muted)",
-            }}
-          >
-            {showTranslation ? "إخفاء" : "إظهار"}
-          </button>
-        </ControlGroup>
-
-        <div className="flex gap-2 mr-auto">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={playFullSurah}
-            className="btn btn-primary !py-2 !px-4 !text-sm"
+            className="btn btn-primary min-h-11 !py-2 !px-4 !text-sm"
             title="تشغيل ملف صوتي متواصل للسورة كاملة"
           >
-            <Headphones className="w-4 h-4" />
+            <Headphones className="w-4 h-4" aria-hidden="true" />
             استمع للسورة
           </button>
           <button
             onClick={() => playVerseByVerse()}
-            className="btn btn-outline !py-2 !px-3 !text-sm"
+            className="btn btn-outline min-h-11 !py-2 !px-3 !text-sm"
             title="تشغيل آية بآية مع تتبّع النص (للحفظ)"
           >
-            <Play className="w-3.5 h-3.5" />
+            <Play className="w-3.5 h-3.5" aria-hidden="true" />
             آية بآية
           </button>
+          <button
+            type="button"
+            onClick={() => setSettingsOpen((o) => !o)}
+            aria-expanded={settingsOpen}
+            aria-controls="reader-settings"
+            className="btn btn-outline min-h-11 !py-2 !px-3 !text-sm mr-auto md:hidden"
+          >
+            <SlidersHorizontal className="w-4 h-4" aria-hidden="true" />
+            الإعدادات
+          </button>
+
+          <div
+            id="reader-settings"
+            className={`${settingsOpen ? "flex" : "hidden"} md:flex w-full md:w-auto md:mr-auto flex-wrap items-center gap-2 pt-2 md:pt-0 border-t md:border-0`}
+            style={{ borderColor: "var(--border-soft)" }}
+          >
+            <ControlGroup label="عرض">
+              <Toggle active={readMode === "page"} onClick={() => setReadMode("page")}>صفحة</Toggle>
+              <Toggle active={readMode === "list"} onClick={() => setReadMode("list")}>قائمة</Toggle>
+            </ControlGroup>
+
+            <ControlGroup label={<><Type className="w-3.5 h-3.5 inline" aria-hidden="true" /> الخط</>}>
+              <button
+                type="button"
+                onClick={() => setFontSize(Math.max(1.2, Math.round((fontSize - 0.2) * 10) / 10))}
+                disabled={fontSize <= 1.2}
+                className="icon-btn !w-11 !h-11 disabled:opacity-40"
+                aria-label="تصغير الخط"
+              >
+                <Minus className="w-4 h-4" aria-hidden="true" />
+              </button>
+              <span className="w-10 text-center text-sm tabular-nums" aria-live="polite" style={{ color: "var(--text)" }}>
+                {toArabicNum(Math.round(fontSize * 10))}
+              </span>
+              <button
+                type="button"
+                onClick={() => setFontSize(Math.min(2.6, Math.round((fontSize + 0.2) * 10) / 10))}
+                disabled={fontSize >= 2.6}
+                className="icon-btn !w-11 !h-11 disabled:opacity-40"
+                aria-label="تكبير الخط"
+              >
+                <Plus className="w-4 h-4" aria-hidden="true" />
+              </button>
+            </ControlGroup>
+
+            <ControlGroup label={<><Languages className="w-3.5 h-3.5 inline" aria-hidden="true" /> الترجمة</>}>
+              <Toggle active={showTranslation} onClick={toggleTranslation}>{showTranslation ? "إخفاء" : "إظهار"}</Toggle>
+            </ControlGroup>
+          </div>
         </div>
       </div>
 
@@ -190,11 +198,15 @@ export function SurahReader({ surah, verses, prev, next }: Props) {
       {verses.length === 0 ? (
         <div className="card p-10 text-center">
           <div className="text-5xl mb-3"><AppIcon name="triangle-alert" /></div>
-          <p style={{ color: "var(--text-muted)" }}>تعذّر تحميل الآيات. تحقق من الاتصال بالإنترنت.</p>
+          <p style={{ color: "var(--text-muted)" }}>تعذّر تحميل الآيات. تحقق من الاتصال بالإنترنت ثم أعد المحاولة.</p>
+          <button type="button" onClick={() => window.location.reload()} className="btn btn-primary mt-5">
+            <RotateCw className="w-4 h-4" aria-hidden="true" />
+            إعادة المحاولة
+          </button>
         </div>
       ) : (
         <div
-          className="plaster-tile p-6 md:p-10 font-hafs text-justify"
+          className="plaster-tile p-5 md:p-10 font-hafs text-start md:text-justify"
           style={{
             fontSize: `${fontSize}rem`,
             lineHeight: 2.6,
@@ -301,5 +313,19 @@ function ControlGroup({ label, children }: { label: React.ReactNode; children: R
       <span className="text-xs font-medium" style={{ color: "var(--text-muted)" }}>{label}:</span>
       {children}
     </div>
+  );
+}
+
+function Toggle({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className="min-h-11 px-3.5 rounded-md text-sm font-medium transition-colors"
+      style={{ background: active ? "var(--primary)" : "transparent", color: active ? "var(--on-primary)" : "var(--text-muted)" }}
+    >
+      {children}
+    </button>
   );
 }

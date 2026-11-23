@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { toArabicNum } from "@/lib/utils";
 import { RECITERS } from "@/lib/reciters";
 import { Mic, MapPin } from "lucide-react";
 import { ReciterAvatar } from "@/components/ReciterAvatar";
@@ -15,7 +16,7 @@ export default function RecitersPage() {
       <header className="page-band page-band--emerald text-center relative overflow-hidden mb-8">
         <h1 className="text-4xl md:text-5xl mb-3">القراء</h1>
         <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--g-on-muted)" }}>
-          {RECITERS.length} قارئاً من أشهر قراء العالم الإسلامي. اختر قارئاً للاستماع لتلاوته الكاملة لأي سورة.
+          {toArabicNum(RECITERS.length)} قارئاً من أشهر قراء العالم الإسلامي. اختر قارئاً للاستماع لتلاوته الكاملة لأي سورة.
         </p>
       </header>
 
@@ -34,7 +35,7 @@ export default function RecitersPage() {
               className="shrink-0 transition-transform group-hover:scale-105"
             />
             <div className="flex-1 min-w-0">
-              <h3 className="font-bold text-base mb-1 truncate">{r.name}</h3>
+              <h2 className="font-bold text-base mb-1 truncate">{r.name}</h2>
               <div className="text-xs flex items-center gap-3 flex-wrap" style={{ color: "var(--text-muted)" }}>
                 <span className="inline-flex items-center gap-1">
                   <MapPin className="w-3 h-3" />
@@ -46,10 +47,11 @@ export default function RecitersPage() {
                 </span>
               </div>
               <div
-                className="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-semibold"
+                className="inline-block mt-2 px-2 py-0.5 rounded text-xs font-semibold"
                 style={{ background: "var(--primary-soft)", color: "var(--primary)" }}
+                title="جودة الصوت"
               >
-                {r.bitrate}
+                جودة {toArabicNum(parseInt(r.bitrate, 10))} ك.ب/ث
               </div>
             </div>
           </Link>

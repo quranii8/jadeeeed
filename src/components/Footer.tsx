@@ -53,7 +53,7 @@ export function Footer() {
             صُنع بحب لخدمة كتاب الله تعالى · © {new Date().getFullYear()}
           </p>
           <p className="mt-1.5 text-xs" style={{ color: "var(--on-field-muted)", opacity: .8 }}>
-            المصادر: api.alquran.cloud • mp3quran.net • everyayah.com • aladhan.com
+            المصادر: <bdi>api.alquran.cloud</bdi> · <bdi>mp3quran.net</bdi> · <bdi>everyayah.com</bdi> · <bdi>aladhan.com</bdi>
           </p>
         </div>
       </div>

@@ -68,8 +68,9 @@ export default function ProphetPage({ params }: PageProps) {
         </div>
       </header>
 
-      <FullStory paragraphs={story.story} />
+      {/* the film is what visitors arrive for from the reels, so it comes straight after the title; the full text follows */}
       {story.film.length > 0 && <CinemaPlayer shots={story.film} title={`قصة ${prophet.name} عليه السلام`} />}
+      <FullStory paragraphs={story.story} />
       <StoryJourney stages={story.stages} />
       <PlacesMap places={story.places} />
       <HadithList items={story.hadith} />
