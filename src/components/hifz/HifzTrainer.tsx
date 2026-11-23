@@ -5,12 +5,14 @@ import { Eye, Pause, Play, Repeat } from "lucide-react";
 import { SURAHS } from "@/lib/surahs";
 import { RECITERS } from "@/lib/reciters";
 import { getAyahAudioUrl, toArabicNum } from "@/lib/utils";
+import { ReciteCheck } from "./ReciteCheck";
 
-type Mode = "show" | "first" | "hide";
+type Mode = "show" | "first" | "hide" | "voice";
 const MODES: { id: Mode; label: string }[] = [
   { id: "show", label: "النص كاملاً" },
   { id: "first", label: "أوائل الكلمات" },
   { id: "hide", label: "مخفي للتسميع" },
+  { id: "voice", label: "سمّع بصوتك" },
 ];
 
 const MARKS = "[\\u064B-\\u065F\\u0670\\u06D6-\\u06ED]*";
@@ -128,7 +130,7 @@ export function HifzTrainer() {
 
       <div className="mt-5 flex flex-wrap items-center gap-2">
         {MODES.map((m) => (
-          <button key={m.id} type="button" onClick={() => { setMode(m.id); setRevealed(new Set()); }} className="px-4 py-2 rounded text-sm font-semibold" style={{ background: mode === m.id ? "var(--gold)" : "var(--surface)", color: mode === m.id ? "var(--g-on-saffron)" : "var(--text)", border: "1px solid var(--border)" }} aria-pressed={mode === m.id}>
+          <button key={m.id} type="button" onClick={() => { setMode(m.id); setRevealed(new Set()); if (m.id === "voice") stop(); }} className="px-4 py-2 rounded text-sm font-semibold" style={{ background: mode === m.id ? "var(--gold)" : "var(--surface)", color: mode === m.id ? "var(--g-on-saffron)" : "var(--text)", border: "1px solid var(--border)" }} aria-pressed={mode === m.id}>
             {m.label}
           </button>
         ))}
@@ -146,6 +148,11 @@ export function HifzTrainer() {
 
       {failed && <p className="plaster-tile p-5 mt-5 text-sm">تعذّر تحميل السورة. تحقق من الاتصال.</p>}
 
+      {mode === "voice" ? (
+        <div className="mt-5 p-[5px]" style={{ background: "var(--grout-wall)" }}>
+          <ReciteCheck verses={range} />
+        </div>
+      ) : (
       <div className="mt-5 p-[5px]" style={{ background: "var(--grout-wall)" }}>
         <div className="plaster-tile p-5 md:p-10">
           {mode !== "show" && (
@@ -182,6 +189,7 @@ export function HifzTrainer() {
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 }
