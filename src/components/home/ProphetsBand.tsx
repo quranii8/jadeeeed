@@ -40,7 +40,7 @@ function ArchWindow() {
 
 export function ProphetsBand() {
   return (
-    <section className="relative mt-16 md:mt-24 overflow-hidden" style={{ background: "var(--g-terracotta)", color: "var(--g-on)" }} aria-labelledby="prophets-band">
+    <section className="prophets-band relative mt-16 md:mt-24 overflow-hidden" style={{ background: "var(--g-terracotta)", color: "var(--g-on)" }} aria-labelledby="prophets-band">
       <div className="zellige-lattice absolute inset-0 pointer-events-none" />
       <div className="relative max-w-6xl mx-auto px-5 py-14 md:py-20 grid md:grid-cols-[1.1fr_.9fr] gap-10 md:gap-14 items-center">
         <div>

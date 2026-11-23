@@ -4,7 +4,6 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { ArrowRight } from "lucide-react";
 import { SettingsClient } from "@/components/dashboard/SettingsClient";
-import { HeadingStar } from "@/components/zellige/Rosette";
 
 export const metadata = { title: "الإعدادات" };
 export const dynamic = "force-dynamic";
@@ -20,13 +19,12 @@ export default async function SettingsPage() {
         لوحة التحكم
       </Link>
 
-      <div className="flex items-center gap-3 mb-2">
-        <HeadingStar />
-        <h1 className="text-2xl md:text-3xl font-extrabold">الإعدادات</h1>
-      </div>
-      <p className="mb-6" style={{ color: "var(--text-muted)" }}>
-        تخصيص تجربتك مع المنصة.
-      </p>
+      <header className="page-band page-band--ink text-center relative overflow-hidden mb-8">
+        <h1 className="text-4xl md:text-5xl mb-3">الإعدادات</h1>
+        <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--g-on-muted)" }}>
+          تخصيص تجربتك مع المنصة.
+        </p>
+      </header>
 
       <SettingsClient
         user={{

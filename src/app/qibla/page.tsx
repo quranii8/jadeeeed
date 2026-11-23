@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { QiblaCompass } from "@/components/QiblaCompass";
-import { HeadingStar } from "@/components/zellige/Rosette";
 
 export const metadata: Metadata = {
   title: "اتجاه القبلة",
@@ -10,13 +9,12 @@ export const metadata: Metadata = {
 export default function QiblaPage() {
   return (
     <section className="max-w-3xl mx-auto px-5 py-8">
-      <div className="flex items-center gap-3 mb-2">
-        <HeadingStar />
-        <h1 className="text-2xl md:text-3xl font-extrabold">اتجاه القبلة</h1>
-      </div>
-      <p className="mb-6" style={{ color: "var(--text-muted)" }}>
-        بوصلة احترافية لتحديد اتجاه الكعبة المشرفة من موقعك الحالي. على الجوال، قم بتفعيل البوصلة لاتباع اتجاه الجهاز.
-      </p>
+      <header className="page-band page-band--ink text-center relative overflow-hidden mb-8">
+        <h1 className="text-4xl md:text-5xl mb-3">اتجاه القبلة</h1>
+        <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--g-on-muted)" }}>
+          بوصلة احترافية لتحديد اتجاه الكعبة المشرفة من موقعك الحالي. على الجوال، قم بتفعيل البوصلة لاتباع اتجاه الجهاز.
+        </p>
+      </header>
 
       <QiblaCompass />
     </section>

@@ -11,7 +11,7 @@ export function ThemeApplier() {
 
   useEffect(() => {
     document.documentElement.dataset.skin = skin;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", skin === "kiswah" ? "#121214" : "#1B3A8C");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", skin === "kiswah" ? "#121214" : skin === "andalus" ? "#1B3A8C" : "#070B1E");
   }, [skin]);
 
   useEffect(() => {

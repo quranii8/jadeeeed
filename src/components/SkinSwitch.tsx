@@ -4,17 +4,19 @@ import { useEffect, useState } from "react";
 import { useExtras, type Skin } from "@/lib/extras-store";
 
 const SKINS: { id: Skin; label: string; swatch: [string, string] }[] = [
+  { id: "fajr", label: "الفجر", swatch: ["#1C2A6E", "#E2B35A"] },
   { id: "andalus", label: "الأندلسي", swatch: ["#1B3A8C", "#D99A1E"] },
   { id: "kiswah", label: "الكسوة", swatch: ["#121214", "#C9A24B"] },
 ];
 
-/** Switches between the site's worlds: Andalusian zellige and the black-and-gold Kiswah. */
+/** Cycles the site's worlds: the cinematic Fajr dawn, Andalusian zellige, and the black-and-gold Kiswah. */
 export function SkinSwitch({ compact = false }: { compact?: boolean }) {
   const skin = useExtras((s) => s.skin);
   const setSkin = useExtras((s) => s.setSkin);
   const [ready, setReady] = useState(false);
   useEffect(() => setReady(true), []);
-  const next = SKINS.find((s) => s.id !== (ready ? skin : "andalus"))!;
+  const current = SKINS.findIndex((s) => s.id === (ready ? skin : "fajr"));
+  const next = SKINS[(current + 1) % SKINS.length];
 
   return (
     <button
