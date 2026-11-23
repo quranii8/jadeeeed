@@ -1,0 +1,5 @@
+{
+  "env": {
+    "CHROME_PATH": ".claude/tools/chrome"
+  }
+}
