@@ -125,7 +125,7 @@ export function StarMark({ size = 40 }: { size?: number }) {
 /** A single glazed star used inside tiles. */
 export function TileStar({ color, size = 64, className }: { color: string; size?: number; className?: string }) {
   return (
-    <svg width={size} height={size} viewBox="-50 -50 100 100" className={className} aria-hidden="true" focusable="false">
+    <svg width={size} height={size} viewBox="-50 -50 100 100" className={`tile-star ${className ?? ""}`} aria-hidden="true" focusable="false">
       <polygon points={star(0, 0, 47, 0)} fill="none" style={{ stroke: color }} strokeWidth={3} strokeLinejoin="round" />
       <polygon points={star(0, 0, 30, 22.5)} fill="none" style={{ stroke: color }} strokeWidth={3} strokeLinejoin="round" />
     </svg>

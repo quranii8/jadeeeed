@@ -1,396 +1,594 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-21T20:15:48.090396+00:00",
+  "generatedAt": "2026-11-23T12:29:56.029749+00:00",
   "title": "Design System: منصة القرآن الكريم",
   "extensions": {
     "colorMeta": {
-      "cobalt-glaze": {
+      "night-sky": {
         "role": "primary",
-        "displayName": "Cobalt Glaze",
-        "canonical": "#1B3A8C",
+        "displayName": "Night Sky",
+        "canonical": "#070B1E",
         "tonalRamp": [
-          "#0A1638",
-          "#10275F",
-          "#1B3A8C",
-          "#2D54B8",
-          "#7C9CF2",
-          "#A2B8F6",
-          "#C9D5F0",
-          "#E6ECF8"
-        ]
-      },
-      "cobalt-deep": {
-        "role": "primary",
-        "displayName": "Deep Cobalt",
-        "canonical": "#10275F",
-        "tonalRamp": [
-          "#050C1C",
-          "#081430",
-          "#0B1B42",
-          "#0E2254",
-          "#4C5D87",
-          "#8893AF",
-          "#C3C9D7",
-          "#E7E9EF"
-        ]
-      },
-      "cobalt-light": {
-        "role": "primary",
-        "displayName": "Cobalt Light",
-        "canonical": "#2D54B8",
-        "tonalRamp": [
-          "#0E1937",
-          "#162A5C",
-          "#203B81",
-          "#284AA2",
-          "#627FCA",
-          "#96AADC",
-          "#CAD4ED",
-          "#EAEEF8"
-        ]
-      },
-      "cobalt-wash": {
-        "role": "primary",
-        "displayName": "Cobalt Wash",
-        "canonical": "#E3E9F6",
-        "tonalRamp": [
-          "#44464A",
-          "#72747B",
-          "#9FA3AC",
-          "#C8CDD8",
-          "#EAEEF8",
-          "#F1F4FA",
-          "#F8FAFD",
-          "#FCFDFE"
-        ]
-      },
-      "saffron-glaze": {
-        "role": "secondary",
-        "displayName": "Saffron Glaze",
-        "canonical": "#D99A1E",
-        "tonalRamp": [
-          "#412E09",
-          "#6C4D0F",
-          "#986C15",
-          "#BF881A",
-          "#E2B356",
-          "#ECCC8E",
-          "#F6E6C7",
-          "#FBF5E8"
-        ]
-      },
-      "saffron-light": {
-        "role": "secondary",
-        "displayName": "Saffron Light",
-        "canonical": "#F0BE52",
-        "tonalRamp": [
-          "#483919",
-          "#785F29",
-          "#A88539",
-          "#D3A748",
-          "#F4CE7D",
-          "#F8DEA8",
-          "#FBEFD4",
-          "#FEF8EE"
-        ]
-      },
-      "saffron-deep": {
-        "role": "secondary",
-        "displayName": "Deep Saffron",
-        "canonical": "#8F5D07",
-        "tonalRamp": [
-          "#2B1C02",
-          "#482E04",
-          "#644105",
-          "#7E5206",
-          "#AB8645",
-          "#C7AE83",
-          "#E3D6C1",
-          "#F4EFE6"
-        ]
-      },
-      "emerald-glaze": {
-        "role": "tertiary",
-        "displayName": "Emerald Glaze",
-        "canonical": "#0E6B5A",
-        "tonalRamp": [
-          "#04201B",
-          "#07362D",
-          "#0A4B3F",
-          "#0C5E4F",
-          "#4A9083",
-          "#86B5AC",
-          "#C3DAD6",
-          "#E7F0EE"
-        ]
-      },
-      "terracotta-glaze": {
-        "role": "tertiary",
-        "displayName": "Terracotta Glaze",
-        "canonical": "#B4472F",
-        "tonalRamp": [
-          "#36150E",
-          "#5A2418",
-          "#7E3221",
-          "#9E3E29",
-          "#C77563",
-          "#DAA397",
-          "#ECD1CB",
-          "#F8EDEA"
-        ]
-      },
-      "ink-glaze": {
-        "role": "tertiary",
-        "displayName": "Ink Glaze",
-        "canonical": "#0E1630",
-        "tonalRamp": [
-          "#04070E",
-          "#070B18",
-          "#0A0F22",
-          "#0C132A",
-          "#4A5064",
-          "#868A98",
-          "#C3C5CB",
-          "#E7E8EA"
-        ]
-      },
-      "lime-plaster": {
-        "role": "neutral",
-        "displayName": "Lime Plaster",
-        "canonical": "#EEF1EC",
-        "tonalRamp": [
-          "#474847",
-          "#777876",
-          "#A7A9A5",
-          "#D1D4D0",
-          "#F2F4F1",
-          "#F6F8F6",
-          "#FBFCFA",
-          "#FDFEFD"
-        ]
-      },
-      "plaster-raised": {
-        "role": "neutral",
-        "displayName": "Raised Plaster",
-        "canonical": "#F8FAF7",
-        "tonalRamp": [
-          "#4A4B4A",
-          "#7C7D7C",
-          "#AEAFAD",
-          "#DADCD9",
-          "#FAFBF9",
-          "#FCFCFB",
-          "#FDFEFD",
-          "#FEFEFE"
-        ]
-      },
-      "plaster-shade": {
-        "role": "neutral",
-        "displayName": "Plaster Shade",
-        "canonical": "#E4E9E3",
-        "tonalRamp": [
-          "#444644",
-          "#727472",
-          "#A0A39F",
-          "#C9CDC8",
-          "#EBEEEA",
-          "#F2F4F1",
-          "#F8FAF8",
-          "#FCFDFC"
-        ]
-      },
-      "grout-line": {
-        "role": "neutral",
-        "displayName": "Grout Line",
-        "canonical": "#CBD3CA",
-        "tonalRamp": [
-          "#3D3F3D",
-          "#666A65",
-          "#8E948D",
-          "#B3BAB2",
-          "#D8DED7",
-          "#E5E9E4",
-          "#F2F4F2",
-          "#FAFBFA"
-        ]
-      },
-      "grout-soft": {
-        "role": "neutral",
-        "displayName": "Grout Soft",
-        "canonical": "#DCE3DB",
-        "tonalRamp": [
-          "#424442",
-          "#6E726E",
-          "#9A9F99",
-          "#C2C8C1",
-          "#E5EAE4",
-          "#EEF1ED",
-          "#F6F8F6",
-          "#FCFCFB"
-        ]
-      },
-      "on-glaze": {
-        "role": "neutral",
-        "displayName": "On Glaze",
-        "canonical": "#F4F6FB",
-        "tonalRamp": [
-          "#494A4B",
-          "#7A7B7E",
-          "#ABACB0",
-          "#D7D8DD",
-          "#F7F8FC",
-          "#FAFAFD",
-          "#FCFDFE",
-          "#FEFEFF"
-        ]
-      },
-      "on-glaze-muted": {
-        "role": "neutral",
-        "displayName": "On Glaze Muted",
-        "canonical": "#C3CEEB",
-        "tonalRamp": [
-          "#3A3E46",
-          "#626776",
-          "#8890A4",
-          "#ACB5CF",
-          "#D2DAF0",
-          "#E1E6F5",
-          "#F0F3FA",
-          "#F9FAFD"
-        ]
-      },
-      "text-muted": {
-        "role": "neutral",
-        "displayName": "Text Muted",
-        "canonical": "#46516A",
-        "tonalRamp": [
-          "#151820",
-          "#232835",
-          "#31394A",
-          "#3E475D",
-          "#747C8F",
-          "#A2A8B4",
-          "#D1D4DA",
-          "#ECEEF0"
-        ]
-      },
-      "text-soft": {
-        "role": "neutral",
-        "displayName": "Text Soft",
-        "canonical": "#5F6A80",
-        "tonalRamp": [
-          "#1C2026",
-          "#303540",
-          "#424A5A",
-          "#545D71",
-          "#878FA0",
-          "#AFB4C0",
-          "#D7DADF",
-          "#EFF0F2"
-        ]
-      },
-      "night-ground": {
-        "role": "neutral",
-        "displayName": "Night Ground",
-        "canonical": "#0A1128",
-        "tonalRamp": [
-          "#03050C",
-          "#050814",
-          "#070C1C",
-          "#090F23",
-          "#474C5E",
-          "#848894",
-          "#C2C4C9",
-          "#E6E7EA"
+          "#090B11",
+          "#1E212C",
+          "#353A49",
+          "#565D72",
+          "#7E859D",
+          "#A7ADC0",
+          "#CCD1DE",
+          "#EBEEF8"
         ]
       },
       "night-raised": {
         "role": "neutral",
         "displayName": "Night Raised",
-        "canonical": "#111B3C",
+        "canonical": "#0E1430",
         "tonalRamp": [
-          "#050812",
-          "#080E1E",
-          "#0C132A",
-          "#0F1835",
-          "#4C546D",
-          "#888D9E",
-          "#C4C6CE",
-          "#E7E8EC"
+          "#080B13",
+          "#1D212F",
+          "#333A4E",
+          "#535C7A",
+          "#7B85A5",
+          "#A5ADC6",
+          "#CAD0E3",
+          "#EAEEFC"
         ]
       },
-      "night-cobalt": {
-        "role": "primary",
-        "displayName": "Night Cobalt (dark-mode cobalt)",
-        "canonical": "#7C9CF2",
+      "night-well": {
+        "role": "neutral",
+        "displayName": "Night Well",
+        "canonical": "#0B1128",
         "tonalRamp": [
-          "#252F49",
-          "#3E4E79",
-          "#576DA9",
-          "#6D89D5",
-          "#9DB5F5",
-          "#BECEF8",
-          "#DEE6FC",
-          "#F2F5FE"
+          "#090B12",
+          "#1D212D",
+          "#343A4B",
+          "#545D76",
+          "#7C85A0",
+          "#A6ADC3",
+          "#CBD1E1",
+          "#EAEEFA"
+        ]
+      },
+      "night-pane": {
+        "role": "neutral",
+        "displayName": "Night Pane",
+        "canonical": "rgba(20,27,64,.62)",
+        "tonalRamp": [
+          "#080A15",
+          "#1C2133",
+          "#323953",
+          "#515C81",
+          "#7984AC",
+          "#A3ADCD",
+          "#C9D0E8",
+          "#E9EEFF"
+        ]
+      },
+      "night-blue": {
+        "role": "primary",
+        "displayName": "Night Blue",
+        "canonical": "#1C2A6E",
+        "tonalRamp": [
+          "#050A1C",
+          "#161F3E",
+          "#2A3764",
+          "#465999",
+          "#6D83C6",
+          "#9AACE1",
+          "#C2D0F8",
+          "#E4EEFF"
+        ]
+      },
+      "night-deep": {
+        "role": "primary",
+        "displayName": "Night Deep",
+        "canonical": "#0B1233",
+        "tonalRamp": [
+          "#080B14",
+          "#1B2132",
+          "#323952",
+          "#515C7F",
+          "#7985AA",
+          "#A3ADCB",
+          "#C9D0E7",
+          "#E9EEFE"
+        ]
+      },
+      "night-periwinkle": {
+        "role": "primary",
+        "displayName": "Night Periwinkle",
+        "canonical": "#A9B6F2",
+        "tonalRamp": [
+          "#080A17",
+          "#1B2036",
+          "#323859",
+          "#515A89",
+          "#7883B5",
+          "#A3ACD3",
+          "#C8D0ED",
+          "#E8EEFF"
+        ]
+      },
+      "twilight-indigo": {
+        "role": "primary",
+        "displayName": "Twilight Indigo",
+        "canonical": "#3A4BA0",
+        "tonalRamp": [
+          "#05091E",
+          "#161E42",
+          "#29366A",
+          "#4557A2",
+          "#6B80D0",
+          "#98ABE9",
+          "#C1CFFE",
+          "#E3EEFF"
+        ]
+      },
+      "dawn-gold": {
+        "role": "secondary",
+        "displayName": "Dawn Gold",
+        "canonical": "#E2B35A",
+        "tonalRamp": [
+          "#130900",
+          "#301E00",
+          "#4F3500",
+          "#7B5600",
+          "#A67F31",
+          "#C8A973",
+          "#E4CEA6",
+          "#FCECD1"
+        ]
+      },
+      "first-light": {
+        "role": "secondary",
+        "displayName": "First Light",
+        "canonical": "#F3CD7E",
+        "tonalRamp": [
+          "#120900",
+          "#2D1F00",
+          "#4C3701",
+          "#76580B",
+          "#A1813E",
+          "#C3AB7A",
+          "#E1CFAB",
+          "#FAEDD4"
+        ]
+      },
+      "night-gold": {
+        "role": "secondary",
+        "displayName": "Night Gold",
+        "canonical": "#F0C46E",
+        "tonalRamp": [
+          "#130900",
+          "#2F1E00",
+          "#4E3600",
+          "#7A5700",
+          "#A48035",
+          "#C6AA75",
+          "#E3CEA8",
+          "#FBEDD2"
+        ]
+      },
+      "gold-ink": {
+        "role": "secondary",
+        "displayName": "Gold Ink",
+        "canonical": "#8A6016",
+        "tonalRamp": [
+          "#130900",
+          "#2F1E01",
+          "#4E3509",
+          "#7A5619",
+          "#A57F45",
+          "#C7A97E",
+          "#E4CDAE",
+          "#FCECD6"
+        ]
+      },
+      "horizon-gold": {
+        "role": "secondary",
+        "displayName": "Horizon Gold",
+        "canonical": "#C9962F",
+        "tonalRamp": [
+          "#140800",
+          "#311D00",
+          "#513400",
+          "#7E5500",
+          "#A97E25",
+          "#CAA86E",
+          "#E6CDA3",
+          "#FEECCF"
+        ]
+      },
+      "saffron-ink": {
+        "role": "secondary",
+        "displayName": "Saffron Ink",
+        "canonical": "#1A1204",
+        "tonalRamp": [
+          "#0D0B07",
+          "#25211A",
+          "#403A2F",
+          "#655C4D",
+          "#8E8575",
+          "#B4ADA0",
+          "#D6D0C7",
+          "#F2EEE7"
+        ]
+      },
+      "twilight-violet": {
+        "role": "tertiary",
+        "displayName": "Twilight Violet",
+        "canonical": "#4A2F6B",
+        "tonalRamp": [
+          "#0E0717",
+          "#261B36",
+          "#413158",
+          "#685088",
+          "#9179B3",
+          "#B6A4D2",
+          "#D7CAED",
+          "#F3EAFF"
+        ]
+      },
+      "violet-glow": {
+        "role": "tertiary",
+        "displayName": "Violet Glow",
+        "canonical": "#6A4A92",
+        "tonalRamp": [
+          "#0E0718",
+          "#271A38",
+          "#432F5C",
+          "#694E8D",
+          "#9276B9",
+          "#B7A2D7",
+          "#D8C9F0",
+          "#F3E9FF"
+        ]
+      },
+      "deep-teal": {
+        "role": "tertiary",
+        "displayName": "Deep Teal",
+        "canonical": "#123F4A",
+        "tonalRamp": [
+          "#040D10",
+          "#13252A",
+          "#253F46",
+          "#3F646E",
+          "#678D98",
+          "#96B4BC",
+          "#C0D5DC",
+          "#E2F2F6"
+        ]
+      },
+      "teal-glow": {
+        "role": "tertiary",
+        "displayName": "Teal Glow",
+        "canonical": "#1E6F7C",
+        "tonalRamp": [
+          "#000E11",
+          "#05262C",
+          "#12424A",
+          "#256873",
+          "#51929D",
+          "#88B7C0",
+          "#B6D8DF",
+          "#DCF4F8"
+        ]
+      },
+      "mist-lilac": {
+        "role": "tertiary",
+        "displayName": "Mist Lilac",
+        "canonical": "#B497CC",
+        "tonalRamp": [
+          "#0F0814",
+          "#271C30",
+          "#433250",
+          "#6A527D",
+          "#937AA7",
+          "#B8A5C9",
+          "#D9CAE5",
+          "#F4EAFD"
+        ]
+      },
+      "starlight": {
+        "role": "neutral",
+        "displayName": "Starlight",
+        "canonical": "#F2EFE8",
+        "tonalRamp": [
+          "#0C0B0A",
+          "#23211F",
+          "#3C3A37",
+          "#605D58",
+          "#888680",
+          "#B0AEA9",
+          "#D2D1CD",
+          "#EFEEEC"
+        ]
+      },
+      "on-sky": {
+        "role": "neutral",
+        "displayName": "On Sky",
+        "canonical": "#F7F3EA",
+        "tonalRamp": [
+          "#0C0B09",
+          "#23211E",
+          "#3C3A36",
+          "#605D57",
+          "#89867F",
+          "#B0AEA8",
+          "#D3D1CC",
+          "#F0EEEB"
+        ]
+      },
+      "on-sky-muted": {
+        "role": "neutral",
+        "displayName": "On Sky Muted",
+        "canonical": "#B9B6D3",
+        "tonalRamp": [
+          "#0B0A11",
+          "#21202B",
+          "#3A3848",
+          "#5D5A71",
+          "#85839B",
+          "#ADABBE",
+          "#D0CFDD",
+          "#EEEDF7"
+        ]
+      },
+      "night-text-muted": {
+        "role": "neutral",
+        "displayName": "Night Text Muted",
+        "canonical": "#BBB9D2",
+        "tonalRamp": [
+          "#0B0A10",
+          "#21202A",
+          "#3A3946",
+          "#5D5B6E",
+          "#858398",
+          "#ADACBC",
+          "#D0CFDC",
+          "#EEEDF6"
+        ]
+      },
+      "night-text-soft": {
+        "role": "neutral",
+        "displayName": "Night Text Soft",
+        "canonical": "#8F8DAE",
+        "tonalRamp": [
+          "#0B0A12",
+          "#21202D",
+          "#39384B",
+          "#5C5A75",
+          "#84839F",
+          "#ACABC2",
+          "#D0CFE0",
+          "#EDEDF9"
+        ]
+      },
+      "dawn-ground": {
+        "role": "neutral",
+        "displayName": "Dawn Ground",
+        "canonical": "#F3EFE7",
+        "tonalRamp": [
+          "#0C0B09",
+          "#23211F",
+          "#3C3A36",
+          "#605D57",
+          "#89867F",
+          "#B0AEA9",
+          "#D3D1CD",
+          "#F0EEEC"
+        ]
+      },
+      "dawn-paper": {
+        "role": "neutral",
+        "displayName": "Dawn Paper",
+        "canonical": "#FBF9F4",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#222220",
+          "#3B3A38",
+          "#5F5D5A",
+          "#888682",
+          "#AFAEAB",
+          "#D2D1CE",
+          "#EFEEED"
+        ]
+      },
+      "dawn-well": {
+        "role": "neutral",
+        "displayName": "Dawn Well",
+        "canonical": "#EAE4D8",
+        "tonalRamp": [
+          "#0C0B08",
+          "#24211D",
+          "#3D3A34",
+          "#625D54",
+          "#8A867C",
+          "#B1ADA6",
+          "#D3D1CB",
+          "#F0EEEA"
+        ]
+      },
+      "dawn-rule": {
+        "role": "neutral",
+        "displayName": "Dawn Rule",
+        "canonical": "#DDD5C6",
+        "tonalRamp": [
+          "#0D0B08",
+          "#24211C",
+          "#3E3A32",
+          "#635D51",
+          "#8C8579",
+          "#B2ADA4",
+          "#D4D0C9",
+          "#F1EEE9"
+        ]
+      },
+      "dawn-rule-soft": {
+        "role": "neutral",
+        "displayName": "Dawn Rule Soft",
+        "canonical": "#E8E1D4",
+        "tonalRamp": [
+          "#0C0B08",
+          "#24211D",
+          "#3E3A33",
+          "#625D53",
+          "#8B857B",
+          "#B2ADA5",
+          "#D4D0CA",
+          "#F0EEEA"
+        ]
+      },
+      "dawn-wash": {
+        "role": "neutral",
+        "displayName": "Dawn Wash",
+        "canonical": "#E9E6F3",
+        "tonalRamp": [
+          "#0B0B0D",
+          "#222125",
+          "#3B3940",
+          "#5E5C66",
+          "#87848F",
+          "#AEACB5",
+          "#D1D0D6",
+          "#EFEEF2"
+        ]
+      },
+      "dawn-ink": {
+        "role": "neutral",
+        "displayName": "Dawn Ink",
+        "canonical": "#12142A",
+        "tonalRamp": [
+          "#0A0B11",
+          "#1F212C",
+          "#37394A",
+          "#585C74",
+          "#80849E",
+          "#A9ADC1",
+          "#CDD0DF",
+          "#ECEEF9"
+        ]
+      },
+      "dawn-heading": {
+        "role": "neutral",
+        "displayName": "Dawn Heading",
+        "canonical": "#16183A",
+        "tonalRamp": [
+          "#090A14",
+          "#1E2031",
+          "#353851",
+          "#555B7E",
+          "#7D83A9",
+          "#A7ACCA",
+          "#CBD0E6",
+          "#EBEEFD"
+        ]
+      },
+      "dawn-text-muted": {
+        "role": "neutral",
+        "displayName": "Dawn Text Muted",
+        "canonical": "#4A4C66",
+        "tonalRamp": [
+          "#0A0A11",
+          "#20212C",
+          "#383949",
+          "#595B73",
+          "#82849D",
+          "#AAACC0",
+          "#CED0DF",
+          "#ECEEF8"
+        ]
+      },
+      "dawn-text-soft": {
+        "role": "neutral",
+        "displayName": "Dawn Text Soft",
+        "canonical": "#67697F",
+        "tonalRamp": [
+          "#0A0B10",
+          "#20212A",
+          "#383947",
+          "#5A5C6F",
+          "#828499",
+          "#ABADBD",
+          "#CFD0DC",
+          "#EDEEF6"
         ]
       }
     },
     "typographyMeta": {
+      "verse-hero": {
+        "displayName": "Verse Hero",
+        "purpose": "The verse of the day in the home hero; Hafs only."
+      },
+      "verse": {
+        "displayName": "Verse",
+        "purpose": "Quran text in the surah reader, user-adjustable 1.2 to 2.6rem."
+      },
       "display": {
-        "displayName": "Display (Reem Kufi)",
-        "purpose": "Site name in the hero inscription band and the prophets band title."
+        "displayName": "Display",
+        "purpose": "Page-band titles."
+      },
+      "display-band": {
+        "displayName": "Display Band",
+        "purpose": "The prophets band title."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section headings and page-band titles."
+        "purpose": "Home section headings."
       },
       "title": {
-        "displayName": "Tile Title",
-        "purpose": "Names on wall tiles; footer column heads."
-      },
-      "verse": {
-        "displayName": "Verse (Hafs)",
-        "purpose": "Quran text only."
+        "displayName": "Title",
+        "purpose": "Sky pane names, footer column heads."
       },
       "body": {
-        "displayName": "Body (Noto Kufi)",
-        "purpose": "Running text and UI, tabular numerals."
+        "displayName": "Body",
+        "purpose": "Running text and descriptions."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Tile counts and button text."
+        "purpose": "Button text, counts, group titles."
       }
     },
     "shadows": [
       {
-        "name": "glazed-edge",
-        "value": "inset 0 1.5px 0 rgba(255,255,255,.28), inset 0 -3px 0 rgba(0,0,0,.16), inset 0 0 0 1px rgba(0,0,0,.06)",
-        "purpose": "Every wall tile at rest."
+        "name": "pane-night",
+        "value": "inset 0 0 0 1px rgba(255,255,255,.08), 0 18px 40px -22px rgba(0,0,0,.7)",
+        "purpose": "Section panes at rest at night."
       },
       {
-        "name": "glazed-edge-plaster",
-        "value": "inset 0 1.5px 0 rgba(255,255,255,.6), inset 0 -3px 0 rgba(14,22,48,.07)",
-        "purpose": "Plaster tiles at rest (dark: inset 0 1px 0 rgba(255,255,255,.08), inset 0 -3px 0 rgba(0,0,0,.25))."
+        "name": "pane-lifted",
+        "value": "inset 0 0 0 1px rgba(243,205,126,.35), 0 28px 50px -22px rgba(0,0,0,.8), 0 0 40px -10px rgba(243,205,126,.25)",
+        "purpose": "Pane hover at night, with a 4px rise."
       },
       {
-        "name": "shadow-sm",
-        "value": "0 1px 2px rgba(14,22,48,.08)",
-        "purpose": "Cards."
+        "name": "pane-dawn",
+        "value": "inset 0 0 0 1px rgba(22,24,58,.07), 0 14px 30px -22px rgba(22,24,58,.35)",
+        "purpose": "Section panes at dawn; hover hairline rgba(201,150,47,.55)."
       },
       {
-        "name": "shadow",
-        "value": "0 6px 18px -6px rgba(14,22,48,.18), 0 2px 4px rgba(14,22,48,.06)",
-        "purpose": "Page bands, search field."
+        "name": "card-glass",
+        "value": "inset 0 1px 0 rgba(255,255,255,.05), 0 10px 30px -12px rgba(0,0,0,.7)",
+        "purpose": "Cards and reading tiles at night, with backdrop-filter: blur(14px)."
       },
       {
-        "name": "shadow-lg",
-        "value": "0 18px 40px -12px rgba(14,22,48,.28)",
-        "purpose": "Dropdowns and menus."
+        "name": "header-glass",
+        "value": "0 1px 0 rgba(226,179,90,.28), 0 12px 32px -18px rgba(0,0,0,.8)",
+        "purpose": "Sticky header over saturate(1.4) blur(18px)."
       },
       {
-        "name": "saffron-cast",
-        "value": "0 6px 16px -6px rgba(143,93,7,.55)",
-        "purpose": "Primary button only."
+        "name": "band",
+        "value": "inset 0 0 0 1px rgba(255,255,255,.06), 0 30px 60px -30px rgba(0,0,0,.6)",
+        "purpose": "Page bands."
+      },
+      {
+        "name": "gold-cast",
+        "value": "0 8px 28px -8px rgba(243,205,126,.55)",
+        "purpose": "Primary button only; hover 0 12px 36px -8px rgba(243,205,126,.7)."
+      },
+      {
+        "name": "horizon-glow",
+        "value": "0 0 18px 2px rgba(243,205,126,.25)",
+        "purpose": "The 1px horizon line at night."
       }
     ],
     "motion": [
@@ -400,34 +598,44 @@
         "purpose": "Every entrance and state change."
       },
       {
-        "name": "tile-set",
-        "value": "0.9s ease-out; from scale(.55) rotate(-45deg), opacity 0",
-        "purpose": "Rosette tiles set ring by ring (140ms per ring + 14ms per tile)."
+        "name": "word-rise",
+        "value": "1.1s ease-out, 90ms per word after 300ms; from translateY(.4em) blur(10px)",
+        "purpose": "Hero verse rises word by word."
       },
       {
-        "name": "tile-press",
-        "value": "scroll view() timeline, entry 0% to cover 30%; from scale(.86) rotate(-6deg) saturate(.4)",
-        "purpose": "Wall tiles pressed in as they enter."
+        "name": "cine-in",
+        "value": "0.9s ease-out, staggered via --d; from translateY(10px)",
+        "purpose": "Hero name, citation, search and actions."
       },
       {
-        "name": "glaze-sheen",
-        "value": "0.9s ease-out translateX(-70% to 70%)",
-        "purpose": "Sheen sweep on hover, focus and press of a tile."
+        "name": "mist-drift",
+        "value": "18s / 26s ease-in-out infinite alternate; translateX(-4%) to 4%",
+        "purpose": "Mist bands across the painted hills."
       },
       {
-        "name": "rise-in",
-        "value": "0.8s ease-out from translateY(14px) blur(6px)",
-        "purpose": "Hero inscription band and medallion."
+        "name": "fajr-rise",
+        "value": "view() timeline, entry 0% to entry 70%; from opacity .2, translateY(18px)",
+        "purpose": "Sky panes settle into place on scroll."
       },
       {
-        "name": "rosette-turn",
-        "value": "240s linear infinite",
-        "purpose": "Slow rosette rotation."
+        "name": "hero-parallax",
+        "value": "--p from scroll: stage translateY(p*18%) scale(1.04+p*.1); content lifts 60px and fades",
+        "purpose": "Hero scene sinks as it scrolls away."
+      },
+      {
+        "name": "pane-hover",
+        "value": "transform .5s ease-out; translateY(-4px)",
+        "purpose": "Sky pane hover rise."
+      },
+      {
+        "name": "video-fade",
+        "value": "opacity 1.6s ease-out",
+        "purpose": "Dawn video fades in over the painted scene once playing."
       },
       {
         "name": "reduced-motion",
-        "value": "all off",
-        "purpose": "Show the finished wall."
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Words, entrances, mist, pane rise and parallax off; video never loaded."
       }
     ],
     "breakpoints": [
@@ -443,137 +651,148 @@
         "name": "xl",
         "value": "1280px"
       }
-    ]
+    ],
+    "skins": {
+      "default": "fajr",
+      "defaultTheme": "dark",
+      "alternates": [
+        "andalus",
+        "kiswah"
+      ]
+    }
   },
   "components": [
     {
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The one saffron call to action per screen.",
-      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">ابدأ القراءة</a>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;font-weight:600;font-size:14px;border:1.5px solid transparent;border-radius:4px;text-decoration:none;font-family:\"Noto Kufi Arabic\",system-ui,sans-serif;transition:transform .25s cubic-bezier(.16,1,.3,1),background-color .2s,box-shadow .25s cubic-bezier(.16,1,.3,1),border-color .2s,color .2s;cursor:pointer}.ds-btn:active{transform:scale(.97)}.ds-btn:focus-visible{outline:2.5px solid #D99A1E;outline-offset:3px}.ds-btn-primary{background:var(--gold,#D99A1E);color:#0E1630;box-shadow:0 6px 16px -6px rgba(143,93,7,.55)}.ds-btn-primary:hover{background:var(--gold-light,#F0BE52);box-shadow:0 10px 22px -8px rgba(143,93,7,.6)}"
-    },
-    {
-      "name": "Button on Glaze",
-      "kind": "button",
-      "refersTo": "button-on-glaze",
-      "description": "Secondary action beside the primary on the cobalt field.",
-      "html": "<div class=\"ds-field-demo\"><a class=\"ds-btn-glaze\" href=\"#\">استمع</a></div>",
-      "css": ".ds-field-demo{background:#1B3A8C;padding:20px}.ds-btn-glaze{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;font-weight:600;font-size:14px;border-radius:4px;border:1.5px solid #EEF1EC;background:#10275F;color:#F4F6FB;text-decoration:none;transition:transform .25s cubic-bezier(.16,1,.3,1)}.ds-btn-glaze:active{transform:scale(.97)}.ds-btn-glaze:focus-visible{outline:2.5px solid #D99A1E;outline-offset:3px}"
+      "description": "The one gold call to action: a full pill with a first-light cast.",
+      "html": "<button class=\"ds-btn-primary\">ابدأ بقصة موسى عليه السلام</button>",
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:12px 20px; border:1.5px solid transparent; border-radius:999px; background:#E2B35A; color:#1A1204; font-weight:600; font-size:.875rem; box-shadow:0 8px 28px -8px rgba(243,205,126,.55); transition:transform .25s cubic-bezier(.16,1,.3,1), background-color .2s, box-shadow .25s cubic-bezier(.16,1,.3,1); cursor:pointer; } .ds-btn-primary:hover { background:#F3CD7E; box-shadow:0 12px 36px -8px rgba(243,205,126,.7); } .ds-btn-primary:active { transform:scale(.97); } .ds-btn-primary:focus-visible { outline:2.5px solid #E2B35A; outline-offset:3px; }"
     },
     {
       "name": "Outline Button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Plaster-side secondary action.",
-      "html": "<a class=\"ds-btn-outline\" href=\"#\">كل القصص</a>",
-      "css": ".ds-btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;font-weight:600;font-size:14px;border-radius:4px;border:1.5px solid var(--border,#CBD3CA);background:var(--surface,#F8FAF7);color:var(--text,#0E1630);text-decoration:none;transition:border-color .2s,color .2s,transform .25s}.ds-btn-outline:hover{border-color:var(--primary,#1B3A8C);color:var(--primary,#1B3A8C)}.ds-btn-outline:active{transform:scale(.97)}.ds-btn-outline:focus-visible{outline:2.5px solid #D99A1E;outline-offset:3px}"
+      "description": "Secondary pill: paper at dawn, faint glass at night.",
+      "html": "<button class=\"ds-btn-outline\">آية بآية</button>",
+      "css": ".ds-btn-outline { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:12px 20px; border:1.5px solid #DDD5C6; border-radius:999px; background:#FBF9F4; color:#12142A; font-weight:600; font-size:.875rem; transition:border-color .2s, color .2s, transform .25s; cursor:pointer; } .ds-btn-outline:hover { border-color:#3A4BA0; color:#3A4BA0; } .ds-btn-outline:active { transform:scale(.97); } .ds-btn-outline:focus-visible { outline:2.5px solid #E2B35A; outline-offset:3px; }"
+    },
+    {
+      "name": "Icon Button",
+      "kind": "button",
+      "refersTo": "icon-button",
+      "description": "44px target on the night glass header.",
+      "html": "<button class=\"ds-icon-btn\" aria-label=\"بحث\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m21 21-4.3-4.3\"/></svg></button>",
+      "css": ".ds-icon-btn { width:44px; height:44px; display:grid; place-items:center; border:0; border-radius:4px; background:transparent; color:#B9B6D3; transition:background-color .2s, color .2s; cursor:pointer; } .ds-icon-btn:hover { background:rgba(255,255,255,.08); color:#F7F3EA; } .ds-icon-btn:focus-visible { outline:2.5px solid #F0C46E; outline-offset:3px; }"
     },
     {
       "name": "Search Field",
       "kind": "input",
       "refersTo": "input-search",
-      "description": "The primary action under the rosette; saffron border on focus.",
-      "html": "<div class=\"ds-search\"><input class=\"ds-search-input\" dir=\"rtl\" placeholder=\"ابحث عن سورة، آية، أو رقم...\"><svg class=\"ds-search-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg></div>",
-      "css": ".ds-search{position:relative;max-width:42rem}.ds-search-input{width:100%;padding:16px 56px 16px 20px;font-size:16px;border:2px solid var(--border,#CBD3CA);border-radius:4px;background:var(--surface,#F8FAF7);color:var(--text,#0E1630);box-shadow:0 6px 18px -6px rgba(14,22,48,.18),0 2px 4px rgba(14,22,48,.06);outline:none;transition:border-color .2s}.ds-search-input:focus,.ds-search-input:focus-visible{border-color:#D99A1E}.ds-search-input::placeholder{color:var(--text-soft,#5F6A80)}.ds-search-icon{position:absolute;right:20px;top:50%;transform:translateY(-50%);color:var(--text-muted,#46516A);pointer-events:none}"
+      "description": "Search on dawn paper; gold border on focus.",
+      "html": "<input class=\"ds-input-search\" placeholder=\"ابحث عن سورة، أو آية، أو قارئ\">",
+      "css": ".ds-input-search { width:100%; padding:16px 56px 16px 20px; font-size:1rem; background:#FBF9F4; color:#12142A; border:2px solid #DDD5C6; border-radius:4px; box-shadow:0 6px 18px -6px rgba(14,22,48,.18); outline:none; transition:border-color .2s; } .ds-input-search::placeholder { color:#67697F; } .ds-input-search:focus-visible { border-color:#E2B35A; }"
     },
     {
-      "name": "Header Navigation",
+      "name": "Night Glass Header",
       "kind": "nav",
-      "refersTo": "page-band",
-      "description": "Cobalt field header with saffron underline on the current link, sealed by the tile strip.",
-      "html": "<header class=\"ds-nav\" dir=\"rtl\"><div class=\"ds-nav-row\"><span class=\"ds-nav-brand\">منصة القرآن الكريم</span><nav><a class=\"ds-nav-link\" aria-current=\"page\" href=\"#\">الرئيسية</a><a class=\"ds-nav-link\" href=\"#\">السور</a><a class=\"ds-nav-link\" href=\"#\">التفاسير</a></nav></div><div class=\"ds-strip\"></div></header>",
-      "css": ".ds-nav{background:#1B3A8C;color:#F4F6FB}.ds-nav-row{display:flex;align-items:center;gap:16px;padding:10px 16px}.ds-nav-brand{font-family:ReemKufi,\"Noto Kufi Arabic\",sans-serif;font-weight:700;font-size:18px}.ds-nav-link{color:#C3CEEB;padding:8px 12px;font-size:14px;font-weight:500;text-decoration:none;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}.ds-nav-link:hover,.ds-nav-link[aria-current=\"page\"]{color:#fff;border-bottom-color:#D99A1E}.ds-nav-link:focus-visible{outline:2.5px solid #D99A1E;outline-offset:3px}.ds-strip{height:8px;background:repeating-linear-gradient(90deg,#D99A1E 0 8px,#EEF1EC 8px 16px,#0E6B5A 16px 24px,#EEF1EC 24px 32px,#B4472F 32px 40px,#EEF1EC 40px 48px,#1B3A8C 48px 56px,#EEF1EC 56px 64px)}"
+      "refersTo": "header",
+      "description": "Sticky night glass with one gold hairline; aria-current underline in first light.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-brand\">منصة القرآن الكريم</span><a class=\"ds-nav-link\" aria-current=\"page\" href=\"#\">الرئيسية</a><a class=\"ds-nav-link\" href=\"#\">السور</a><a class=\"ds-nav-link\" href=\"#\">القرّاء</a></nav>",
+      "css": ".ds-nav { display:flex; align-items:center; gap:4px; padding:10px 20px; background:rgba(7,11,30,.78); backdrop-filter:saturate(1.4) blur(18px); -webkit-backdrop-filter:saturate(1.4) blur(18px); box-shadow:0 1px 0 rgba(226,179,90,.28), 0 12px 32px -18px rgba(0,0,0,.8); } .ds-nav-brand { font-family:ReemKufi, \"Noto Kufi Arabic\", sans-serif; font-weight:700; color:#F7F3EA; margin-inline-end:auto; } .ds-nav-link { padding:8px 12px; font-size:.875rem; font-weight:500; color:#B9B6D3; text-decoration:none; border-bottom:2px solid transparent; transition:color .2s, border-color .2s; } .ds-nav-link:hover, .ds-nav-link[aria-current=\"page\"] { color:#fff; border-bottom-color:#F3CD7E; } .ds-nav-link:focus-visible { outline:2.5px solid #F0C46E; outline-offset:3px; }"
     },
     {
-      "name": "Wall Tile Run",
-      "kind": "custom",
-      "refersTo": "wall-tile",
-      "description": "Signature: glazed section tiles set in 5px grout, glazed edge at rest, sheen sweep on press.",
-      "html": "<div class=\"ds-wall\" dir=\"rtl\"><a class=\"ds-tile ds-glaze\" style=\"background-color:#1B3A8C;color:#F4F6FB\" href=\"#\"><span class=\"ds-count\">١١٤ سورة</span><span><b class=\"ds-tile-title\">المصحف</b><span class=\"ds-tile-desc\" style=\"color:#C9D5F0\">السور كاملة بالرسم العثماني</span></span></a><a class=\"ds-tile ds-glaze\" style=\"background-color:#D99A1E;color:#1A1204\" href=\"#\"><span class=\"ds-count\" style=\"border-color:rgba(26,18,4,.18)\">التفاسير</span><span><b class=\"ds-tile-title\">التفاسير</b><span class=\"ds-tile-desc\" style=\"color:#4A3205\">تفاسير معتمدة آية بآية</span></span></a><a class=\"ds-tile ds-glaze\" style=\"background-color:#0E6B5A;color:#F2F8F5\" href=\"#\"><span class=\"ds-count\">القرّاء</span><span><b class=\"ds-tile-title\">القرّاء</b><span class=\"ds-tile-desc\" style=\"color:#BFE3D8\">تلاوات متواصلة</span></span></a><a class=\"ds-tile ds-glaze\" style=\"background-color:#B4472F;color:#FBF1EE\" href=\"#\"><span class=\"ds-count\">٢٥ نبياً</span><span><b class=\"ds-tile-title\">قصص الأنبياء</b><span class=\"ds-tile-desc\" style=\"color:#F4CFC5\">فيلم لكل نبي</span></span></a></div>",
-      "css": ".ds-wall{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;padding:5px;background:var(--grout-wall,#CBD3CA)}.ds-tile{display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-height:9.5rem;padding:16px;text-decoration:none;border-radius:0;background-image:linear-gradient(155deg,rgba(255,255,255,.16),rgba(255,255,255,0) 38%,rgba(0,0,0,.10));box-shadow:inset 0 1.5px 0 rgba(255,255,255,.28),inset 0 -3px 0 rgba(0,0,0,.16),inset 0 0 0 1px rgba(0,0,0,.06)}.ds-count{align-self:flex-end;font-size:11px;font-weight:600;padding:2px 8px;border:1px solid rgba(238,241,236,.22)}.ds-tile-title{display:block;font-family:ReemKufi,\"Noto Kufi Arabic\",sans-serif;font-weight:700;font-size:20px;line-height:1.25}.ds-tile-desc{display:block;margin-top:4px;font-size:12px}.ds-glaze{position:relative;overflow:hidden;isolation:isolate}.ds-glaze::after{content:\"\";position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.28) 50%,transparent 58%);transform:translateX(-70%);transition:transform .9s cubic-bezier(.16,1,.3,1);pointer-events:none}.ds-glaze:hover::after,.ds-glaze:focus-visible::after,.ds-glaze:active::after{transform:translateX(70%)}.ds-tile:focus-visible{outline:2.5px solid #D99A1E;outline-offset:3px}@media (prefers-reduced-motion:reduce){.ds-glaze::after{transition:none}}"
-    },
-    {
-      "name": "Plaster Tile",
+      "name": "Sky Pane",
       "kind": "card",
-      "refersTo": "plaster-tile",
-      "description": "Reading-side index tile (surahs, Asma Allah) in the same grout grid.",
-      "html": "<div class=\"ds-wall-p\" dir=\"rtl\"><a class=\"ds-ptile\" href=\"#\"><span class=\"ds-pnum\">١</span><b>الفاتحة</b></a><a class=\"ds-ptile\" href=\"#\"><span class=\"ds-pnum\">٢</span><b>البقرة</b></a></div>",
-      "css": ".ds-wall-p{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;padding:5px;background:var(--grout-wall,#CBD3CA)}.ds-ptile{display:flex;align-items:center;gap:16px;padding:16px;text-decoration:none;color:var(--text,#0E1630);background-color:var(--surface,#F8FAF7);background-image:linear-gradient(155deg,rgba(255,255,255,.5),rgba(255,255,255,0) 40%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.6),inset 0 -3px 0 rgba(14,22,48,.07);transition:background-color .25s}.ds-ptile:hover{background-color:var(--primary-soft,#E3E9F6)}.ds-ptile:focus-visible{outline:2.5px solid #D99A1E;outline-offset:3px}.ds-pnum{width:40px;height:40px;display:grid;place-items:center;color:var(--primary,#1B3A8C);font-weight:800;clip-path:polygon(50% 0,64% 15%,85% 15%,85% 36%,100% 50%,85% 64%,85% 85%,64% 85%,50% 100%,36% 85%,15% 85%,15% 64%,0 50%,15% 36%,15% 15%,36% 15%);background:var(--primary-soft,#E3E9F6)}"
+      "refersTo": "sky-pane",
+      "description": "Signature section pane: night lit from below, 14px corners, rises 4px with a gold edge.",
+      "html": "<a class=\"ds-pane\" href=\"#\"><span class=\"ds-pane-count\">١١٤ سورة</span><span class=\"ds-pane-title\">المصحف</span><span class=\"ds-pane-desc\">السور كاملة بالرسم العثماني مع التلاوة</span></a>",
+      "css": ".ds-pane { display:flex; flex-direction:column; justify-content:flex-end; gap:4px; min-height:9rem; padding:20px; border-radius:14px; overflow:hidden; text-decoration:none; background-color:#1C2A6E; background-image:radial-gradient(120% 80% at 50% 130%, rgba(255,255,255,.16), transparent 60%), linear-gradient(180deg, rgba(7,11,30,.35), rgba(7,11,30,0) 45%); color:#F7F3EA; box-shadow:inset 0 0 0 1px rgba(255,255,255,.08), 0 18px 40px -22px rgba(0,0,0,.7); transition:transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s cubic-bezier(.16,1,.3,1); } .ds-pane:hover { transform:translateY(-4px); box-shadow:inset 0 0 0 1px rgba(243,205,126,.35), 0 28px 50px -22px rgba(0,0,0,.8), 0 0 40px -10px rgba(243,205,126,.25); } .ds-pane:focus-visible { outline:2.5px solid #F0C46E; outline-offset:3px; } .ds-pane-count { align-self:flex-start; font-size:.75rem; font-weight:600; padding:2px 8px; border:1px solid rgba(238,241,236,.22); margin-bottom:auto; } .ds-pane-title { font-family:ReemKufi, \"Noto Kufi Arabic\", sans-serif; font-weight:700; font-size:1.5rem; line-height:1.25; } .ds-pane-desc { font-size:.875rem; color:#C9C5DE; }"
+    },
+    {
+      "name": "Dawn Pane",
+      "kind": "card",
+      "refersTo": "dawn-pane",
+      "description": "The same pane after first light: dawn-tinted, ink text, gold hairline on hover.",
+      "html": "<a class=\"ds-pane-dawn\" href=\"#\"><span class=\"ds-pane-dawn-title\">الأذكار</span><span class=\"ds-pane-dawn-desc\">حصن المسلم كاملاً مع العدّاد</span></a>",
+      "css": ".ds-pane-dawn { display:flex; flex-direction:column; justify-content:flex-end; gap:4px; min-height:9rem; padding:20px; border-radius:14px; text-decoration:none; background-color:#DDE1F6; background-image:radial-gradient(120% 80% at 50% 130%, rgba(255,255,255,.75), transparent 60%), linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 45%); color:#16183A; box-shadow:inset 0 0 0 1px rgba(22,24,58,.07), 0 14px 30px -22px rgba(22,24,58,.35); transition:transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s; } .ds-pane-dawn:hover { transform:translateY(-4px); box-shadow:inset 0 0 0 1px rgba(201,150,47,.55), 0 22px 40px -24px rgba(22,24,58,.45); } .ds-pane-dawn:focus-visible { outline:2.5px solid #E2B35A; outline-offset:3px; } .ds-pane-dawn-title { font-family:ReemKufi, \"Noto Kufi Arabic\", sans-serif; font-weight:700; font-size:1.5rem; } .ds-pane-dawn-desc { font-size:.875rem; color:#4A4C6E; }"
     },
     {
       "name": "Page Band",
       "kind": "custom",
       "refersTo": "page-band",
-      "description": "Inner-page opener in the section glaze, lattice overlaid, tile strip at the foot.",
-      "html": "<div class=\"ds-band\" dir=\"rtl\"><h1 class=\"ds-band-title\">قصص الأنبياء</h1><p>خمسة وعشرون نبياً</p></div>",
-      "css": ".ds-band{position:relative;background:#B4472F;color:#F4F6FB;padding:32px 24px 42px;border-radius:4px;box-shadow:0 6px 18px -6px rgba(14,22,48,.18),0 2px 4px rgba(14,22,48,.06)}.ds-band::after{content:\"\";position:absolute;inset:auto 0 0 0;height:12px;background:repeating-linear-gradient(90deg,#D99A1E 0 6px,#EEF1EC 6px 12px,#0E6B5A 12px 18px,#EEF1EC 18px 24px,#B4472F 24px 30px,#EEF1EC 30px 36px,#1B3A8C 36px 42px,#EEF1EC 42px 48px)}.ds-band-title{font-family:ReemKufi,\"Noto Kufi Arabic\",sans-serif;font-weight:700;font-size:36px;margin:0}"
+      "description": "Each inner page opens on its own patch of sky with hills and a gold horizon.",
+      "html": "<header class=\"ds-band\"><h1>تفسير القرآن</h1><p>تفاسير معتمدة آية بآية</p></header>",
+      "css": ".ds-band { --band:#2E3F9E; position:relative; overflow:hidden; padding:44px 24px 58px; border-radius:14px; color:#F7F3EA; background:radial-gradient(90% 120% at 50% 135%, color-mix(in srgb, var(--band) 85%, #F3CD7E 15%), transparent 62%), radial-gradient(60% 70% at 50% 120%, rgba(243,205,126,.22), transparent 70%), linear-gradient(180deg, #070B1E 0%, color-mix(in srgb, var(--band) 45%, #070B1E) 100%); box-shadow:inset 0 0 0 1px rgba(255,255,255,.06), 0 30px 60px -30px rgba(0,0,0,.6); border-bottom:1px solid rgba(243,205,126,.35); } .ds-band h1 { margin:0; font-family:ReemKufi, \"Noto Kufi Arabic\", sans-serif; font-weight:700; font-size:clamp(2rem, 5vw, 3.25rem); line-height:1.25; color:#FBF8F1; text-shadow:0 2px 24px rgba(0,0,0,.45); } .ds-band p { color:rgba(247,243,234,.8); }"
+    },
+    {
+      "name": "Horizon Line",
+      "kind": "custom",
+      "refersTo": "page-band",
+      "description": "The single 1px line of first light that replaces every tile strip.",
+      "html": "<div class=\"ds-horizon\"></div>",
+      "css": ".ds-horizon { height:1px; background:linear-gradient(90deg, rgba(226,179,90,0), rgba(243,205,126,.9) 50%, rgba(226,179,90,0)); box-shadow:0 0 18px 2px rgba(243,205,126,.25); }"
     }
   ],
   "narrative": {
-    "northStar": "The Alhambra Wall",
-    "overview": "**Creative North Star: \"The Alhambra Wall\"**\n\nThe whole site is one zellige wall. Every section is a glazed tile set into a single mosaic, the grout between tiles is the page ground showing through, and the verse of the day sits on a lime-plaster medallion at the heart of an eight-fold rosette. Cobalt glaze carries the frame of the wall (header, hero, footer); emerald, saffron, terracotta and ink are the other glazes, each owning sections. Reading surfaces are cool lime plaster in light and deep night glaze in dark, so long reading happens on a calm ground while the frame stays glazed.\n\nGeometry is the ornament. Eight-point stars, kites and lozenges are built mathematically (two overlapping squares at 22.5 degree offsets) and recur at every scale: the rosette, the star mark, the outline star inside each tile, the heading star, the star-and-cross lattice drawn as grout lines over every glazed field, and the diamond tile strip that seals each band. Tiles are square-shouldered and carry a glazed edge at rest: a lit top lip, a pooled shadow at the foot, a soft specular sweep. Motion is the act of tiling: tiles are set into the wall with a quarter turn, a sheen sweeps a tile when it is pressed, the rosette turns once every four minutes.\n\nThe world rejects the green-and-gold card portal: blurred blobs, gradient headings, rounded floating cards with icon bubbles.",
+    "northStar": "The Hour Before Fajr",
+    "overview": "The site is the sky in the last hour of night. Every page sits under a deep indigo night strewn with faint stars; the horizon at the foot of each band glows with first light; misty hills stand between. The verse of the day is the dawn itself: on the home page it rises out of the mist word by word, the only large thing on the screen. Fajr is the default world (`data-skin=\"fajr\"` on `<html>`), and night is the default theme. Light mode is the same world after first light: the sky turns pale lilac and peach, reading surfaces become warm paper, and the ink is deep night blue. The home hero keeps its night scene in both themes, because it is the moment before dawn.\n\nDepth comes from light, not ornament. Section tiles are panes of night lit from below, glass at night and dawn-tinted paper by day, set 12px apart with 14px corners. One gold line of first light, fading out at both ends, replaces every border strip and seals each band, the hero and the footer. Motion is the sky moving: mist drifts across the hills, panes rise into place as they scroll in, the hero scene sinks as it scrolls away, the verse rises word by word. Nothing in the world depicts a person; the prophets appear only as light.\n\nTwo alternate skins remain selectable from the skin switch and the phone menu's المظهر row: **Andalus** (the original zellige wall: cobalt, saffron, emerald and terracotta glaze tiles in grout, eight-point star geometry, square shoulders) and **Kiswah** (black and gold). Both are complete worlds in `globals.css`; this document describes Fajr, the primary system.",
     "keyCharacteristics": [
-      "One mosaic: sections are tiles in a 5px grout grid, not separate cards.",
-      "Five glazes (cobalt, emerald, saffron, terracotta, ink) on a lime-plaster ground.",
-      "Square Kufic display type (Reem Kufi) as tile inscription bands; Hafs for every verse.",
-      "Eight-fold star geometry at every scale, drawn as tiles or as grout lines.",
-      "Square shoulders: tiles have no radius; interactive controls stop at 4px.",
-      "Motion grammar: tile-set entrance, glaze sheen on press, slow rosette turn; reduced motion shows the finished wall."
+      "Night sky by default (#070B1E with a star field), dawn paper in light mode (#FBF9F4 on #F3EFE7).",
+      "One accent: dawn gold (#E2B35A, #F0C46E at night) on pill primary buttons, the horizon line, focus and selection.",
+      "Panes, cards and bands at 14px corners; buttons are pills.",
+      "Glass at night (14px backdrop blur on cards, 18px on the header), paper at dawn.",
+      "A single 1px gold horizon line in place of zellige tile strips.",
+      "Reem Kufi for headings, Noto Kufi for UI, Hafs only for Quran text.",
+      "Motion: word-rise, mist-drift, fajr-rise view timeline, hero parallax; all off under reduced motion."
     ],
     "rules": [
       {
-        "name": "The Five Glazes Rule",
-        "body": "A tile takes one of the five glazes, solid. Each glaze has a fixed text pair (cobalt, emerald, terracotta and ink take near-white text; saffron takes dark ink #1A1204). Never mix two glazes on one tile, and never gradient one into another.",
+        "name": "The One Gold Rule",
+        "body": "Gold is the only warm accent. It fills the primary button, draws the horizon line, rings focus and marks selection. A screen has one primary button group.",
         "section": "colors"
       },
       {
-        "name": "The Saffron Is the Call Rule",
-        "body": "Saffron fills only the primary action, the focus ring and geometric marks. A screen has one saffron button group.",
+        "name": "The Sky Holds the Colour Rule",
+        "body": "Hue lives in the sky (bands, header, footer, hero, panes). Long reading sits on night glass or dawn paper with plain ink, never on a gradient sky.",
         "section": "colors"
-      },
-      {
-        "name": "The Plaster Holds the Text Rule",
-        "body": "Long reading sits on lime plaster or night glaze, never on a patterned glaze field. When a verse appears on the cobalt field it sits on a solid plaster medallion.",
-        "section": "colors"
-      },
-      {
-        "name": "The Inscription Rule",
-        "body": "Reem Kufi is for headings only (h1 to h3 and tile names). Body, labels and controls stay in Noto Kufi.",
-        "section": "typography"
       },
       {
         "name": "The Hafs Only Rule",
-        "body": "Verses are set in Hafs and nothing else is.",
+        "body": "Verses are set in Hafs and nothing else is. Verified text is rendered byte-exact, never restyled into display type.",
         "section": "typography"
       },
       {
-        "name": "The Grout Gap Rule",
-        "body": "Tiles in a run are separated by exactly 5px of grout, never by whitespace margins. Gaps wider than grout turn the wall back into a card grid.",
-        "section": "layout"
+        "name": "The Inscription Rule",
+        "body": "Reem Kufi is for headings and pane names only; body, labels and controls stay in Noto Kufi.",
+        "section": "typography"
       },
       {
-        "name": "The Flush Tile Rule",
-        "body": "A tile never floats. No drop shadow and no hover translate on a wall or plaster tile; its response is the glaze sheen and, on plaster, the cobalt wash.",
+        "name": "The Lit From Below Rule",
+        "body": "Panes take their light from the horizon: a radial glow at the foot and a 1px hairline. No glazed top lip, no 3px foot shadow.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do build any set of peer destinations as a tile run: 5px grout gaps on a grout-line ground, one solid glaze per tile, the glazed edge at rest.",
-      "Do open every inner page with a page band in its section's glaze, sealed by the tile strip.",
-      "Do draw ornament from the eight-point star geometry in Rosette.tsx (star, kite, lozenge) rather than importing motifs.",
-      "Do set verses in Hafs on plaster, with the surah reference in cobalt between short saffron rules.",
-      "Do keep tiles at 0 radius and controls at 4px.",
-      "Do pair saffron tiles with dark ink text (#1A1204) and every other glaze with near-white text."
+      "Do round panes, cards and page bands to 14px (`--radius-cine`) and make buttons full pills (999px).",
+      "Do make reading surfaces glass at night (night pane with a 14px backdrop blur) and warm paper at dawn (#FBF9F4 on #F3EFE7).",
+      "Do seal the hero, every band and the footer with the single 1px gold horizon line (#F3CD7E at night, #C9962F at dawn), fading out at both ends.",
+      "Do keep gold as the only warm accent: the primary pill, the horizon, focus and selection.",
+      "Do open every inner page with a page band in its section's sky, with stars above and hills at the foot.",
+      "Do group peer destinations the way the menu groups them (القرآن / المحتوى / إسلاميات) as sky panes 12px apart.",
+      "Do keep a painted CSS/SVG fallback under any hero video, and skip the video under reduced motion and Save-Data.",
+      "Do make every touch target at least 44px, and mark the current page with `aria-current=\"page\"`.",
+      "Do set every verse in Hafs, byte-exact from the verified text."
     ],
     "donts": [
-      "Don't use gradient headings, blurred colour blobs, or glaze-to-glaze gradients on surfaces.",
-      "Don't float tiles: no drop shadows or hover lift on wall or plaster tiles.",
+      "Don't use zellige ornament under Fajr: no tile stars, star-and-cross lattice on panes, diamond tile strips or glazed top lips.",
+      "Don't set long reading text on a gradient sky; it belongs on glass or paper.",
+      "Don't use a second warm accent or more than one primary button group on a screen.",
+      "Don't depict people, prophets or faces in any image, film or illustration; prophets appear only as light.",
+      "Don't use emoji anywhere.",
       "Don't set body or UI text in Reem Kufi, or any non-Quran text in Hafs.",
-      "Don't put long reading text directly on a lattice-patterned glaze field.",
-      "Don't use more than one saffron button group on a screen.",
-      "Don't round anything into pills or bubbles; the largest radius in the scale is 10px."
+      "Don't paraphrase a verse as a quotation or restyle verified text."
     ]
   }
 }

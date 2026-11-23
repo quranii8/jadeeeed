@@ -67,7 +67,7 @@ export function SearchBar({ autoFocus, placeholder = "ابحث عن سورة، �
           background: "var(--surface)",
           borderColor: "var(--border)",
           color: "var(--text)",
-          borderRadius: 4,
+          borderRadius: "var(--search-radius, 4px)",
           boxShadow: "var(--shadow)",
         }}
         onFocusCapture={(e) => (e.currentTarget.style.borderColor = "var(--gold)")}
