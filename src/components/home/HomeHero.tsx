@@ -1,80 +1,74 @@
 import Link from "next/link";
 import { HeroActions } from "./HeroActions";
+import { HeroStage } from "./HeroStage";
 import { SearchBar } from "../SearchBar";
-import { Rosette } from "@/components/zellige/Rosette";
 import { verseOfTheDay } from "@/lib/daily-verses";
 import { toArabicNum } from "@/lib/utils";
 
 /**
- * First viewport: a cobalt zellige field. The rosette is set tile by tile behind
- * the verse of the day; search sits directly under it as the primary action.
+ * First viewport: dawn over misty hills. The verse of the day rises out of the
+ * mist word by word and is the only large thing on screen; the platform name sits
+ * above it as a quiet inscription, search and the two actions below.
  */
 export function HomeHero() {
   const v = verseOfTheDay();
+  const words = v.ar.split(" ");
   const long = v.ar.length > 120;
 
   return (
-    <section className="glaze-field relative overflow-hidden" aria-labelledby="home-title">
-      <div className="zellige-lattice absolute inset-0 pointer-events-none" />
+    <section className="cine-hero relative isolate overflow-hidden" aria-labelledby="home-title">
+      <HeroStage />
+      <div className="cine-scrim" aria-hidden="true" />
 
-      {/* the rosette: bleeds past the edges on phones, sits beside the verse on wide screens */}
-      <div className="pointer-events-none absolute left-1/2 top-[46%] -translate-x-1/2 -translate-y-1/2 w-[170vw] max-w-[1100px] sm:w-[120vw] opacity-95">
-        <Rosette className="w-full h-auto" />
-      </div>
-
-      <div className="relative max-w-5xl mx-auto px-5 pt-7 pb-12 md:pt-8 md:pb-10 flex flex-col items-center text-center">
-        {/* inscription band: the title sits on solid glaze, never on loose tiles */}
-        <div
-          className="rise-in relative w-full max-w-[34rem] px-6 pt-3 pb-4 md:pt-4 md:pb-5"
-          style={{ background: "var(--g-deep)", boxShadow: "0 18px 40px -18px rgba(6,14,40,.8)" }}
-        >
-          <div className="tile-strip absolute inset-x-0 top-0" style={{ height: 8, backgroundSize: "32px 8px" }} />
-          <h1
-            id="home-title"
-            className="font-kufic font-bold text-[2.1rem] leading-[1.3] sm:text-5xl md:text-6xl mt-2"
-            style={{ color: "var(--on-field)" }}
-          >
+      <div className="cine-content relative max-w-5xl mx-auto px-5 flex flex-col items-center text-center">
+        <div className="cine-in flex items-center gap-3" style={{ ["--d" as string]: "0ms" } as React.CSSProperties}>
+          <span className="cine-rule" aria-hidden="true" />
+          <h1 id="home-title" className="font-kufic font-bold text-lg md:text-xl tracking-normal" style={{ color: "var(--g-saffron-light)" }}>
             منصة القرآن الكريم
           </h1>
-          <p className="mt-1 text-sm md:text-base font-medium" style={{ color: "var(--on-field-muted)" }}>
-            اقرأ، واستمع، وتدبّر
-          </p>
-          <div className="tile-strip absolute inset-x-0 bottom-0" style={{ height: 8, backgroundSize: "32px 8px" }} />
+          <span className="cine-rule" aria-hidden="true" />
         </div>
+        <p className="cine-in mt-2 text-xs md:text-sm font-medium" style={{ color: "rgba(244,246,251,.72)", ["--d" as string]: "120ms" } as React.CSSProperties}>
+          آية اليوم
+        </p>
 
-        {/* the medallion: lime plaster set into the heart of the rosette */}
-        <figure
-          className="rise-in relative mt-6 md:mt-6 w-full max-w-[38rem] px-5 py-6 md:px-12 md:py-8"
-          style={{
-            background: "var(--g-plaster)",
-            color: "var(--g-ink)",
-            clipPath: "polygon(9% 0, 91% 0, 100% 9%, 100% 91%, 91% 100%, 9% 100%, 0 91%, 0 9%)",
-            boxShadow: "0 30px 60px -20px rgba(6,14,40,.7)",
-            ["--d" as string]: "250ms",
-          } as React.CSSProperties}
-        >
-          <div className="zellige-lattice-ink absolute inset-0 pointer-events-none" />
+        <figure className="mt-6 md:mt-8 w-full max-w-4xl">
           <blockquote
-            className={`relative font-hafs ${long ? "text-[1.3rem] md:text-[2rem]" : "text-[1.6rem] md:text-[2.5rem]"} leading-[2.05]`}
             lang="ar"
+            className={`cine-verse font-hafs ${
+              long ? "text-[1.7rem] sm:text-[2.2rem] md:text-[3rem]" : "text-[2.5rem] sm:text-[3.4rem] md:text-[5rem]"
+            }`}
           >
-            {v.ar}
+            {words.map((w, i) => (
+              <span key={i}>
+                <span className="cine-word" style={{ ["--i" as string]: i } as React.CSSProperties}>
+                  {w}
+                </span>
+                {i < words.length - 1 ? " " : null}
+              </span>
+            ))}
           </blockquote>
-          <figcaption className="relative mt-4 flex items-center justify-center gap-3 text-sm font-semibold" style={{ color: "var(--g-cobalt)" }}>
-            <span className="h-px w-8" style={{ background: "var(--g-saffron)" }} />
-            <Link href={`/surah/${v.s}#verse-${v.a}`} className="hover:underline">
+          <figcaption
+            className="cine-in mt-5 flex items-center justify-center gap-3 text-sm font-semibold"
+            style={{ ["--d" as string]: `${500 + words.length * 90}ms` } as React.CSSProperties}
+          >
+            <span className="h-px w-8" style={{ background: "var(--g-saffron)" }} aria-hidden="true" />
+            <Link href={`/surah/${v.s}#verse-${v.a}`} className="cine-cite">
               سورة {v.name}، الآية {toArabicNum(v.a)}
             </Link>
-            <span className="h-px w-8" style={{ background: "var(--g-saffron)" }} />
+            <span className="h-px w-8" style={{ background: "var(--g-saffron)" }} aria-hidden="true" />
           </figcaption>
         </figure>
 
-        <div className="relative w-full mt-6 md:mt-6">
+        <div
+          className="cine-in relative w-full mt-10 md:mt-12"
+          style={{ ["--d" as string]: `${700 + words.length * 90}ms` } as React.CSSProperties}
+        >
           <SearchBar />
           <HeroActions />
         </div>
       </div>
-      <div className="tile-strip relative" />
+      <div className="tile-strip absolute inset-x-0 bottom-0 z-10" />
     </section>
   );
 }
